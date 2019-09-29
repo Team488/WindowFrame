@@ -1,0 +1,11 @@
+prefix=D:/Robotics/gazebo/vcpkg/packages/tiff_x64-windows
+exec_prefix=D:/Robotics/gazebo/vcpkg/packages/tiff_x64-windows
+libdir=D:/Robotics/gazebo/vcpkg/packages/tiff_x64-windows/lib
+includedir=D:/Robotics/gazebo/vcpkg/packages/tiff_x64-windows/include
+
+Name: libtiff
+Description:  Tag Image File Format (TIFF) library.
+Version: 4.0.10
+Libs: -LD:/Robotics/gazebo/vcpkg/packages/tiff_x64-windows/lib -ltiff
+Libs.private: 
+Cflags: -ID:/Robotics/gazebo/vcpkg/packages/tiff_x64-windows/include

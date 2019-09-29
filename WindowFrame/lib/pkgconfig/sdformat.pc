@@ -1,0 +1,10 @@
+prefix="D:/Robotics/gazebo/sdformat/build/install/Release"
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: SDF
+Description: Robot Modeling Language (SDF)
+Version: 6.2.0
+Requires: ignition-math4
+Libs: -L${libdir} -lsdformat
+CFlags: -I${includedir}/sdformat-6.2 -std=c++11

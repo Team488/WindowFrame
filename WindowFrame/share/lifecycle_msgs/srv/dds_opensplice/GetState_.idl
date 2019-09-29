@@ -1,0 +1,100 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from lifecycle_msgs:srv\GetState.idl
+// generated code does not contain a copyright notice
+#include "lifecycle_msgs/msg/dds_opensplice/State_.idl"
+
+#ifndef __lifecycle_msgs__srv__get_state__idl__
+#define __lifecycle_msgs__srv__get_state__idl__
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct GetState_Request_ {
+octet structure_needs_at_least_one_member_;
+
+};
+
+#pragma keylist GetState_Request_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module lifecycle_msgs
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct GetState_Response_ {
+lifecycle_msgs::msg::dds_::State_ current_state_;
+
+};
+
+#pragma keylist GetState_Response_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module lifecycle_msgs
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_GetState_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+lifecycle_msgs::srv::dds_::GetState_Request_ request_;
+
+};
+
+#pragma keylist Sample_GetState_Request_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module lifecycle_msgs {
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_GetState_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+lifecycle_msgs::srv::dds_::GetState_Response_ response_;
+
+};
+
+#pragma keylist Sample_GetState_Response_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module lifecycle_msgs {
+
+
+#endif  // __lifecycle_msgs__srv__get_state__idl__

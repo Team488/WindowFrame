@@ -1,0 +1,10 @@
+@echo off
+set HOME=%HOMEDRIVE%%HOMEPATH%
+set GAZEBO_MASTER_URI=http://localhost:11345
+set GAZEBO_MODEL_DATABASE_URI=http://models.gazebosim.org
+set GAZEBO_RESOURCE_PATH=D:\Robotics\gazebo\gazebo\build\install\Release\share\gazebo-10;%GAZEBO_RESOURCE_PATH%
+set GAZEBO_PLUGIN_PATH=D:\Robotics\gazebo\gazebo\build\install\Release\lib\gazebo-10\plugins;%GAZEBO_PLUGIN_PATH%
+set GAZEBO_MODEL_PATH=D:\Robotics\gazebo\gazebo\build\install\Release\share\gazebo-10\models;%GAZEBO_MODEL_PATH%
+set LD_LIBRARY_PATH=%LD_LIBRARY_PATH%;D:\Robotics\gazebo\gazebo\build\install\Release\lib\gazebo-10\plugins
+set OGRE_RESOURCE_PATH=D:\Robotics\gazebo\gazebo\build\..\..\vcpkg\installed\x64-windows\lib\opt
+set PATH=%LD_LIBRARY_PATH%;%PATH%

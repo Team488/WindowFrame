@@ -1,0 +1,8 @@
+--- # Subcommands available inside ignition-transport.
+format: 1.0.0
+library_name: sdformat
+library_version: 6.2.0
+library_path: D:/Robotics/gazebo/sdformat/build/install/Release/lib/ruby/ignition/cmdsdformat6
+commands:
+    - sdf   : Utilities for SDF files.
+---

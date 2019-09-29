@@ -1,0 +1,102 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from composition_interfaces:srv\ListNodes.idl
+// generated code does not contain a copyright notice
+
+#ifndef __composition_interfaces__srv__list_nodes__idl__
+#define __composition_interfaces__srv__list_nodes__idl__
+
+
+module composition_interfaces {
+
+module srv {
+
+module dds_ {
+
+
+struct ListNodes_Request_ {
+octet structure_needs_at_least_one_member_;
+
+};
+
+#pragma keylist ListNodes_Request_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module composition_interfaces
+
+
+module composition_interfaces {
+
+module srv {
+
+module dds_ {
+
+
+struct ListNodes_Response_ {
+sequence<string> full_node_names_;
+
+sequence<unsigned long long> unique_ids_;
+
+
+};
+
+#pragma keylist ListNodes_Response_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module composition_interfaces
+
+
+module composition_interfaces {
+
+module srv {
+
+module dds_ {
+
+struct Sample_ListNodes_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+composition_interfaces::srv::dds_::ListNodes_Request_ request_;
+
+};
+
+#pragma keylist Sample_ListNodes_Request_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module composition_interfaces {
+
+
+module composition_interfaces {
+
+module srv {
+
+module dds_ {
+
+struct Sample_ListNodes_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+composition_interfaces::srv::dds_::ListNodes_Response_ response_;
+
+};
+
+#pragma keylist Sample_ListNodes_Response_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module composition_interfaces {
+
+
+#endif  // __composition_interfaces__srv__list_nodes__idl__

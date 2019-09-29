@@ -1,0 +1,287 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from test_msgs:action\NestedMessage.idl
+// generated code does not contain a copyright notice
+#include "builtin_interfaces/msg/dds_opensplice/Time_.idl"
+#include "test_msgs/msg/dds_opensplice/BasicTypes_.idl"
+#include "test_msgs/msg/dds_opensplice/Builtins_.idl"
+#include "unique_identifier_msgs/msg/dds_opensplice/UUID_.idl"
+
+#ifndef __test_msgs__action__nested_message__idl__
+#define __test_msgs__action__nested_message__idl__
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_Goal_ {
+test_msgs::msg::dds_::Builtins_ nested_field_no_pkg_;
+test_msgs::msg::dds_::BasicTypes_ nested_field_;
+builtin_interfaces::msg::dds_::Time_ nested_different_pkg_;
+
+};
+
+#pragma keylist NestedMessage_Goal_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_SendGoal_Request_ {
+unique_identifier_msgs::msg::dds_::UUID_ goal_id_;
+test_msgs::action::dds_::NestedMessage_Goal_ goal_;
+
+};
+
+#pragma keylist NestedMessage_SendGoal_Request_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_SendGoal_Response_ {
+boolean accepted_;
+builtin_interfaces::msg::dds_::Time_ stamp_;
+
+};
+
+#pragma keylist NestedMessage_SendGoal_Response_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+struct Sample_NestedMessage_SendGoal_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+test_msgs::action::dds_::NestedMessage_SendGoal_Request_ request_;
+
+};
+
+#pragma keylist Sample_NestedMessage_SendGoal_Request_
+
+};  // module dds_
+
+};  // module action {
+
+};  // module test_msgs {
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+struct Sample_NestedMessage_SendGoal_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+test_msgs::action::dds_::NestedMessage_SendGoal_Response_ response_;
+
+};
+
+#pragma keylist Sample_NestedMessage_SendGoal_Response_
+
+};  // module dds_
+
+};  // module action {
+
+};  // module test_msgs {
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_Result_ {
+test_msgs::msg::dds_::Builtins_ nested_field_no_pkg_;
+test_msgs::msg::dds_::BasicTypes_ nested_field_;
+builtin_interfaces::msg::dds_::Time_ nested_different_pkg_;
+
+};
+
+#pragma keylist NestedMessage_Result_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_GetResult_Request_ {
+unique_identifier_msgs::msg::dds_::UUID_ goal_id_;
+
+};
+
+#pragma keylist NestedMessage_GetResult_Request_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_GetResult_Response_ {
+octet status_;
+test_msgs::action::dds_::NestedMessage_Result_ result_;
+
+};
+
+#pragma keylist NestedMessage_GetResult_Response_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+struct Sample_NestedMessage_GetResult_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+test_msgs::action::dds_::NestedMessage_GetResult_Request_ request_;
+
+};
+
+#pragma keylist Sample_NestedMessage_GetResult_Request_
+
+};  // module dds_
+
+};  // module action {
+
+};  // module test_msgs {
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+struct Sample_NestedMessage_GetResult_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+test_msgs::action::dds_::NestedMessage_GetResult_Response_ response_;
+
+};
+
+#pragma keylist Sample_NestedMessage_GetResult_Response_
+
+};  // module dds_
+
+};  // module action {
+
+};  // module test_msgs {
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_Feedback_ {
+test_msgs::msg::dds_::Builtins_ nested_field_no_pkg_;
+test_msgs::msg::dds_::BasicTypes_ nested_field_;
+builtin_interfaces::msg::dds_::Time_ nested_different_pkg_;
+
+};
+
+#pragma keylist NestedMessage_Feedback_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+module test_msgs {
+
+module action {
+
+module dds_ {
+
+
+struct NestedMessage_FeedbackMessage_ {
+unique_identifier_msgs::msg::dds_::UUID_ goal_id_;
+test_msgs::action::dds_::NestedMessage_Feedback_ feedback_;
+
+};
+
+#pragma keylist NestedMessage_FeedbackMessage_
+
+};  // module dds_
+
+};  // module action
+
+};  // module test_msgs
+
+
+#endif  // __test_msgs__action__nested_message__idl__

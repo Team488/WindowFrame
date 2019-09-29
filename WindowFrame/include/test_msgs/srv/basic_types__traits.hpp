@@ -1,0 +1,82 @@
+// generated from rosidl_generator_cpp/resource/idl__traits.hpp.em
+// with input from test_msgs:srv\BasicTypes.idl
+// generated code does not contain a copyright notice
+
+#ifndef TEST_MSGS__SRV__BASIC_TYPES__TRAITS_HPP_
+#define TEST_MSGS__SRV__BASIC_TYPES__TRAITS_HPP_
+
+#include "test_msgs/srv/basic_types__struct.hpp"
+#include <rosidl_generator_cpp/traits.hpp>
+#include <stdint.h>
+#include <type_traits>
+
+namespace rosidl_generator_traits
+{
+
+template<>
+inline const char * data_type<test_msgs::srv::BasicTypes_Request>()
+{
+  return "test_msgs::srv::BasicTypes_Request";
+}
+
+template<>
+struct has_fixed_size<test_msgs::srv::BasicTypes_Request>
+  : std::integral_constant<bool, false> {};
+
+template<>
+struct has_bounded_size<test_msgs::srv::BasicTypes_Request>
+  : std::integral_constant<bool, false> {};
+
+}  // namespace rosidl_generator_traits
+
+namespace rosidl_generator_traits
+{
+
+template<>
+inline const char * data_type<test_msgs::srv::BasicTypes_Response>()
+{
+  return "test_msgs::srv::BasicTypes_Response";
+}
+
+template<>
+struct has_fixed_size<test_msgs::srv::BasicTypes_Response>
+  : std::integral_constant<bool, false> {};
+
+template<>
+struct has_bounded_size<test_msgs::srv::BasicTypes_Response>
+  : std::integral_constant<bool, false> {};
+
+}  // namespace rosidl_generator_traits
+
+namespace rosidl_generator_traits
+{
+
+template<>
+inline const char * data_type<test_msgs::srv::BasicTypes>()
+{
+  return "test_msgs::srv::BasicTypes";
+}
+
+template<>
+struct has_fixed_size<test_msgs::srv::BasicTypes>
+  : std::integral_constant<
+    bool,
+    has_fixed_size<test_msgs::srv::BasicTypes_Request>::value &&
+    has_fixed_size<test_msgs::srv::BasicTypes_Response>::value
+  >
+{
+};
+
+template<>
+struct has_bounded_size<test_msgs::srv::BasicTypes>
+  : std::integral_constant<
+    bool,
+    has_bounded_size<test_msgs::srv::BasicTypes_Request>::value &&
+    has_bounded_size<test_msgs::srv::BasicTypes_Response>::value
+  >
+{
+};
+
+}  // namespace rosidl_generator_traits
+
+#endif  // TEST_MSGS__SRV__BASIC_TYPES__TRAITS_HPP_

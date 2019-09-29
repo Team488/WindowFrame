@@ -1,0 +1,182 @@
+#ifndef H_1A82234E783515488AF550FDF75BE8C1_LookupTransform_SPLTYPES_H
+#define H_1A82234E783515488AF550FDF75BE8C1_LookupTransform_SPLTYPES_H
+
+#include <c_base.h>
+#include <c_misc.h>
+#include <c_sync.h>
+#include <c_collection.h>
+#include <c_field.h>
+#include <v_copyIn.h>
+
+#include "ccpp_LookupTransform_.h"
+#include "builtin_interfaces/msg/dds_opensplice/Time_SplDcps.h"
+#include "builtin_interfaces/msg/dds_opensplice/Duration_SplDcps.h"
+#include "unique_identifier_msgs/msg/dds_opensplice/UUID_SplDcps.h"
+#include "geometry_msgs/msg/dds_opensplice/TransformStamped_SplDcps.h"
+#include "tf2_msgs/msg/dds_opensplice/TF2Error_SplDcps.h"
+
+#include "tf2_msgs/msg/rosidl_typesupport_opensplice_cpp__visibility_control.h"
+
+extern c_metaObject __LookupTransform__tf2_msgs__load (c_base base);
+
+extern c_metaObject __LookupTransform__tf2_msgs_action__load (c_base base);
+
+extern c_metaObject __LookupTransform__tf2_msgs_action_dds___load (c_base base);
+
+extern const char *tf2_msgs_action_dds__LookupTransform_Goal__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_Goal__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_Goal__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_Goal___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_Goal_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_Goal___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_Goal_ *from, struct _tf2_msgs_action_dds__LookupTransform_Goal_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_Goal___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_Goal_ {
+    c_string target_frame_;
+    c_string source_frame_;
+    struct _builtin_interfaces_msg_dds__Time_ source_time_;
+    struct _builtin_interfaces_msg_dds__Duration_ timeout_;
+    struct _builtin_interfaces_msg_dds__Time_ target_time_;
+    c_string fixed_frame_;
+    c_bool advanced_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_SendGoal_Request__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_SendGoal_Request__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_SendGoal_Request__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_SendGoal_Request___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_SendGoal_Request___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_SendGoal_Request_ *from, struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_SendGoal_Request___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Request_ {
+    struct _unique_identifier_msgs_msg_dds__UUID_ goal_id_;
+    struct _tf2_msgs_action_dds__LookupTransform_Goal_ goal_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_SendGoal_Response__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_SendGoal_Response__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_SendGoal_Response__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_SendGoal_Response___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_SendGoal_Response___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_SendGoal_Response_ *from, struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_SendGoal_Response___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Response_ {
+    c_bool accepted_;
+    struct _builtin_interfaces_msg_dds__Time_ stamp_;
+};
+
+extern const char *tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request__metaDescriptor[];
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request___load (c_base base);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request___copyIn(c_base base, const struct tf2_msgs::action::dds_::Sample_LookupTransform_SendGoal_Request_ *from, struct _tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Request_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Request_ request_;
+};
+
+extern const char *tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response__metaDescriptor[];
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response___load (c_base base);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response___copyIn(c_base base, const struct tf2_msgs::action::dds_::Sample_LookupTransform_SendGoal_Response_ *from, struct _tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_SendGoal_Response_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _tf2_msgs_action_dds__LookupTransform_SendGoal_Response_ response_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_Result__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_Result__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_Result__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_Result___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_Result_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_Result___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_Result_ *from, struct _tf2_msgs_action_dds__LookupTransform_Result_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_Result___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_Result_ {
+    struct _geometry_msgs_msg_dds__TransformStamped_ transform_;
+    struct _tf2_msgs_msg_dds__TF2Error_ error_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_GetResult_Request__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_GetResult_Request__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_GetResult_Request__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_GetResult_Request___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_GetResult_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_GetResult_Request___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_GetResult_Request_ *from, struct _tf2_msgs_action_dds__LookupTransform_GetResult_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_GetResult_Request___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_GetResult_Request_ {
+    struct _unique_identifier_msgs_msg_dds__UUID_ goal_id_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_GetResult_Response__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_GetResult_Response__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_GetResult_Response__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_GetResult_Response___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_GetResult_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_GetResult_Response___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_GetResult_Response_ *from, struct _tf2_msgs_action_dds__LookupTransform_GetResult_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_GetResult_Response___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_GetResult_Response_ {
+    c_octet status_;
+    struct _tf2_msgs_action_dds__LookupTransform_Result_ result_;
+};
+
+extern const char *tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request__metaDescriptor[];
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request___load (c_base base);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request___copyIn(c_base base, const struct tf2_msgs::action::dds_::Sample_LookupTransform_GetResult_Request_ *from, struct _tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Request_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _tf2_msgs_action_dds__LookupTransform_GetResult_Request_ request_;
+};
+
+extern const char *tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response__metaDescriptor[];
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response___load (c_base base);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response___copyIn(c_base base, const struct tf2_msgs::action::dds_::Sample_LookupTransform_GetResult_Response_ *from, struct _tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__Sample_LookupTransform_GetResult_Response_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _tf2_msgs_action_dds__LookupTransform_GetResult_Response_ response_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_Feedback__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_Feedback__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_Feedback__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_Feedback___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_Feedback_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_Feedback___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_Feedback_ *from, struct _tf2_msgs_action_dds__LookupTransform_Feedback_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_Feedback___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_Feedback_ {
+    c_octet structure_needs_at_least_one_member_;
+};
+
+extern const char *tf2_msgs_action_dds__LookupTransform_FeedbackMessage__metaDescriptor[];
+extern const int tf2_msgs_action_dds__LookupTransform_FeedbackMessage__metaDescriptorArrLength;
+extern const int tf2_msgs_action_dds__LookupTransform_FeedbackMessage__metaDescriptorLength;
+extern c_metaObject __tf2_msgs_action_dds__LookupTransform_FeedbackMessage___load (c_base base);
+struct _tf2_msgs_action_dds__LookupTransform_FeedbackMessage_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs v_copyin_result __tf2_msgs_action_dds__LookupTransform_FeedbackMessage___copyIn(c_base base, const struct tf2_msgs::action::dds_::LookupTransform_FeedbackMessage_ *from, struct _tf2_msgs_action_dds__LookupTransform_FeedbackMessage_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_tf2_msgs void __tf2_msgs_action_dds__LookupTransform_FeedbackMessage___copyOut(const void *_from, void *_to);
+struct _tf2_msgs_action_dds__LookupTransform_FeedbackMessage_ {
+    struct _unique_identifier_msgs_msg_dds__UUID_ goal_id_;
+    struct _tf2_msgs_action_dds__LookupTransform_Feedback_ feedback_;
+};
+
+#undef OS_API
+#endif
