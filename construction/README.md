@@ -4,40 +4,40 @@ These steps should stay up to date with detailed information on how to create th
 In each step, if there are file conflicts when moving files, always keep pre-existing files.
 
 1. Start with static files
-    a. `WindowFrame/colcon_defaults.txt`
-    b. `WindowFrame/gazebo_gui.ini`
-    c. `WindowFrame/bin/gazebo.bat`
-    d. `WindowFrame/bin/gazebo/plugins.cfg`
+    1. `WindowFrame/colcon_defaults.txt`
+    2. `WindowFrame/gazebo_gui.ini`
+    3. `WindowFrame/bin/gazebo.bat`
+    4. `WindowFrame/bin/gazebo/plugins.cfg`
 2. Download and merge ROS2
-    a. Download the latest windows-release-amd64 version of ROS2 Dashing from https://github.com/ros2/ros2/releases
-    b. Edit `ros2-windows\share\connext_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `connext.bat`
-    c. Edit `ros2-windows\share\opensplice_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `opensplice.bat`
-    d. Delete all files with names containing "connext" from the `ros2-windows\bin` and `ros2-windows\lib` folders
-    e. Delete all files with names containing "opensplice" from the `ros2-windows\bin` and `ros2-windows\lib` folders
-    f. Move the contents of the `ros2-windows` folder into the `WindowFrame` folder
+    1. Download the latest windows-release-amd64 version of ROS2 Dashing from https://github.com/ros2/ros2/releases
+    2. Edit `ros2-windows\share\connext_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `connext.bat`
+    3. Edit `ros2-windows\share\opensplice_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `opensplice.bat`
+    4. Delete all files with names containing "connext" from the `ros2-windows\bin` and `ros2-windows\lib` folders
+    5. Delete all files with names containing "opensplice" from the `ros2-windows\bin` and `ros2-windows\lib` folders
+    6. Move the contents of the `ros2-windows` folder into the `WindowFrame` folder
 3. Build, pack, and merge Gazebo
-    a. Follow the "Building Gazebo" instructions below
-    d. Move the contents of the `gazebo\package` folder into the `WindowFrame` folder
+    1. Follow the "Building Gazebo" instructions below
+    2. Move the contents of the `gazebo\package` folder into the `WindowFrame` folder
 4. Download and merge OpenCV
-    a. Install the latest Windows version of OpenCV from https://opencv.org/releases/
-    b. Delete the `opencv\x64\vc14` folder to save space, since no one should use VS older than 2017
-    c. Delete all `.pdb` files from the `opencv\x64\vc15\bin` folder to save space, since they are rarely used
-    d. Edit `opencv\build\setup_vars_opencv4.cmd` and change "vc14" to "vc15"
-    e. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
-    f. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
-    g. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
-    h. Move `WindowFrame\OpenCVConfig.cmake` and `WindowFrame\OpenCVConfig-version.cmake" into the `WindowFrame\cmake` folder
+    1. Install the latest Windows version of OpenCV from https://opencv.org/releases/
+    2. Delete the `opencv\x64\vc14` folder to save space, since no one should use VS older than 2017
+    3. Delete all `.pdb` files from the `opencv\x64\vc15\bin` folder to save space, since they are rarely used
+    4. Edit `opencv\build\setup_vars_opencv4.cmd` and change "vc14" to "vc15"
+    5. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
+    6. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
+    7. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
+    8. Move `WindowFrame\OpenCVConfig.cmake` and `WindowFrame\OpenCVConfig-version.cmake" into the `WindowFrame\cmake` folder
 5. Download and merge Asio, Eigen, TinyXML, TinyXML2, and Log4CXX
-    a. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary/#install-dependencies
-    b. For each package, change the extension to `.zip` and extract
-    c. Move the contents of the `include` folders into `WindowFrame\include`, except for `.gitkeep` files
-    d. Move the contents of the `share` folders into `WindowFrame\share`
-    e. Move `.lib` files from the `lib` folders into `WindowFrame\lib`, except for `*d.lib` files
-    f. Move `.dll` files from the `lib` folders into `WindowFrame\bin`, except for `*d.dll` files
-    g. Rename `LICENSE` files in the `tools` folders to `LICENSE_<package>.txt` and move them into the `WindowFrame` folder
+    1. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary/#install-dependencies
+    2. For each package, change the extension to `.zip` and extract
+    3. Move the contents of the `include` folders into `WindowFrame\include`, except for `.gitkeep` files
+    4. Move the contents of the `share` folders into `WindowFrame\share`
+    5. Move `.lib` files from the `lib` folders into `WindowFrame\lib`, except for `*d.lib` files
+    6. Move `.dll` files from the `lib` folders into `WindowFrame\bin`, except for `*d.dll` files
+    7. Rename `LICENSE` files in the `tools` folders to `LICENSE_<package>.txt` and move them into the `WindowFrame` folder
 6. Download and merge VSSetup
-    a. Download the latest VSSetup.zip from https://github.com/Microsoft/vssetup.powershell/releases
-    b. Move the contents of the `VSSetup` folder to `WindowFrame\tools\VSSetup`
+    1. Download the latest VSSetup.zip from https://github.com/Microsoft/vssetup.powershell/releases
+    2. Move the contents of the `VSSetup` folder to `WindowFrame\tools\VSSetup`
 7. List versions of all downloads in the main README
 
 # Building Gazebo
@@ -122,7 +122,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 12. Build gazebo
-    a. If this fails due to missing PkgConfig, try > choco install pkgconfiglite
+    1. If this fails due to missing PkgConfig, try > choco install pkgconfiglite
     ```console
     > cd ..\..\gazebo
     > hg up gazebo10
@@ -132,5 +132,5 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 13. Package gazebo
-    b. Copy the `pack_gazebo` folder alongside the `gazebo`, `ign`, `sdformat`, and `vcpkg` folder
-    c. Right-click `pack_gazebo\pack.ps1` and select "Run with PowerShell"
+    1. Copy the `pack_gazebo` folder alongside the `gazebo`, `ign`, `sdformat`, and `vcpkg` folder
+    2. Right-click `pack_gazebo\pack.ps1` and select "Run with PowerShell"
