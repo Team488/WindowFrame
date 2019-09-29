@@ -13,25 +13,25 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
 ## Prerequisites
 
 1. Git LFS for storing binary files
-    a. Download and install [Git LFS](https://git-lfs.github.com/)
-    b. Run `git lfs install`
+    1. Download and install [Git LFS](https://git-lfs.github.com/)
+    2. Run `git lfs install`
 2. Visual Studio for editing and building
-    a. Depending on your preference, install either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or both [Visual Studio Code](https://code.visualstudio.com/download) and [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) (not the main download; look under Tools for Visual Studio 2019)
-    b. Open "Visual Studio Install", modify your Visual Studio installation, and install the "Desktop development with C++" or "C++ build tools" workload
+    1. Depending on your preference, install either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or both [Visual Studio Code](https://code.visualstudio.com/download) and [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) (not the main download; look under Tools for Visual Studio 2019)
+    2. Open "Visual Studio Install", modify your Visual Studio installation, and install the "Desktop development with C++" or "C++ build tools" workload
 3. Python dependencies for ROS2 (adapted from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary)
-    a. Download and install [Python 3](https://www.python.org/downloads/windows/)
-    b. Install CLI dependencies
-    ```console
-    > pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
-    ```
-    c. Install colcon
-    ```console
-    > pip colcon-common-extensions
-    ```
-    d. Install RQT dependencies
-    ```console
-    > pip install -U pydot PyQt5
-    ```
+    1. Download and install [Python 3](https://www.python.org/downloads/windows/)
+    2. Install CLI dependencies
+        ```cmd
+        > pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
+        ```
+    3. Install RQT dependencies
+        ```cmd
+        > pip install -U pydot PyQt5
+        ```
+    4. Install colcon
+        ```cmd
+        > pip install -U colcon-common-extensions
+        ```
 
 ## Usage
 
@@ -48,7 +48,7 @@ This will open and configure an Admin PowerShell window ready to:
 - Run Gazebo
     - `gazebo [<path_to_world>] [--verbose]`
 - Build with included packages
-    ```console
+    ```cmd
     > mkdir build & cd build
     > cmake .. -G "NMake Makefiles"
     > nmake
@@ -70,4 +70,4 @@ This will open a Gazebo window with the empty world.
 
 ## Construction
 
-For constructing or updating WindowFrame, check out [construction](construction)
+For constructing or updating WindowFrame, check out [construction](construction).
