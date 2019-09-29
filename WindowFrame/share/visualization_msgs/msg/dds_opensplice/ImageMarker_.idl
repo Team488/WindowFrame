@@ -1,0 +1,58 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from visualization_msgs:msg\ImageMarker.idl
+// generated code does not contain a copyright notice
+#include "builtin_interfaces/msg/dds_opensplice/Duration_.idl"
+#include "geometry_msgs/msg/dds_opensplice/Point_.idl"
+#include "std_msgs/msg/dds_opensplice/ColorRGBA_.idl"
+#include "std_msgs/msg/dds_opensplice/Header_.idl"
+
+#ifndef __visualization_msgs__msg__image_marker__idl__
+#define __visualization_msgs__msg__image_marker__idl__
+
+
+module visualization_msgs {
+
+module msg {
+
+module dds_ {
+
+module ImageMarker_Constants {
+const octet CIRCLE_ = 0;
+const octet LINE_STRIP_ = 1;
+const octet LINE_LIST_ = 2;
+const octet POLYGON_ = 3;
+const octet POINTS_ = 4;
+const octet ADD_ = 0;
+const octet REMOVE_ = 1;
+
+};
+
+struct ImageMarker_ {
+std_msgs::msg::dds_::Header_ header_;
+string ns_;
+long id_;
+long type_;
+long action_;
+geometry_msgs::msg::dds_::Point_ position_;
+float scale_;
+std_msgs::msg::dds_::ColorRGBA_ outline_color_;
+octet filled_;
+std_msgs::msg::dds_::ColorRGBA_ fill_color_;
+builtin_interfaces::msg::dds_::Duration_ lifetime_;
+sequence<geometry_msgs::msg::dds_::Point_> points_;
+
+sequence<std_msgs::msg::dds_::ColorRGBA_> outline_colors_;
+
+
+};
+
+#pragma keylist ImageMarker_
+
+};  // module dds_
+
+};  // module msg
+
+};  // module visualization_msgs
+
+
+#endif  // __visualization_msgs__msg__image_marker__idl__

@@ -1,0 +1,102 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from rcl_interfaces:srv\GetParameters.idl
+// generated code does not contain a copyright notice
+#include "rcl_interfaces/msg/dds_opensplice/ParameterValue_.idl"
+
+#ifndef __rcl_interfaces__srv__get_parameters__idl__
+#define __rcl_interfaces__srv__get_parameters__idl__
+
+
+module rcl_interfaces {
+
+module srv {
+
+module dds_ {
+
+
+struct GetParameters_Request_ {
+sequence<string> names_;
+
+
+};
+
+#pragma keylist GetParameters_Request_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module rcl_interfaces
+
+
+module rcl_interfaces {
+
+module srv {
+
+module dds_ {
+
+
+struct GetParameters_Response_ {
+sequence<rcl_interfaces::msg::dds_::ParameterValue_> values_;
+
+
+};
+
+#pragma keylist GetParameters_Response_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module rcl_interfaces
+
+
+module rcl_interfaces {
+
+module srv {
+
+module dds_ {
+
+struct Sample_GetParameters_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+rcl_interfaces::srv::dds_::GetParameters_Request_ request_;
+
+};
+
+#pragma keylist Sample_GetParameters_Request_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module rcl_interfaces {
+
+
+module rcl_interfaces {
+
+module srv {
+
+module dds_ {
+
+struct Sample_GetParameters_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+rcl_interfaces::srv::dds_::GetParameters_Response_ response_;
+
+};
+
+#pragma keylist Sample_GetParameters_Response_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module rcl_interfaces {
+
+
+#endif  // __rcl_interfaces__srv__get_parameters__idl__

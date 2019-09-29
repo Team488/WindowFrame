@@ -1,0 +1,100 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from lifecycle_msgs:srv\ChangeState.idl
+// generated code does not contain a copyright notice
+#include "lifecycle_msgs/msg/dds_opensplice/Transition_.idl"
+
+#ifndef __lifecycle_msgs__srv__change_state__idl__
+#define __lifecycle_msgs__srv__change_state__idl__
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct ChangeState_Request_ {
+lifecycle_msgs::msg::dds_::Transition_ transition_;
+
+};
+
+#pragma keylist ChangeState_Request_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module lifecycle_msgs
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct ChangeState_Response_ {
+boolean success_;
+
+};
+
+#pragma keylist ChangeState_Response_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module lifecycle_msgs
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_ChangeState_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+lifecycle_msgs::srv::dds_::ChangeState_Request_ request_;
+
+};
+
+#pragma keylist Sample_ChangeState_Request_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module lifecycle_msgs {
+
+
+module lifecycle_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_ChangeState_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+lifecycle_msgs::srv::dds_::ChangeState_Response_ response_;
+
+};
+
+#pragma keylist Sample_ChangeState_Response_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module lifecycle_msgs {
+
+
+#endif  // __lifecycle_msgs__srv__change_state__idl__

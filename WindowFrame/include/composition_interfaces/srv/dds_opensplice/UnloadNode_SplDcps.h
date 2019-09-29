@@ -1,0 +1,72 @@
+#ifndef H_B4BFC739E309079E1A9CC9028B099DC0_UnloadNode_SPLTYPES_H
+#define H_B4BFC739E309079E1A9CC9028B099DC0_UnloadNode_SPLTYPES_H
+
+#include <c_base.h>
+#include <c_misc.h>
+#include <c_sync.h>
+#include <c_collection.h>
+#include <c_field.h>
+#include <v_copyIn.h>
+
+#include "ccpp_UnloadNode_.h"
+#include "composition_interfaces/msg/rosidl_typesupport_opensplice_cpp__visibility_control.h"
+
+extern c_metaObject __UnloadNode__composition_interfaces__load (c_base base);
+
+extern c_metaObject __UnloadNode__composition_interfaces_srv__load (c_base base);
+
+extern c_metaObject __UnloadNode__composition_interfaces_srv_dds___load (c_base base);
+
+extern const char *composition_interfaces_srv_dds__UnloadNode_Request__metaDescriptor[];
+extern const int composition_interfaces_srv_dds__UnloadNode_Request__metaDescriptorArrLength;
+extern const int composition_interfaces_srv_dds__UnloadNode_Request__metaDescriptorLength;
+extern c_metaObject __composition_interfaces_srv_dds__UnloadNode_Request___load (c_base base);
+struct _composition_interfaces_srv_dds__UnloadNode_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces v_copyin_result __composition_interfaces_srv_dds__UnloadNode_Request___copyIn(c_base base, const struct composition_interfaces::srv::dds_::UnloadNode_Request_ *from, struct _composition_interfaces_srv_dds__UnloadNode_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces void __composition_interfaces_srv_dds__UnloadNode_Request___copyOut(const void *_from, void *_to);
+struct _composition_interfaces_srv_dds__UnloadNode_Request_ {
+    c_ulonglong unique_id_;
+};
+
+extern const char *composition_interfaces_srv_dds__UnloadNode_Response__metaDescriptor[];
+extern const int composition_interfaces_srv_dds__UnloadNode_Response__metaDescriptorArrLength;
+extern const int composition_interfaces_srv_dds__UnloadNode_Response__metaDescriptorLength;
+extern c_metaObject __composition_interfaces_srv_dds__UnloadNode_Response___load (c_base base);
+struct _composition_interfaces_srv_dds__UnloadNode_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces v_copyin_result __composition_interfaces_srv_dds__UnloadNode_Response___copyIn(c_base base, const struct composition_interfaces::srv::dds_::UnloadNode_Response_ *from, struct _composition_interfaces_srv_dds__UnloadNode_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces void __composition_interfaces_srv_dds__UnloadNode_Response___copyOut(const void *_from, void *_to);
+struct _composition_interfaces_srv_dds__UnloadNode_Response_ {
+    c_bool success_;
+    c_string error_message_;
+};
+
+extern const char *composition_interfaces_srv_dds__Sample_UnloadNode_Request__metaDescriptor[];
+extern const int composition_interfaces_srv_dds__Sample_UnloadNode_Request__metaDescriptorArrLength;
+extern const int composition_interfaces_srv_dds__Sample_UnloadNode_Request__metaDescriptorLength;
+extern c_metaObject __composition_interfaces_srv_dds__Sample_UnloadNode_Request___load (c_base base);
+struct _composition_interfaces_srv_dds__Sample_UnloadNode_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces v_copyin_result __composition_interfaces_srv_dds__Sample_UnloadNode_Request___copyIn(c_base base, const struct composition_interfaces::srv::dds_::Sample_UnloadNode_Request_ *from, struct _composition_interfaces_srv_dds__Sample_UnloadNode_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces void __composition_interfaces_srv_dds__Sample_UnloadNode_Request___copyOut(const void *_from, void *_to);
+struct _composition_interfaces_srv_dds__Sample_UnloadNode_Request_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _composition_interfaces_srv_dds__UnloadNode_Request_ request_;
+};
+
+extern const char *composition_interfaces_srv_dds__Sample_UnloadNode_Response__metaDescriptor[];
+extern const int composition_interfaces_srv_dds__Sample_UnloadNode_Response__metaDescriptorArrLength;
+extern const int composition_interfaces_srv_dds__Sample_UnloadNode_Response__metaDescriptorLength;
+extern c_metaObject __composition_interfaces_srv_dds__Sample_UnloadNode_Response___load (c_base base);
+struct _composition_interfaces_srv_dds__Sample_UnloadNode_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces v_copyin_result __composition_interfaces_srv_dds__Sample_UnloadNode_Response___copyIn(c_base base, const struct composition_interfaces::srv::dds_::Sample_UnloadNode_Response_ *from, struct _composition_interfaces_srv_dds__Sample_UnloadNode_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_composition_interfaces void __composition_interfaces_srv_dds__Sample_UnloadNode_Response___copyOut(const void *_from, void *_to);
+struct _composition_interfaces_srv_dds__Sample_UnloadNode_Response_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _composition_interfaces_srv_dds__UnloadNode_Response_ response_;
+};
+
+#undef OS_API
+#endif

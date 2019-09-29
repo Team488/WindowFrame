@@ -1,0 +1,103 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from nav_msgs:srv\GetPlan.idl
+// generated code does not contain a copyright notice
+#include "geometry_msgs/msg/dds_opensplice/PoseStamped_.idl"
+#include "nav_msgs/msg/dds_opensplice/Path_.idl"
+
+#ifndef __nav_msgs__srv__get_plan__idl__
+#define __nav_msgs__srv__get_plan__idl__
+
+
+module nav_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct GetPlan_Request_ {
+geometry_msgs::msg::dds_::PoseStamped_ start_;
+geometry_msgs::msg::dds_::PoseStamped_ goal_;
+float tolerance_;
+
+};
+
+#pragma keylist GetPlan_Request_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module nav_msgs
+
+
+module nav_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct GetPlan_Response_ {
+nav_msgs::msg::dds_::Path_ plan_;
+
+};
+
+#pragma keylist GetPlan_Response_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module nav_msgs
+
+
+module nav_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_GetPlan_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+nav_msgs::srv::dds_::GetPlan_Request_ request_;
+
+};
+
+#pragma keylist Sample_GetPlan_Request_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module nav_msgs {
+
+
+module nav_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_GetPlan_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+nav_msgs::srv::dds_::GetPlan_Response_ response_;
+
+};
+
+#pragma keylist Sample_GetPlan_Response_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module nav_msgs {
+
+
+#endif  // __nav_msgs__srv__get_plan__idl__

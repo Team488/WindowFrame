@@ -1,0 +1,99 @@
+// generated from rosidl_generator_dds_idl/resource/idl.idl.em
+// with input from tf2_msgs:srv\FrameGraph.idl
+// generated code does not contain a copyright notice
+
+#ifndef __tf2_msgs__srv__frame_graph__idl__
+#define __tf2_msgs__srv__frame_graph__idl__
+
+
+module tf2_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct FrameGraph_Request_ {
+octet structure_needs_at_least_one_member_;
+
+};
+
+#pragma keylist FrameGraph_Request_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module tf2_msgs
+
+
+module tf2_msgs {
+
+module srv {
+
+module dds_ {
+
+
+struct FrameGraph_Response_ {
+string frame_yaml_;
+
+};
+
+#pragma keylist FrameGraph_Response_
+
+};  // module dds_
+
+};  // module srv
+
+};  // module tf2_msgs
+
+
+module tf2_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_FrameGraph_Request_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+tf2_msgs::srv::dds_::FrameGraph_Request_ request_;
+
+};
+
+#pragma keylist Sample_FrameGraph_Request_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module tf2_msgs {
+
+
+module tf2_msgs {
+
+module srv {
+
+module dds_ {
+
+struct Sample_FrameGraph_Response_ {
+
+unsigned long long client_guid_0_;
+unsigned long long client_guid_1_;
+long long sequence_number_;
+tf2_msgs::srv::dds_::FrameGraph_Response_ response_;
+
+};
+
+#pragma keylist Sample_FrameGraph_Response_
+
+};  // module dds_
+
+};  // module srv {
+
+};  // module tf2_msgs {
+
+
+#endif  // __tf2_msgs__srv__frame_graph__idl__

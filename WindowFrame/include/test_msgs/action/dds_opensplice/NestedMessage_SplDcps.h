@@ -1,0 +1,180 @@
+#ifndef H_7EF71F294292B744F81EBEA34B72E592_NestedMessage_SPLTYPES_H
+#define H_7EF71F294292B744F81EBEA34B72E592_NestedMessage_SPLTYPES_H
+
+#include <c_base.h>
+#include <c_misc.h>
+#include <c_sync.h>
+#include <c_collection.h>
+#include <c_field.h>
+#include <v_copyIn.h>
+
+#include "ccpp_NestedMessage_.h"
+#include "test_msgs/msg/dds_opensplice/Builtins_SplDcps.h"
+#include "test_msgs/msg/dds_opensplice/BasicTypes_SplDcps.h"
+#include "builtin_interfaces/msg/dds_opensplice/Time_SplDcps.h"
+#include "unique_identifier_msgs/msg/dds_opensplice/UUID_SplDcps.h"
+
+#include "test_msgs/msg/rosidl_typesupport_opensplice_cpp__visibility_control.h"
+
+extern c_metaObject __NestedMessage__test_msgs__load (c_base base);
+
+extern c_metaObject __NestedMessage__test_msgs_action__load (c_base base);
+
+extern c_metaObject __NestedMessage__test_msgs_action_dds___load (c_base base);
+
+extern const char *test_msgs_action_dds__NestedMessage_Goal__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_Goal__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_Goal__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_Goal___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_Goal_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_Goal___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_Goal_ *from, struct _test_msgs_action_dds__NestedMessage_Goal_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_Goal___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_Goal_ {
+    struct _test_msgs_msg_dds__Builtins_ nested_field_no_pkg_;
+    struct _test_msgs_msg_dds__BasicTypes_ nested_field_;
+    struct _builtin_interfaces_msg_dds__Time_ nested_different_pkg_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_SendGoal_Request__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_SendGoal_Request__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_SendGoal_Request__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_SendGoal_Request___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_SendGoal_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_SendGoal_Request___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_SendGoal_Request_ *from, struct _test_msgs_action_dds__NestedMessage_SendGoal_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_SendGoal_Request___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_SendGoal_Request_ {
+    struct _unique_identifier_msgs_msg_dds__UUID_ goal_id_;
+    struct _test_msgs_action_dds__NestedMessage_Goal_ goal_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_SendGoal_Response__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_SendGoal_Response__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_SendGoal_Response__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_SendGoal_Response___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_SendGoal_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_SendGoal_Response___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_SendGoal_Response_ *from, struct _test_msgs_action_dds__NestedMessage_SendGoal_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_SendGoal_Response___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_SendGoal_Response_ {
+    c_bool accepted_;
+    struct _builtin_interfaces_msg_dds__Time_ stamp_;
+};
+
+extern const char *test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request__metaDescriptor[];
+extern const int test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request___load (c_base base);
+struct _test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request___copyIn(c_base base, const struct test_msgs::action::dds_::Sample_NestedMessage_SendGoal_Request_ *from, struct _test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__Sample_NestedMessage_SendGoal_Request_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _test_msgs_action_dds__NestedMessage_SendGoal_Request_ request_;
+};
+
+extern const char *test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response__metaDescriptor[];
+extern const int test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response___load (c_base base);
+struct _test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response___copyIn(c_base base, const struct test_msgs::action::dds_::Sample_NestedMessage_SendGoal_Response_ *from, struct _test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__Sample_NestedMessage_SendGoal_Response_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _test_msgs_action_dds__NestedMessage_SendGoal_Response_ response_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_Result__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_Result__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_Result__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_Result___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_Result_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_Result___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_Result_ *from, struct _test_msgs_action_dds__NestedMessage_Result_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_Result___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_Result_ {
+    struct _test_msgs_msg_dds__Builtins_ nested_field_no_pkg_;
+    struct _test_msgs_msg_dds__BasicTypes_ nested_field_;
+    struct _builtin_interfaces_msg_dds__Time_ nested_different_pkg_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_GetResult_Request__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_GetResult_Request__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_GetResult_Request__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_GetResult_Request___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_GetResult_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_GetResult_Request___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_GetResult_Request_ *from, struct _test_msgs_action_dds__NestedMessage_GetResult_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_GetResult_Request___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_GetResult_Request_ {
+    struct _unique_identifier_msgs_msg_dds__UUID_ goal_id_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_GetResult_Response__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_GetResult_Response__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_GetResult_Response__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_GetResult_Response___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_GetResult_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_GetResult_Response___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_GetResult_Response_ *from, struct _test_msgs_action_dds__NestedMessage_GetResult_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_GetResult_Response___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_GetResult_Response_ {
+    c_octet status_;
+    struct _test_msgs_action_dds__NestedMessage_Result_ result_;
+};
+
+extern const char *test_msgs_action_dds__Sample_NestedMessage_GetResult_Request__metaDescriptor[];
+extern const int test_msgs_action_dds__Sample_NestedMessage_GetResult_Request__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__Sample_NestedMessage_GetResult_Request__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__Sample_NestedMessage_GetResult_Request___load (c_base base);
+struct _test_msgs_action_dds__Sample_NestedMessage_GetResult_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__Sample_NestedMessage_GetResult_Request___copyIn(c_base base, const struct test_msgs::action::dds_::Sample_NestedMessage_GetResult_Request_ *from, struct _test_msgs_action_dds__Sample_NestedMessage_GetResult_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__Sample_NestedMessage_GetResult_Request___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__Sample_NestedMessage_GetResult_Request_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _test_msgs_action_dds__NestedMessage_GetResult_Request_ request_;
+};
+
+extern const char *test_msgs_action_dds__Sample_NestedMessage_GetResult_Response__metaDescriptor[];
+extern const int test_msgs_action_dds__Sample_NestedMessage_GetResult_Response__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__Sample_NestedMessage_GetResult_Response__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__Sample_NestedMessage_GetResult_Response___load (c_base base);
+struct _test_msgs_action_dds__Sample_NestedMessage_GetResult_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__Sample_NestedMessage_GetResult_Response___copyIn(c_base base, const struct test_msgs::action::dds_::Sample_NestedMessage_GetResult_Response_ *from, struct _test_msgs_action_dds__Sample_NestedMessage_GetResult_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__Sample_NestedMessage_GetResult_Response___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__Sample_NestedMessage_GetResult_Response_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _test_msgs_action_dds__NestedMessage_GetResult_Response_ response_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_Feedback__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_Feedback__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_Feedback__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_Feedback___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_Feedback_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_Feedback___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_Feedback_ *from, struct _test_msgs_action_dds__NestedMessage_Feedback_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_Feedback___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_Feedback_ {
+    struct _test_msgs_msg_dds__Builtins_ nested_field_no_pkg_;
+    struct _test_msgs_msg_dds__BasicTypes_ nested_field_;
+    struct _builtin_interfaces_msg_dds__Time_ nested_different_pkg_;
+};
+
+extern const char *test_msgs_action_dds__NestedMessage_FeedbackMessage__metaDescriptor[];
+extern const int test_msgs_action_dds__NestedMessage_FeedbackMessage__metaDescriptorArrLength;
+extern const int test_msgs_action_dds__NestedMessage_FeedbackMessage__metaDescriptorLength;
+extern c_metaObject __test_msgs_action_dds__NestedMessage_FeedbackMessage___load (c_base base);
+struct _test_msgs_action_dds__NestedMessage_FeedbackMessage_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test_msgs_action_dds__NestedMessage_FeedbackMessage___copyIn(c_base base, const struct test_msgs::action::dds_::NestedMessage_FeedbackMessage_ *from, struct _test_msgs_action_dds__NestedMessage_FeedbackMessage_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_action_dds__NestedMessage_FeedbackMessage___copyOut(const void *_from, void *_to);
+struct _test_msgs_action_dds__NestedMessage_FeedbackMessage_ {
+    struct _unique_identifier_msgs_msg_dds__UUID_ goal_id_;
+    struct _test_msgs_action_dds__NestedMessage_Feedback_ feedback_;
+};
+
+#undef OS_API
+#endif

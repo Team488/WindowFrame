@@ -1,0 +1,6 @@
+#define TEST_INTEGRATION_PATH "D:/Robotics/gazebo/gazebo/test/integration"
+#define TEST_REGRESSION_PATH "D:/Robotics/gazebo/gazebo/test/regression"
+#define TEST_UNIT_PATH "D:/Robotics/gazebo/gazebo/test/unit"
+#define TEST_PATH "D:/Robotics/gazebo/gazebo/test"
+#define PROJECT_SOURCE_PATH "D:/Robotics/gazebo/gazebo"
+#define PROJECT_BINARY_PATH "D:/Robotics/gazebo/gazebo/build"

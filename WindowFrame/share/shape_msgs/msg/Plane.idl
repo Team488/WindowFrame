@@ -1,0 +1,19 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from shape_msgs/msg\Plane.msg
+// generated code does not contain a copyright notice
+
+
+module shape_msgs {
+  module msg {
+    typedef double double__4[4];
+    @verbatim (language="comment", text=" Representation of a plane, using the plane equation ax + by + cz + d = 0.
+
+ a := coef[0]
+ b := coef[1]
+ c := coef[2]
+ d := coef[3]")
+    struct Plane {
+      double__4 coef;
+    };
+  };
+};

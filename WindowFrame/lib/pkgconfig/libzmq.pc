@@ -1,0 +1,12 @@
+prefix=D:/Robotics/gazebo/vcpkg/packages/zeromq_x64-windows
+exec_prefix=D:/Robotics/gazebo/vcpkg/packages/zeromq_x64-windows
+libdir=D:/Robotics/gazebo/vcpkg/packages/zeromq_x64-windows/lib
+includedir=D:/Robotics/gazebo/vcpkg/packages/zeromq_x64-windows/include
+
+Name: libzmq
+Description: 0MQ c++ library
+Version: 4.3.3
+Libs: -L${libdir} -lzmq
+Libs.private: -lstdc++ 
+Requires.private: 
+Cflags: -I${includedir} 
