@@ -47,7 +47,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
 1. Install the latest version of [Mercurial](https://www.mercurial-scm.org/) (you can disable all options in the installer)
 2. Install the latest version of [Ruby](https://rubyinstaller.org/downloads/) (x64, without devkit)
 3. Open “x64 Native Tools Command Prompt for VS 2019” as Administrator and set up the environment. To install this with Visual Studio, it requires running the Visual Studio Installer to Modify your installation by adding the “C++ build tools” workload and the latest “Windows 10 SDK” individual component.
-    ```console
+    ```cmd
     > set SDFormat_DIR=..\..\sdformat\build\install\Release\lib\cmake\sdformat
     > set ignition-cmake0_DIR=..\..\ign-cmake\build\install\Release\lib\cmake\ignition-cmake0
     > set ignition-math4_DIR=..\..\ign-math\build\install\Release\lib\cmake\ignition-math4
@@ -55,11 +55,11 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > set ignition-transport4_DIR=..\..\ign-transport\build\install\Release\lib\cmake\ignition-transport4
     ```
 4. Make a directory to work in
-    ```console
+    ```cmd
     > md gazebo & cd gazebo
     ```
 5. Build vcpkg and dependencies. This can take a few hours, and you may have to uninstall OpenSSL. This requires the latest Windows 10 SDK and Visual C++ tools for CMake, which can be installed with the Visual Studio Installer.
-    ```console
+    ```cmd
     > git clone https://github.com/Microsoft/vcpkg.git
     > cd vcpkg
     > git checkout f30df21cd9191009d8761e5bde4ddb5363e0fd2c -- ports/ogre
@@ -67,7 +67,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > .\vcpkg.exe install --clean-after-build --triplet x64-windows boost cppzmq curl dlfcn-win32 freeimage protobuf ogre qwt tbb zeromq zlib zziplib
     ```
 6. Clone the repos that you will need to build manually. (Dependency version compatibility is listed in the [docs](http://gazebosim.org/tutorials?tut=install_dependencies_from_source#Versions).)
-    ```console
+    ```cmd
     > cd ..
     > hg clone https://bitbucket.org/ignitionrobotics/ign-cmake 
     > hg clone https://bitbucket.org/ignitionrobotics/ign-math
@@ -77,7 +77,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > hg clone https://bitbucket.org/osrf/gazebo
     ```
 7. Build ign-cmake
-    ```console
+    ```cmd
     > cd ign-cmake
     > hg up ign-cmake0
     > md build & cd build
@@ -86,7 +86,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 8. Build ign-math
-    ```console
+    ```cmd
     > cd ..\..\ign-math
     > hg up ign-math4
     > md build & cd build
@@ -95,7 +95,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 9. Install ign-msgs
-    ```console
+    ```cmd
     > cd ..\..\ign-msgs
     > hg up ign-msgs1
     > md build & cd build
@@ -104,7 +104,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 10. Build ign-transport
-    ```console
+    ```cmd
     > cd ..\..\ign-transport
     > hg up ign-transport4
     > md build & cd build
@@ -113,7 +113,7 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 11. Build sdformat
-    ```console
+    ```cmd
     > cd ..\..\sdformat
     > hg up sdf6
     > md build & cd build
@@ -122,8 +122,8 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > nmake install
     ```
 12. Build gazebo
-    1. If this fails due to missing PkgConfig, try > choco install pkgconfiglite
-    ```console
+    1. If this fails due to missing PkgConfig, try `> choco install pkgconfiglite`
+    ```cmd
     > cd ..\..\gazebo
     > hg up gazebo10
     > md build & cd build
