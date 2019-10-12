@@ -1,4 +1,4 @@
-# Constructing WindowFrame
+﻿# Constructing WindowFrame
 
 These steps should stay up to date with detailed information on how to create the WindowFrame package and the source of each file.
 In each step, if there are file conflicts when moving files, always keep pre-existing files.
@@ -26,7 +26,6 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     5. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
     6. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
     7. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
-    8. Move `WindowFrame\OpenCVConfig.cmake` and `WindowFrame\OpenCVConfig-version.cmake" into the `WindowFrame\cmake` folder
 5. Download and merge Asio, Eigen, TinyXML, TinyXML2, and Log4CXX
     1. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary/#install-dependencies
     2. For each package, change the extension to `.zip` and extract
