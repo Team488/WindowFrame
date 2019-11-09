@@ -19,16 +19,23 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
     1. Depending on your preference, install either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or both [Visual Studio Code](https://code.visualstudio.com/download) and [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) (not the main download; look under Tools for Visual Studio 2019)
     2. Open "Visual Studio Install", modify your Visual Studio installation, and install the "Desktop development with C++" or "C++ build tools" workload
 4. Python dependencies for ROS2 (adapted from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary)
-    1. Download and install [Python 3](https://www.python.org/downloads/windows/)
-    2. Install CLI dependencies
+    1. Install Chocolatey in an Admin PowerShell window
+       ```cmd
+       > iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+       ```
+    2. Install Python 3.7.5 (this must be installed via Chocolatey)
+       ```cmd
+       > choco install python --version=3.7.5
+       ```
+    3. Install CLI dependencies
         ```cmd
         > pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
         ```
-    3. Install RQT dependencies
+    4. Install RQT dependencies
         ```cmd
         > pip install -U pydot PyQt5
         ```
-    4. Install colcon
+    5. Install colcon
         ```cmd
         > pip install -U colcon-common-extensions
         ```
@@ -67,7 +74,9 @@ This will open a Gazebo window with the empty world.
 
 ## Troubleshooting
 
-- If you see this error: “Unable to get rmw_implementation_identifier, try specifying the implementation to use via the 'RMW_IMPLEMENTATION' environment variable,” install the [Visual C++ Redistributable Packages for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40784) (source: [ROS2 Development Setup Troubleshooting](https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Development-Setup/#failed-to-load-fastrtps-shared-library))
+- If you see this error: "failed to create process," ensure that Python is installed via Chocolatey. See [Prerequisites](#prerequisites) for details.
+
+- If you see this error: "Unable to get rmw_implementation_identifier, try specifying the implementation to use via the 'RMW_IMPLEMENTATION' environment variable," install the [Visual C++ Redistributable Packages for Visual Studio 2013](https://www.microsoft.com/en-us/download/details.aspx?id=40784) (source: [ROS2 Development Setup Troubleshooting](https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Development-Setup/#failed-to-load-fastrtps-shared-library))
 
 ## Construction
 
