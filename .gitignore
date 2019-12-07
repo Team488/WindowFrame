@@ -1,3 +1,4 @@
 /.gazebo
 /.ros
-**/*.pyc
+
+*.pyc
