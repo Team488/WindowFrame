@@ -22,7 +22,7 @@ function Setup-Gazebo {
 function Get-VCVarsCmd {
     Get-ChildItem "$PSScriptRoot\WindowFrame\tools\VSSetup" | Unblock-File
     Import-Module "$PSScriptRoot\WindowFrame\tools\VSSetup\VSSetup"
-    $vs = Get-VSSetupInstance | Select-VSSetupInstance -Latest
+    $vs = Get-VSSetupInstance | Select-VSSetupInstance -Product * -Latest
 
     if (-not $vs) {
         throw "VS instance not found. Please install Visual Studio or Visual Studio Build Tools."
