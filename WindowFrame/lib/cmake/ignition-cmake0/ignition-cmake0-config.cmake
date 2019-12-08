@@ -46,6 +46,6 @@ if( NOT IGNITION_CMAKE_VERSION_MAJOR
   # include the master IgnCMake module
   include(IgnCMake)
 
-  set(IGNITION_CMAKE_DOXYGEN_DIR "D:/Robotics/gazebo/ign-cmake/build/install/Release/share/ignition/ignition-cmake0/doxygen")
+  set(IGNITION_CMAKE_DOXYGEN_DIR "${CMAKE_CURRENT_LIST_DIR}/../../../share/ignition/ignition-cmake0/doxygen")
 
 endif()
