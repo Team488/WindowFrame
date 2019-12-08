@@ -12,9 +12,7 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     1. Download the latest windows-release-amd64 version of ROS2 Dashing from https://github.com/ros2/ros2/releases
     2. Edit `ros2-windows\share\connext_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `connext.bat`
     3. Edit `ros2-windows\share\opensplice_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `opensplice.bat`
-    4. Delete all files with names containing "connext" from the `ros2-windows\bin` and `ros2-windows\lib` folders
-    5. Delete all files with names containing "opensplice" from the `ros2-windows\bin` and `ros2-windows\lib` folders
-    6. Move the contents of the `ros2-windows` folder into the `WindowFrame` folder
+    4. Move the contents of the `ros2-windows` folder into the `WindowFrame` folder
 3. Build, pack, and merge Gazebo
     1. Follow the "Building Gazebo" instructions below
     2. Move the contents of the `gazebo\package` folder into the `WindowFrame` folder
