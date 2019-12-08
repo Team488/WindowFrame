@@ -5,14 +5,14 @@ set(GAZEBO_CONFIG_INCLUDED TRUE)
 set(GAZEBO_VERSION 10.1)
 set(GAZEBO_MAJOR_VERSION 10)
 
-set(GAZEBO_PLUGIN_PATH "D:/Robotics/gazebo/gazebo/build/install/Release/lib/gazebo-10/plugins")
+set(GAZEBO_PLUGIN_PATH "${CMAKE_CURRENT_LIST_DIR}/../../../lib/gazebo-10/plugins")
 
 # The media path contains the location on disk where images,
 # materials scripts, shaders, and other related resources are stored.
-set(GAZEBO_MEDIA_PATH "D:/Robotics/gazebo/gazebo/build/install/Release/share/gazebo-10/media")
+set(GAZEBO_MEDIA_PATH "${CMAKE_CURRENT_LIST_DIR}/../../../share/gazebo-10/media")
 
 # The model path contains the location on disk where models are stored.
-set(GAZEBO_MODEL_PATH "D:/Robotics/gazebo/gazebo/build/install/Release/share/gazebo-10/models")
+set(GAZEBO_MODEL_PATH "${CMAKE_CURRENT_LIST_DIR}/../../../share/gazebo-10/models")
 
 # Set whether Gazebo was built with Bullet support
 set (GAZEBO_HAS_BULLET FALSE)
@@ -72,23 +72,23 @@ include (FindPkgConfig)
 # target_link_libraries(your_package GAZEBO_PROTO_LIBRARIES)
 #
 set(GAZEBO_PROTO_PATH
-  "D:/Robotics/gazebo/gazebo/build/install/Release/include/gazebo-10/gazebo/msgs/proto")
+  "${CMAKE_CURRENT_LIST_DIR}/../../../include/gazebo-10/gazebo/msgs/proto")
 find_library(gazebo_proto_msgs_lib gazebo_msgs
-  PATHS "D:/Robotics/gazebo/gazebo/build/install/Release/lib" NO_DEFAULT_PATH)
+  PATHS "${CMAKE_CURRENT_LIST_DIR}/../../../lib" NO_DEFAULT_PATH)
 list(APPEND GAZEBO_PROTO_LIBRARIES ${gazebo_proto_msgs_lib})
 list(APPEND GAZEBO_PROTO_INCLUDE_DIRS
-  "D:/Robotics/gazebo/gazebo/build/install/Release/include/gazebo-10/gazebo/msgs")
+  "${CMAKE_CURRENT_LIST_DIR}/../../../include/gazebo-10/gazebo/msgs")
 # End GAZEBO_PROTO_PATH, GAZEBO_PROTO_INCLUDE_DIRS, and
 # GAZEBO_PROTO_LIBRARIES
 
-list(APPEND GAZEBO_INCLUDE_DIRS D:/Robotics/gazebo/gazebo/build/install/Release/include)
-list(APPEND GAZEBO_INCLUDE_DIRS D:/Robotics/gazebo/gazebo/build/install/Release/include/gazebo-10)
+list(APPEND GAZEBO_INCLUDE_DIRS ${CMAKE_CURRENT_LIST_DIR}/../../../include)
+list(APPEND GAZEBO_INCLUDE_DIRS ${CMAKE_CURRENT_LIST_DIR}/../../../include/gazebo-10)
 
-list(APPEND GAZEBO_LIBRARY_DIRS D:/Robotics/gazebo/gazebo/build/install/Release/lib)
-list(APPEND GAZEBO_LIBRARY_DIRS D:/Robotics/gazebo/gazebo/build/install/Release/lib/gazebo-10/plugins)
+list(APPEND GAZEBO_LIBRARY_DIRS ${CMAKE_CURRENT_LIST_DIR}/../../../lib)
+list(APPEND GAZEBO_LIBRARY_DIRS ${CMAKE_CURRENT_LIST_DIR}/../../../lib/gazebo-10/plugins)
 
-list(APPEND GAZEBO_CFLAGS -ID:/Robotics/gazebo/gazebo/build/install/Release/include)
-list(APPEND GAZEBO_CFLAGS -ID:/Robotics/gazebo/gazebo/build/install/Release/include/gazebo-10)
+list(APPEND GAZEBO_CFLAGS -I${CMAKE_CURRENT_LIST_DIR}/../../../include)
+list(APPEND GAZEBO_CFLAGS -I${CMAKE_CURRENT_LIST_DIR}/../../../include/gazebo-10)
 
 if (GAZEBO_HAS_BULLET)
   if (PKG_CONFIG_FOUND)
@@ -139,7 +139,7 @@ endif ()
 foreach(lib gazebo;gazebo_client;gazebo_gui;gazebo_sensors;gazebo_rendering;gazebo_physics;gazebo_ode;gazebo_transport;gazebo_msgs;gazebo_util;gazebo_common;gazebo_gimpact;gazebo_opcode;gazebo_opende_ou;gazebo_ccd)
   set(onelib "${lib}-NOTFOUND")
   find_library(onelib ${lib}
-    PATHS "D:/Robotics/gazebo/gazebo/build/install/Release/lib"
+    PATHS "${CMAKE_CURRENT_LIST_DIR}/../../../lib"
     NO_DEFAULT_PATH
     )
   if(NOT onelib)
@@ -218,9 +218,9 @@ if (GAZEBO_HAS_IGNITION_FUEL_TOOLS)
   list(APPEND GAZEBO_LIBRARIES ${IGNITION-FUEL_TOOLS_LIBRARIES})
 endif()
 
-list(APPEND GAZEBO_LDFLAGS -Wl,-rpath,D:/Robotics/gazebo/gazebo/build/install/Release/lib/gazebo-10/plugins)
-list(APPEND GAZEBO_LDFLAGS -LD:/Robotics/gazebo/gazebo/build/install/Release/lib)
-list(APPEND GAZEBO_LDFLAGS -LD:/Robotics/gazebo/gazebo/build/install/Release/lib/gazebo-10/plugins)
+list(APPEND GAZEBO_LDFLAGS -Wl,-rpath,${CMAKE_CURRENT_LIST_DIR}/../../../lib/gazebo-10/plugins)
+list(APPEND GAZEBO_LDFLAGS -L${CMAKE_CURRENT_LIST_DIR}/../../../lib)
+list(APPEND GAZEBO_LDFLAGS -L${CMAKE_CURRENT_LIST_DIR}/../../../lib/gazebo-10/plugins)
 
 # ==============
 # ADDED MANUALLY
