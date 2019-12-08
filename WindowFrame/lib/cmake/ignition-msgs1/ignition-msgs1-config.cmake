@@ -97,7 +97,7 @@ find_dependency(IgnProtobuf 3)
 find_dependency(ignition-math4)
 
 # Specify the doxygen tag file
-set(IGNITION-MSGS_DOXYGEN_TAGFILE "D:/Robotics/gazebo/ign-msgs/build/install/Release/share/ignition/ignition-msgs1_0/ignition-msgs1.tag.xml")
+set(IGNITION-MSGS_DOXYGEN_TAGFILE "${CMAKE_CURRENT_LIST_DIR}/../../../share/ignition/ignition-msgs1_0/ignition-msgs1.tag.xml")
 
 # Specify the API url. This is where the doxygen tag file will resolve URLS to.
 set(IGNITION-MSGS_API_URL "https://ignitionrobotics.org/api/msgs/1.0")

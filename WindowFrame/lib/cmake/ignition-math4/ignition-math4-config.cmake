@@ -95,7 +95,7 @@ find_dependency(ignition-cmake0)
 # has no external dependencies).
 
 # Specify the doxygen tag file
-set(IGNITION-MATH_DOXYGEN_TAGFILE "D:/Robotics/gazebo/ign-math/build/install/Release/share/ignition/ignition-math4_0/ignition-math4.tag.xml")
+set(IGNITION-MATH_DOXYGEN_TAGFILE "${CMAKE_CURRENT_LIST_DIR}/../../../share/ignition/ignition-math4_0/ignition-math4.tag.xml")
 
 # Specify the API url. This is where the doxygen tag file will resolve URLS to.
 set(IGNITION-MATH_API_URL "https://ignitionrobotics.org/api/math/4.0")
