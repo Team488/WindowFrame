@@ -24,7 +24,12 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     5. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
     6. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
     7. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
-5. Download and merge Asio, Eigen, TinyXML, TinyXML2, and Log4CXX
+5. Build and merge Realsense2
+    1. Follow the "Building Realsense2" instructions below
+    2. Move the `build\install\include` and `build\install\lib` folders into the `WindowFrame` folder
+    3. Move the `.dll` files from the `build\install\bin` folder to `WindowFrame\bin`
+    4. Move the `.exe` files from the `build\install\bin` folder to `WindowFrame\tools\realsense2`
+6. Download and merge Asio, Eigen, TinyXML, TinyXML2, and Log4CXX
     1. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary/#install-dependencies
     2. For each package, change the extension to `.zip` and extract
     3. Move the contents of the `include` folders into `WindowFrame\include`, except for `.gitkeep` files
@@ -32,10 +37,25 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     5. Move `.lib` files from the `lib` folders into `WindowFrame\lib`, except for `*d.lib` files
     6. Move `.dll` files from the `lib` folders into `WindowFrame\bin`, except for `*d.dll` files
     7. Rename `LICENSE` files in the `tools` folders to `LICENSE_<package>.txt` and move them into the `WindowFrame` folder
-6. Download and merge VSSetup
+7. Download and merge VSSetup
     1. Download the latest VSSetup.zip from https://github.com/Microsoft/vssetup.powershell/releases
     2. Move the contents of the `VSSetup` folder to `WindowFrame\tools\VSSetup`
-7. List versions of all downloads in the main README
+8. List versions of all downloads in the main README
+
+# Building Realsense2
+
+1. Open “Visual Studio Installer”, modify your Visual Studio installation, and install the latest "C++ ATL for latest build tools (x86 & x64)" individual component
+2. Clone the repo and open it in VS Code
+    ```cmd
+    > git clone https://github.com/IntelRealSense/librealsense.git
+    > code librealsense
+    ```
+4. Hit ctrl+, and type “cmake.installPrefix” and set it to `${workspaceFolder}/build/install`
+5. Hit ctrl+shift+P and type “CMake: Select a Kit” and select the latest amd64 kit
+6. Hit ctrl+shift+P and type “CMake: Select Variant” and select “CMake: Release”
+7. Hit ctrl+shift+P and type “CMake: Configure”
+8. Hit ctrl+shift+P and type “CMake: Build”
+9. Hit ctrl+shift+P and type “CMake: Install”
 
 # Building Gazebo
 
@@ -45,11 +65,12 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
 2. Install the latest version of [Ruby](https://rubyinstaller.org/downloads/) (x64, without devkit)
 3. Open “x64 Native Tools Command Prompt for VS 2019” as Administrator and set up the environment. To install this with Visual Studio, it requires running the Visual Studio Installer to Modify your installation by adding the “C++ build tools” workload and the latest “Windows 10 SDK” individual component.
     ```cmd
-    > set SDFormat_DIR=..\..\sdformat\build\install\Release\lib\cmake\sdformat
-    > set ignition-cmake0_DIR=..\..\ign-cmake\build\install\Release\lib\cmake\ignition-cmake0
-    > set ignition-math4_DIR=..\..\ign-math\build\install\Release\lib\cmake\ignition-math4
-    > set ignition-msgs1_DIR=..\..\ign-msgs\build\install\Release\lib\cmake\ignition-msgs1
-    > set ignition-transport4_DIR=..\..\ign-transport\build\install\Release\lib\cmake\ignition-transport4
+    > git clone https://github.com/IntelRealSense/librealsense.git
+    > cd librealsense
+    > md build & cd build
+    > cmake .. -G "NMake Makefiles" -DCMAKE_INSTALL_PREFIX="install\Release" -DCMAKE_BUILD_TYPE="Release"
+    > nmake
+    > nmake install
     ```
 4. Make a directory to work in
     ```cmd

@@ -2,3 +2,4 @@
 /.ros
 
 *.pyc
+.python_history
