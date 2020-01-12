@@ -24,8 +24,8 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     5. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
     6. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
     7. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
-5. Build and merge Realsense2
-    1. Follow the "Building Realsense2" instructions below
+5. Build and merge RealSense2
+    1. Follow the "Building RealSense2" instructions below
     2. Move the `build\install\include` and `build\install\lib` folders into the `WindowFrame` folder
     3. Move the `.dll` files from the `build\install\bin` folder to `WindowFrame\bin`
     4. Move the `.exe` files from the `build\install\bin` folder to `WindowFrame\tools\realsense2`
@@ -41,21 +41,6 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     1. Download the latest VSSetup.zip from https://github.com/Microsoft/vssetup.powershell/releases
     2. Move the contents of the `VSSetup` folder to `WindowFrame\tools\VSSetup`
 8. List versions of all downloads in the main README
-
-# Building Realsense2
-
-1. Open “Visual Studio Installer”, modify your Visual Studio installation, and install the latest "C++ ATL for latest build tools (x86 & x64)" individual component
-2. Clone the repo and open it in VS Code
-    ```cmd
-    > git clone https://github.com/IntelRealSense/librealsense.git
-    > code librealsense
-    ```
-4. Hit ctrl+, and type “cmake.installPrefix” and set it to `${workspaceFolder}/build/install`
-5. Hit ctrl+shift+P and type “CMake: Select a Kit” and select the latest amd64 kit
-6. Hit ctrl+shift+P and type “CMake: Select Variant” and select “CMake: Release”
-7. Hit ctrl+shift+P and type “CMake: Configure”
-8. Hit ctrl+shift+P and type “CMake: Build”
-9. Hit ctrl+shift+P and type “CMake: Install”
 
 # Building Gazebo
 
@@ -77,12 +62,13 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
     > md gazebo & cd gazebo
     ```
 5. Build vcpkg and dependencies. This can take a few hours, and you may have to uninstall OpenSSL. This requires the latest Windows 10 SDK and Visual C++ tools for CMake, which can be installed with the Visual Studio Installer.
+    1. Note: `czmq` and `json-spirit` are not actually needed for Gazebo, but are built at the same time as extra packages.
     ```cmd
     > git clone https://github.com/Microsoft/vcpkg.git
     > cd vcpkg
     > git checkout f30df21cd9191009d8761e5bde4ddb5363e0fd2c -- ports/ogre
     > .\bootstrap-vcpkg.bat
-    > .\vcpkg.exe install --clean-after-build --triplet x64-windows boost cppzmq curl dlfcn-win32 freeimage protobuf ogre qwt tbb zeromq zlib zziplib
+    > .\vcpkg.exe install --clean-after-build --triplet x64-windows boost cppzmq curl czmq dlfcn-win32 freeimage json-spirit protobuf ogre qwt tbb zeromq zlib zziplib
     ```
 6. Clone the repos that you will need to build manually. (Dependency version compatibility is listed in the [docs](http://gazebosim.org/tutorials?tut=install_dependencies_from_source#Versions).)
     ```cmd
@@ -152,3 +138,18 @@ These instructions are an adaptation of http://gazebosim.org/tutorials?tut=insta
 13. Package gazebo
     1. Copy the `pack_gazebo` folder alongside the `gazebo`, `ign`, `sdformat`, and `vcpkg` folder
     2. Right-click `pack_gazebo\pack.ps1` and select "Run with PowerShell"
+
+# Building RealSense2
+
+1. Open “Visual Studio Installer”, modify your Visual Studio installation, and install the latest "C++ ATL for latest build tools (x86 & x64)" individual component
+2. Clone the repo and open it in VS Code
+    ```cmd
+    > git clone https://github.com/IntelRealSense/librealsense.git
+    > code librealsense
+    ```
+4. Hit `ctrl+,` and type “cmake.installPrefix” and set it to `${workspaceFolder}/build/install`
+5. Hit `ctrl+shift+P` and type “CMake: Select a Kit” and select the latest amd64 kit
+6. Hit `ctrl+shift+P` and type “CMake: Select Variant” and select “CMake: Release”
+7. Hit `ctrl+shift+P` and type “CMake: Configure”
+8. Hit `ctrl+shift+P` and type “CMake: Build”
+9. Hit `ctrl+shift+P` and type “CMake: Install”
