@@ -7,6 +7,7 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
 - [ROS2](https://github.com/ros2/ros2/releases) (`ros2-dashing-20190910-windows-release-amd64`)
 - [Gazebo](https://bitbucket.org/osrf/gazebo/src/gazebo10/) (`gazebo10 7c4281fe1229`)
 - [OpenCV](https://opencv.org/releases/) (`4.1.1`)
+- [RealSense2](https://github.com/IntelRealSense/librealsense) (`86280d3`)
 - [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) (`Win64 v1.0.2t`)
 - [Boost](https://www.boost.org/) (`1.70.0`)
 
@@ -17,7 +18,7 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
 2. Download and install [Git LFS](https://git-lfs.github.com/) for storing binary files
 3. Visual Studio for editing and building
     1. Depending on your preference, install either [Visual Studio](https://visualstudio.microsoft.com/downloads/) or both [Visual Studio Code](https://code.visualstudio.com/download) and [Build Tools for Visual Studio](https://visualstudio.microsoft.com/downloads/) (not the main download; look under Tools for Visual Studio 2019)
-    2. Open "Visual Studio Install", modify your Visual Studio installation, and install the "Desktop development with C++" or "C++ build tools" workload
+    2. Open "Visual Studio Installer", modify your Visual Studio installation, and install the "Desktop development with C++" or "C++ build tools" workload
 4. Python dependencies for ROS2 (adapted from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary)
     1. Install Chocolatey in an Admin PowerShell window
        ```cmd
