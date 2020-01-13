@@ -8,6 +8,7 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     2. `WindowFrame/gazebo_gui.ini`
     3. `WindowFrame/bin/gazebo.bat`
     4. `WindowFrame/bin/gazebo/plugins.cfg`
+    5. `WindowFrame/share/json-spirit/json-spirit-config.cmake`
 2. Download and merge ROS2
     1. Download the latest windows-release-amd64 version of ROS2 Dashing from https://github.com/ros2/ros2/releases
     2. Edit `ros2-windows\share\connext_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `connext.bat`
