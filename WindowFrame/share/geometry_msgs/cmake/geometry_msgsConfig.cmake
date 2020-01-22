@@ -16,7 +16,7 @@ set(_geometry_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT geometry_msgs_FIND_QUIETLY)
-  message(STATUS "Found geometry_msgs: 0.7.0 (${geometry_msgs_DIR})")
+  message(STATUS "Found geometry_msgs: 0.8.1 (${geometry_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

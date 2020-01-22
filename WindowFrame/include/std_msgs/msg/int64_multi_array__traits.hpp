@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<std_msgs::msg::Int64MultiArray>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<std_msgs::msg::Int64MultiArray>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // STD_MSGS__MSG__INT64_MULTI_ARRAY__TRAITS_HPP_

@@ -16,7 +16,7 @@ set(_sensor_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT sensor_msgs_FIND_QUIETLY)
-  message(STATUS "Found sensor_msgs: 0.7.0 (${sensor_msgs_DIR})")
+  message(STATUS "Found sensor_msgs: 0.8.1 (${sensor_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

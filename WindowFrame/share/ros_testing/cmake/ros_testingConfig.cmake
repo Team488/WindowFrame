@@ -16,7 +16,7 @@ set(_ros_testing_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ros_testing_FIND_QUIETLY)
-  message(STATUS "Found ros_testing: 0.1.0 (${ros_testing_DIR})")
+  message(STATUS "Found ros_testing: 0.2.0 (${ros_testing_DIR})")
 endif()
 
 # warn when using a deprecated package

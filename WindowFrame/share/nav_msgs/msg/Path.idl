@@ -7,7 +7,8 @@
 
 module nav_msgs {
   module msg {
-    @verbatim (language="comment", text=" An array of poses that represents a Path for a robot to follow.")
+    @verbatim (language="comment", text=
+      " An array of poses that represents a Path for a robot to follow.")
     struct Path {
       std_msgs::msg::Header header;
 

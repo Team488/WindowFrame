@@ -6,6 +6,8 @@
 for %%p in ("%~dp0..\..") do set "COLCON_CURRENT_PREFIX=%%~fp"
 
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\gmock_vendor\hook\cmake_prefix_path.bat"
+call:call_file "%%COLCON_CURRENT_PREFIX%%\share\gmock_vendor\hook\path_dll.bat"
+call:call_file "%%COLCON_CURRENT_PREFIX%%\share\gmock_vendor\hook\path.bat"
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\gmock_vendor\hook\path-scripts.bat"
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\gmock_vendor\hook\pythonpath.bat"
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\gmock_vendor\hook\pkg_config_path.bat"

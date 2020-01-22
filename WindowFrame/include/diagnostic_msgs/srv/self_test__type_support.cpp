@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SelfTest_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) diagnostic_msgs::srv::SelfTest_Request(_init);
+}
+
+void SelfTest_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<diagnostic_msgs::srv::SelfTest_Request *>(message_memory);
+  typed_message->~SelfTest_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember SelfTest_Request_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SelfTest_Requ
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SelfTest_Req
   "SelfTest_Request",  // message name
   1,  // number of fields
   sizeof(diagnostic_msgs::srv::SelfTest_Request),
-  SelfTest_Request_message_member_array  // message members
+  SelfTest_Request_message_member_array,  // message members
+  SelfTest_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SelfTest_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SelfTest_Request_message_type_support_handle = {
@@ -128,6 +142,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SelfTest_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) diagnostic_msgs::srv::SelfTest_Response(_init);
+}
+
+void SelfTest_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<diagnostic_msgs::srv::SelfTest_Response *>(message_memory);
+  typed_message->~SelfTest_Response();
+}
+
 size_t size_function__SelfTest_Response__status(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<diagnostic_msgs::msg::DiagnosticStatus> *>(untyped_member);
@@ -160,7 +186,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SelfTest_Resp
     "id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -169,13 +195,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SelfTest_Resp
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "passed",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_OCTET,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -184,7 +210,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SelfTest_Resp
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "status",  // name
@@ -208,7 +234,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SelfTest_Res
   "SelfTest_Response",  // message name
   3,  // number of fields
   sizeof(diagnostic_msgs::srv::SelfTest_Response),
-  SelfTest_Response_message_member_array  // message members
+  SelfTest_Response_message_member_array,  // message members
+  SelfTest_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SelfTest_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SelfTest_Response_message_type_support_handle = {

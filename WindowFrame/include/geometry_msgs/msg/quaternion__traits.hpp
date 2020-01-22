@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::Quaternion>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<geometry_msgs::msg::Quaternion>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__QUATERNION__TRAITS_HPP_

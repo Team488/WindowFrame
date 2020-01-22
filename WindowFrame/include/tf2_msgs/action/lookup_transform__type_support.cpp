@@ -25,12 +25,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_Goal_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_Goal(_init);
+}
+
+void LookupTransform_Goal_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_Goal *>(message_memory);
+  typed_message->~LookupTransform_Goal();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_Goal_message_member_array[7] = {
   {
     "target_frame",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "source_frame",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "source_time",  // name
@@ -69,7 +81,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "timeout",  // name
@@ -84,7 +96,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "target_time",  // name
@@ -99,13 +111,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "fixed_frame",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -114,13 +126,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "advanced",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -129,7 +141,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -138,7 +150,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_Goal",  // message name
   7,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_Goal),
-  LookupTransform_Goal_message_member_array  // message members
+  LookupTransform_Goal_message_member_array,  // message members
+  LookupTransform_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_Goal_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_Goal_message_type_support_handle = {
@@ -218,6 +232,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_Result_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_Result(_init);
+}
+
+void LookupTransform_Result_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_Result *>(message_memory);
+  typed_message->~LookupTransform_Result();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_Result_message_member_array[2] = {
   {
     "transform",  // name
@@ -232,7 +258,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "error",  // name
@@ -247,7 +273,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -256,7 +282,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_Result",  // message name
   2,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_Result),
-  LookupTransform_Result_message_member_array  // message members
+  LookupTransform_Result_message_member_array,  // message members
+  LookupTransform_Result_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_Result_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_Result_message_type_support_handle = {
@@ -336,12 +364,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_Feedback_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_Feedback(_init);
+}
+
+void LookupTransform_Feedback_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_Feedback *>(message_memory);
+  typed_message->~LookupTransform_Feedback();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_Feedback_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -350,7 +390,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -359,7 +399,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_Feedback",  // message name
   1,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_Feedback),
-  LookupTransform_Feedback_message_member_array  // message members
+  LookupTransform_Feedback_message_member_array,  // message members
+  LookupTransform_Feedback_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_Feedback_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_Feedback_message_type_support_handle = {
@@ -439,6 +481,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_SendGoal_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_SendGoal_Request(_init);
+}
+
+void LookupTransform_SendGoal_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_SendGoal_Request *>(message_memory);
+  typed_message->~LookupTransform_SendGoal_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_SendGoal_Request_message_member_array[2] = {
   {
     "goal_id",  // name
@@ -453,7 +507,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "goal",  // name
@@ -468,7 +522,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -477,7 +531,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_SendGoal_Request",  // message name
   2,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_SendGoal_Request),
-  LookupTransform_SendGoal_Request_message_member_array  // message members
+  LookupTransform_SendGoal_Request_message_member_array,  // message members
+  LookupTransform_SendGoal_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_SendGoal_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_SendGoal_Request_message_type_support_handle = {
@@ -557,12 +613,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_SendGoal_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_SendGoal_Response(_init);
+}
+
+void LookupTransform_SendGoal_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_SendGoal_Response *>(message_memory);
+  typed_message->~LookupTransform_SendGoal_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_SendGoal_Response_message_member_array[2] = {
   {
     "accepted",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -571,7 +639,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "stamp",  // name
@@ -586,7 +654,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -595,7 +663,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_SendGoal_Response",  // message name
   2,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_SendGoal_Response),
-  LookupTransform_SendGoal_Response_message_member_array  // message members
+  LookupTransform_SendGoal_Response_message_member_array,  // message members
+  LookupTransform_SendGoal_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_SendGoal_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_SendGoal_Response_message_type_support_handle = {
@@ -783,6 +853,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_GetResult_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_GetResult_Request(_init);
+}
+
+void LookupTransform_GetResult_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_GetResult_Request *>(message_memory);
+  typed_message->~LookupTransform_GetResult_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_GetResult_Request_message_member_array[1] = {
   {
     "goal_id",  // name
@@ -797,7 +879,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -806,7 +888,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_GetResult_Request",  // message name
   1,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_GetResult_Request),
-  LookupTransform_GetResult_Request_message_member_array  // message members
+  LookupTransform_GetResult_Request_message_member_array,  // message members
+  LookupTransform_GetResult_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_GetResult_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_GetResult_Request_message_type_support_handle = {
@@ -886,12 +970,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_GetResult_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_GetResult_Response(_init);
+}
+
+void LookupTransform_GetResult_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_GetResult_Response *>(message_memory);
+  typed_message->~LookupTransform_GetResult_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_GetResult_Response_message_member_array[2] = {
   {
     "status",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -900,7 +996,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "result",  // name
@@ -915,7 +1011,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -924,7 +1020,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_GetResult_Response",  // message name
   2,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_GetResult_Response),
-  LookupTransform_GetResult_Response_message_member_array  // message members
+  LookupTransform_GetResult_Response_message_member_array,  // message members
+  LookupTransform_GetResult_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_GetResult_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_GetResult_Response_message_type_support_handle = {
@@ -1116,6 +1214,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LookupTransform_FeedbackMessage_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::action::LookupTransform_FeedbackMessage(_init);
+}
+
+void LookupTransform_FeedbackMessage_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::action::LookupTransform_FeedbackMessage *>(message_memory);
+  typed_message->~LookupTransform_FeedbackMessage();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransform_FeedbackMessage_message_member_array[2] = {
   {
     "goal_id",  // name
@@ -1130,7 +1240,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "feedback",  // name
@@ -1145,7 +1255,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LookupTransfo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -1154,7 +1264,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LookupTransf
   "LookupTransform_FeedbackMessage",  // message name
   2,  // number of fields
   sizeof(tf2_msgs::action::LookupTransform_FeedbackMessage),
-  LookupTransform_FeedbackMessage_message_member_array  // message members
+  LookupTransform_FeedbackMessage_message_member_array,  // message members
+  LookupTransform_FeedbackMessage_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_FeedbackMessage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LookupTransform_FeedbackMessage_message_type_support_handle = {

@@ -126,7 +126,8 @@ default_platform_lib_function = sipconfig.SIPModuleMakefile.platform_lib
 def custom_platform_lib_function(self, clib, framework=0):
     if not clib or clib.isspace():
         return None
-    if os.path.isabs(clib):
+    # Only add '-l' if a library doesn't already start with '-l' and is not an absolute path
+    if os.path.isabs(clib) or clib.startswith('-l'):
         return clib
     return default_platform_lib_function(self, clib, framework)
 
@@ -163,6 +164,15 @@ if sys.platform == 'win32':
     makefile.CXXFLAGS.append('/Zc:__cplusplus')
 else:
     makefile.extra_cxxflags.append('-std=c++14')
+
+# Finalise the Makefile, preparing it to be saved to disk
+makefile.finalise()
+
+# Replace Qt variables from libraries
+libs = makefile.LIBS.as_list()
+for i in range(len(libs)):
+    libs[i] = libs[i].replace('$$[QT_INSTALL_LIBS]', config.build_macros()['LIBDIR_QT'])
+makefile.LIBS.set(libs)
 
 # Generate the Makefile itself
 makefile.generate()

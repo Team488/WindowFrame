@@ -16,7 +16,7 @@ set(_image_tools_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT image_tools_FIND_QUIETLY)
-  message(STATUS "Found image_tools: 0.7.8 (${image_tools_DIR})")
+  message(STATUS "Found image_tools: 0.8.4 (${image_tools_DIR})")
 endif()
 
 # warn when using a deprecated package

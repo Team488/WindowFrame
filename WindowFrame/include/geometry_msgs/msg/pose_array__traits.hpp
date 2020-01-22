@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::PoseArray>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<geometry_msgs::msg::PoseArray>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__POSE_ARRAY__TRAITS_HPP_

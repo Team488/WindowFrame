@@ -16,7 +16,7 @@ set(_test_quality_of_service_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT test_quality_of_service_FIND_QUIETLY)
-  message(STATUS "Found test_quality_of_service: 0.0.1 (${test_quality_of_service_DIR})")
+  message(STATUS "Found test_quality_of_service: 0.8.0 (${test_quality_of_service_DIR})")
 endif()
 
 # warn when using a deprecated package

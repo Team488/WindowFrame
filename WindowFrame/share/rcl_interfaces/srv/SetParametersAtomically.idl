@@ -7,8 +7,9 @@
 
 module rcl_interfaces {
   module srv {
-    @verbatim (language="comment", text=" A list of parameters to set atomically.
- This call will either set all values, or none of the values.")
+    @verbatim (language="comment", text=
+      " A list of parameters to set atomically." "\n"
+      " This call will either set all values, or none of the values.")
     struct SetParametersAtomically_Request {
       sequence<rcl_interfaces::msg::Parameter> parameters;
     };

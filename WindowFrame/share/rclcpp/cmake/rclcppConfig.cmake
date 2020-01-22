@@ -16,7 +16,7 @@ set(_rclcpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rclcpp_FIND_QUIETLY)
-  message(STATUS "Found rclcpp: 0.7.8 (${rclcpp_DIR})")
+  message(STATUS "Found rclcpp: 0.8.3 (${rclcpp_DIR})")
 endif()
 
 # warn when using a deprecated package

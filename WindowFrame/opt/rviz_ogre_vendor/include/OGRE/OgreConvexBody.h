@@ -28,6 +28,11 @@ THE SOFTWARE.
 */
 #ifndef __ConvexBody_H__
 #define __ConvexBody_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgrePolygon.h"
@@ -52,7 +57,7 @@ namespace Ogre
     class _OgreExport ConvexBody
     {
     public:
-        typedef vector< Polygon* >::type    PolygonList;
+        typedef std::vector< Polygon* >    PolygonList;
 
     protected:
         PolygonList mPolygons;
@@ -256,6 +261,10 @@ namespace Ogre
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif 
 

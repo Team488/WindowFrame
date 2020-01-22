@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<shape_msgs::msg::MeshTriangle>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<shape_msgs::msg::MeshTriangle>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SHAPE_MSGS__MSG__MESH_TRIANGLE__TRAITS_HPP_

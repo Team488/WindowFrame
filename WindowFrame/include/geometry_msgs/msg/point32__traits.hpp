@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::Point32>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<geometry_msgs::msg::Point32>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__POINT32__TRAITS_HPP_

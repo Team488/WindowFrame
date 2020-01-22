@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __PlaneBoundedVolume_H_
 #define __PlaneBoundedVolume_H_
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 // Precompiler options
 #include "OgrePrerequisites.h"
@@ -49,7 +54,7 @@ namespace Ogre {
     class _OgreExport PlaneBoundedVolume
     {
     public:
-        typedef vector<Plane>::type PlaneList;
+        typedef std::vector<Plane> PlaneList;
         /// Publicly accessible plane list, you can modify this direct
         PlaneList planes;
         Plane::Side outside;
@@ -125,7 +130,7 @@ namespace Ogre {
 
     };
 
-    typedef vector<PlaneBoundedVolume>::type PlaneBoundedVolumeList;
+    typedef std::vector<PlaneBoundedVolume> PlaneBoundedVolumeList;
 
     /** @} */
     /** @} */
@@ -133,6 +138,10 @@ namespace Ogre {
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

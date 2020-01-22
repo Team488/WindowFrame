@@ -1,0 +1,74 @@
+#ifndef H_634E43C0B307F8B009E576E5C45AB17A_GetInteractiveMarkers_SPLTYPES_H
+#define H_634E43C0B307F8B009E576E5C45AB17A_GetInteractiveMarkers_SPLTYPES_H
+
+#include <c_base.h>
+#include <c_misc.h>
+#include <c_sync.h>
+#include <c_collection.h>
+#include <c_field.h>
+#include <v_copyIn.h>
+
+#include "ccpp_GetInteractiveMarkers_.h"
+#include "visualization_msgs/msg/dds_opensplice/InteractiveMarker_SplDcps.h"
+
+#include "visualization_msgs/msg/rosidl_typesupport_opensplice_cpp__visibility_control.h"
+
+extern c_metaObject __GetInteractiveMarkers__visualization_msgs__load (c_base base);
+
+extern c_metaObject __GetInteractiveMarkers__visualization_msgs_srv__load (c_base base);
+
+extern c_metaObject __GetInteractiveMarkers__visualization_msgs_srv_dds___load (c_base base);
+
+extern const char *visualization_msgs_srv_dds__GetInteractiveMarkers_Request__metaDescriptor[];
+extern const int visualization_msgs_srv_dds__GetInteractiveMarkers_Request__metaDescriptorArrLength;
+extern const int visualization_msgs_srv_dds__GetInteractiveMarkers_Request__metaDescriptorLength;
+extern c_metaObject __visualization_msgs_srv_dds__GetInteractiveMarkers_Request___load (c_base base);
+struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs v_copyin_result __visualization_msgs_srv_dds__GetInteractiveMarkers_Request___copyIn(c_base base, const struct visualization_msgs::srv::dds_::GetInteractiveMarkers_Request_ *from, struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs void __visualization_msgs_srv_dds__GetInteractiveMarkers_Request___copyOut(const void *_from, void *_to);
+struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Request_ {
+    c_octet structure_needs_at_least_one_member_;
+};
+
+extern const char *visualization_msgs_srv_dds__GetInteractiveMarkers_Response__metaDescriptor[];
+extern const int visualization_msgs_srv_dds__GetInteractiveMarkers_Response__metaDescriptorArrLength;
+extern const int visualization_msgs_srv_dds__GetInteractiveMarkers_Response__metaDescriptorLength;
+extern c_metaObject __visualization_msgs_srv_dds__GetInteractiveMarkers_Response___load (c_base base);
+struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs v_copyin_result __visualization_msgs_srv_dds__GetInteractiveMarkers_Response___copyIn(c_base base, const struct visualization_msgs::srv::dds_::GetInteractiveMarkers_Response_ *from, struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs void __visualization_msgs_srv_dds__GetInteractiveMarkers_Response___copyOut(const void *_from, void *_to);
+struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Response_ {
+    c_ulonglong sequence_number_;
+    c_sequence markers_;
+};
+
+extern const char *visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request__metaDescriptor[];
+extern const int visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request__metaDescriptorArrLength;
+extern const int visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request__metaDescriptorLength;
+extern c_metaObject __visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request___load (c_base base);
+struct _visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs v_copyin_result __visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request___copyIn(c_base base, const struct visualization_msgs::srv::dds_::Sample_GetInteractiveMarkers_Request_ *from, struct _visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs void __visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request___copyOut(const void *_from, void *_to);
+struct _visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Request_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Request_ request_;
+};
+
+extern const char *visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response__metaDescriptor[];
+extern const int visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response__metaDescriptorArrLength;
+extern const int visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response__metaDescriptorLength;
+extern c_metaObject __visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response___load (c_base base);
+struct _visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response_ ;
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs v_copyin_result __visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response___copyIn(c_base base, const struct visualization_msgs::srv::dds_::Sample_GetInteractiveMarkers_Response_ *from, struct _visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response_ *to);
+extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_visualization_msgs void __visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response___copyOut(const void *_from, void *_to);
+struct _visualization_msgs_srv_dds__Sample_GetInteractiveMarkers_Response_ {
+    c_ulonglong client_guid_0_;
+    c_ulonglong client_guid_1_;
+    c_longlong sequence_number_;
+    struct _visualization_msgs_srv_dds__GetInteractiveMarkers_Response_ response_;
+};
+
+#undef OS_API
+#endif

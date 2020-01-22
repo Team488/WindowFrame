@@ -25,12 +25,24 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void RegionOfInterest_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::RegionOfInterest(_init);
+}
+
+void RegionOfInterest_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::RegionOfInterest *>(message_memory);
+  typed_message->~RegionOfInterest();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember RegionOfInterest_message_member_array[5] = {
   {
     "x_offset",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RegionOfInter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "y_offset",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,13 +66,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RegionOfInter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "height",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -69,13 +81,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RegionOfInter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "width",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -84,13 +96,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RegionOfInter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "do_rectify",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -99,7 +111,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RegionOfInter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -108,7 +120,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers RegionOfInte
   "RegionOfInterest",  // message name
   5,  // number of fields
   sizeof(sensor_msgs::msg::RegionOfInterest),
-  RegionOfInterest_message_member_array  // message members
+  RegionOfInterest_message_member_array,  // message members
+  RegionOfInterest_init_function,  // function to initialize message memory (memory has to be allocated)
+  RegionOfInterest_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t RegionOfInterest_message_type_support_handle = {

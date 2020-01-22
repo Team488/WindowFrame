@@ -117,7 +117,7 @@ namespace Ogre
             new program being linked, so if you had previously set parameters
             you will have to set them again.
         */
-        void setProgram(GpuProgramPtr& prog);
+        void setProgram(const GpuProgramPtr& prog, bool resetParams = true);
         /** Gets the program being used. */
         const GpuProgramPtr& getProgram() const { return mProgram; }
         /** Gets the program being used. */
@@ -128,10 +128,10 @@ namespace Ogre
             to register externally created parameter objects. Otherwise, the parameters
             will be created for you when a program is linked.
         */
-        void setParameters(GpuProgramParametersSharedPtr params);
+        void setParameters(const GpuProgramParametersSharedPtr& params);
         /** Gets the parameters being used here. 
         */
-        GpuProgramParametersSharedPtr getParameters(void);
+        const GpuProgramParametersSharedPtr& getParameters(void) const;
 
         /// Load this usage (and ensure program is loaded)
         void _load(void);
@@ -144,6 +144,8 @@ namespace Ogre
         void unloadingComplete(Resource* prog);
         void loadingComplete(Resource* prog);
 
+        static GpuProgramPtr _getProgramByName(const String& name, const String& group,
+                                               GpuProgramType type);
     };
     /** @} */
     /** @} */

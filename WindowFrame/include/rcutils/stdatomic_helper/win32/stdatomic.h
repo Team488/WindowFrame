@@ -196,6 +196,10 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
  * 7.17.7 Operations on atomic types. (pruned modified for Windows' crappy C compiler)
  */
 
+// TODO(emersonknapp) Regression in uncrustify breaks formatting for macros with __pragma
+// remove indent-off when we have fix for https://github.com/uncrustify/uncrustify/issues/2314
+// *INDENT-OFF*
+
 #define rcutils_win32_atomic_compare_exchange_strong(object, out, expected, desired) \
   __pragma(warning(push)) \
   __pragma(warning(disable: 4244)) \
@@ -204,7 +208,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedCompareExchange64((LONGLONG *) object, desired, *expected); \
+        out = InterlockedCompareExchange64((LONGLONG *) object, desired, *expected); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedCompareExchange((LONG *) object, desired, *expected); \
@@ -235,7 +239,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedExchange64((LONGLONG *) object, desired); \
+        out = InterlockedExchange64((LONGLONG *) object, desired); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedExchange((LONG *) object, desired); \
@@ -263,7 +267,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedExchangeAdd64((LONGLONG *) object, operand); \
+        out = InterlockedExchangeAdd64((LONGLONG *) object, operand); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedExchangeAdd((LONG *) object, operand); \
@@ -291,7 +295,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedAnd64((LONGLONG *) object, operand); \
+        out = InterlockedAnd64((LONGLONG *) object, operand); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedAnd((LONG *) object, operand); \
@@ -319,7 +323,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedOr64((LONGLONG *) object, operand); \
+        out = InterlockedOr64((LONGLONG *) object, operand); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedOr((LONG *) object, operand); \
@@ -350,7 +354,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedXor64((LONGLONG *) object, operand); \
+        out = InterlockedXor64((LONGLONG *) object, operand); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedXor((LONG *) object, operand); \
@@ -378,7 +382,7 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
   do { \
     switch (sizeof(out)) { \
       case sizeof(uint64_t): \
-        out = _InterlockedExchangeAdd64((LONGLONG *) object, 0); \
+        out = InterlockedExchangeAdd64((LONGLONG *) object, 0); \
         break; \
       case sizeof(uint32_t): \
         out = _InterlockedExchangeAdd((LONG *) object, 0); \
@@ -397,6 +401,8 @@ typedef _Atomic (uintmax_t) atomic_uintmax_t;
     } \
   } while (0); \
   __pragma(warning(pop))
+
+// *INDENT-ON*
 
 #define rcutils_win32_atomic_store(object, desired) \
   do { \

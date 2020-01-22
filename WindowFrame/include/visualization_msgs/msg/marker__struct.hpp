@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'header'
@@ -270,8 +260,19 @@ struct Marker_
     0u;
   static constexpr uint8_t MODIFY =
     0u;
+  // guard against 'DELETE' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(DELETE)
+#    pragma push_macro("DELETE")
+#    undef DELETE
+#  endif
+#endif
   static constexpr uint8_t DELETE =
     2u;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("DELETE")
+#endif
   static constexpr uint8_t DELETEALL =
     3u;
 
@@ -401,8 +402,19 @@ template<typename ContainerAllocator>
 constexpr uint8_t Marker_<ContainerAllocator>::ADD;
 template<typename ContainerAllocator>
 constexpr uint8_t Marker_<ContainerAllocator>::MODIFY;
+// guard against 'DELETE' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(DELETE)
+#    pragma push_macro("DELETE")
+#    undef DELETE
+#  endif
+#endif
 template<typename ContainerAllocator>
 constexpr uint8_t Marker_<ContainerAllocator>::DELETE;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("DELETE")
+#endif
 template<typename ContainerAllocator>
 constexpr uint8_t Marker_<ContainerAllocator>::DELETEALL;
 

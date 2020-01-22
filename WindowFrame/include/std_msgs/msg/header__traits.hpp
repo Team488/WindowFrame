@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<std_msgs::msg::Header>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<std_msgs::msg::Header>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // STD_MSGS__MSG__HEADER__TRAITS_HPP_

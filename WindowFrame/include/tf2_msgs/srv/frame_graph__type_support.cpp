@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void FrameGraph_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::srv::FrameGraph_Request(_init);
+}
+
+void FrameGraph_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::srv::FrameGraph_Request *>(message_memory);
+  typed_message->~FrameGraph_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember FrameGraph_Request_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember FrameGraph_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers FrameGraph_R
   "FrameGraph_Request",  // message name
   1,  // number of fields
   sizeof(tf2_msgs::srv::FrameGraph_Request),
-  FrameGraph_Request_message_member_array  // message members
+  FrameGraph_Request_message_member_array,  // message members
+  FrameGraph_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  FrameGraph_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t FrameGraph_Request_message_type_support_handle = {
@@ -128,12 +142,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void FrameGraph_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::srv::FrameGraph_Response(_init);
+}
+
+void FrameGraph_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::srv::FrameGraph_Response *>(message_memory);
+  typed_message->~FrameGraph_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember FrameGraph_Response_message_member_array[1] = {
   {
     "frame_yaml",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -142,7 +168,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember FrameGraph_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -151,7 +177,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers FrameGraph_R
   "FrameGraph_Response",  // message name
   1,  // number of fields
   sizeof(tf2_msgs::srv::FrameGraph_Response),
-  FrameGraph_Response_message_member_array  // message members
+  FrameGraph_Response_message_member_array,  // message members
+  FrameGraph_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  FrameGraph_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t FrameGraph_Response_message_type_support_handle = {

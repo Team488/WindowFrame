@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<rosgraph_msgs::msg::Clock>
   : std::integral_constant<bool, has_bounded_size<builtin_interfaces::msg::Time>::value> {};
 
+template<>
+struct is_message<rosgraph_msgs::msg::Clock>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // ROSGRAPH_MSGS__MSG__CLOCK__TRAITS_HPP_

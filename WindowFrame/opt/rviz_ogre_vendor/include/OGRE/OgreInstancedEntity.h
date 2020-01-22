@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __InstancedEntity_H__
 #define __InstancedEntity_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgreMovableObject.h"
 #include "OgreNode.h"
@@ -34,6 +39,8 @@ THE SOFTWARE.
 
 namespace Ogre
 {
+    class NameGenerator;
+
     /** \addtogroup Core
     *  @{
     */
@@ -82,14 +89,15 @@ namespace Ogre
         friend class InstanceBatchHW_VTF;
         friend class BaseInstanceBatchVTF;
     protected:
+        typedef TransformBase<3, float>        Matrix3x4f;
         uint16 mInstanceId; //Note it may change after defragmenting!
         bool mInUse;
         InstanceBatch *mBatchOwner;
 
         AnimationStateSet *mAnimationState;
         SkeletonInstance *mSkeletonInstance;
-        Matrix4 *mBoneMatrices;  //Local space
-        Matrix4 *mBoneWorldMatrices; //World space
+        Affine3 *mBoneMatrices;  //Local space
+        Affine3 *mBoneWorldMatrices; //World space
         unsigned long mFrameAnimationLastUpdated;
 
         InstancedEntity* mSharedTransformEntity;    //When not null, another InstancedEntity controls the skeleton
@@ -99,7 +107,7 @@ namespace Ogre
         uint16 mTransformLookupNumber;
 
         /// Stores the master when we're the slave, store our slaves when we're the master
-        typedef vector<InstancedEntity*>::type InstancedEntityVec;
+        typedef std::vector<InstancedEntity*> InstancedEntityVec;
         InstancedEntityVec mSharingPartners;
 
         //////////////////////////////////////////////////////////////////////////
@@ -117,7 +125,7 @@ namespace Ogre
         /// The maximum absolute scale for all dimension
         Real mMaxScaleLocal;
         /// Full world transform
-        Matrix4 mFullLocalTransform;
+        Affine3 mFullLocalTransform;
         /// Tells if mFullTransform needs an updated
         bool mNeedTransformUpdate;
         /// Tells if the animation world transform needs an update
@@ -129,7 +137,7 @@ namespace Ogre
         /// Returns number of matrices written to transform, assumes transform has enough space
         size_t getTransforms( Matrix4 *xform ) const;
         /// Returns number of 32-bit values written
-        size_t getTransforms3x4( float *xform ) const;
+        size_t getTransforms3x4( Matrix3x4f *xform ) const;
 
         /// Returns true if this InstancedObject is visible to the current camera
         bool findVisible( Camera *camera ) const;
@@ -253,10 +261,10 @@ namespace Ogre
         void setInUse(bool used);
 
         /** Returns the world transform of the instanced entity including local transform */
-        virtual const Matrix4& _getParentNodeFullTransform(void) const { 
+        virtual const Affine3& _getParentNodeFullTransform(void) const {
             assert((!mNeedTransformUpdate || !mUseLocalTransform) && "Transform data should be updated at this point");
             return mUseLocalTransform ? mFullLocalTransform :
-                mParentNode ? mParentNode->_getFullTransform() : Matrix4::IDENTITY;
+                mParentNode ? mParentNode->_getFullTransform() : Affine3::IDENTITY;
         }
 
         /** Returns the derived position of the instanced entity including local transform */
@@ -291,5 +299,9 @@ namespace Ogre
 }
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void LaserScan_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::LaserScan(_init);
+}
+
+void LaserScan_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::LaserScan *>(message_memory);
+  typed_message->~LaserScan();
+}
+
 size_t size_function__LaserScan__ranges(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<float> *>(untyped_member);
@@ -93,13 +105,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "angle_min",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -108,13 +120,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "angle_max",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -123,13 +135,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "angle_increment",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -138,13 +150,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "time_increment",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -153,13 +165,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "scan_time",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -168,13 +180,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "range_min",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -183,13 +195,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "range_max",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -198,13 +210,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "ranges",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -219,7 +231,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember LaserScan_mes
     "intensities",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -237,7 +249,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers LaserScan_me
   "LaserScan",  // message name
   10,  // number of fields
   sizeof(sensor_msgs::msg::LaserScan),
-  LaserScan_message_member_array  // message members
+  LaserScan_message_member_array,  // message members
+  LaserScan_init_function,  // function to initialize message memory (memory has to be allocated)
+  LaserScan_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t LaserScan_message_type_support_handle = {

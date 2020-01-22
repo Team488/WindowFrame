@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<logging_demo::srv::ConfigLogger_Request>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<logging_demo::srv::ConfigLogger_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<logging_demo::srv::ConfigLogger_Response>
 template<>
 struct has_bounded_size<logging_demo::srv::ConfigLogger_Response>
   : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<logging_demo::srv::ConfigLogger_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<logging_demo::srv::ConfigLogger>
     has_bounded_size<logging_demo::srv::ConfigLogger_Request>::value &&
     has_bounded_size<logging_demo::srv::ConfigLogger_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<logging_demo::srv::ConfigLogger>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<logging_demo::srv::ConfigLogger_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<logging_demo::srv::ConfigLogger_Response>
+  : std::true_type
 {
 };
 

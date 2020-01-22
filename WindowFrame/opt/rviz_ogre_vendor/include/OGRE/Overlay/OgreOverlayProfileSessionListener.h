@@ -28,6 +28,10 @@ THE SOFTWARE.
 
 #ifndef __OverlayProfileSessionListener_H__
 #define __OverlayProfileSessionListener_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
 
 #include "OgreOverlayPrerequisites.h"
 #include "OgreProfiler.h"
@@ -50,6 +54,14 @@ namespace Ogre  {
     class _OgreOverlayExport OverlayProfileSessionListener : public ProfileSessionListener
     {
     public:
+        enum DisplayMode
+        {
+            /// Display % frame usage on the overlay
+            DISPLAY_PERCENTAGE,
+            /// Display milliseconds on the overlay
+            DISPLAY_MILLISECONDS
+        };
+
         OverlayProfileSessionListener();
         virtual ~OverlayProfileSessionListener();
 
@@ -76,8 +88,14 @@ namespace Ogre  {
         Real getOverlayLeft() const;
         Real getOverlayTop() const;
 
+        /// Set the display mode for the overlay.
+        void setDisplayMode(DisplayMode d) { mDisplayMode = d; }
+
+        /// Get the display mode for the overlay.
+        DisplayMode getDisplayMode() const { return mDisplayMode; }
+
     private:
-        typedef list<OverlayElement*>::type ProfileBarList;
+        typedef std::list<OverlayElement*> ProfileBarList;
 
         /** Prints the profiling results of each frame 
         @remarks Recursive, for all the little children. */
@@ -132,6 +150,13 @@ namespace Ogre  {
 
         /// The max number of profiles we can display
         uint mMaxDisplayProfiles;
+
+        /// How to display the overlay
+        DisplayMode mDisplayMode;
     };
 }
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 #endif

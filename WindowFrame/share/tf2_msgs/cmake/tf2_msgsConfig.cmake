@@ -16,7 +16,7 @@ set(_tf2_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT tf2_msgs_FIND_QUIETLY)
-  message(STATUS "Found tf2_msgs: 0.11.5 (${tf2_msgs_DIR})")
+  message(STATUS "Found tf2_msgs: 0.12.4 (${tf2_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "sensor_msgs/msg/camera_info__functions.h"
 #include "sensor_msgs/msg/camera_info__struct.h"
 
 
@@ -29,6 +30,20 @@
 extern "C"
 {
 #endif
+
+void CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  sensor_msgs__msg__CameraInfo__init(message_memory);
+}
+
+void CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_fini_function(void * message_memory)
+{
+  sensor_msgs__msg__CameraInfo__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_message_member_array[11] = {
   {
@@ -203,7 +218,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers CameraInfo__rosi
   "CameraInfo",  // message name
   11,  // number of fields
   sizeof(sensor_msgs__msg__CameraInfo),
-  CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_message_member_array  // message members
+  CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_message_member_array,  // message members
+  CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_init_function,  // function to initialize message memory (memory has to be allocated)
+  CameraInfo__rosidl_typesupport_introspection_c__CameraInfo_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

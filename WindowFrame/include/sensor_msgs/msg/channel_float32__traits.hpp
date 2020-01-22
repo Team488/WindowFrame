@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<sensor_msgs::msg::ChannelFloat32>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<sensor_msgs::msg::ChannelFloat32>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SENSOR_MSGS__MSG__CHANNEL_FLOAT32__TRAITS_HPP_

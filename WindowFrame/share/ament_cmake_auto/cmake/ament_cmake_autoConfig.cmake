@@ -16,7 +16,7 @@ set(_ament_cmake_auto_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_cmake_auto_FIND_QUIETLY)
-  message(STATUS "Found ament_cmake_auto: 0.7.3 (${ament_cmake_auto_DIR})")
+  message(STATUS "Found ament_cmake_auto: 0.8.1 (${ament_cmake_auto_DIR})")
 endif()
 
 # warn when using a deprecated package

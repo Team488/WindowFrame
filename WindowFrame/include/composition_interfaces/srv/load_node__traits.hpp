@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<composition_interfaces::srv::LoadNode_Request>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<composition_interfaces::srv::LoadNode_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<composition_interfaces::srv::LoadNode_Response>
 template<>
 struct has_bounded_size<composition_interfaces::srv::LoadNode_Response>
   : std::integral_constant<bool, false> {};
+
+template<>
+struct is_message<composition_interfaces::srv::LoadNode_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<composition_interfaces::srv::LoadNode>
     has_bounded_size<composition_interfaces::srv::LoadNode_Request>::value &&
     has_bounded_size<composition_interfaces::srv::LoadNode_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<composition_interfaces::srv::LoadNode>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<composition_interfaces::srv::LoadNode_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<composition_interfaces::srv::LoadNode_Response>
+  : std::true_type
 {
 };
 

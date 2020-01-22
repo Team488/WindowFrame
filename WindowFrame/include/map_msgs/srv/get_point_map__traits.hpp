@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<map_msgs::srv::GetPointMap_Request>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<map_msgs::srv::GetPointMap_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -49,6 +53,10 @@ struct has_fixed_size<map_msgs::srv::GetPointMap_Response>
 template<>
 struct has_bounded_size<map_msgs::srv::GetPointMap_Response>
   : std::integral_constant<bool, has_bounded_size<sensor_msgs::msg::PointCloud2>::value> {};
+
+template<>
+struct is_message<map_msgs::srv::GetPointMap_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -78,6 +86,24 @@ struct has_bounded_size<map_msgs::srv::GetPointMap>
     has_bounded_size<map_msgs::srv::GetPointMap_Request>::value &&
     has_bounded_size<map_msgs::srv::GetPointMap_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<map_msgs::srv::GetPointMap>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<map_msgs::srv::GetPointMap_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<map_msgs::srv::GetPointMap_Response>
+  : std::true_type
 {
 };
 

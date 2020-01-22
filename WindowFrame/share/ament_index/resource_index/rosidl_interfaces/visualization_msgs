@@ -18,3 +18,7 @@ msg/MarkerArray.idl
 msg/MarkerArray.msg
 msg/MenuEntry.idl
 msg/MenuEntry.msg
+srv/GetInteractiveMarkers.idl
+srv/GetInteractiveMarkers.srv
+srv/GetInteractiveMarkers_Request.msg
+srv/GetInteractiveMarkers_Response.msg

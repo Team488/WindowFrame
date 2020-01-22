@@ -16,7 +16,7 @@ set(_opensplice_cmake_module_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT opensplice_cmake_module_FIND_QUIETLY)
-  message(STATUS "Found opensplice_cmake_module: 0.7.3 (${opensplice_cmake_module_DIR})")
+  message(STATUS "Found opensplice_cmake_module: 0.8.1 (${opensplice_cmake_module_DIR})")
 endif()
 
 # warn when using a deprecated package

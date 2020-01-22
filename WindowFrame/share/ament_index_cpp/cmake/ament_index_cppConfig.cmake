@@ -16,7 +16,7 @@ set(_ament_index_cpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_index_cpp_FIND_QUIETLY)
-  message(STATUS "Found ament_index_cpp: 0.7.0 (${ament_index_cpp_DIR})")
+  message(STATUS "Found ament_index_cpp: 0.7.2 (${ament_index_cpp_DIR})")
 endif()
 
 # warn when using a deprecated package

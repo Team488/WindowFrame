@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<trajectory_msgs::msg::JointTrajectory>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<trajectory_msgs::msg::JointTrajectory>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TRAJECTORY_MSGS__MSG__JOINT_TRAJECTORY__TRAITS_HPP_

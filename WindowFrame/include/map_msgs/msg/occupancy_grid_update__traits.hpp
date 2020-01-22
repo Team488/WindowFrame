@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<map_msgs::msg::OccupancyGridUpdate>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<map_msgs::msg::OccupancyGridUpdate>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // MAP_MSGS__MSG__OCCUPANCY_GRID_UPDATE__TRAITS_HPP_

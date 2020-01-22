@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void UnloadNode_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) composition_interfaces::srv::UnloadNode_Request(_init);
+}
+
+void UnloadNode_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<composition_interfaces::srv::UnloadNode_Request *>(message_memory);
+  typed_message->~UnloadNode_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember UnloadNode_Request_message_member_array[1] = {
   {
     "unique_id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnloadNode_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers UnloadNode_R
   "UnloadNode_Request",  // message name
   1,  // number of fields
   sizeof(composition_interfaces::srv::UnloadNode_Request),
-  UnloadNode_Request_message_member_array  // message members
+  UnloadNode_Request_message_member_array,  // message members
+  UnloadNode_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  UnloadNode_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t UnloadNode_Request_message_type_support_handle = {
@@ -128,12 +142,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void UnloadNode_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) composition_interfaces::srv::UnloadNode_Response(_init);
+}
+
+void UnloadNode_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<composition_interfaces::srv::UnloadNode_Response *>(message_memory);
+  typed_message->~UnloadNode_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember UnloadNode_Response_message_member_array[2] = {
   {
     "success",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -142,13 +168,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnloadNode_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "error_message",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -157,7 +183,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnloadNode_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -166,7 +192,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers UnloadNode_R
   "UnloadNode_Response",  // message name
   2,  // number of fields
   sizeof(composition_interfaces::srv::UnloadNode_Response),
-  UnloadNode_Response_message_member_array  // message members
+  UnloadNode_Response_message_member_array,  // message members
+  UnloadNode_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  UnloadNode_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t UnloadNode_Response_message_type_support_handle = {

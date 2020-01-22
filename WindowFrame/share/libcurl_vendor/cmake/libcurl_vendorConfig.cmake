@@ -16,7 +16,7 @@ set(_libcurl_vendor_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT libcurl_vendor_FIND_QUIETLY)
-  message(STATUS "Found libcurl_vendor: 2.1.0 (${libcurl_vendor_DIR})")
+  message(STATUS "Found libcurl_vendor: 2.2.0 (${libcurl_vendor_DIR})")
 endif()
 
 # warn when using a deprecated package

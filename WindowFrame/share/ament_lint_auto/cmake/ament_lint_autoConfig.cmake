@@ -16,7 +16,7 @@ set(_ament_lint_auto_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_lint_auto_FIND_QUIETLY)
-  message(STATUS "Found ament_lint_auto: 0.7.9 (${ament_lint_auto_DIR})")
+  message(STATUS "Found ament_lint_auto: 0.8.1 (${ament_lint_auto_DIR})")
 endif()
 
 # warn when using a deprecated package

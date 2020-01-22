@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<pendulum_msgs::msg::JointCommand>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<pendulum_msgs::msg::JointCommand>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // PENDULUM_MSGS__MSG__JOINT_COMMAND__TRAITS_HPP_

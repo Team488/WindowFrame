@@ -35,6 +35,10 @@ template<>
 struct has_bounded_size<nav_msgs::msg::Odometry>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<nav_msgs::msg::Odometry>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // NAV_MSGS__MSG__ODOMETRY__TRAITS_HPP_

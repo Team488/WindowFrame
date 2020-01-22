@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void OccupancyGridUpdate_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) map_msgs::msg::OccupancyGridUpdate(_init);
+}
+
+void OccupancyGridUpdate_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<map_msgs::msg::OccupancyGridUpdate *>(message_memory);
+  typed_message->~OccupancyGridUpdate();
+}
+
 size_t size_function__OccupancyGridUpdate__data(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<int8_t> *>(untyped_member);
@@ -66,13 +78,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember OccupancyGrid
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "x",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -81,13 +93,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember OccupancyGrid
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "y",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -96,13 +108,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember OccupancyGrid
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "width",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -111,13 +123,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember OccupancyGrid
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "height",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -126,13 +138,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember OccupancyGrid
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "data",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -150,7 +162,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers OccupancyGri
   "OccupancyGridUpdate",  // message name
   6,  // number of fields
   sizeof(map_msgs::msg::OccupancyGridUpdate),
-  OccupancyGridUpdate_message_member_array  // message members
+  OccupancyGridUpdate_message_member_array,  // message members
+  OccupancyGridUpdate_init_function,  // function to initialize message memory (memory has to be allocated)
+  OccupancyGridUpdate_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t OccupancyGridUpdate_message_type_support_handle = {

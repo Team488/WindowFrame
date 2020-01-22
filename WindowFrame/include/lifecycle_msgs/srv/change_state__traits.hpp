@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<lifecycle_msgs::srv::ChangeState_Request>
   : std::integral_constant<bool, has_bounded_size<lifecycle_msgs::msg::Transition>::value> {};
 
+template<>
+struct is_message<lifecycle_msgs::srv::ChangeState_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -49,6 +53,10 @@ struct has_fixed_size<lifecycle_msgs::srv::ChangeState_Response>
 template<>
 struct has_bounded_size<lifecycle_msgs::srv::ChangeState_Response>
   : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<lifecycle_msgs::srv::ChangeState_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -78,6 +86,24 @@ struct has_bounded_size<lifecycle_msgs::srv::ChangeState>
     has_bounded_size<lifecycle_msgs::srv::ChangeState_Request>::value &&
     has_bounded_size<lifecycle_msgs::srv::ChangeState_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<lifecycle_msgs::srv::ChangeState>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<lifecycle_msgs::srv::ChangeState_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<lifecycle_msgs::srv::ChangeState_Response>
+  : std::true_type
 {
 };
 

@@ -15,6 +15,9 @@ module dds_ {
 
 struct WStrings_ {
 string wstring_value_;
+string wstring_value_default1_;
+string wstring_value_default2_;
+string wstring_value_default3_;
 string array_of_wstrings_[3];
 
 sequence<string, 3> bounded_sequence_of_wstrings_;

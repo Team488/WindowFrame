@@ -16,7 +16,7 @@ set(_composition_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT composition_FIND_QUIETLY)
-  message(STATUS "Found composition: 0.7.8 (${composition_DIR})")
+  message(STATUS "Found composition: 0.8.4 (${composition_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -21,7 +21,7 @@
 #
 ###########################################################################
 
-prefix=C:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install
+prefix=C:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install
 exec_prefix=${prefix}
 includedir=${prefix}/include
 cppflag_curl_staticlib=
@@ -75,7 +75,7 @@ while test $# -gt 0; do
         ;;
 
     --cc)
-        echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.20.27508/bin/Hostx64/x64/cl.exe"
+        echo "C:/Program Files (x86)/Microsoft Visual Studio/2019/Community/VC/Tools/MSVC/14.23.28105/bin/Hostx64/x64/cl.exe"
         ;;
 
     --prefix)
@@ -142,8 +142,8 @@ while test $# -gt 0; do
         ;;
 
     --libs)
-        if test "XC:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib" != "X/usr/lib" -a "XC:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib" != "X/usr/lib64"; then
-           CURLLIBDIR="-LC:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib "
+        if test "XC:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib" != "X/usr/lib" -a "XC:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib" != "X/usr/lib64"; then
+           CURLLIBDIR="-LC:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib "
         else
            CURLLIBDIR=""
         fi
@@ -156,7 +156,7 @@ while test $# -gt 0; do
 
     --static-libs)
         if test "Xno" != "Xno" ; then
-          echo C:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib/libcurl.lib /machine:x64  -lwldap32 -lwinmm -lws2_32
+          echo C:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib/libcurl.lib /machine:x64  -lwldap32 -lwinmm -lws2_32
         else
           echo "curl was built with static libraries disabled" >&2
           exit 1

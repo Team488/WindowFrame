@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GetPlan_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) nav_msgs::srv::GetPlan_Request(_init);
+}
+
+void GetPlan_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<nav_msgs::srv::GetPlan_Request *>(message_memory);
+  typed_message->~GetPlan_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember GetPlan_Request_message_member_array[3] = {
   {
     "start",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetPlan_Reque
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "goal",  // name
@@ -54,13 +66,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetPlan_Reque
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "tolerance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -69,7 +81,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetPlan_Reque
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -78,7 +90,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GetPlan_Requ
   "GetPlan_Request",  // message name
   3,  // number of fields
   sizeof(nav_msgs::srv::GetPlan_Request),
-  GetPlan_Request_message_member_array  // message members
+  GetPlan_Request_message_member_array,  // message members
+  GetPlan_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetPlan_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GetPlan_Request_message_type_support_handle = {
@@ -158,6 +172,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GetPlan_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) nav_msgs::srv::GetPlan_Response(_init);
+}
+
+void GetPlan_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<nav_msgs::srv::GetPlan_Response *>(message_memory);
+  typed_message->~GetPlan_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember GetPlan_Response_message_member_array[1] = {
   {
     "plan",  // name
@@ -172,7 +198,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetPlan_Respo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -181,7 +207,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GetPlan_Resp
   "GetPlan_Response",  // message name
   1,  // number of fields
   sizeof(nav_msgs::srv::GetPlan_Response),
-  GetPlan_Response_message_member_array  // message members
+  GetPlan_Response_message_member_array,  // message members
+  GetPlan_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetPlan_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GetPlan_Response_message_type_support_handle = {

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ListParametersResult_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::msg::ListParametersResult(_init);
+}
+
+void ListParametersResult_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::msg::ListParametersResult *>(message_memory);
+  typed_message->~ListParametersResult();
+}
+
 size_t size_function__ListParametersResult__names(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<std::string> *>(untyped_member);
@@ -84,7 +96,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameter
     "names",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -99,7 +111,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameter
     "prefixes",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -117,7 +129,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ListParamete
   "ListParametersResult",  // message name
   2,  // number of fields
   sizeof(rcl_interfaces::msg::ListParametersResult),
-  ListParametersResult_message_member_array  // message members
+  ListParametersResult_message_member_array,  // message members
+  ListParametersResult_init_function,  // function to initialize message memory (memory has to be allocated)
+  ListParametersResult_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ListParametersResult_message_type_support_handle = {

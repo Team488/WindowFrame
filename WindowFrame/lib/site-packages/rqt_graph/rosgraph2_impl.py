@@ -333,7 +333,13 @@ class Graph(object):
         self.nt_nodes = nt_nodes
         self.nt_all_edges = nt_all_edges
         self.nt_edges = nt_all_edges
-        self.nn_edges = nt_all_edges
+
+        nn_edges = EdgeList()
+        for topic, pub_nodes in publishers.items():
+            for pub_node, sub_node in itertools.product(pub_nodes, subscriptions.get(topic, [])):
+                updated = nn_edges.add_edges(pub_node, sub_node, 'o', topic) or updated
+        self.nn_edges = nn_edges
+
         nodes = set(nodes)
 
         srvs = set([s for s, _ in srvs])
@@ -414,8 +420,9 @@ class Graph(object):
         return updated
 
     def _node_uri_refresh(self, node):
-        current_nodes = \
-            {namespace + name for name, namespace in self._node.get_node_names_and_namespaces()}
+        current_nodes = {
+            namespace + ('' if namespace.endswith('/') else '/') + name
+            for name, namespace in self._node.get_node_names_and_namespaces()}
         if node not in current_nodes:
             qWarning('Node "{}" does not exist'.format(node))
             return None

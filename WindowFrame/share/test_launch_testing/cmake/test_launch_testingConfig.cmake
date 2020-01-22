@@ -16,7 +16,7 @@ set(_test_launch_testing_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT test_launch_testing_FIND_QUIETLY)
-  message(STATUS "Found test_launch_testing: 0.8.6 (${test_launch_testing_DIR})")
+  message(STATUS "Found test_launch_testing: 0.9.5 (${test_launch_testing_DIR})")
 endif()
 
 # warn when using a deprecated package

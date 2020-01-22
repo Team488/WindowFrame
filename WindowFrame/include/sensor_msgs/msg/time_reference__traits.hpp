@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<sensor_msgs::msg::TimeReference>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<sensor_msgs::msg::TimeReference>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SENSOR_MSGS__MSG__TIME_REFERENCE__TRAITS_HPP_

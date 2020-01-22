@@ -16,7 +16,7 @@ set(_rcl_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rcl_FIND_QUIETLY)
-  message(STATUS "Found rcl: 0.7.6 (${rcl_DIR})")
+  message(STATUS "Found rcl: 0.8.3 (${rcl_DIR})")
 endif()
 
 # warn when using a deprecated package

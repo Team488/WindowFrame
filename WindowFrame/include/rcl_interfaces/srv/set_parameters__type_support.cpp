@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SetParameters_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::SetParameters_Request(_init);
+}
+
+void SetParameters_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::SetParameters_Request *>(message_memory);
+  typed_message->~SetParameters_Request();
+}
+
 size_t size_function__SetParameters_Request__parameters(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::Parameter> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SetParameter
   "SetParameters_Request",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::SetParameters_Request),
-  SetParameters_Request_message_member_array  // message members
+  SetParameters_Request_message_member_array,  // message members
+  SetParameters_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetParameters_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SetParameters_Request_message_type_support_handle = {
@@ -155,6 +169,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SetParameters_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::SetParameters_Response(_init);
+}
+
+void SetParameters_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::SetParameters_Response *>(message_memory);
+  typed_message->~SetParameters_Response();
+}
+
 size_t size_function__SetParameters_Response__results(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::SetParametersResult> *>(untyped_member);
@@ -205,7 +231,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SetParameter
   "SetParameters_Response",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::SetParameters_Response),
-  SetParameters_Response_message_member_array  // message members
+  SetParameters_Response_message_member_array,  // message members
+  SetParameters_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetParameters_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SetParameters_Response_message_type_support_handle = {

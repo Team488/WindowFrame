@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __BillboardParticleRenderer_H__
 #define __BillboardParticleRenderer_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreParticleSystemRenderer.h"
@@ -202,7 +207,7 @@ namespace Ogre {
         const String& getType(void) const;
         /// @copydoc ParticleSystemRenderer::_updateRenderQueue
         void _updateRenderQueue(RenderQueue* queue, 
-            list<Particle*>::type& currentParticles, bool cullIndividually);
+            std::list<Particle*>& currentParticles, bool cullIndividually);
         /// @copydoc ParticleSystemRenderer::visitRenderables
         void visitRenderables(Renderable::Visitor* visitor, 
             bool debugRenderables = false);
@@ -261,6 +266,10 @@ namespace Ogre {
 } // namespace Ogre
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif // __BillboardParticleRenderer_H__
 

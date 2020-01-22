@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Arrays_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::msg::Arrays(_init);
+}
+
+void Arrays_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::msg::Arrays *>(message_memory);
+  typed_message->~Arrays();
+}
+
 size_t size_function__Arrays__bool_values(const void * untyped_member)
 {
   (void)untyped_member;
@@ -650,7 +662,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     "bool_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -659,13 +671,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__bool_values,  // size() function pointer
     get_const_function__Arrays__bool_values,  // get_const(index) function pointer
     get_function__Arrays__bool_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "byte_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_OCTET,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -674,13 +686,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__byte_values,  // size() function pointer
     get_const_function__Arrays__byte_values,  // get_const(index) function pointer
     get_function__Arrays__byte_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "char_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -689,13 +701,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__char_values,  // size() function pointer
     get_const_function__Arrays__char_values,  // get_const(index) function pointer
     get_function__Arrays__char_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "float32_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -704,13 +716,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__float32_values,  // size() function pointer
     get_const_function__Arrays__float32_values,  // get_const(index) function pointer
     get_function__Arrays__float32_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "float64_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -719,13 +731,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__float64_values,  // size() function pointer
     get_const_function__Arrays__float64_values,  // get_const(index) function pointer
     get_function__Arrays__float64_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int8_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -734,13 +746,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int8_values,  // size() function pointer
     get_const_function__Arrays__int8_values,  // get_const(index) function pointer
     get_function__Arrays__int8_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint8_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -749,13 +761,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint8_values,  // size() function pointer
     get_const_function__Arrays__uint8_values,  // get_const(index) function pointer
     get_function__Arrays__uint8_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int16_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -764,13 +776,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int16_values,  // size() function pointer
     get_const_function__Arrays__int16_values,  // get_const(index) function pointer
     get_function__Arrays__int16_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint16_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -779,13 +791,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint16_values,  // size() function pointer
     get_const_function__Arrays__uint16_values,  // get_const(index) function pointer
     get_function__Arrays__uint16_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int32_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -794,13 +806,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int32_values,  // size() function pointer
     get_const_function__Arrays__int32_values,  // get_const(index) function pointer
     get_function__Arrays__int32_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint32_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -809,13 +821,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint32_values,  // size() function pointer
     get_const_function__Arrays__uint32_values,  // get_const(index) function pointer
     get_function__Arrays__uint32_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int64_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -824,13 +836,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int64_values,  // size() function pointer
     get_const_function__Arrays__int64_values,  // get_const(index) function pointer
     get_function__Arrays__int64_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint64_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -839,13 +851,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint64_values,  // size() function pointer
     get_const_function__Arrays__uint64_values,  // get_const(index) function pointer
     get_function__Arrays__uint64_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "string_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -854,7 +866,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__string_values,  // size() function pointer
     get_const_function__Arrays__string_values,  // get_const(index) function pointer
     get_function__Arrays__string_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "basic_types_values",  // name
@@ -869,7 +881,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__basic_types_values,  // size() function pointer
     get_const_function__Arrays__basic_types_values,  // get_const(index) function pointer
     get_function__Arrays__basic_types_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "constants_values",  // name
@@ -884,7 +896,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__constants_values,  // size() function pointer
     get_const_function__Arrays__constants_values,  // get_const(index) function pointer
     get_function__Arrays__constants_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "defaults_values",  // name
@@ -899,13 +911,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__defaults_values,  // size() function pointer
     get_const_function__Arrays__defaults_values,  // get_const(index) function pointer
     get_function__Arrays__defaults_values,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "bool_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -914,13 +926,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__bool_values_default,  // size() function pointer
     get_const_function__Arrays__bool_values_default,  // get_const(index) function pointer
     get_function__Arrays__bool_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "byte_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_OCTET,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -929,13 +941,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__byte_values_default,  // size() function pointer
     get_const_function__Arrays__byte_values_default,  // get_const(index) function pointer
     get_function__Arrays__byte_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "char_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -944,13 +956,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__char_values_default,  // size() function pointer
     get_const_function__Arrays__char_values_default,  // get_const(index) function pointer
     get_function__Arrays__char_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "float32_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -959,13 +971,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__float32_values_default,  // size() function pointer
     get_const_function__Arrays__float32_values_default,  // get_const(index) function pointer
     get_function__Arrays__float32_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "float64_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -974,13 +986,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__float64_values_default,  // size() function pointer
     get_const_function__Arrays__float64_values_default,  // get_const(index) function pointer
     get_function__Arrays__float64_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int8_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -989,13 +1001,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int8_values_default,  // size() function pointer
     get_const_function__Arrays__int8_values_default,  // get_const(index) function pointer
     get_function__Arrays__int8_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint8_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1004,13 +1016,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint8_values_default,  // size() function pointer
     get_const_function__Arrays__uint8_values_default,  // get_const(index) function pointer
     get_function__Arrays__uint8_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int16_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1019,13 +1031,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int16_values_default,  // size() function pointer
     get_const_function__Arrays__int16_values_default,  // get_const(index) function pointer
     get_function__Arrays__int16_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint16_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1034,13 +1046,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint16_values_default,  // size() function pointer
     get_const_function__Arrays__uint16_values_default,  // get_const(index) function pointer
     get_function__Arrays__uint16_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int32_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1049,13 +1061,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int32_values_default,  // size() function pointer
     get_const_function__Arrays__int32_values_default,  // get_const(index) function pointer
     get_function__Arrays__int32_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint32_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1064,13 +1076,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint32_values_default,  // size() function pointer
     get_const_function__Arrays__uint32_values_default,  // get_const(index) function pointer
     get_function__Arrays__uint32_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "int64_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1079,13 +1091,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__int64_values_default,  // size() function pointer
     get_const_function__Arrays__int64_values_default,  // get_const(index) function pointer
     get_function__Arrays__int64_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "uint64_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1094,13 +1106,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__uint64_values_default,  // size() function pointer
     get_const_function__Arrays__uint64_values_default,  // get_const(index) function pointer
     get_function__Arrays__uint64_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "string_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -1109,13 +1121,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     size_function__Arrays__string_values_default,  // size() function pointer
     get_const_function__Arrays__string_values_default,  // get_const(index) function pointer
     get_function__Arrays__string_values_default,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "alignment_check",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1124,7 +1136,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Arrays_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -1133,7 +1145,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Arrays_messa
   "Arrays",  // message name
   32,  // number of fields
   sizeof(test_msgs::msg::Arrays),
-  Arrays_message_member_array  // message members
+  Arrays_message_member_array,  // message members
+  Arrays_init_function,  // function to initialize message memory (memory has to be allocated)
+  Arrays_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Arrays_message_type_support_handle = {

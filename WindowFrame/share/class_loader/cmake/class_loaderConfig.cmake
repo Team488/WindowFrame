@@ -16,7 +16,7 @@ set(_class_loader_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT class_loader_FIND_QUIETLY)
-  message(STATUS "Found class_loader: 1.3.2 (${class_loader_DIR})")
+  message(STATUS "Found class_loader: 1.4.0 (${class_loader_DIR})")
 endif()
 
 # warn when using a deprecated package

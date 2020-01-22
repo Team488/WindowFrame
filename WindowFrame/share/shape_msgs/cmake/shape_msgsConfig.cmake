@@ -16,7 +16,7 @@ set(_shape_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT shape_msgs_FIND_QUIETLY)
-  message(STATUS "Found shape_msgs: 0.7.0 (${shape_msgs_DIR})")
+  message(STATUS "Found shape_msgs: 0.8.1 (${shape_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

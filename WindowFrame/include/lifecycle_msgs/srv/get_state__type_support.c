@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "lifecycle_msgs/srv/get_state__functions.h"
 #include "lifecycle_msgs/srv/get_state__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  lifecycle_msgs__srv__GetState_Request__init(message_memory);
+}
+
+void GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_fini_function(void * message_memory)
+{
+  lifecycle_msgs__srv__GetState_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_message_member_array[1] = {
   {
@@ -39,7 +54,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetState_Request
   "GetState_Request",  // message name
   1,  // number of fields
   sizeof(lifecycle_msgs__srv__GetState_Request),
-  GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_message_member_array  // message members
+  GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_message_member_array,  // message members
+  GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetState_Request__rosidl_typesupport_introspection_c__GetState_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -76,6 +93,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "lifecycle_msgs/srv/get_state__functions.h"
+// already included above
 // #include "lifecycle_msgs/srv/get_state__struct.h"
 
 
@@ -89,6 +108,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  lifecycle_msgs__srv__GetState_Response__init(message_memory);
+}
+
+void GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_fini_function(void * message_memory)
+{
+  lifecycle_msgs__srv__GetState_Response__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_message_member_array[1] = {
   {
@@ -113,7 +146,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetState_Respons
   "GetState_Response",  // message name
   1,  // number of fields
   sizeof(lifecycle_msgs__srv__GetState_Response),
-  GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_message_member_array  // message members
+  GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_message_member_array,  // message members
+  GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetState_Response__rosidl_typesupport_introspection_c__GetState_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

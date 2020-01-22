@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ParameterEvent_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::msg::ParameterEvent(_init);
+}
+
+void ParameterEvent_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::msg::ParameterEvent *>(message_memory);
+  typed_message->~ParameterEvent();
+}
+
 size_t size_function__ParameterEvent__new_parameters(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::Parameter> *>(untyped_member);
@@ -120,13 +132,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterEven
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "node",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -135,7 +147,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterEven
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "new_parameters",  // name
@@ -189,7 +201,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ParameterEve
   "ParameterEvent",  // message name
   5,  // number of fields
   sizeof(rcl_interfaces::msg::ParameterEvent),
-  ParameterEvent_message_member_array  // message members
+  ParameterEvent_message_member_array,  // message members
+  ParameterEvent_init_function,  // function to initialize message memory (memory has to be allocated)
+  ParameterEvent_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ParameterEvent_message_type_support_handle = {

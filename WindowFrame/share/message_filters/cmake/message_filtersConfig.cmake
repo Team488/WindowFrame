@@ -16,7 +16,7 @@ set(_message_filters_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT message_filters_FIND_QUIETLY)
-  message(STATUS "Found message_filters: 3.1.2 (${message_filters_DIR})")
+  message(STATUS "Found message_filters: 3.2.3 (${message_filters_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -16,7 +16,7 @@ set(_robot_state_publisher_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT robot_state_publisher_FIND_QUIETLY)
-  message(STATUS "Found robot_state_publisher: 2.2.4 (${robot_state_publisher_DIR})")
+  message(STATUS "Found robot_state_publisher: 2.3.1 (${robot_state_publisher_DIR})")
 endif()
 
 # warn when using a deprecated package

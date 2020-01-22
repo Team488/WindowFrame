@@ -1,3 +1,4 @@
+﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_cpp/resource/idl__struct.hpp.em
 // with input from test_msgs:msg\WStrings.idl
 // generated code does not contain a copyright notice
@@ -13,16 +14,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__test_msgs__msg__WStrings __attribute__((deprecated))
@@ -45,6 +36,19 @@ struct WStrings_
   explicit WStrings_(rosidl_generator_cpp::MessageInitialization _init = rosidl_generator_cpp::MessageInitialization::ALL)
   {
     if (rosidl_generator_cpp::MessageInitialization::ALL == _init ||
+      rosidl_generator_cpp::MessageInitialization::DEFAULTS_ONLY == _init)
+    {
+      this->wstring_value_default1 = u"Hello world!";
+      this->wstring_value_default2 = u"Hellö wörld!";
+      this->wstring_value_default3 = u"ハローワールド";
+    } else if (rosidl_generator_cpp::MessageInitialization::ZERO == _init) {
+      this->wstring_value = u"";
+      this->wstring_value_default1 = u"";
+      this->wstring_value_default2 = u"";
+      this->wstring_value_default3 = u"";
+      std::fill<typename std::array<std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>, 3>::iterator, std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>>(this->array_of_wstrings.begin(), this->array_of_wstrings.end(), u"");
+    }
+    if (rosidl_generator_cpp::MessageInitialization::ALL == _init ||
       rosidl_generator_cpp::MessageInitialization::ZERO == _init)
     {
       this->wstring_value = u"";
@@ -54,8 +58,24 @@ struct WStrings_
 
   explicit WStrings_(const ContainerAllocator & _alloc, rosidl_generator_cpp::MessageInitialization _init = rosidl_generator_cpp::MessageInitialization::ALL)
   : wstring_value(_alloc),
+    wstring_value_default1(_alloc),
+    wstring_value_default2(_alloc),
+    wstring_value_default3(_alloc),
     array_of_wstrings(_alloc)
   {
+    if (rosidl_generator_cpp::MessageInitialization::ALL == _init ||
+      rosidl_generator_cpp::MessageInitialization::DEFAULTS_ONLY == _init)
+    {
+      this->wstring_value_default1 = u"Hello world!";
+      this->wstring_value_default2 = u"Hellö wörld!";
+      this->wstring_value_default3 = u"ハローワールド";
+    } else if (rosidl_generator_cpp::MessageInitialization::ZERO == _init) {
+      this->wstring_value = u"";
+      this->wstring_value_default1 = u"";
+      this->wstring_value_default2 = u"";
+      this->wstring_value_default3 = u"";
+      std::fill<typename std::array<std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>, 3>::iterator, std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>>(this->array_of_wstrings.begin(), this->array_of_wstrings.end(), u"");
+    }
     if (rosidl_generator_cpp::MessageInitialization::ALL == _init ||
       rosidl_generator_cpp::MessageInitialization::ZERO == _init)
     {
@@ -68,6 +88,15 @@ struct WStrings_
   using _wstring_value_type =
     std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>;
   _wstring_value_type wstring_value;
+  using _wstring_value_default1_type =
+    std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>;
+  _wstring_value_default1_type wstring_value_default1;
+  using _wstring_value_default2_type =
+    std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>;
+  _wstring_value_default2_type wstring_value_default2;
+  using _wstring_value_default3_type =
+    std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>;
+  _wstring_value_default3_type wstring_value_default3;
   using _array_of_wstrings_type =
     std::array<std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other>, 3>;
   _array_of_wstrings_type array_of_wstrings;
@@ -83,6 +112,24 @@ struct WStrings_
     const std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other> & _arg)
   {
     this->wstring_value = _arg;
+    return *this;
+  }
+  Type & set__wstring_value_default1(
+    const std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other> & _arg)
+  {
+    this->wstring_value_default1 = _arg;
+    return *this;
+  }
+  Type & set__wstring_value_default2(
+    const std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other> & _arg)
+  {
+    this->wstring_value_default2 = _arg;
+    return *this;
+  }
+  Type & set__wstring_value_default3(
+    const std::basic_string<char16_t, std::char_traits<char16_t>, typename ContainerAllocator::template rebind<char16_t>::other> & _arg)
+  {
+    this->wstring_value_default3 = _arg;
     return *this;
   }
   Type & set__array_of_wstrings(
@@ -147,6 +194,15 @@ struct WStrings_
   bool operator==(const WStrings_ & other) const
   {
     if (this->wstring_value != other.wstring_value) {
+      return false;
+    }
+    if (this->wstring_value_default1 != other.wstring_value_default1) {
+      return false;
+    }
+    if (this->wstring_value_default2 != other.wstring_value_default2) {
+      return false;
+    }
+    if (this->wstring_value_default3 != other.wstring_value_default3) {
       return false;
     }
     if (this->array_of_wstrings != other.array_of_wstrings) {

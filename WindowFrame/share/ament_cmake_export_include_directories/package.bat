@@ -6,6 +6,8 @@
 for %%p in ("%~dp0..\..") do set "COLCON_CURRENT_PREFIX=%%~fp"
 
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\ament_cmake_export_include_directories\hook\cmake_prefix_path.bat"
+call:call_file "%%COLCON_CURRENT_PREFIX%%\share\ament_cmake_export_include_directories\hook\path_dll.bat"
+call:call_file "%%COLCON_CURRENT_PREFIX%%\share\ament_cmake_export_include_directories\hook\path.bat"
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\ament_cmake_export_include_directories\hook\path-scripts.bat"
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share\ament_cmake_export_include_directories\hook\pythonpath.bat"
 call:call_file "%%COLCON_CURRENT_PREFIX%%\share/ament_cmake_export_include_directories/local_setup.bat"

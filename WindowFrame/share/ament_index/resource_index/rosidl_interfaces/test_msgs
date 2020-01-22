@@ -26,6 +26,10 @@ msg/UnboundedSequences.idl
 msg/UnboundedSequences.msg
 msg/WStrings.idl
 msg/WStrings.msg
+srv/Arrays.idl
+srv/Arrays.srv
+srv/Arrays_Request.msg
+srv/Arrays_Response.msg
 srv/BasicTypes.idl
 srv/BasicTypes.srv
 srv/BasicTypes_Request.msg

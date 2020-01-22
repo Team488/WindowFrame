@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::AccelWithCovariance>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::Accel>::value> {};
 
+template<>
+struct is_message<geometry_msgs::msg::AccelWithCovariance>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__ACCEL_WITH_COVARIANCE__TRAITS_HPP_

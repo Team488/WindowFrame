@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __ShadowCameraSetupPlaneOptimal_H__
 #define __ShadowCameraSetupPlaneOptimal_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreShadowCameraSetup.h"
@@ -62,20 +67,24 @@ namespace Ogre {
     class _OgreExport PlaneOptimalShadowCameraSetup : public ShadowCameraSetup
     {
     private:
-        MovablePlane* mPlane;   ///< pointer to plane of interest
+        const MovablePlane* mPlane;   ///< pointer to plane of interest
     private:
-        PlaneOptimalShadowCameraSetup() {}  ///< Default constructor is private
-
         /// helper function computing projection matrix given constraints
         Matrix4 computeConstrainedProjection( const Vector4& pinhole, 
-                                              const vector<Vector4>::type& fpoint, 
-                                              const vector<Vector2>::type& constraint) const;
+                                              const std::vector<Vector4>& fpoint, 
+                                              const std::vector<Vector2>& constraint) const;
 
     public:
-        /// Constructor -- requires a plane of interest
-        PlaneOptimalShadowCameraSetup(MovablePlane *plane);
-        /// Destructor
+        /// @deprecated use create()
+        PlaneOptimalShadowCameraSetup(const MovablePlane *plane);
+
         virtual ~PlaneOptimalShadowCameraSetup();
+
+        /// Constructor -- requires a plane of interest
+        static ShadowCameraSetupPtr create(const MovablePlane *plane)
+        {
+            return std::make_shared<PlaneOptimalShadowCameraSetup>(plane);
+        }
 
         /// Returns shadow camera configured to get 1-1 homography between screen and shadow map when restricted to plane
         virtual void getShadowCamera (const SceneManager *sm, const Camera *cam, 
@@ -87,5 +96,9 @@ namespace Ogre {
 }
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

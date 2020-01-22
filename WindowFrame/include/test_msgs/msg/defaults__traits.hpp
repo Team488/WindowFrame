@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<test_msgs::msg::Defaults>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<test_msgs::msg::Defaults>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TEST_MSGS__MSG__DEFAULTS__TRAITS_HPP_

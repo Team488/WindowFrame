@@ -16,15 +16,15 @@ set(_actionlib_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT actionlib_msgs_FIND_QUIETLY)
-  message(STATUS "Found actionlib_msgs: 0.7.0 (${actionlib_msgs_DIR})")
+  message(STATUS "Found actionlib_msgs: 0.8.1 (${actionlib_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package
-if(NOT "" STREQUAL "")
+if(NOT "This package will be removed in a future ROS distro, once the ROS 1 bridge supports actions." STREQUAL "")
   set(_msg "Package 'actionlib_msgs' is deprecated")
   # append custom deprecation text if available
-  if(NOT "" STREQUAL "TRUE")
-    set(_msg "${_msg} ()")
+  if(NOT "This package will be removed in a future ROS distro, once the ROS 1 bridge supports actions." STREQUAL "TRUE")
+    set(_msg "${_msg} (This package will be removed in a future ROS distro, once the ROS 1 bridge supports actions.)")
   endif()
   message(WARNING "${_msg}")
 endif()

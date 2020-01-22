@@ -90,25 +90,24 @@ namespace Ogre  {
         bool getInheritParentEntityScale(void) const;
 
         /** Gets the transform of parent entity. */
-        const Matrix4& getParentEntityTransform(void) const;
+        const Affine3& getParentEntityTransform(void) const;
 
         /** Gets the transform of this node just for the skeleton (not entity) */
-        const Matrix4& _getFullLocalTransform(void) const;
+        const Affine3& _getFullLocalTransform(void) const;
 
-        /** @copydoc Node::needUpdate */
-        void needUpdate(bool forceParentUpdate = false);
 
+        void needUpdate(bool forceParentUpdate = false) override;
         /** Overridden from Node in order to include parent Entity transform. */
-        void updateFromParentImpl(void) const;
-        /** @copydoc Renderable::getLights */
-        const LightList& getLights(void) const;
+        void updateFromParentImpl(void) const override;
+        /// @deprecated do not use
+        OGRE_DEPRECATED const LightList& getLights(void) const;
 
 
 
     private:
         Entity *mParentEntity;
         MovableObject *mChildObject;
-        mutable Matrix4 mFullLocalTransform;
+        mutable Affine3 mFullLocalTransform;
         bool mInheritParentEntityOrientation;
         bool mInheritParentEntityScale;
     };

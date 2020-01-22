@@ -35,6 +35,10 @@ template<>
 struct has_bounded_size<stereo_msgs::msg::DisparityImage>
   : std::integral_constant<bool, has_bounded_size<sensor_msgs::msg::Image>::value && has_bounded_size<sensor_msgs::msg::RegionOfInterest>::value && has_bounded_size<std_msgs::msg::Header>::value> {};
 
+template<>
+struct is_message<stereo_msgs::msg::DisparityImage>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // STEREO_MSGS__MSG__DISPARITY_IMAGE__TRAITS_HPP_

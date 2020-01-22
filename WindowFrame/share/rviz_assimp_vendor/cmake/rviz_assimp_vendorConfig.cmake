@@ -16,7 +16,7 @@ set(_rviz_assimp_vendor_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz_assimp_vendor_FIND_QUIETLY)
-  message(STATUS "Found rviz_assimp_vendor: 6.1.4 (${rviz_assimp_vendor_DIR})")
+  message(STATUS "Found rviz_assimp_vendor: 7.0.3 (${rviz_assimp_vendor_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set(fastrtps_VERSION 1.8.0)
+set(fastrtps_VERSION 1.9.3)
 
 
 ####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######
@@ -47,6 +47,7 @@ set_and_check(fastrtps_INCLUDE_DIR "${PACKAGE_PREFIX_DIR}/include")
 set_and_check(fastrtps_LIB_DIR "${PACKAGE_PREFIX_DIR}/lib")
 
 find_package(fastcdr REQUIRED)
+find_package(foonathan_memory REQUIRED)
 find_package(TinyXML2 QUIET)
 find_package(OpenSSL REQUIRED)
 

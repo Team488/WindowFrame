@@ -16,7 +16,7 @@ set(_rmw_connext_cpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rmw_connext_cpp_FIND_QUIETLY)
-  message(STATUS "Found rmw_connext_cpp: 0.7.3 (${rmw_connext_cpp_DIR})")
+  message(STATUS "Found rmw_connext_cpp: 0.8.1 (${rmw_connext_cpp_DIR})")
 endif()
 
 # warn when using a deprecated package

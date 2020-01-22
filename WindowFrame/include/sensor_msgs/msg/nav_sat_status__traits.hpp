@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<sensor_msgs::msg::NavSatStatus>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<sensor_msgs::msg::NavSatStatus>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SENSOR_MSGS__MSG__NAV_SAT_STATUS__TRAITS_HPP_

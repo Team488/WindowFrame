@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<lifecycle_msgs::msg::State>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<lifecycle_msgs::msg::State>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // LIFECYCLE_MSGS__MSG__STATE__TRAITS_HPP_

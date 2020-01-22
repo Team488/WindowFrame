@@ -16,7 +16,7 @@ set(_std_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT std_msgs_FIND_QUIETLY)
-  message(STATUS "Found std_msgs: 0.7.0 (${std_msgs_DIR})")
+  message(STATUS "Found std_msgs: 0.8.1 (${std_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

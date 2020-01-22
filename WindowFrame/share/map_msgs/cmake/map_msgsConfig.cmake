@@ -16,7 +16,7 @@ set(_map_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT map_msgs_FIND_QUIETLY)
-  message(STATUS "Found map_msgs: 2.0.1 (${map_msgs_DIR})")
+  message(STATUS "Found map_msgs: 2.0.2 (${map_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

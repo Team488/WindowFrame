@@ -16,7 +16,7 @@ set(_std_srvs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT std_srvs_FIND_QUIETLY)
-  message(STATUS "Found std_srvs: 0.7.0 (${std_srvs_DIR})")
+  message(STATUS "Found std_srvs: 0.8.1 (${std_srvs_DIR})")
 endif()
 
 # warn when using a deprecated package

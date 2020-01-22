@@ -16,7 +16,7 @@ set(_quality_of_service_demo_cpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT quality_of_service_demo_cpp_FIND_QUIETLY)
-  message(STATUS "Found quality_of_service_demo_cpp: 0.7.8 (${quality_of_service_demo_cpp_DIR})")
+  message(STATUS "Found quality_of_service_demo_cpp: 0.8.4 (${quality_of_service_demo_cpp_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<diagnostic_msgs::srv::SelfTest_Request>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<diagnostic_msgs::srv::SelfTest_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<diagnostic_msgs::srv::SelfTest_Response>
 template<>
 struct has_bounded_size<diagnostic_msgs::srv::SelfTest_Response>
   : std::integral_constant<bool, false> {};
+
+template<>
+struct is_message<diagnostic_msgs::srv::SelfTest_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<diagnostic_msgs::srv::SelfTest>
     has_bounded_size<diagnostic_msgs::srv::SelfTest_Request>::value &&
     has_bounded_size<diagnostic_msgs::srv::SelfTest_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<diagnostic_msgs::srv::SelfTest>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<diagnostic_msgs::srv::SelfTest_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<diagnostic_msgs::srv::SelfTest_Response>
+  : std::true_type
 {
 };
 

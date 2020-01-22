@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __GpuProgram_H_
 #define __GpuProgram_H_
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 // Precompiler options
 #include "OgrePrerequisites.h"
@@ -53,6 +58,9 @@ namespace Ogre {
         GPT_DOMAIN_PROGRAM,
         GPT_HULL_PROGRAM,
         GPT_COMPUTE_PROGRAM
+    };
+    enum {
+        GPT_COUNT = GPT_COMPUTE_PROGRAM + 1
     };
 
     /** Defines a program which runs on the GPU such as a vertex or fragment program.
@@ -167,10 +175,8 @@ namespace Ogre {
     mutable GpuLogicalBufferStructPtr mDoubleLogicalToPhysical;
     /// @copydoc mFloatLogicalToPhysical
     mutable GpuLogicalBufferStructPtr mIntLogicalToPhysical;
-    /// @copydoc mFloatLogicalToPhysical
-    mutable GpuLogicalBufferStructPtr mUIntLogicalToPhysical;
-    /// @copydoc mFloatLogicalToPhysical
-    mutable GpuLogicalBufferStructPtr mBoolLogicalToPhysical;
+    /// static nullPtr
+    static GpuLogicalBufferStructPtr mBoolLogicalToPhysical;
     /** Parameter name -> ConstantDefinition map, shared instance used by all parameter objects.
         This is a shared pointer because if the program is recompiled and the parameters
         change, this definition will alter, but previous params may reference the old def.
@@ -323,13 +329,9 @@ namespace Ogre {
     */
     virtual bool isVertexTextureFetchRequired(void) const { return mVertexTextureFetch; }
 
-    /** Sets whether this geometry program requires adjacency information
-        from the input primitives.
-    */
+    /// @deprecated
     virtual void setAdjacencyInfoRequired(bool r) { mNeedsAdjacencyInfo = r; }
-    /** Returns whether this geometry program requires adjacency information
-        from the input primitives.
-    */
+    /// @deprecated
     virtual bool isAdjacencyInfoRequired(void) const { return mNeedsAdjacencyInfo; }
     /** Sets the number of process groups dispatched by this compute
         program.
@@ -432,6 +434,9 @@ namespace Ogre {
     /// @copydoc Resource::calculateSize
     virtual size_t calculateSize(void) const;
 
+    /// internal method to get the microcode cache id
+    uint32 _getHash(uint32 seed = 0) const;
+
     protected:
     /// Virtual method which must be implemented by subclasses, load from mSource
     virtual void loadFromSource(void) = 0;
@@ -442,5 +447,9 @@ namespace Ogre {
 }
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

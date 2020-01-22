@@ -16,7 +16,7 @@ set(_builtin_interfaces_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT builtin_interfaces_FIND_QUIETLY)
-  message(STATUS "Found builtin_interfaces: 0.7.4 (${builtin_interfaces_DIR})")
+  message(STATUS "Found builtin_interfaces: 0.8.0 (${builtin_interfaces_DIR})")
 endif()
 
 # warn when using a deprecated package

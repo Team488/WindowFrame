@@ -7,16 +7,18 @@
 
 module geometry_msgs {
   module msg {
-    @verbatim (language="comment", text=" This expresses a transform from coordinate frame header.frame_id
- to the coordinate frame child_frame_id
-
- This message is mostly used by the
- <a href=\"http://www.ros.org/wiki/tf\">tf</a> package.
- See its documentation for more information.")
+    @verbatim (language="comment", text=
+      " This expresses a transform from coordinate frame header.frame_id" "\n"
+      " to the coordinate frame child_frame_id" "\n"
+      "" "\n"
+      " This message is mostly used by the" "\n"
+      " <a href=\"http://www.ros.org/wiki/tf\">tf</a> package." "\n"
+      " See its documentation for more information.")
     struct TransformStamped {
       std_msgs::msg::Header header;
 
-      @verbatim (language="comment", text=" the frame id of the child frame")
+      @verbatim (language="comment", text=
+        " the frame id of the child frame")
       string child_frame_id;
 
       geometry_msgs::msg::Transform transform;

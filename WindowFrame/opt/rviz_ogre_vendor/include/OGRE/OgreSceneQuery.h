@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __SceneQuery_H__
 #define __SceneQuery_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreSphere.h"
@@ -106,7 +111,7 @@ namespace Ogre {
             /// Single intersection point, only applicable for WFT_SINGLE_INTERSECTION
             Vector3 singleIntersection;
             /// Planes bounding a convex region, only applicable for WFT_PLANE_BOUNDED_REGION
-            list<Plane>::type* planes;
+            std::vector<Plane>* planes;
             /// Custom geometry block, only applicable for WFT_CUSTOM_GEOMETRY
             void* geometry;
             /// General render operation structure, fallback if nothing else is available
@@ -117,7 +122,7 @@ namespace Ogre {
         SceneManager* mParentSceneMgr;
         uint32 mQueryMask;
         uint32 mQueryTypeMask;
-        set<WorldFragmentType>::type mSupportedWorldFragments;
+        std::set<WorldFragmentType> mSupportedWorldFragments;
         WorldFragmentType mWorldFragmentType;
     
     public:
@@ -166,7 +171,7 @@ namespace Ogre {
         virtual WorldFragmentType getWorldFragmentType(void) const;
 
         /** Returns the types of world fragments this query supports. */
-        virtual const set<WorldFragmentType>::type* getSupportedWorldFragmentTypes(void) const
+        virtual const std::set<WorldFragmentType>* getSupportedWorldFragmentTypes(void) const
             {return &mSupportedWorldFragments;}
 
         
@@ -197,8 +202,8 @@ namespace Ogre {
 
     };
 
-    typedef list<MovableObject*>::type SceneQueryResultMovableList;
-    typedef list<SceneQuery::WorldFragment*>::type SceneQueryResultWorldFragmentList;
+    typedef std::list<MovableObject*> SceneQueryResultMovableList;
+    typedef std::list<SceneQuery::WorldFragment*> SceneQueryResultWorldFragmentList;
     /** Holds the results of a scene query. */
     struct _OgreExport SceneQueryResult : public SceneMgtAlloc
     {
@@ -364,7 +369,7 @@ namespace Ogre {
         }
 
     };
-    typedef vector<RaySceneQueryResultEntry>::type RaySceneQueryResult;
+    typedef std::vector<RaySceneQueryResultEntry> RaySceneQueryResult;
 
     /** Specialises the SceneQuery class for querying along a ray. */
     class _OgreExport RaySceneQuery : public SceneQuery, public RaySceneQueryListener
@@ -481,8 +486,8 @@ namespace Ogre {
         
     typedef std::pair<MovableObject*, MovableObject*> SceneQueryMovableObjectPair;
     typedef std::pair<MovableObject*, SceneQuery::WorldFragment*> SceneQueryMovableObjectWorldFragmentPair;
-    typedef list<SceneQueryMovableObjectPair>::type SceneQueryMovableIntersectionList;
-    typedef list<SceneQueryMovableObjectWorldFragmentPair>::type SceneQueryMovableWorldFragmentIntersectionList;
+    typedef std::list<SceneQueryMovableObjectPair> SceneQueryMovableIntersectionList;
+    typedef std::list<SceneQueryMovableObjectWorldFragmentPair> SceneQueryMovableWorldFragmentIntersectionList;
     /** Holds the results of an intersection scene query (pair values). */
     struct _OgreExport IntersectionSceneQueryResult : public SceneMgtAlloc
     {
@@ -555,5 +560,9 @@ namespace Ogre {
 }
     
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

@@ -16,7 +16,7 @@ set(_rviz_ogre_vendor_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz_ogre_vendor_FIND_QUIETLY)
-  message(STATUS "Found rviz_ogre_vendor: 6.1.4 (${rviz_ogre_vendor_DIR})")
+  message(STATUS "Found rviz_ogre_vendor: 7.0.3 (${rviz_ogre_vendor_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -21,22 +21,28 @@
 #include <algorithm>
 #include <mutex>
 #include <set>
-#include <memory>
 #include <atomic>
+
+#include <fastrtps/rtps/builtin/data/ReaderProxyData.h>
+#include <fastrtps/rtps/writer/ReaderLocator.h>
+
 #include "../common/Types.h"
 #include "../common/Locator.h"
 #include "../common/SequenceNumber.h"
 #include "../common/CacheChange.h"
 #include "../common/FragmentNumber.h"
 #include "../attributes/WriterAttributes.h"
+#include "../attributes/RTPSParticipantAllocationAttributes.hpp"
 #include "../../utils/collections/ResourceLimitedVector.hpp"
+
 
 namespace eprosima {
 namespace fastrtps {
 namespace rtps {
 
 class StatefulWriter;
-class NackSupressionDuration;
+class TimedEvent;
+class RTPSReader;
 
 /**
  * ReaderProxy class that helps to keep the state of a specific Reader with respect to the RTPSWriter.
@@ -45,22 +51,34 @@ class NackSupressionDuration;
 class ReaderProxy
 {
 public:
+
     ~ReaderProxy();
 
     /**
      * Constructor.
      * @param times WriterTimes to use in the ReaderProxy.
+     * @param loc_alloc Maximum number of remote locators to keep in the ReaderProxy.
      * @param writer Pointer to the StatefulWriter creating the reader proxy.
      */
     ReaderProxy(
             const WriterTimes& times,
+            const RemoteLocatorsAllocationAttributes& loc_alloc,
             StatefulWriter* writer);
 
     /**
      * Activate this proxy associating it to a remote reader.
-     * @param reader_attributes RemoteReaderAttributes of the reader for which to keep state.
+     * @param reader_attributes ReaderProxyData of the reader for which to keep state.
      */
-    void start(const RemoteReaderAttributes& reader_attributes);
+    void start(
+            const ReaderProxyData& reader_attributes);
+
+    /**
+     * Update information about the remote reader.
+     * @param reader_attributes ReaderProxyData with updated information of the reader.
+     * @return true if data was modified, false otherwise.
+     */
+    bool update(
+            const ReaderProxyData& reader_attributes);
 
     /**
      * Disable this proxy.
@@ -76,6 +94,11 @@ public:
             const ChangeForReader_t& change,
             bool restart_nack_supression);
 
+    void add_change(
+            const ChangeForReader_t& change,
+            bool restart_nack_supression,
+            const std::chrono::time_point<std::chrono::steady_clock>& max_blocking_time);
+
     /**
      * Check if there are changes pending for this reader.
      * @return true when there are pending changes, false otherwise.
@@ -87,29 +110,38 @@ public:
      * @param seq_num Sequence number of the change to be checked.
      * @return true when the change is irrelevant or has been already acknowledged, false otherwise.
      */
-    bool change_is_acked(const SequenceNumber_t& seq_num) const;
+    bool change_is_acked(
+            const SequenceNumber_t& seq_num) const;
 
     /**
      * Mark all changes up to the one indicated by seq_num as Acknowledged.
      * For instance, when seq_num is 30, changes 1-29 are marked as acknowledged.
      * @param seq_num Sequence number of the first change not to be marked as acknowledged.
      */
-    void acked_changes_set(const SequenceNumber_t& seq_num);
+    void acked_changes_set(
+            const SequenceNumber_t& seq_num);
 
     /**
      * Mark all changes in the vector as requested.
      * @param seq_num_set Bitmap of sequence numbers.
      * @return true if at least one change has been marked as REQUESTED, false otherwise.
      */
-    bool requested_changes_set(const SequenceNumberSet_t& seq_num_set);
+    bool requested_changes_set(
+            const SequenceNumberSet_t& seq_num_set);
 
     /**
-    * Applies the given function object to every unsent change.
-    * @param max_seq Maximum sequence number to be considered without including it.
-    * @param f Function to apply.
-    *          Will receive a SequenceNumber_t and a ChangeForReader_t*.
-    *          The second argument may be nullptr for irrelevant changes.
-    */
+     * Performs processing of preemptive acknack
+     * @return true if a heartbeat should be sent, false otherwise.
+     */
+    bool process_initial_acknack();
+
+    /**
+     * Applies the given function object to every unsent change.
+     * @param max_seq Maximum sequence number to be considered without including it.
+     * @param f Function to apply.
+     *          Will receive a SequenceNumber_t and a ChangeForReader_t*.
+     *          The second argument may be nullptr for irrelevant changes.
+     */
     template <class BinaryFunction>
     void for_each_unsent_change(
             const SequenceNumber_t& max_seq,
@@ -123,7 +155,7 @@ public:
             {
                 // Holes before this change are informed as irrelevant.
                 SequenceNumber_t change_seq = it->getSequenceNumber();
-                for(; current_seq < change_seq; ++current_seq)
+                for (; current_seq < change_seq; ++current_seq)
                 {
                     f(current_seq, nullptr);
                 }
@@ -193,7 +225,8 @@ public:
      * Call this to inform a change was removed from history.
      * @param seq_num Sequence number of the removed change.
      */
-    void change_has_been_removed(const SequenceNumber_t& seq_num);
+    void change_has_been_removed(
+            const SequenceNumber_t& seq_num);
 
     /*!
      * @brief Returns there is some UNACKNOWLEDGED change.
@@ -207,7 +240,7 @@ public:
      */
     inline const GUID_t& guid() const
     {
-        return reader_attributes_.guid;
+        return reader_attributes_.guid();
     }
 
     /**
@@ -216,7 +249,7 @@ public:
      */
     inline DurabilityKind_t durability_kind() const
     {
-        return reader_attributes_.endpoint.durabilityKind;
+        return reader_attributes_.m_qos.m_durability.durabilityKind();
     }
 
     /**
@@ -225,7 +258,7 @@ public:
      */
     inline bool expects_inline_qos() const
     {
-        return reader_attributes_.expectsInlineQos;
+        return reader_attributes_.m_expectsInlineQos;
     }
 
     /**
@@ -234,46 +267,44 @@ public:
      */
     inline bool is_reliable() const
     {
-        return reader_attributes_.endpoint.reliabilityKind == RELIABLE;
+        return reader_attributes_.m_qos.m_reliability.kind == RELIABLE_RELIABILITY_QOS;
+    }
+
+    /**
+     * Check if the reader represented by this proxy is remote and reliable.
+     * @return true if the reader represented by this proxy is remote and reliable.
+     */
+    inline bool is_remote_and_reliable() const
+    {
+        return !locator_info_.is_local_reader() &&
+               reader_attributes_.m_qos.m_reliability.kind == RELIABLE_RELIABILITY_QOS;
     }
 
     /**
      * Get the attributes of the reader represented by this proxy.
      * @return the attributes of the reader represented by this proxy.
      */
-    inline const RemoteReaderAttributes& reader_attributes() const
+    inline const ReaderProxyData& reader_attributes() const
     {
         return reader_attributes_;
     }
 
     /**
-     * Get the locators that should be used to send data to the reader represented by this proxy.
-     * @return the locators that should be used to send data to the reader represented by this proxy.
+     * Check if the reader is on the same process.
+     * @return true if the reader is no the same process.
      */
-    inline const LocatorList_t& remote_locators() const
+    inline bool is_local_reader()
     {
-        return reader_attributes_.endpoint.remoteLocatorList;
+        return locator_info_.is_local_reader();
     }
 
     /**
-     * Get the locators that should be used to send data to the reader represented by this proxy.
-     * @return the locators that should be used to send data to the reader represented by this proxy.
+     * Get the local reader on the same process (if any).
+     * @return The local reader on the same process.
      */
-    inline const LocatorList_t& remote_locators_shrinked() const
+    inline RTPSReader* local_reader()
     {
-        return reader_attributes_.endpoint.unicastLocatorList.empty() ?
-            reader_attributes_.endpoint.multicastLocatorList :
-            reader_attributes_.endpoint.unicastLocatorList;
-    }
-
-    /**
-     * Get the GUID of the reader represented to this proxy as a const reference to a vector
-     * of GUID_t object containing just that single GUID. It is used as a temporary workaround
-     * before the API of RTPSMessageGroup is changed.
-     */
-    inline const std::vector<GUID_t>& guid_as_vector() const
-    {
-        return guid_as_vector_;
+        return locator_info_.local_reader();
     }
 
     /**
@@ -281,7 +312,8 @@ public:
      * @param acknack_count The count of the received ACKNACK.
      * @return true if internal count changed (i.e. new ACKNACK is accepted)
      */
-    bool check_and_set_acknack_count(uint32_t acknack_count)
+    bool check_and_set_acknack_count(
+            uint32_t acknack_count)
     {
         if (last_acknack_count_ < acknack_count)
         {
@@ -311,10 +343,11 @@ public:
      * @param change
      * @return true if the change is relevant, false otherwise.
      */
-    inline bool rtps_is_relevant(CacheChange_t* change)
+    inline bool rtps_is_relevant(
+            CacheChange_t* change)
     {
         (void)change; return true;
-    };
+    }
 
     /**
      * Get the highest fully acknowledged sequence number.
@@ -329,22 +362,40 @@ public:
      * Change the interval of nack-supression event.
      * @param interval Time from data sending to acknack processing.
      */
-    void update_nack_supression_interval(const Duration_t& interval);
+    void update_nack_supression_interval(
+            const Duration_t& interval);
+
+    /**
+     * Check if there are gaps in the list of ChangeForReader_t.
+     * @return True if there are gaps, else false.
+     */
+    bool are_there_gaps();
+
+    LocatorSelectorEntry* locator_selector_entry()
+    {
+        return locator_info_.locator_selector_entry();
+    }
+
+    const RTPSMessageSenderInterface& message_sender() const
+    {
+        return locator_info_;
+    }
 
 private:
 
     //!Is this proxy active? I.e. does it have a remote reader associated?
     bool is_active_;
+    //!Reader locator information
+    ReaderLocator locator_info_;
     //!Attributes of the Remote Reader
-    RemoteReaderAttributes reader_attributes_;
+    ReaderProxyData reader_attributes_;
     //!Pointer to the associated StatefulWriter.
     StatefulWriter* writer_;
-    //!To fool RTPSMessageGroup when using this proxy as single destination
-    ResourceLimitedVector<GUID_t> guid_as_vector_;
     //!Set of the changes and its state.
     ResourceLimitedVector<ChangeForReader_t, std::true_type> changes_for_reader_;
     //! Timed Event to manage the delay to mark a change as UNACKED after sending it.
-    std::shared_ptr<NackSupressionDuration> nack_supression_event_;
+    TimedEvent* nack_supression_event_;
+    TimedEvent* initial_heartbeat_event_;
     //! Are timed events enabled?
     std::atomic_bool timers_enabled_;
     //! Last ack/nack count
@@ -379,6 +430,9 @@ private:
             const SequenceNumber_t& seq_num,
             const FragmentNumberSet_t& frag_set);
 
+    void add_change(
+            const ChangeForReader_t& change);
+
     /**
      * @brief Find a change with the specified sequence number.
      * @param seq_num Sequence number to find.
@@ -393,7 +447,8 @@ private:
      * @param seq_num Sequence number to find.
      * @return Iterator pointing to the change, changes_for_reader_.end() if not found.
      */
-    ChangeConstIterator find_change(const SequenceNumber_t& seq_num) const;
+    ChangeConstIterator find_change(
+            const SequenceNumber_t& seq_num) const;
 };
 
 } /* namespace rtps */

@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<rcl_interfaces::srv::ListParameters_Request>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<rcl_interfaces::srv::ListParameters_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -49,6 +53,10 @@ struct has_fixed_size<rcl_interfaces::srv::ListParameters_Response>
 template<>
 struct has_bounded_size<rcl_interfaces::srv::ListParameters_Response>
   : std::integral_constant<bool, has_bounded_size<rcl_interfaces::msg::ListParametersResult>::value> {};
+
+template<>
+struct is_message<rcl_interfaces::srv::ListParameters_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -78,6 +86,24 @@ struct has_bounded_size<rcl_interfaces::srv::ListParameters>
     has_bounded_size<rcl_interfaces::srv::ListParameters_Request>::value &&
     has_bounded_size<rcl_interfaces::srv::ListParameters_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<rcl_interfaces::srv::ListParameters>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<rcl_interfaces::srv::ListParameters_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<rcl_interfaces::srv::ListParameters_Response>
+  : std::true_type
 {
 };
 

@@ -16,7 +16,7 @@ set(_shared_queues_vendor_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT shared_queues_vendor_FIND_QUIETLY)
-  message(STATUS "Found shared_queues_vendor: 0.1.5 (${shared_queues_vendor_DIR})")
+  message(STATUS "Found shared_queues_vendor: 0.2.4 (${shared_queues_vendor_DIR})")
 endif()
 
 # warn when using a deprecated package

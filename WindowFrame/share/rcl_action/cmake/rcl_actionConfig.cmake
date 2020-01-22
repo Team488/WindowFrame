@@ -16,7 +16,7 @@ set(_rcl_action_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rcl_action_FIND_QUIETLY)
-  message(STATUS "Found rcl_action: 0.7.6 (${rcl_action_DIR})")
+  message(STATUS "Found rcl_action: 0.8.3 (${rcl_action_DIR})")
 endif()
 
 # warn when using a deprecated package

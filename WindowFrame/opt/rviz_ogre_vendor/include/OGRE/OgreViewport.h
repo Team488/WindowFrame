@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __Viewport_H__
 #define __Viewport_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreCommon.h"
@@ -432,7 +437,7 @@ namespace Ogre {
         /// Automatic rendering on/off
         bool mIsAutoUpdated;
 
-        typedef vector<Listener*>::type ListenerList;
+        typedef std::vector<Listener*> ListenerList;
         ListenerList mListeners;
 		ColourBufferType mColourBuffer;
     };
@@ -442,5 +447,9 @@ namespace Ogre {
 }
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

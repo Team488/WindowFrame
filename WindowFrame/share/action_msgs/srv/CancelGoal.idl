@@ -6,17 +6,19 @@
 
 module action_msgs {
   module srv {
-    @verbatim (language="comment", text=" Cancel one or more goals with the following policy:
-
- - If the goal ID is zero and timestamp is zero, cancel all goals.
- - If the goal ID is zero and timestamp is not zero, cancel all goals accepted
-   at or before the timestamp.
- - If the goal ID is not zero and timestamp is zero, cancel the goal with the
-   given ID regardless of the time it was accepted.
- - If the goal ID is not zero and timestamp is not zero, cancel the goal with
-   the given ID and all goals accepted at or before the timestamp.")
+    @verbatim (language="comment", text=
+      " Cancel one or more goals with the following policy:" "\n"
+      "" "\n"
+      " - If the goal ID is zero and timestamp is zero, cancel all goals." "\n"
+      " - If the goal ID is zero and timestamp is not zero, cancel all goals accepted" "\n"
+      "   at or before the timestamp." "\n"
+      " - If the goal ID is not zero and timestamp is zero, cancel the goal with the" "\n"
+      "   given ID regardless of the time it was accepted." "\n"
+      " - If the goal ID is not zero and timestamp is not zero, cancel the goal with" "\n"
+      "   the given ID and all goals accepted at or before the timestamp.")
     struct CancelGoal_Request {
-      @verbatim (language="comment", text=" Goal info containing an ID and timestamp")
+      @verbatim (language="comment", text=
+        " Goal info containing an ID and timestamp")
       action_msgs::msg::GoalInfo goal_info;
     };
     module CancelGoal_Response_Constants {
@@ -25,15 +27,18 @@ module action_msgs {
       const int8 ERROR_UNKNOWN_GOAL_ID = 2;
       const int8 ERROR_GOAL_TERMINATED = 3;
     };
-    @verbatim (language="comment", text=" Return codes
- Indicates the request was accepted without any errors.
- One or more goals have transitioned to the CANCELING state.
- The goals_canceling list is not empty.")
+    @verbatim (language="comment", text=
+      " Return codes" "\n"
+      " Indicates the request was accepted without any errors." "\n"
+      " One or more goals have transitioned to the CANCELING state." "\n"
+      " The goals_canceling list is not empty.")
     struct CancelGoal_Response {
-      @verbatim (language="comment", text=" Return code")
+      @verbatim (language="comment", text=
+        " Return code")
       int8 return_code;
 
-      @verbatim (language="comment", text=" Goals that accepted the cancel request")
+      @verbatim (language="comment", text=
+        " Goals that accepted the cancel request")
       sequence<action_msgs::msg::GoalInfo> goals_canceling;
     };
   };

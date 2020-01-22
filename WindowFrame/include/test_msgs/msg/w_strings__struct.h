@@ -19,6 +19,9 @@ extern "C"
 
 // Include directives for member types
 // Member 'wstring_value'
+// Member 'wstring_value_default1'
+// Member 'wstring_value_default2'
+// Member 'wstring_value_default3'
 // Member 'array_of_wstrings'
 // Member 'bounded_sequence_of_wstrings'
 // Member 'unbounded_sequence_of_wstrings'
@@ -35,6 +38,9 @@ enum
 typedef struct test_msgs__msg__WStrings
 {
   rosidl_generator_c__U16String wstring_value;
+  rosidl_generator_c__U16String wstring_value_default1;
+  rosidl_generator_c__U16String wstring_value_default2;
+  rosidl_generator_c__U16String wstring_value_default3;
   rosidl_generator_c__U16String array_of_wstrings[3];
   rosidl_generator_c__U16String__Sequence bounded_sequence_of_wstrings;
   rosidl_generator_c__U16String__Sequence unbounded_sequence_of_wstrings;

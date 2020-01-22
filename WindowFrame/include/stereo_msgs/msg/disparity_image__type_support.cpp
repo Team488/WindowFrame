@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void DisparityImage_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) stereo_msgs::msg::DisparityImage(_init);
+}
+
+void DisparityImage_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<stereo_msgs::msg::DisparityImage *>(message_memory);
+  typed_message->~DisparityImage();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImage_message_member_array[8] = {
   {
     "header",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "image",  // name
@@ -54,13 +66,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "f",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -69,13 +81,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "t",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -84,7 +96,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "valid_window",  // name
@@ -99,13 +111,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "min_disparity",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -114,13 +126,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "max_disparity",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -129,13 +141,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "delta_d",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -144,7 +156,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DisparityImag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -153,7 +165,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers DisparityIma
   "DisparityImage",  // message name
   8,  // number of fields
   sizeof(stereo_msgs::msg::DisparityImage),
-  DisparityImage_message_member_array  // message members
+  DisparityImage_message_member_array,  // message members
+  DisparityImage_init_function,  // function to initialize message memory (memory has to be allocated)
+  DisparityImage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t DisparityImage_message_type_support_handle = {

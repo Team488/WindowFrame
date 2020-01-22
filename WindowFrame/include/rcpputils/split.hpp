@@ -36,6 +36,7 @@
 #ifndef RCPPUTILS__SPLIT_HPP_
 #define RCPPUTILS__SPLIT_HPP_
 
+#include <iterator>
 #include <sstream>
 #include <string>
 #include <vector>
@@ -43,18 +44,24 @@
 namespace rcpputils
 {
 
-/// Split a specified input into tokens using a delimiter.
+/// Split a specified input into tokens using a delimiter and a type erased insert iterator.
 /**
  * The returned vector will contain the tokens split from the input
  *
  * \param[in] input the input string to be split
- * \param[in] delim the dlelimiter used to split the input string
- * \return A vector of tokens.
+ * \param[in] delim the delimiter used to split the input string
+ * \param[in] insert iterator pointing to a storage container
  */
-inline std::vector<std::string>
-split(const std::string & input, char delim, bool skip_empty = false)
+template<
+  class InsertIterator,
+  typename std::enable_if<
+    std::is_same<
+      InsertIterator &,
+      decltype(std::declval<InsertIterator>().operator=(std::declval<std::string>()))>::value
+  >::type * = nullptr>
+void
+split(const std::string & input, char delim, InsertIterator & it, bool skip_empty = false)
 {
-  std::vector<std::string> result;
   std::stringstream ss;
   ss.str(input);
   std::string item;
@@ -62,8 +69,24 @@ split(const std::string & input, char delim, bool skip_empty = false)
     if (skip_empty && item == "") {
       continue;
     }
-    result.push_back(item);
+    it = item;
   }
+}
+
+/// Split a specified input into tokens using a delimiter.
+/**
+ * The returned vector will contain the tokens split from the input
+ *
+ * \param[in] input the input string to be split
+ * \param[in] delim the delimiter used to split the input string
+ * \return A vector of tokens.
+ */
+inline std::vector<std::string>
+split(const std::string & input, char delim, bool skip_empty = false)
+{
+  std::vector<std::string> result;
+  auto it = std::back_inserter(result);
+  split(input, delim, it, skip_empty);
   return result;
 }
 }  // namespace rcpputils

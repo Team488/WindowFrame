@@ -16,7 +16,7 @@ set(_ament_cmake_clang_tidy_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_cmake_clang_tidy_FIND_QUIETLY)
-  message(STATUS "Found ament_cmake_clang_tidy: 0.7.9 (${ament_cmake_clang_tidy_DIR})")
+  message(STATUS "Found ament_cmake_clang_tidy: 0.8.1 (${ament_cmake_clang_tidy_DIR})")
 endif()
 
 # warn when using a deprecated package

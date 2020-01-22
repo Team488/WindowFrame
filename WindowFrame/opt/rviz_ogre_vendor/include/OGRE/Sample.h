@@ -31,17 +31,13 @@
 #include "OgreRoot.h"
 #include "OgreOverlaySystem.h"
 #include "OgreResourceManager.h"
+#include "OgreComponents.h"
 
 #include "OgreFileSystemLayer.h"
 
 #ifdef INCLUDE_RTSHADER_SYSTEM
 #   include "OgreRTShaderSystem.h"
 #endif //INCLUDE_RTSHADER_SYSTEM
-
-#if OGRE_PLATFORM == OGRE_PLATFORM_NACL && !defined(INCLUDE_RTSHADER_SYSTEM)
-#   define INCLUDE_RTSHADER_SYSTEM
-#include "OgreShaderGenerator.h"
-#endif
 
 #include "OgreInput.h"
 
@@ -59,7 +55,7 @@ namespace OgreBites
         =============================================================================*/
         struct Comparer
         {
-            bool operator() (const Sample* a, const Sample* b)
+            bool operator() (const Sample* a, const Sample* b) const
             {
                 auto aTitle = a->getInfo().find("Title");
                 auto bTitle = b->getInfo().find("Title");
@@ -159,6 +155,8 @@ namespace OgreBites
         virtual void _shutdown()
 
         {
+            Ogre::ControllerManager::getSingleton().clearControllers();
+
             if (mContentSetup)
                 cleanupContent();
             if (mSceneMgr)

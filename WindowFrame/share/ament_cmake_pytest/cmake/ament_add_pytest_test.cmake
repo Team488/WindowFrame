@@ -25,9 +25,13 @@
 # :param PYTHON_EXECUTABLE: absolute path to the executable used to run the test,
 #   default to the CMake variable with the same name returned by FindPythonInterp
 # :type PYTHON_EXECUTABLE: string
+# :param RUNNER: the path to the test runner script (default: see ament_add_test).
+# :type RUNNER: string
 # :param TIMEOUT: the test timeout in seconds,
 #   default defined by ``ament_add_test()``
 # :type TIMEOUT: integer
+# :param WERROR: If ON, then treat warnings as errors. Default: OFF.
+# :type WERROR: bool
 # :param WORKING_DIRECTORY: the working directory for invoking the
 #   command in, default defined by ``ament_add_test()``
 # :type WORKING_DIRECTORY: string
@@ -45,7 +49,7 @@
 function(ament_add_pytest_test testname path)
   cmake_parse_arguments(ARG
     "SKIP_TEST"
-    "PYTHON_EXECUTABLE;TIMEOUT;WORKING_DIRECTORY"
+    "PYTHON_EXECUTABLE;RUNNER;TIMEOUT;WERROR;WORKING_DIRECTORY"
     "APPEND_ENV;APPEND_LIBRARY_DIRS;ENV"
     ${ARGN})
   if(ARG_UNPARSED_ARGUMENTS)
@@ -89,6 +93,11 @@ function(ament_add_pytest_test testname path)
     "--junit-prefix=${PROJECT_NAME}"
   )
 
+  if(ARG_WERROR)
+    # treat warnings as errors
+    list(APPEND cmd "-We")
+  endif()
+
   if(ARG_ENV)
     set(ARG_ENV "ENV" ${ARG_ENV})
   endif()
@@ -97,6 +106,9 @@ function(ament_add_pytest_test testname path)
   endif()
   if(ARG_APPEND_LIBRARY_DIRS)
     set(ARG_APPEND_LIBRARY_DIRS "APPEND_LIBRARY_DIRS" ${ARG_APPEND_LIBRARY_DIRS})
+  endif()
+  if(ARG_RUNNER)
+    set(ARG_RUNNER "RUNNER" ${ARG_RUNNER})
   endif()
   if(ARG_TIMEOUT)
     set(ARG_TIMEOUT "TIMEOUT" "${ARG_TIMEOUT}")
@@ -113,6 +125,7 @@ function(ament_add_pytest_test testname path)
     COMMAND ${cmd}
     OUTPUT_FILE "${CMAKE_BINARY_DIR}/ament_cmake_pytest/${testname}.txt"
     RESULT_FILE "${result_file}"
+    ${ARG_RUNNER}
     ${ARG_SKIP_TEST}
     ${ARG_ENV}
     ${ARG_APPEND_ENV}

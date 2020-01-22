@@ -1,5 +1,5 @@
-#ifndef H_22C1092D5FA1D83CBD5A8806DE42E0B3_WStrings_SPLTYPES_H
-#define H_22C1092D5FA1D83CBD5A8806DE42E0B3_WStrings_SPLTYPES_H
+#ifndef H_47A40147503DCE68075C3E75948AFC95_WStrings_SPLTYPES_H
+#define H_47A40147503DCE68075C3E75948AFC95_WStrings_SPLTYPES_H
 
 #include <c_base.h>
 #include <c_misc.h>
@@ -26,6 +26,9 @@ extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs v_copyin_result __test
 extern ROSIDL_TYPESUPPORT_OPENSPLICE_CPP_PUBLIC_test_msgs void __test_msgs_msg_dds__WStrings___copyOut(const void *_from, void *_to);
 struct _test_msgs_msg_dds__WStrings_ {
     c_string wstring_value_;
+    c_string wstring_value_default1_;
+    c_string wstring_value_default2_;
+    c_string wstring_value_default3_;
     c_string array_of_wstrings_[3];
     c_sequence bounded_sequence_of_wstrings_;
     c_sequence unbounded_sequence_of_wstrings_;

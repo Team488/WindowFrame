@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef _OgreTangentSpaceCalc_H_
 #define _OgreTangentSpaceCalc_H_
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreRenderOperation.h"
@@ -67,9 +72,9 @@ namespace Ogre
         };
         /** List of indexes that were remapped (split vertices).
         */
-        typedef list<IndexRemap>::type IndexRemapList;
+        typedef std::list<IndexRemap> IndexRemapList;
 
-        typedef list<VertexSplit>::type VertexSplits;
+        typedef std::list<VertexSplit> VertexSplits;
 
         /// The result of having built a tangent space basis
         struct Result
@@ -182,8 +187,8 @@ namespace Ogre
     protected:
 
         VertexData* mVData;
-        typedef vector<IndexData*>::type IndexDataList;
-        typedef vector<RenderOperation::OperationType>::type OpTypeList;
+        typedef std::vector<IndexData*> IndexDataList;
+        typedef std::vector<RenderOperation::OperationType> OpTypeList;
         IndexDataList mIDataList;
         OpTypeList mOpTypes;
         bool mSplitMirrored;
@@ -206,7 +211,7 @@ namespace Ogre
             VertexInfo() : tangent(Vector3::ZERO), binormal(Vector3::ZERO), 
                 parity(0), oppositeParityIndex(0) {}
         };
-        typedef vector<VertexInfo>::type VertexInfoArray;
+        typedef std::vector<VertexInfo> VertexInfoArray;
         VertexInfoArray mVertexArray;
 
         void extendBuffers(VertexSplits& splits);
@@ -264,5 +269,9 @@ namespace Ogre
 }
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

@@ -8,14 +8,17 @@
 
 module trajectory_msgs {
   module msg {
-    @verbatim (language="comment", text=" Each multi-dof joint can specify a transform (up to 6 DOF).")
+    @verbatim (language="comment", text=
+      " Each multi-dof joint can specify a transform (up to 6 DOF).")
     struct MultiDOFJointTrajectoryPoint {
       sequence<geometry_msgs::msg::Transform> transforms;
 
-      @verbatim (language="comment", text=" There can be a velocity specified for the origin of the joint.")
+      @verbatim (language="comment", text=
+        " There can be a velocity specified for the origin of the joint.")
       sequence<geometry_msgs::msg::Twist> velocities;
 
-      @verbatim (language="comment", text=" There can be an acceleration specified for the origin of the joint.")
+      @verbatim (language="comment", text=
+        " There can be an acceleration specified for the origin of the joint.")
       sequence<geometry_msgs::msg::Twist> accelerations;
 
       builtin_interfaces::msg::Duration time_from_start;

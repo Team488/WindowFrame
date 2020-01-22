@@ -6,16 +6,20 @@
 
 module sensor_msgs {
   module msg {
-    @verbatim (language="comment", text=" Single temperature reading.")
+    @verbatim (language="comment", text=
+      " Single temperature reading.")
     struct Temperature {
-      @verbatim (language="comment", text=" timestamp is the time the temperature was measured
- frame_id is the location of the temperature reading")
+      @verbatim (language="comment", text=
+        " timestamp is the time the temperature was measured" "\n"
+        " frame_id is the location of the temperature reading")
       std_msgs::msg::Header header;
 
-      @verbatim (language="comment", text=" Measurement of the Temperature in Degrees Celsius.")
+      @verbatim (language="comment", text=
+        " Measurement of the Temperature in Degrees Celsius.")
       double temperature;
 
-      @verbatim (language="comment", text=" 0 is interpreted as variance unknown.")
+      @verbatim (language="comment", text=
+        " 0 is interpreted as variance unknown.")
       double variance;
     };
   };

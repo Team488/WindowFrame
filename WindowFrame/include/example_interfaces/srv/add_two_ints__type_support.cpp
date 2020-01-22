@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void AddTwoInts_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::srv::AddTwoInts_Request(_init);
+}
+
+void AddTwoInts_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::srv::AddTwoInts_Request *>(message_memory);
+  typed_message->~AddTwoInts_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember AddTwoInts_Request_message_member_array[2] = {
   {
     "a",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember AddTwoInts_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "b",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember AddTwoInts_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -63,7 +75,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers AddTwoInts_R
   "AddTwoInts_Request",  // message name
   2,  // number of fields
   sizeof(example_interfaces::srv::AddTwoInts_Request),
-  AddTwoInts_Request_message_member_array  // message members
+  AddTwoInts_Request_message_member_array,  // message members
+  AddTwoInts_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  AddTwoInts_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t AddTwoInts_Request_message_type_support_handle = {
@@ -143,12 +157,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void AddTwoInts_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::srv::AddTwoInts_Response(_init);
+}
+
+void AddTwoInts_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::srv::AddTwoInts_Response *>(message_memory);
+  typed_message->~AddTwoInts_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember AddTwoInts_Response_message_member_array[1] = {
   {
     "sum",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -157,7 +183,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember AddTwoInts_Re
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -166,7 +192,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers AddTwoInts_R
   "AddTwoInts_Response",  // message name
   1,  // number of fields
   sizeof(example_interfaces::srv::AddTwoInts_Response),
-  AddTwoInts_Response_message_member_array  // message members
+  AddTwoInts_Response_message_member_array,  // message members
+  AddTwoInts_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  AddTwoInts_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t AddTwoInts_Response_message_type_support_handle = {

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void MultiDOFJointTrajectory_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) trajectory_msgs::msg::MultiDOFJointTrajectory(_init);
+}
+
+void MultiDOFJointTrajectory_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<trajectory_msgs::msg::MultiDOFJointTrajectory *>(message_memory);
+  typed_message->~MultiDOFJointTrajectory();
+}
+
 size_t size_function__MultiDOFJointTrajectory__joint_names(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<std::string> *>(untyped_member);
@@ -93,13 +105,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MultiDOFJoint
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "joint_names",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -132,7 +144,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers MultiDOFJoin
   "MultiDOFJointTrajectory",  // message name
   3,  // number of fields
   sizeof(trajectory_msgs::msg::MultiDOFJointTrajectory),
-  MultiDOFJointTrajectory_message_member_array  // message members
+  MultiDOFJointTrajectory_message_member_array,  // message members
+  MultiDOFJointTrajectory_init_function,  // function to initialize message memory (memory has to be allocated)
+  MultiDOFJointTrajectory_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t MultiDOFJointTrajectory_message_type_support_handle = {

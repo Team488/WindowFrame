@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<sensor_msgs::msg::CameraInfo>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<sensor_msgs::msg::CameraInfo>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SENSOR_MSGS__MSG__CAMERA_INFO__TRAITS_HPP_

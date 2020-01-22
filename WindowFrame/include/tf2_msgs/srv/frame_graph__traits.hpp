@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<tf2_msgs::srv::FrameGraph_Request>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<tf2_msgs::srv::FrameGraph_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<tf2_msgs::srv::FrameGraph_Response>
 template<>
 struct has_bounded_size<tf2_msgs::srv::FrameGraph_Response>
   : std::integral_constant<bool, false> {};
+
+template<>
+struct is_message<tf2_msgs::srv::FrameGraph_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<tf2_msgs::srv::FrameGraph>
     has_bounded_size<tf2_msgs::srv::FrameGraph_Request>::value &&
     has_bounded_size<tf2_msgs::srv::FrameGraph_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<tf2_msgs::srv::FrameGraph>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<tf2_msgs::srv::FrameGraph_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<tf2_msgs::srv::FrameGraph_Response>
+  : std::true_type
 {
 };
 

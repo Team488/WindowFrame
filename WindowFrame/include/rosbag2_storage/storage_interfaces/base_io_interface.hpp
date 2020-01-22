@@ -31,12 +31,37 @@ enum class IOFlag : uint8_t
   APPEND = 2
 };
 
+// When bagfile splitting feature is not enabled or applicable,
+// use 0 as the default maximum bagfile size value.
+ROSBAG2_STORAGE_PUBLIC extern const uint64_t MAX_BAGFILE_SIZE_NO_SPLIT;
+
 class ROSBAG2_STORAGE_PUBLIC BaseIOInterface
 {
 public:
   virtual ~BaseIOInterface() = default;
 
+  /**
+   * Opens the storage plugin.
+   * \param uri is the path to the bagfile. Exact behavior depends on the io_flag passed.
+   * \param io_flag is a hint for the type of storage plugin to open depending on the io operations requested.
+   * If IOFlag::READ_ONLY is passed, then only read operations are guaranteed.
+   * The uri passed should be the exact relative path to the bagfile.
+   * If IOFlag::READ_WRITE is passed, then a new bagfile is created with guaranteed read and write operations.
+   * The storage plugin will append the uri in the case of creating a new bagfile backing.
+   */
   virtual void open(const std::string & uri, IOFlag io_flag) = 0;
+
+  /**
+   * Returns the size of the bagfile.
+   * \returns the size of the bagfile in bytes.
+   */
+  virtual uint64_t get_bagfile_size() const = 0;
+
+  /**
+   * Returns the identifier for the storage plugin.
+   * \returns the identifier.
+   */
+  virtual std::string get_storage_identifier() const = 0;
 };
 
 }  // namespace storage_interfaces

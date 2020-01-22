@@ -16,7 +16,7 @@ set(_qt_gui_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT qt_gui_FIND_QUIETLY)
-  message(STATUS "Found qt_gui: 1.0.6 (${qt_gui_DIR})")
+  message(STATUS "Found qt_gui: 1.0.7 (${qt_gui_DIR})")
 endif()
 
 # warn when using a deprecated package

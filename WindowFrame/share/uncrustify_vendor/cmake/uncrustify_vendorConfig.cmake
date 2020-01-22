@@ -16,7 +16,7 @@ set(_uncrustify_vendor_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT uncrustify_vendor_FIND_QUIETLY)
-  message(STATUS "Found uncrustify_vendor: 1.2.0 (${uncrustify_vendor_DIR})")
+  message(STATUS "Found uncrustify_vendor: 1.3.0 (${uncrustify_vendor_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ParameterEventDescriptors_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::msg::ParameterEventDescriptors(_init);
+}
+
+void ParameterEventDescriptors_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::msg::ParameterEventDescriptors *>(message_memory);
+  typed_message->~ParameterEventDescriptors();
+}
+
 size_t size_function__ParameterEventDescriptors__new_parameters(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::ParameterDescriptor> *>(untyped_member);
@@ -159,7 +171,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ParameterEve
   "ParameterEventDescriptors",  // message name
   3,  // number of fields
   sizeof(rcl_interfaces::msg::ParameterEventDescriptors),
-  ParameterEventDescriptors_message_member_array  // message members
+  ParameterEventDescriptors_message_member_array,  // message members
+  ParameterEventDescriptors_init_function,  // function to initialize message memory (memory has to be allocated)
+  ParameterEventDescriptors_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ParameterEventDescriptors_message_type_support_handle = {

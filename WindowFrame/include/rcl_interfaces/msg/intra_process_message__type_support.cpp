@@ -25,12 +25,24 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void IntraProcessMessage_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::msg::IntraProcessMessage(_init);
+}
+
+void IntraProcessMessage_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::msg::IntraProcessMessage *>(message_memory);
+  typed_message->~IntraProcessMessage();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember IntraProcessMessage_message_member_array[2] = {
   {
     "publisher_id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember IntraProcessM
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "message_sequence",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember IntraProcessM
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -63,7 +75,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers IntraProcess
   "IntraProcessMessage",  // message name
   2,  // number of fields
   sizeof(rcl_interfaces::msg::IntraProcessMessage),
-  IntraProcessMessage_message_member_array  // message members
+  IntraProcessMessage_message_member_array,  // message members
+  IntraProcessMessage_init_function,  // function to initialize message memory (memory has to be allocated)
+  IntraProcessMessage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t IntraProcessMessage_message_type_support_handle = {

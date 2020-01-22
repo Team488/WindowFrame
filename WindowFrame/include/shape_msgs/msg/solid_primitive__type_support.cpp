@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SolidPrimitive_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) shape_msgs::msg::SolidPrimitive(_init);
+}
+
+void SolidPrimitive_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<shape_msgs::msg::SolidPrimitive *>(message_memory);
+  typed_message->~SolidPrimitive();
+}
+
 size_t size_function__SolidPrimitive__dimensions(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<double> *>(untyped_member);
@@ -57,7 +69,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SolidPrimitiv
     "type",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -66,13 +78,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SolidPrimitiv
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "dimensions",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     true,  // is upper bound
@@ -90,7 +102,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SolidPrimiti
   "SolidPrimitive",  // message name
   2,  // number of fields
   sizeof(shape_msgs::msg::SolidPrimitive),
-  SolidPrimitive_message_member_array  // message members
+  SolidPrimitive_message_member_array,  // message members
+  SolidPrimitive_init_function,  // function to initialize message memory (memory has to be allocated)
+  SolidPrimitive_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SolidPrimitive_message_type_support_handle = {

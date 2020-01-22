@@ -16,7 +16,7 @@ set(_nav_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT nav_msgs_FIND_QUIETLY)
-  message(STATUS "Found nav_msgs: 0.7.0 (${nav_msgs_DIR})")
+  message(STATUS "Found nav_msgs: 0.8.1 (${nav_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

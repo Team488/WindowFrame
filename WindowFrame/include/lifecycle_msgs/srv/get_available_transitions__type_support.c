@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "lifecycle_msgs/srv/get_available_transitions__functions.h"
 #include "lifecycle_msgs/srv/get_available_transitions__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  lifecycle_msgs__srv__GetAvailableTransitions_Request__init(message_memory);
+}
+
+void GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_fini_function(void * message_memory)
+{
+  lifecycle_msgs__srv__GetAvailableTransitions_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_message_member_array[1] = {
   {
@@ -39,7 +54,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetAvailableTran
   "GetAvailableTransitions_Request",  // message name
   1,  // number of fields
   sizeof(lifecycle_msgs__srv__GetAvailableTransitions_Request),
-  GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_message_member_array  // message members
+  GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_message_member_array,  // message members
+  GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetAvailableTransitions_Request__rosidl_typesupport_introspection_c__GetAvailableTransitions_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -76,6 +93,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "lifecycle_msgs/srv/get_available_transitions__functions.h"
+// already included above
 // #include "lifecycle_msgs/srv/get_available_transitions__struct.h"
 
 
@@ -89,6 +108,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__GetAvailableTransitions_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  lifecycle_msgs__srv__GetAvailableTransitions_Response__init(message_memory);
+}
+
+void GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__GetAvailableTransitions_Response_fini_function(void * message_memory)
+{
+  lifecycle_msgs__srv__GetAvailableTransitions_Response__fini(message_memory);
+}
 
 size_t GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__size_function__TransitionDescription__available_transitions(
   const void * untyped_member)
@@ -146,7 +179,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetAvailableTran
   "GetAvailableTransitions_Response",  // message name
   1,  // number of fields
   sizeof(lifecycle_msgs__srv__GetAvailableTransitions_Response),
-  GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__GetAvailableTransitions_Response_message_member_array  // message members
+  GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__GetAvailableTransitions_Response_message_member_array,  // message members
+  GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__GetAvailableTransitions_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetAvailableTransitions_Response__rosidl_typesupport_introspection_c__GetAvailableTransitions_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

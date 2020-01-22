@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<diagnostic_msgs::msg::KeyValue>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<diagnostic_msgs::msg::KeyValue>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // DIAGNOSTIC_MSGS__MSG__KEY_VALUE__TRAITS_HPP_

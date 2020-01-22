@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "diagnostic_msgs/srv/self_test__functions.h"
 #include "diagnostic_msgs/srv/self_test__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  diagnostic_msgs__srv__SelfTest_Request__init(message_memory);
+}
+
+void SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_fini_function(void * message_memory)
+{
+  diagnostic_msgs__srv__SelfTest_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_message_member_array[1] = {
   {
@@ -39,7 +54,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers SelfTest_Request
   "SelfTest_Request",  // message name
   1,  // number of fields
   sizeof(diagnostic_msgs__srv__SelfTest_Request),
-  SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_message_member_array  // message members
+  SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_message_member_array,  // message members
+  SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SelfTest_Request__rosidl_typesupport_introspection_c__SelfTest_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -76,6 +93,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "diagnostic_msgs/srv/self_test__functions.h"
+// already included above
 // #include "diagnostic_msgs/srv/self_test__struct.h"
 
 
@@ -91,6 +110,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void SelfTest_Response__rosidl_typesupport_introspection_c__SelfTest_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  diagnostic_msgs__srv__SelfTest_Response__init(message_memory);
+}
+
+void SelfTest_Response__rosidl_typesupport_introspection_c__SelfTest_Response_fini_function(void * message_memory)
+{
+  diagnostic_msgs__srv__SelfTest_Response__fini(message_memory);
+}
 
 size_t SelfTest_Response__rosidl_typesupport_introspection_c__size_function__DiagnosticStatus__status(
   const void * untyped_member)
@@ -178,7 +211,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers SelfTest_Respons
   "SelfTest_Response",  // message name
   3,  // number of fields
   sizeof(diagnostic_msgs__srv__SelfTest_Response),
-  SelfTest_Response__rosidl_typesupport_introspection_c__SelfTest_Response_message_member_array  // message members
+  SelfTest_Response__rosidl_typesupport_introspection_c__SelfTest_Response_message_member_array,  // message members
+  SelfTest_Response__rosidl_typesupport_introspection_c__SelfTest_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SelfTest_Response__rosidl_typesupport_introspection_c__SelfTest_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

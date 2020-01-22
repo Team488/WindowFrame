@@ -6,43 +6,55 @@
 
 module composition_interfaces {
   module srv {
-    @verbatim (language="comment", text=" A ROS package the composable node can be found in")
+    @verbatim (language="comment", text=
+      " A ROS package the composable node can be found in")
     struct LoadNode_Request {
       string package_name;
 
-      @verbatim (language="comment", text=" a plugin within that package")
+      @verbatim (language="comment", text=
+        " a plugin within that package")
       string plugin_name;
 
-      @verbatim (language="comment", text=" Name the composable node should use, or empty to use the node's default name")
+      @verbatim (language="comment", text=
+        " Name the composable node should use, or empty to use the node's default name")
       string node_name;
 
-      @verbatim (language="comment", text=" Namespace the composable node should use, or empty to use the node's default namespace")
+      @verbatim (language="comment", text=
+        " Namespace the composable node should use, or empty to use the node's default namespace")
       string node_namespace;
 
-      @verbatim (language="comment", text=" Values from message rcl_interfaces/Log")
+      @verbatim (language="comment", text=
+        " Values from message rcl_interfaces/Log")
       uint8 log_level;
 
-      @verbatim (language="comment", text=" Remap rules
- TODO(sloretz) rcl_interfaces message for remap rules?")
+      @verbatim (language="comment", text=
+        " Remap rules" "\n"
+        " TODO(sloretz) rcl_interfaces message for remap rules?")
       sequence<string> remap_rules;
 
-      @verbatim (language="comment", text=" Parameters to set")
+      @verbatim (language="comment", text=
+        " Parameters to set")
       sequence<rcl_interfaces::msg::Parameter> parameters;
 
-      @verbatim (language="comment", text=" key/value arguments that are specific to a type of container process")
+      @verbatim (language="comment", text=
+        " key/value arguments that are specific to a type of container process")
       sequence<rcl_interfaces::msg::Parameter> extra_arguments;
     };
-    @verbatim (language="comment", text=" True if the node was successfully loaded")
+    @verbatim (language="comment", text=
+      " True if the node was successfully loaded")
     struct LoadNode_Response {
       boolean success;
 
-      @verbatim (language="comment", text=" Human readable error message if success is false, else empty string")
+      @verbatim (language="comment", text=
+        " Human readable error message if success is false, else empty string")
       string error_message;
 
-      @verbatim (language="comment", text=" Name of the loaded composable node (including namespace)")
+      @verbatim (language="comment", text=
+        " Name of the loaded composable node (including namespace)")
       string full_node_name;
 
-      @verbatim (language="comment", text=" A unique identifier for the loaded node")
+      @verbatim (language="comment", text=
+        " A unique identifier for the loaded node")
       uint64 unique_id;
     };
   };

@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_Goal>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<test_msgs::action::Fibonacci_Goal>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -46,6 +50,10 @@ template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_Result>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<test_msgs::action::Fibonacci_Result>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -64,6 +72,10 @@ struct has_fixed_size<test_msgs::action::Fibonacci_Feedback>
 template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_Feedback>
   : std::integral_constant<bool, false> {};
+
+template<>
+struct is_message<test_msgs::action::Fibonacci_Feedback>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -90,6 +102,10 @@ template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_SendGoal_Request>
   : std::integral_constant<bool, has_bounded_size<test_msgs::action::Fibonacci_Goal>::value && has_bounded_size<unique_identifier_msgs::msg::UUID>::value> {};
 
+template<>
+struct is_message<test_msgs::action::Fibonacci_SendGoal_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -112,6 +128,10 @@ struct has_fixed_size<test_msgs::action::Fibonacci_SendGoal_Response>
 template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_SendGoal_Response>
   : std::integral_constant<bool, has_bounded_size<builtin_interfaces::msg::Time>::value> {};
+
+template<>
+struct is_message<test_msgs::action::Fibonacci_SendGoal_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -144,6 +164,24 @@ struct has_bounded_size<test_msgs::action::Fibonacci_SendGoal>
 {
 };
 
+template<>
+struct is_service<test_msgs::action::Fibonacci_SendGoal>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<test_msgs::action::Fibonacci_SendGoal_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<test_msgs::action::Fibonacci_SendGoal_Response>
+  : std::true_type
+{
+};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -168,6 +206,10 @@ template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_GetResult_Request>
   : std::integral_constant<bool, has_bounded_size<unique_identifier_msgs::msg::UUID>::value> {};
 
+template<>
+struct is_message<test_msgs::action::Fibonacci_GetResult_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -191,6 +233,10 @@ struct has_fixed_size<test_msgs::action::Fibonacci_GetResult_Response>
 template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_GetResult_Response>
   : std::integral_constant<bool, has_bounded_size<test_msgs::action::Fibonacci_Result>::value> {};
+
+template<>
+struct is_message<test_msgs::action::Fibonacci_GetResult_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -223,6 +269,24 @@ struct has_bounded_size<test_msgs::action::Fibonacci_GetResult>
 {
 };
 
+template<>
+struct is_service<test_msgs::action::Fibonacci_GetResult>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<test_msgs::action::Fibonacci_GetResult_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<test_msgs::action::Fibonacci_GetResult_Response>
+  : std::true_type
+{
+};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -250,6 +314,41 @@ template<>
 struct has_bounded_size<test_msgs::action::Fibonacci_FeedbackMessage>
   : std::integral_constant<bool, has_bounded_size<test_msgs::action::Fibonacci_Feedback>::value && has_bounded_size<unique_identifier_msgs::msg::UUID>::value> {};
 
+template<>
+struct is_message<test_msgs::action::Fibonacci_FeedbackMessage>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
+
+
+namespace rosidl_generator_traits
+{
+
+template<>
+struct is_action<test_msgs::action::Fibonacci>
+  : std::true_type
+{
+};
+
+template<>
+struct is_action_goal<test_msgs::action::Fibonacci_Goal>
+  : std::true_type
+{
+};
+
+template<>
+struct is_action_result<test_msgs::action::Fibonacci_Result>
+  : std::true_type
+{
+};
+
+template<>
+struct is_action_feedback<test_msgs::action::Fibonacci_Feedback>
+  : std::true_type
+{
+};
+
+}  // namespace rosidl_generator_traits
+
 
 #endif  // TEST_MSGS__ACTION__FIBONACCI__TRAITS_HPP_

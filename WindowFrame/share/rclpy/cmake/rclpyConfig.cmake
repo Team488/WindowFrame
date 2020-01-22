@@ -16,7 +16,7 @@ set(_rclpy_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rclpy_FIND_QUIETLY)
-  message(STATUS "Found rclpy: 0.7.7 (${rclpy_DIR})")
+  message(STATUS "Found rclpy: 0.8.3 (${rclpy_DIR})")
 endif()
 
 # warn when using a deprecated package

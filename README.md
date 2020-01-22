@@ -4,7 +4,7 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
 
 ## Packages
 
-- [ROS2](https://github.com/ros2/ros2/releases) (`ros2-dashing-20190910-windows-release-amd64`)
+- [ROS2](https://github.com/ros2/ros2/releases) (`ros2-eloquent-20191122-windows-release-amd64`)
 - [Gazebo](https://bitbucket.org/osrf/gazebo/src/gazebo10/) (`gazebo10 7c4281fe1229`)
 - [OpenCV](https://opencv.org/releases/) (`4.1.1`)
 - [RealSense2](https://github.com/IntelRealSense/librealsense) (`86280d3`)
@@ -24,26 +24,28 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
        ```cmd
        > iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
        ```
-    2. Install Python 3.7.5 (this must be installed via Chocolatey)
+    2. Install Visual C++ Redistributables
+       ```cmd
+       > choco install -y vcredist2013 vcredist140
+       ```
+    3. Install Python 3.7.5 (this must be installed via Chocolatey)
        ```cmd
        > choco install python --version=3.7.5
        ```
-    3. Install CLI dependencies
+    4. Install CLI dependencies
         ```cmd
-        > pip install -U catkin_pkg empy lark-parser lxml numpy opencv-python pyparsing pyyaml setuptools
+        > pip install -U catkin_pkg cryptography empy ifcfg lark-parser lxml netifaces numpy opencv-python pyparsing pyyaml setuptools
         ```
-    4. Install RQT dependencies
+    5. Install RQT dependencies
         ```cmd
         > pip install -U pydot PyQt5
         ```
-    5. Install colcon
+    6. Install colcon
         ```cmd
         > pip install -U colcon-common-extensions
         ```
 
 ## Usage
-
-##### PowerShell
 
 Right-click `WindowFrame.ps1` and select "Run with PowerShell".
 
@@ -55,23 +57,13 @@ This will open and configure an Admin PowerShell window ready to:
     - `rqt_graph`
 - Run Gazebo
     - `gazebo [<path_to_world>] [--verbose]`
-- Build with included packages
+- Build with included packages (in VS Code or via the command line)
     ```cmd
     > mkdir build
     > cd build
     > cmake .. -G "NMake Makefiles"
     > nmake
     ```
-
-##### ROS2
-
-Right-click ros2.ps1 and select "Run with PowerShell".
-This will open and configure a PowerShell window ready to run any of the ROS2 commands above, but not build.
-
-##### Gazebo
-
-Right-click gazebo.ps1 and select "Run with PowerShell".
-This will open a Gazebo window with the empty world.
 
 ## Troubleshooting
 

@@ -16,7 +16,7 @@ set(_ament_cmake_python_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_cmake_python_FIND_QUIETLY)
-  message(STATUS "Found ament_cmake_python: 0.7.3 (${ament_cmake_python_DIR})")
+  message(STATUS "Found ament_cmake_python: 0.8.1 (${ament_cmake_python_DIR})")
 endif()
 
 # warn when using a deprecated package

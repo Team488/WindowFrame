@@ -16,7 +16,7 @@ set(_rqt_publisher_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rqt_publisher_FIND_QUIETLY)
-  message(STATUS "Found rqt_publisher: 1.0.5 (${rqt_publisher_DIR})")
+  message(STATUS "Found rqt_publisher: 1.1.0 (${rqt_publisher_DIR})")
 endif()
 
 # warn when using a deprecated package

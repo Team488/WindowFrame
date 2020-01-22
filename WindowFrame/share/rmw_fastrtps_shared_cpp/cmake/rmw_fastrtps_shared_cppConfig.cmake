@@ -16,7 +16,7 @@ set(_rmw_fastrtps_shared_cpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rmw_fastrtps_shared_cpp_FIND_QUIETLY)
-  message(STATUS "Found rmw_fastrtps_shared_cpp: 0.7.5 (${rmw_fastrtps_shared_cpp_DIR})")
+  message(STATUS "Found rmw_fastrtps_shared_cpp: 0.8.1 (${rmw_fastrtps_shared_cpp_DIR})")
 endif()
 
 # warn when using a deprecated package

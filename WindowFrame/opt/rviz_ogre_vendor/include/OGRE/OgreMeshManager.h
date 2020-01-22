@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __MeshManager_H__
 #define __MeshManager_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 
@@ -37,6 +42,7 @@ THE SOFTWARE.
 #include "OgreHardwareVertexBuffer.h"
 #include "OgrePatchSurface.h"
 #include "OgreHeaderPrefix.h"
+#include "OgrePlane.h"
 
 namespace Ogre {
 
@@ -54,9 +60,14 @@ namespace Ogre {
             mesh data; like other resource managers it handles
             the creation of resources (in this case mesh data),
             working within a fixed memory budget.
+        @remarks
+            Ogre loads model files from it's own proprietary
+            format called .mesh. This is because having a single file
+            format is better for runtime performance, and we also have
+            control over pre-processed data (such as
+            collision boxes, LOD reductions etc). 
     */
-    class _OgreExport MeshManager: public ResourceManager, public Singleton<MeshManager>, 
-        public ManualResourceLoader
+    class _OgreExport MeshManager: public ResourceManager, public Singleton<MeshManager>
     {
     public:
         MeshManager();
@@ -65,12 +76,11 @@ namespace Ogre {
         /** Initialises the manager, only to be called by OGRE internally. */
         void _initialise(void);
 
-        /// Get a resource by name
-        /// @see ResourceManager::getResourceByName
+        /// @copydoc ResourceManager::getResourceByName
         MeshPtr getByName(const String& name, const String& groupName OGRE_RESOURCE_GROUP_INIT);
 
         /// Create a new mesh
-        /// @see ResourceManager::createResource
+        /// @copydetails ResourceManager::createResource
         MeshPtr create (const String& name, const String& group,
                             bool isManual = false, ManualResourceLoader* loader = 0,
                             const NameValuePairList* createParams = 0);
@@ -79,6 +89,7 @@ namespace Ogre {
 
         /** Create a new mesh, or retrieve an existing one with the same
             name if it already exists.
+            @copydetails ResourceManager::createResource
             @param vertexBufferUsage The usage flags with which the vertex buffer(s)
                 will be created
             @param indexBufferUsage The usage flags with which the index buffer(s) created for 
@@ -87,27 +98,20 @@ namespace Ogre {
                 copies for faster read access
             @param indexBufferShadowed If true, the index buffers will be shadowed by system memory 
                 copies for faster read access
-        @see ResourceManager::createOrRetrieve
         */
         ResourceCreateOrRetrieveResult createOrRetrieve(
             const String& name,
             const String& group,
             bool isManual, ManualResourceLoader* loader,
-            const NameValuePairList* params,
-            HardwareBuffer::Usage vertexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
+            const NameValuePairList* createParams,
+            HardwareBuffer::Usage vertexBufferUsage,
             HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
-            bool vertexBufferShadowed = true, bool indexBufferShadowed = true);
+            bool vertexBufferShadowed = false, bool indexBufferShadowed = false);
 
         /** Prepares a mesh for loading from a file.  This does the IO in advance of the call to load().
             @note
                 If the model has already been created (prepared or loaded), the existing instance
                 will be returned.
-            @remarks
-                Ogre loads model files from it's own proprietary
-                format called .mesh. This is because having a single file
-                format is better for runtime performance, and we also have
-                control over pre-processed data (such as
-                collision boxes, LOD reductions etc).
             @param filename The name of the .mesh file
             @param groupName The name of the resource group to assign the mesh to 
             @param vertexBufferUsage The usage flags with which the vertex buffer(s)
@@ -122,41 +126,23 @@ namespace Ogre {
         MeshPtr prepare( const String& filename, const String& groupName,
             HardwareBuffer::Usage vertexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
             HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
-            bool vertexBufferShadowed = true, bool indexBufferShadowed = true);
+            bool vertexBufferShadowed = false, bool indexBufferShadowed = false);
 
         /** Loads a mesh from a file, making it immediately available for use.
-            @note
-                If the model has already been created (prepared or loaded), the existing instance
-                will be returned.
-            @remarks
-                Ogre loads model files from it's own proprietary
-                format called .mesh. This is because having a single file
-                format is better for runtime performance, and we also have
-                control over pre-processed data (such as
-                collision boxes, LOD reductions etc).
-            @param filename The name of the .mesh file
-            @param groupName The name of the resource group to assign the mesh to 
-            @param vertexBufferUsage The usage flags with which the vertex buffer(s)
-                will be created
-            @param indexBufferUsage The usage flags with which the index buffer(s) created for 
-                this mesh will be created with.
-            @param vertexBufferShadowed If true, the vertex buffers will be shadowed by system memory 
-                copies for faster read access
-            @param indexBufferShadowed If true, the index buffers will be shadowed by system memory 
-                copies for faster read access
+            @copydetails MeshManager::prepare
         */
         MeshPtr load( const String& filename, const String& groupName,
             HardwareBuffer::Usage vertexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
             HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
-            bool vertexBufferShadowed = true, bool indexBufferShadowed = true);
+            bool vertexBufferShadowed = false, bool indexBufferShadowed = false);
 
 
         /** Creates a new Mesh specifically for manual definition rather
             than loading from an object file. 
-        @remarks
-            Note that once you've defined your mesh, you must call Mesh::_setBounds and
-            Mesh::_setBoundingRadius in order to define the bounds of your mesh. In previous
-            versions of OGRE you could call Mesh::_updateBounds, but OGRE's support of 
+
+            Note that once you've defined your mesh, you must call Mesh::_setBounds
+            in order to define the bounds of your mesh. In previous
+            versions of OGRE could auto-compute that, but OGRE's support of 
             write-only vertex buffers makes this no longer appropriate.
         @param name The name to give the new mesh
         @param groupName The name of the resource group to assign the mesh to 
@@ -214,7 +200,7 @@ namespace Ogre {
             Real uTile = 1.0f, Real vTile = 1.0f, const Vector3& upVector = Vector3::UNIT_Y,
             HardwareBuffer::Usage vertexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
             HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY,
-            bool vertexShadowBuffer = true, bool indexShadowBuffer = true);
+            bool vertexShadowBuffer = false, bool indexShadowBuffer = false);
 
         
         /** Creates a plane, which because of it's texture coordinates looks like a curved
@@ -276,7 +262,7 @@ namespace Ogre {
             const Quaternion& orientation = Quaternion::IDENTITY,
             HardwareBuffer::Usage vertexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
             HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY,
-            bool vertexShadowBuffer = true, bool indexShadowBuffer = true, 
+            bool vertexShadowBuffer = false, bool indexShadowBuffer = false, 
             int ySegmentsToKeep = -1);
 
         /** Creates a genuinely curved plane, by default majoring on the x/y axes facing positive Z.
@@ -328,7 +314,7 @@ namespace Ogre {
             Real uTile = 1.0f, Real vTile = 1.0f, const Vector3& upVector = Vector3::UNIT_Y,
             HardwareBuffer::Usage vertexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY, 
             HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY,
-            bool vertexShadowBuffer = true, bool indexShadowBuffer = true);
+            bool vertexShadowBuffer = false, bool indexShadowBuffer = false);
 
         /** Creates a Bezier patch based on an array of control vertices.
             @param name
@@ -421,25 +407,12 @@ namespace Ogre {
         */
         MeshSerializerListener *getListener();
 
-        /** @see ManualResourceLoader::loadResource */
-        void loadResource(Resource* res);
-
     protected:
+
         /// @copydoc ResourceManager::createImpl
         Resource* createImpl(const String& name, ResourceHandle handle, 
             const String& group, bool isManual, ManualResourceLoader* loader, 
             const NameValuePairList* createParams);
-        
-        /** Utility method for tessellating 2D meshes.
-        */
-        void tesselate2DMesh(SubMesh* pSub, unsigned short meshWidth, unsigned short meshHeight, 
-            bool doubleSided = false, 
-            HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY,
-            bool indexSysMem = false);
-
-        void createPrefabPlane(void);
-        void createPrefabCube(void);
-        void createPrefabSphere(void);
     
         /** Enum identifying the types of manual mesh built by this manager */
         enum MeshBuildType
@@ -470,16 +443,28 @@ namespace Ogre {
             bool indexShadowBuffer;
             int ySegmentsToKeep;
         };
-        /** Map from resource pointer to parameter set */
-        typedef map<Resource*, MeshBuildParams>::type MeshBuildParamsMap;
-        MeshBuildParamsMap mMeshBuildParams;
 
-        /** Utility method for manual loading a plane */
-        void loadManualPlane(Mesh* pMesh, MeshBuildParams& params);
-        /** Utility method for manual loading a curved plane */
-        void loadManualCurvedPlane(Mesh* pMesh, MeshBuildParams& params);
-        /** Utility method for manual loading a curved illusion plane */
-        void loadManualCurvedIllusionPlane(Mesh* pMesh, MeshBuildParams& params);
+        struct PrefabLoader : public ManualResourceLoader
+        {
+            /** Map from resource pointer to parameter set */
+            typedef std::map<Resource*, MeshBuildParams> MeshBuildParamsMap;
+            MeshBuildParamsMap mMeshBuildParams;
+
+            /** Utility method for tessellating 2D meshes.
+            */
+            static void tesselate2DMesh(SubMesh* pSub, unsigned short meshWidth, unsigned short meshHeight,
+                bool doubleSided = false,
+                HardwareBuffer::Usage indexBufferUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY,
+                bool indexSysMem = false);
+            /** Utility method for manual loading a plane */
+            static void loadManualPlane(Mesh* pMesh, MeshBuildParams& params);
+            /** Utility method for manual loading a curved plane */
+            static void loadManualCurvedPlane(Mesh* pMesh, MeshBuildParams& params);
+            /** Utility method for manual loading a curved illusion plane */
+            static void loadManualCurvedIllusionPlane(Mesh* pMesh, MeshBuildParams& params);
+
+            void loadResource(Resource* res);
+        } mPrefabLoader;
 
         // element type for blend weights in vertex buffer (VET_UBYTE4, VET_USHORT1, or VET_FLOAT1)
         VertexElementType mBlendWeightsBaseElementType;
@@ -499,5 +484,9 @@ namespace Ogre {
 } //namespace
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

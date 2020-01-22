@@ -1,6 +1,6 @@
 # generated from ament_cmake_export_dependencies/cmake/ament_cmake_export_dependencies-extras.cmake.in
 
-set(_exported_dependencies "ament_cmake;rcl;builtin_interfaces;rosgraph_msgs;rosidl_typesupport_cpp;rosidl_typesupport_c;rosidl_generator_cpp;rcl_yaml_param_parser")
+set(_exported_dependencies "ament_cmake;rcl;rcpputils;builtin_interfaces;rosgraph_msgs;rosidl_typesupport_cpp;rosidl_typesupport_c;rosidl_generator_cpp;rcl_yaml_param_parser;tracetools")
 
 find_package(ament_cmake_libraries QUIET REQUIRED)
 

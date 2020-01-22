@@ -16,7 +16,7 @@ set(_test_communication_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT test_communication_FIND_QUIETLY)
-  message(STATUS "Found test_communication: 0.7.2 (${test_communication_DIR})")
+  message(STATUS "Found test_communication: 0.8.0 (${test_communication_DIR})")
 endif()
 
 # warn when using a deprecated package

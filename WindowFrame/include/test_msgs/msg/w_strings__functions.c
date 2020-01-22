@@ -1,3 +1,4 @@
+﻿// NOLINT: This file starts with a BOM since it contain non-ASCII characters
 // generated from rosidl_generator_c/resource/idl__functions.c.em
 // with input from test_msgs:msg\WStrings.idl
 // generated code does not contain a copyright notice
@@ -11,6 +12,9 @@
 
 // Include directives for member types
 // Member `wstring_value`
+// Member `wstring_value_default1`
+// Member `wstring_value_default2`
+// Member `wstring_value_default3`
 // Member `array_of_wstrings`
 // Member `bounded_sequence_of_wstrings`
 // Member `unbounded_sequence_of_wstrings`
@@ -26,6 +30,39 @@ test_msgs__msg__WStrings__init(test_msgs__msg__WStrings * msg)
   if (!rosidl_generator_c__U16String__init(&msg->wstring_value)) {
     test_msgs__msg__WStrings__destroy(msg);
     return false;
+  }
+  // wstring_value_default1
+  if (!rosidl_generator_c__U16String__init(&msg->wstring_value_default1)) {
+    test_msgs__msg__WStrings__destroy(msg);
+    return false;
+  }
+  {
+    bool success = rosidl_generator_c__U16String__assign(&msg->wstring_value_default1, u"Hello world!");
+    if (!success) {
+      goto abort_init_0;
+    }
+  }
+  // wstring_value_default2
+  if (!rosidl_generator_c__U16String__init(&msg->wstring_value_default2)) {
+    test_msgs__msg__WStrings__destroy(msg);
+    return false;
+  }
+  {
+    bool success = rosidl_generator_c__U16String__assign(&msg->wstring_value_default2, u"Hellö wörld!");
+    if (!success) {
+      goto abort_init_1;
+    }
+  }
+  // wstring_value_default3
+  if (!rosidl_generator_c__U16String__init(&msg->wstring_value_default3)) {
+    test_msgs__msg__WStrings__destroy(msg);
+    return false;
+  }
+  {
+    bool success = rosidl_generator_c__U16String__assign(&msg->wstring_value_default3, u"ハローワールド");
+    if (!success) {
+      goto abort_init_2;
+    }
   }
   // array_of_wstrings
   for (size_t i = 0; i < 3; ++i) {
@@ -45,6 +82,12 @@ test_msgs__msg__WStrings__init(test_msgs__msg__WStrings * msg)
     return false;
   }
   return true;
+abort_init_2:
+  rosidl_generator_c__U16String__fini(&msg->wstring_value_default2);
+abort_init_1:
+  rosidl_generator_c__U16String__fini(&msg->wstring_value_default1);
+abort_init_0:
+  return false;
 }
 
 void
@@ -55,6 +98,12 @@ test_msgs__msg__WStrings__fini(test_msgs__msg__WStrings * msg)
   }
   // wstring_value
   rosidl_generator_c__U16String__fini(&msg->wstring_value);
+  // wstring_value_default1
+  rosidl_generator_c__U16String__fini(&msg->wstring_value_default1);
+  // wstring_value_default2
+  rosidl_generator_c__U16String__fini(&msg->wstring_value_default2);
+  // wstring_value_default3
+  rosidl_generator_c__U16String__fini(&msg->wstring_value_default3);
   // array_of_wstrings
   for (size_t i = 0; i < 3; ++i) {
     rosidl_generator_c__U16String__fini(&msg->array_of_wstrings[i]);

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void InteractiveMarkerUpdate_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) visualization_msgs::msg::InteractiveMarkerUpdate(_init);
+}
+
+void InteractiveMarkerUpdate_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<visualization_msgs::msg::InteractiveMarkerUpdate *>(message_memory);
+  typed_message->~InteractiveMarkerUpdate();
+}
+
 size_t size_function__InteractiveMarkerUpdate__markers(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<visualization_msgs::msg::InteractiveMarker> *>(untyped_member);
@@ -111,7 +123,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember InteractiveMa
     "server_id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -120,13 +132,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember InteractiveMa
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "seq_num",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -135,13 +147,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember InteractiveMa
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "type",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -150,7 +162,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember InteractiveMa
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "markers",  // name
@@ -186,7 +198,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember InteractiveMa
     "erases",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -204,7 +216,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers InteractiveM
   "InteractiveMarkerUpdate",  // message name
   6,  // number of fields
   sizeof(visualization_msgs::msg::InteractiveMarkerUpdate),
-  InteractiveMarkerUpdate_message_member_array  // message members
+  InteractiveMarkerUpdate_message_member_array,  // message members
+  InteractiveMarkerUpdate_init_function,  // function to initialize message memory (memory has to be allocated)
+  InteractiveMarkerUpdate_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t InteractiveMarkerUpdate_message_type_support_handle = {

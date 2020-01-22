@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<test_msgs::msg::Builtins>
   : std::integral_constant<bool, has_bounded_size<builtin_interfaces::msg::Duration>::value && has_bounded_size<builtin_interfaces::msg::Time>::value> {};
 
+template<>
+struct is_message<test_msgs::msg::Builtins>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TEST_MSGS__MSG__BUILTINS__TRAITS_HPP_

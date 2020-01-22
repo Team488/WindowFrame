@@ -16,7 +16,7 @@ set(_rosidl_default_generators_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosidl_default_generators_FIND_QUIETLY)
-  message(STATUS "Found rosidl_default_generators: 0.7.0 (${rosidl_default_generators_DIR})")
+  message(STATUS "Found rosidl_default_generators: 0.8.0 (${rosidl_default_generators_DIR})")
 endif()
 
 # warn when using a deprecated package

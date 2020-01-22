@@ -11,12 +11,11 @@
 #
 # This module defines
 #  OGRE_INCLUDE_DIRS - the OGRE include directories 
-#  OGRE_LIBRARIES - link these to use the OGRE core
+#  OGRE_LIBRARIES - link these to use the OGRE
 #  OGRE_LIBRARY_DIRS, the location of the libraries
 #  OGRE_STATIC - whther ogre was build as static lib
 #  OGRE_${COMPONENT}_FOUND - ${COMPONENT} is available
-#  OGRE_${COMPONENT}_INCLUDE_DIRS - additional include directories for ${COMPONENT}
-#  OGRE_${COMPONENT}_LIBRARIES - link these to use ${COMPONENT} 
+#  OGRE_${COMPONENT}_LIBRARIES - link these to only use ${COMPONENT} 
 #  OGRE_PLUGIN_DIR - The directory where the OGRE plugins are located
 #  OGRE_MEDIA_DIR - The directory where the OGRE sample media is located
 #  OGRE_CONFIG_DIR - The directory where the OGRE config files are located
@@ -55,10 +54,6 @@ set(OGRE_CONFIG_DIR "${PACKAGE_PREFIX_DIR}/bin")
 set(OGRE_PREFIX_DIR "${PACKAGE_PREFIX_DIR}")
 get_filename_component(OGRE_LIBRARY_DIRS "${OGRE_PREFIX_DIR}/lib" ABSOLUTE)
 get_filename_component(OGRE_INCLUDE_DIRS "${OGRE_PREFIX_DIR}/include/OGRE" ABSOLUTE)
-if(APPLE AND NOT APPLE_IOS)
-    # Note: OGRE_INCLUDE_DIRS is not yet a list
-    list(APPEND OGRE_INCLUDE_DIRS ${OGRE_INCLUDE_DIRS}/OSX)
-endif()
 set(OGRE_LIBRARIES)
 
 cmake_policy(PUSH)
@@ -75,38 +70,28 @@ set(OGRE_PLUGINS)
 
 macro(ogre_declare_component COMPONENT)
     set(OGRE_${COMPONENT}_FOUND TRUE)
-    set(OGRE_${COMPONENT}_INCLUDE_DIRS "${OGRE_PREFIX_DIR}/include/OGRE/${COMPONENT}")
-    set(OGRE_${COMPONENT}_LIBRARIES "Ogre${COMPONENT}")
+    set(OGRE_${COMPONENT}_LIBRARIES Ogre${COMPONENT}) # backwards compatibility
     
     list(APPEND OGRE_COMPONENTS ${COMPONENT})
-    
-    list(APPEND OGRE_INCLUDE_DIRS ${OGRE_${COMPONENT}_INCLUDE_DIRS})
-    list(APPEND OGRE_LIBRARIES ${OGRE_${COMPONENT}_LIBRARIES})
+    list(APPEND OGRE_LIBRARIES Ogre${COMPONENT})
 endmacro()
 
 macro(ogre_declare_plugin TYPE COMPONENT)
     set(OGRE_${TYPE}_${COMPONENT}_FOUND TRUE)
-    set(OGRE_${TYPE}_${COMPONENT}_INCLUDE_DIRS "${OGRE_PREFIX_DIR}/include/OGRE/${TYPE}s/${COMPONENT}")
-    set(OGRE_${TYPE}_${COMPONENT}_LIBRARIES "${TYPE}_${COMPONENT}")
+    set(OGRE_${TYPE}_${COMPONENT}_LIBRARIES ${TYPE}_${COMPONENT})
     
     if(OFF)
-        list(APPEND OGRE_LIBRARIES ${OGRE_${TYPE}_${COMPONENT}_LIBRARIES})
+        list(APPEND OGRE_LIBRARIES ${TYPE}_${COMPONENT})
     endif()
     
     list(APPEND OGRE_PLUGINS ${TYPE}_${COMPONENT})
 endmacro()
 
 ## COMPONENTS
-if(ON)
+include("${CMAKE_CURRENT_LIST_DIR}/OgreTargets.cmake")
+
+if(FALSE)
     ogre_declare_component(Bites)
-    
-    if(FALSE)
-        list(APPEND OGRE_Bites_INCLUDE_DIRS SDL2_INCLUDE_DIR-NOTFOUND)
-        list(APPEND OGRE_Bites_LIBRARIES )
-        
-        list(APPEND OGRE_INCLUDE_DIRS SDL2_INCLUDE_DIR-NOTFOUND)
-        list(APPEND OGRE_LIBRARIES "")
-    endif()
 endif()
 if(ON)
     ogre_declare_component(HLMS)
@@ -158,7 +143,7 @@ if(TRUE)
     ogre_declare_plugin(RenderSystem GL)
 endif()
 
-if(OFF)
+if(FALSE)
     ogre_declare_plugin(RenderSystem GLES2)
 endif()
 
@@ -173,6 +158,18 @@ endif()
 if(OFF)
     ogre_declare_plugin(RenderSystem Direct3D11)
 endif()
+
+if(ON)
+    ogre_declare_plugin(Codec STBI)
+endif()
+
+if(FALSE)
+    ogre_declare_plugin(Codec FreeImage)
+endif()
+
+if(FALSE)
+    ogre_declare_plugin(Codec EXR)
+endif()
 cmake_policy(POP)
 
 if(OFF)
@@ -181,7 +178,15 @@ if(OFF)
 endif()
 
 # must come last in case of static build
-list(APPEND OGRE_LIBRARIES "OgreMain")
+list(APPEND OGRE_LIBRARIES OgreMain)
+
+foreach(_comp ${OGRE_FIND_COMPONENTS})
+  list (FIND OGRE_COMPONENTS ${_comp} _index)
+  if (_index EQUAL -1 AND OGRE_FIND_REQUIRED_${_comp})
+    set(OGRE_FOUND False)
+    set(OGRE_NOT_FOUND_MESSAGE "Component '${_comp}' is required but was not found")
+  endif()
+endforeach()
 
 if(NOT OGRE_FIND_QUIETLY)
     message(STATUS "Found OGRE")

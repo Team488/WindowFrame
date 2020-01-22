@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void RttestResults_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) pendulum_msgs::msg::RttestResults(_init);
+}
+
+void RttestResults_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<pendulum_msgs::msg::RttestResults *>(message_memory);
+  typed_message->~RttestResults();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults_message_member_array[9] = {
   {
     "stamp",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "command",  // name
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "state",  // name
@@ -69,13 +81,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "cur_latency",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -84,13 +96,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "mean_latency",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -99,13 +111,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "min_latency",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -114,13 +126,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "max_latency",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -129,13 +141,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "minor_pagefaults",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -144,13 +156,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "major_pagefaults",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -159,7 +171,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember RttestResults
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -168,7 +180,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers RttestResult
   "RttestResults",  // message name
   9,  // number of fields
   sizeof(pendulum_msgs::msg::RttestResults),
-  RttestResults_message_member_array  // message members
+  RttestResults_message_member_array,  // message members
+  RttestResults_init_function,  // function to initialize message memory (memory has to be allocated)
+  RttestResults_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t RttestResults_message_type_support_handle = {

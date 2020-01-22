@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "visualization_msgs/msg/interactive_marker_feedback__functions.h"
 #include "visualization_msgs/msg/interactive_marker_feedback__struct.h"
 
 
@@ -33,6 +34,20 @@
 extern "C"
 {
 #endif
+
+void InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  visualization_msgs__msg__InteractiveMarkerFeedback__init(message_memory);
+}
+
+void InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_fini_function(void * message_memory)
+{
+  visualization_msgs__msg__InteractiveMarkerFeedback__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_message_member_array[9] = {
   {
@@ -177,7 +192,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers InteractiveMarke
   "InteractiveMarkerFeedback",  // message name
   9,  // number of fields
   sizeof(visualization_msgs__msg__InteractiveMarkerFeedback),
-  InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_message_member_array  // message members
+  InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_message_member_array,  // message members
+  InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_init_function,  // function to initialize message memory (memory has to be allocated)
+  InteractiveMarkerFeedback__rosidl_typesupport_introspection_c__InteractiveMarkerFeedback_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

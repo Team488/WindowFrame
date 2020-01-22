@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Log_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::msg::Log(_init);
+}
+
+void Log_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::msg::Log *>(message_memory);
+  typed_message->~Log();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_member_array[7] = {
   {
     "stamp",  // name
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "level",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,13 +66,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "name",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -69,13 +81,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "msg",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -84,13 +96,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "file",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -99,13 +111,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "function",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -114,13 +126,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "line",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -129,7 +141,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Log_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -138,7 +150,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Log_message_
   "Log",  // message name
   7,  // number of fields
   sizeof(rcl_interfaces::msg::Log),
-  Log_message_member_array  // message members
+  Log_message_member_array,  // message members
+  Log_init_function,  // function to initialize message memory (memory has to be allocated)
+  Log_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Log_message_type_support_handle = {

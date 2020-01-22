@@ -10,11 +10,13 @@ module rcl_interfaces {
       const uint64 DEPTH_RECURSIVE = 0;
     };
     struct ListParameters_Request {
-      @verbatim (language="comment", text=" The list of parameter prefixes to query.")
+      @verbatim (language="comment", text=
+        " The list of parameter prefixes to query.")
       sequence<string> prefixes;
 
-      @verbatim (language="comment", text=" Relative depth from given prefixes to return.
- Use DEPTH_RECURSIVE to get the recursive parameters and prefixes for each prefix.")
+      @verbatim (language="comment", text=
+        " Relative depth from given prefixes to return." "\n"
+        " Use DEPTH_RECURSIVE to get the recursive parameters and prefixes for each prefix.")
       uint64 depth;
     };
     struct ListParameters_Response {

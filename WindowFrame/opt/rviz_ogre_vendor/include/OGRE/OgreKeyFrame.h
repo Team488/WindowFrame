@@ -28,6 +28,11 @@ THE SOFTWARE.
 
 #ifndef __KeyFrame_H__
 #define __KeyFrame_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreVector3.h"
@@ -65,7 +70,7 @@ namespace Ogre
         Real getTime(void) const { return mTime; }
 
         /** Clone a keyframe (internal use only) */
-        virtual KeyFrame* _clone(AnimationTrack* newParent) const;
+        virtual KeyFrame* _clone(AnimationTrack* newParent) const OGRE_NODISCARD;
 
 
     protected:
@@ -208,7 +213,7 @@ namespace Ogre
 
             PoseRef(ushort p, Real i) : poseIndex(p), influence(i) {}
         };
-        typedef vector<PoseRef>::type PoseRefList;
+        typedef std::vector<PoseRef> PoseRefList;
 
         /** Add a new pose reference. 
         @see PoseRef
@@ -255,6 +260,10 @@ namespace Ogre
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

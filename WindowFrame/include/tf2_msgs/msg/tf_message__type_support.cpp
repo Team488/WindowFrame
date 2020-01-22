@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void TFMessage_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) tf2_msgs::msg::TFMessage(_init);
+}
+
+void TFMessage_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<tf2_msgs::msg::TFMessage *>(message_memory);
+  typed_message->~TFMessage();
+}
+
 size_t size_function__TFMessage__transforms(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<geometry_msgs::msg::TransformStamped> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers TFMessage_me
   "TFMessage",  // message name
   1,  // number of fields
   sizeof(tf2_msgs::msg::TFMessage),
-  TFMessage_message_member_array  // message members
+  TFMessage_message_member_array,  // message members
+  TFMessage_init_function,  // function to initialize message memory (memory has to be allocated)
+  TFMessage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t TFMessage_message_type_support_handle = {

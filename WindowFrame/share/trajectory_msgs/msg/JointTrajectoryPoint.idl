@@ -6,9 +6,10 @@
 
 module trajectory_msgs {
   module msg {
-    @verbatim (language="comment", text=" Each trajectory point specifies either positions[, velocities[, accelerations]]
- or positions[, effort] for the trajectory to be executed.
- All specified values are in the same order as the joint names in JointTrajectory.msg.")
+    @verbatim (language="comment", text=
+      " Each trajectory point specifies either positions[, velocities[, accelerations]]" "\n"
+      " or positions[, effort] for the trajectory to be executed." "\n"
+      " All specified values are in the same order as the joint names in JointTrajectory.msg.")
     struct JointTrajectoryPoint {
       sequence<double> positions;
 

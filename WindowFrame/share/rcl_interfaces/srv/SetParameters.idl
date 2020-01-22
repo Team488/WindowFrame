@@ -7,7 +7,8 @@
 
 module rcl_interfaces {
   module srv {
-    @verbatim (language="comment", text=" A list of parameters to set")
+    @verbatim (language="comment", text=
+      " A list of parameters to set")
     struct SetParameters_Request {
       sequence<rcl_interfaces::msg::Parameter> parameters;
     };

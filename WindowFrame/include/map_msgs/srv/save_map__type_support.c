@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "map_msgs/srv/save_map__functions.h"
 #include "map_msgs/srv/save_map__struct.h"
 
 
@@ -21,6 +22,20 @@
 extern "C"
 {
 #endif
+
+void SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  map_msgs__srv__SaveMap_Request__init(message_memory);
+}
+
+void SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_fini_function(void * message_memory)
+{
+  map_msgs__srv__SaveMap_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_message_member_array[1] = {
   {
@@ -45,7 +60,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers SaveMap_Request_
   "SaveMap_Request",  // message name
   1,  // number of fields
   sizeof(map_msgs__srv__SaveMap_Request),
-  SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_message_member_array  // message members
+  SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_message_member_array,  // message members
+  SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SaveMap_Request__rosidl_typesupport_introspection_c__SaveMap_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -84,6 +101,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "map_msgs/srv/save_map__functions.h"
+// already included above
 // #include "map_msgs/srv/save_map__struct.h"
 
 
@@ -91,6 +110,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  map_msgs__srv__SaveMap_Response__init(message_memory);
+}
+
+void SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_fini_function(void * message_memory)
+{
+  map_msgs__srv__SaveMap_Response__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_message_member_array[1] = {
   {
@@ -115,7 +148,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers SaveMap_Response
   "SaveMap_Response",  // message name
   1,  // number of fields
   sizeof(map_msgs__srv__SaveMap_Response),
-  SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_message_member_array  // message members
+  SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_message_member_array,  // message members
+  SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SaveMap_Response__rosidl_typesupport_introspection_c__SaveMap_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

@@ -41,12 +41,12 @@ THE SOFTWARE.
 #   if OGRE_DEBUG_MODE
 #       define OgreAssert( a, b ) assert( (a) && (b) )
 #   else
-#       define OgreAssert( a, b ) if( !(a) ) OGRE_EXCEPT( Ogre::Exception::ERR_RT_ASSERTION_FAILED, (b), __FUNCTION__ )
+#       define OgreAssert( a, b ) if( !(a) ) OGRE_EXCEPT_2( Ogre::Exception::ERR_RT_ASSERTION_FAILED, (b) )
 #   endif
 
 // EXCEPTIONS mode
 #elif OGRE_ASSERT_MODE == 2
-#   define OgreAssert( a, b ) if( !(a) ) OGRE_EXCEPT( Ogre::Exception::ERR_RT_ASSERTION_FAILED, (b), __FUNCTION__ )
+#   define OgreAssert( a, b ) if( !(a) ) OGRE_EXCEPT_2( Ogre::Exception::ERR_RT_ASSERTION_FAILED, (b) )
 // STANDARD mode
 #else
 /** Checks a condition at runtime and throws exception/ aborts if it fails.
@@ -95,12 +95,11 @@ namespace Ogre {
     {
     protected:
         long line;
-        int number;
-        String typeName;
+        const char* typeName;
         String description;
         String source;
-        String file;
-        mutable String fullDesc;
+        const char* file;
+        mutable String fullDesc; // storage for char* returned by what()
     public:
         /** Static definitions of error codes.
             @todo
@@ -113,7 +112,7 @@ namespace Ogre {
             ERR_INVALIDPARAMS,
             ERR_RENDERINGAPI_ERROR,
             ERR_DUPLICATE_ITEM,
-            ERR_ITEM_NOT_FOUND,
+            ERR_ITEM_NOT_FOUND = ERR_DUPLICATE_ITEM,
             ERR_FILE_NOT_FOUND,
             ERR_INTERNAL_ERROR,
             ERR_RT_ASSERTION_FAILED,
@@ -136,10 +135,6 @@ namespace Ogre {
         /// Needed for compatibility with std::exception
         ~Exception() throw() {}
 
-        /** Assignment operator.
-        */
-        Exception & operator = (const Exception& rhs);
-
         /** Returns a string with the full description of this error.
             @remarks
                 The description contains the error number, the description
@@ -152,28 +147,23 @@ namespace Ogre {
         */
         virtual const String& getFullDescription(void) const;
 
-        /** Gets the error code.
-        @deprecated catch by exception type instead
-        */
-        OGRE_DEPRECATED virtual int getNumber(void) const throw();
-
         /** Gets the source function.
         */
-        virtual const String &getSource() const { return source; }
+        const String &getSource() const { return source; }
 
         /** Gets source file name.
         */
-        virtual const String &getFile() const { return file; }
+        const char* getFile() const { return file; }
 
         /** Gets line number.
         */
-        virtual long getLine() const { return line; }
+        long getLine() const { return line; }
 
         /** Returns a string with only the 'description' field of this exception. Use 
             getFullDescriptionto get a full description of the error including line number,
             error number and what function threw the exception.
         */
-        virtual const String &getDescription(void) const { return description; }
+        const String &getDescription(void) const { return description; }
 
         /// Override std::exception::what
         const char* what() const throw() { return getFullDescription().c_str(); }
@@ -187,69 +177,65 @@ namespace Ogre {
     for returning different exception types by value without ambiguity. 
     From 'Modern C++ Design' (Alexandrescu 2001).
     */
-
-    // Specialised exceptions allowing each to be caught specifically
-    // backwards-compatible since exception codes still used
-
     class _OgreExport UnimplementedException : public Exception 
     {
     public:
         UnimplementedException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "UnimplementedException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport FileNotFoundException : public Exception
     {
     public:
         FileNotFoundException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "FileNotFoundException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport IOException : public Exception
     {
     public:
         IOException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "IOException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport InvalidStateException : public Exception
     {
     public:
         InvalidStateException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "InvalidStateException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport InvalidParametersException : public Exception
     {
     public:
         InvalidParametersException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "InvalidParametersException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport ItemIdentityException : public Exception
     {
     public:
         ItemIdentityException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "ItemIdentityException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport InternalErrorException : public Exception
     {
     public:
         InternalErrorException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "InternalErrorException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport RenderingAPIException : public Exception
     {
     public:
         RenderingAPIException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "RenderingAPIException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport RuntimeAssertionException : public Exception
     {
     public:
         RuntimeAssertionException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "RuntimeAssertionException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
     class _OgreExport InvalidCallException : public Exception
     {
     public:
         InvalidCallException(int inNumber, const String& inDescription, const String& inSource, const char* inFile, long inLine)
-            : Exception(inNumber, inDescription, inSource, "InvalidCallException", inFile, inLine) {}
+            : Exception(inNumber, inDescription, inSource, __FUNCTION__, inFile, inLine) {}
     };
 
     /** Class implementing dispatch methods in order to construct by-value
@@ -278,7 +264,6 @@ namespace Ogre {
             case Exception::ERR_INVALIDPARAMS:          throw InvalidParametersException(number, desc, src, file, line);
             case Exception::ERR_RENDERINGAPI_ERROR:     throw RenderingAPIException(number, desc, src, file, line);
             case Exception::ERR_DUPLICATE_ITEM:         throw ItemIdentityException(number, desc, src, file, line);
-            case Exception::ERR_ITEM_NOT_FOUND:         throw ItemIdentityException(number, desc, src, file, line);
             case Exception::ERR_FILE_NOT_FOUND:         throw FileNotFoundException(number, desc, src, file, line);
             case Exception::ERR_INTERNAL_ERROR:         throw InternalErrorException(number, desc, src, file, line);
             case Exception::ERR_RT_ASSERTION_FAILED:    throw RuntimeAssertionException(number, desc, src, file, line);
@@ -295,24 +280,16 @@ namespace Ogre {
         {
             _throwException(code, code, desc, src, file, line);
         }
-
-        OGRE_DEPRECATED static OGRE_NORETURN void throwExceptionEx(
-            Exception::ExceptionCodes code, int number,
-            const String& desc,
-            const String& src, const char* file, long line)
-        {
-            _throwException(code, number, desc, src, file, line);
-        }
     };
     
 
     
 #ifndef OGRE_EXCEPT
-#define OGRE_EXCEPT(code, desc, src)         Ogre::ExceptionFactory::throwException(code, desc, src, __FILE__, __LINE__)
-/// @deprecated do not use
-#define OGRE_EXCEPT_EX(code, num, desc, src) Ogre::ExceptionFactory::throwExceptionEx(code, num, desc, src, __FILE__, __LINE__)
-#else
-#define OGRE_EXCEPT_EX(code, num, desc, src) OGRE_EXCEPT(code, desc, src)
+#define OGRE_EXCEPT_3(code, desc, src)  Ogre::ExceptionFactory::throwException(code, desc, src, __FILE__, __LINE__)
+#define OGRE_EXCEPT_2(code, desc)       Ogre::ExceptionFactory::throwException(code, desc, __FUNCTION__, __FILE__, __LINE__)
+#define OGRE_EXCEPT_CHOOSER(arg1, arg2, arg3, arg4, ...) arg4
+#define OGRE_EXPAND(x) x // MSVC workaround
+#define OGRE_EXCEPT(...) OGRE_EXPAND(OGRE_EXCEPT_CHOOSER(__VA_ARGS__, OGRE_EXCEPT_3, OGRE_EXCEPT_2)(__VA_ARGS__))
 #endif
     /** @} */
     /** @} */

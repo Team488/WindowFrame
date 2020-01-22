@@ -5,14 +5,16 @@
 
 module rcl_interfaces {
   module msg {
-    @verbatim (language="comment", text=" Used to determine which of the next *_value fields are set.
- ParameterType.PARAMETER_NOT_SET indicates that the parameter was not set
- (if gotten) or is uninitialized.
- Values are enumerated in ParameterType.msg")
+    @verbatim (language="comment", text=
+      " Used to determine which of the next *_value fields are set." "\n"
+      " ParameterType.PARAMETER_NOT_SET indicates that the parameter was not set" "\n"
+      " (if gotten) or is uninitialized." "\n"
+      " Values are enumerated in ParameterType.msg")
     struct ParameterValue {
       uint8 type;
 
-      @verbatim (language="comment", text=" \"Variant\" style storage of the parameter value.")
+      @verbatim (language="comment", text=
+        " \"Variant\" style storage of the parameter value.")
       boolean bool_value;
 
       int64 integer_value;

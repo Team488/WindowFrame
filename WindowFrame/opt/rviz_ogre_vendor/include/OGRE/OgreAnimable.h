@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __ANIMABLE_H__
 #define __ANIMABLE_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreCommon.h"
@@ -234,7 +239,7 @@ namespace Ogre {
     class _OgreExport AnimableObject
     {
     protected:
-        typedef map<String, StringVector>::type AnimableDictionaryMap;
+        typedef std::map<String, StringVector> AnimableDictionaryMap;
         /// Static map of class name to list of animable value names
         static AnimableDictionaryMap msAnimableDictionary;
         /** Get the name of the animable dictionary for this class.
@@ -330,6 +335,10 @@ namespace Ogre {
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

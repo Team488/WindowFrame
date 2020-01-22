@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-set(fastcdr_VERSION 1.0.9)
+set(fastcdr_VERSION 1.0.10)
 
 
 ####### Expanded from @PACKAGE_INIT@ by configure_package_config_file() #######

@@ -54,8 +54,8 @@ endif()
 add_library(resource_retriever::resource_retriever SHARED IMPORTED)
 
 set_target_properties(resource_retriever::resource_retriever PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/J/workspace/ci_packaging_windows/ws/install/include;C:/J/workspace/ci_packaging_windows/ws/install/opt/libcurl_vendor/include;${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "C:/J/workspace/ci_packaging_windows/ws/install/Lib/ament_index_cpp.lib;C:/J/workspace/ci_packaging_windows/ws/install/opt/libcurl_vendor/lib/libcurl_imp.lib"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/J/workspace/packaging_windows/ws/install/include;C:/J/workspace/packaging_windows/ws/install/opt/libcurl_vendor/include;${_IMPORT_PREFIX}/include"
+  INTERFACE_LINK_LIBRARIES "C:/J/workspace/packaging_windows/ws/install/Lib/ament_index_cpp.lib;C:/J/workspace/packaging_windows/ws/install/opt/libcurl_vendor/lib/libcurl_imp.lib"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

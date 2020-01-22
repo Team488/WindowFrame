@@ -31,6 +31,7 @@
 #include "OgreApplicationContext.h"
 
 #include "Sample.h"
+#include "OgreRenderWindow.h"
 
 namespace OgreBites
 {
@@ -63,11 +64,9 @@ namespace OgreBites
         -----------------------------------------------------------------------------*/
         virtual void runSample(Sample* s)
         {
-#if OGRE_PROFILING
             Ogre::Profiler* prof = Ogre::Profiler::getSingletonPtr();
             if (prof)
                 prof->setEnabled(false);
-#endif
 
             if (mCurrentSample)
             {
@@ -118,10 +117,9 @@ namespace OgreBites
 
                 s->_setup(mWindow, mFSLayer, mOverlaySystem);   // start new sample
             }
-#if OGRE_PROFILING
+
             if (prof)
                 prof->setEnabled(true);
-#endif
 
             mCurrentSample = s;
         }
@@ -129,10 +127,9 @@ namespace OgreBites
         /*-----------------------------------------------------------------------------
         | This function encapsulates the entire lifetime of the context.
         -----------------------------------------------------------------------------*/
-#if OGRE_PLATFORM != OGRE_PLATFORM_NACL
         virtual void go(Sample* initialSample = 0)
         {
-#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS || ((OGRE_PLATFORM == OGRE_PLATFORM_APPLE) && __LP64__)
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
             createRoot();
 
             if (!oneTimeConfig()) return;
@@ -173,7 +170,6 @@ namespace OgreBites
             }
 #endif
         }
-#endif
 
         virtual void loadStartUpSample() {}
         
@@ -273,6 +269,9 @@ namespace OgreBites
 
         virtual bool keyPressed(const KeyboardEvent& evt)
         {
+            // Ignore repeated signals from key being held down.
+            if (evt.repeat) return true;
+
             if (mCurrentSample && !mSamplePaused) return mCurrentSample->keyPressed(evt);
             return true;
         }

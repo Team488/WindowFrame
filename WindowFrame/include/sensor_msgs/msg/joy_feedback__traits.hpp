@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<sensor_msgs::msg::JoyFeedback>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<sensor_msgs::msg::JoyFeedback>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SENSOR_MSGS__MSG__JOY_FEEDBACK__TRAITS_HPP_

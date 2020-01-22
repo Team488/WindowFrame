@@ -16,7 +16,7 @@ set(_visualization_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT visualization_msgs_FIND_QUIETLY)
-  message(STATUS "Found visualization_msgs: 0.7.0 (${visualization_msgs_DIR})")
+  message(STATUS "Found visualization_msgs: 0.8.1 (${visualization_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __Frustum_H__
 #define __Frustum_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreMovableObject.h"
@@ -116,7 +121,7 @@ namespace Ogre
         /// Pre-calced standard projection matrix
         mutable Matrix4 mProjMatrix;
         /// Pre-calced view matrix
-        mutable Matrix4 mViewMatrix;
+        mutable Affine3 mViewMatrix;
         /// Something's changed in the frustum shape?
         mutable bool mRecalcFrustum;
         /// Something re the view pos has changed
@@ -174,7 +179,7 @@ namespace Ogre
         /// Is this frustum to act as a reflection of itself?
         bool mReflect;
         /// Derived reflection matrix
-        mutable Matrix4 mReflectMatrix;
+        mutable Affine3 mReflectMatrix;
         /// Fixed reflection plane
         mutable Plane mReflectPlane;
         /// Pointer to a reflection plane (automatically updated)
@@ -363,7 +368,7 @@ namespace Ogre
 
         /** Gets the view matrix for this frustum. Mainly for use by OGRE internally.
         */
-        const Matrix4& getViewMatrix(void) const;
+        const Affine3& getViewMatrix(void) const;
 
         /** Calculate a view matrix for this frustum, relative to a potentially dynamic point. 
             Mainly for use by OGRE internally when using camera-relative rendering
@@ -384,11 +389,10 @@ namespace Ogre
         @param enable If @c true, the custom view matrix passed as the second 
             parameter will be used in preference to an auto calculated one. If
             false, the frustum will revert to auto calculating the view matrix.
-        @param viewMatrix The custom view matrix to use, the matrix must be an
-            affine matrix.
-        @see Frustum::setCustomProjectionMatrix, Matrix4::isAffine
+        @param viewMatrix The custom view matrix to use
+        @see Frustum::setCustomProjectionMatrix
         */
-        void setCustomViewMatrix(bool enable, const Matrix4& viewMatrix = Matrix4::IDENTITY);
+        void setCustomViewMatrix(bool enable, const Affine3& viewMatrix = Affine3::IDENTITY);
 
         /// Returns whether a custom view matrix is in use
         bool isCustomViewMatrixEnabled(void) const { return mCustomViewMatrix; }
@@ -473,41 +477,21 @@ namespace Ogre
         */
         virtual bool isVisible(const Vector3& vert, FrustumPlane* culledBy = 0) const;
 
-        /// Overridden from MovableObject::getTypeFlags
-        uint32 getTypeFlags(void) const;
-
-        /** Overridden from MovableObject */
-        const AxisAlignedBox& getBoundingBox(void) const;
-
-        /** Overridden from MovableObject */
-        Real getBoundingRadius(void) const;
-
-        /** Overridden from MovableObject */
-        void _updateRenderQueue(RenderQueue* queue);
-
-        /** Overridden from MovableObject */
-        const String& getMovableType(void) const;
-
-        /** Overridden from MovableObject */
-        void _notifyCurrentCamera(Camera* cam);
+        uint32 getTypeFlags(void) const override;
+        const AxisAlignedBox& getBoundingBox(void) const override;
+        Real getBoundingRadius(void) const override;
+        void _updateRenderQueue(RenderQueue* queue) override;
+        const String& getMovableType(void) const override;
+        void _notifyCurrentCamera(Camera* cam) override;
 
         /// material to use for debug display
         void setMaterial(const MaterialPtr& mat);
 
-        /** Overridden from Renderable */
-        const MaterialPtr& getMaterial(void) const;
-
-        /** Overridden from Renderable */
-        void getRenderOperation(RenderOperation& op);
-
-        /** Overridden from Renderable */
-        void getWorldTransforms(Matrix4* xform) const;
-
-        /** Overridden from Renderable */
-        Real getSquaredViewDepth(const Camera* cam) const;
-
-        /** Overridden from Renderable */
-        const LightList& getLights(void) const;
+        const MaterialPtr& getMaterial(void) const override;
+        void getRenderOperation(RenderOperation& op) override;
+        void getWorldTransforms(Matrix4* xform) const override;
+        Real getSquaredViewDepth(const Camera* cam) const override;
+        const LightList& getLights(void) const override;
 
         /** Gets the world space corners of the frustum.
         @remarks
@@ -578,7 +562,7 @@ namespace Ogre
         /// Returns whether this frustum is being reflected
         bool isReflected(void) const { return mReflect; }
         /// Returns the reflection matrix of the frustum if appropriate
-        const Matrix4& getReflectionMatrix(void) const { return mReflectMatrix; }
+        const Affine3& getReflectionMatrix(void) const { return mReflectMatrix; }
         /// Returns the reflection plane of the frustum if appropriate
         const Plane& getReflectionPlane(void) const { return mReflectPlane; }
 
@@ -695,5 +679,9 @@ namespace Ogre
 } // namespace Ogre
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif // __Frustum_H__

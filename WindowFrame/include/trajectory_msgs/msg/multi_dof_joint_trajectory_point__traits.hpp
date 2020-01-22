@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<trajectory_msgs::msg::MultiDOFJointTrajectoryPoint>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<trajectory_msgs::msg::MultiDOFJointTrajectoryPoint>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TRAJECTORY_MSGS__MSG__MULTI_DOF_JOINT_TRAJECTORY_POINT__TRAITS_HPP_

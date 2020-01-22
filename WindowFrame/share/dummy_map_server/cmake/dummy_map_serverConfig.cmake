@@ -16,7 +16,7 @@ set(_dummy_map_server_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT dummy_map_server_FIND_QUIETLY)
-  message(STATUS "Found dummy_map_server: 0.7.8 (${dummy_map_server_DIR})")
+  message(STATUS "Found dummy_map_server: 0.8.4 (${dummy_map_server_DIR})")
 endif()
 
 # warn when using a deprecated package

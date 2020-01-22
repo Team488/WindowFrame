@@ -46,7 +46,7 @@ public:
  * @brief Class RTPSMessageCreator, allows the generation of serialized CDR RTPS Messages.
  * @ingroup MANAGEMENT_MODULE
  */
-class RTPSMessageCreator
+class RTPSMessageCreator 
 {
     public:
 
@@ -141,14 +141,14 @@ class RTPSMessageCreator
                 SequenceNumber_t& firstSN, FragmentNumber_t& lastFN, Count_t count);
 
         static bool addMessageAcknack(CDRMessage_t* msg,const GuidPrefix_t& guidprefix, const GuidPrefix_t& remoteGuidPrefix,
-                const EntityId_t& readerId,const EntityId_t& writerId,SequenceNumberSet_t& SNSet,int32_t count,bool finalFlag);
+                const EntityId_t& readerId,const EntityId_t& writerId,const SequenceNumberSet_t& SNSet,int32_t count,bool finalFlag);
         static bool addSubmessageAcknack(CDRMessage_t* msg,
-                const EntityId_t& readerId,const EntityId_t& writerId,SequenceNumberSet_t& SNSet,int32_t count,bool finalFlag);
+                const EntityId_t& readerId,const EntityId_t& writerId,const SequenceNumberSet_t& SNSet,int32_t count,bool finalFlag);
 
         static bool addMessageNackFrag(CDRMessage_t* msg, const GuidPrefix_t& guidprefix, const GuidPrefix_t& remoteGuidPrefix,
                 const EntityId_t& readerId, const EntityId_t& writerId, SequenceNumber_t& writerSN, FragmentNumberSet_t fnState, int32_t count);
         static bool addSubmessageNackFrag(CDRMessage_t* msg,
-                const EntityId_t& readerId, const EntityId_t& writerId, SequenceNumber_t& writerSN, FragmentNumberSet_t fnState, int32_t count);
+                const EntityId_t& readerId, const EntityId_t& writerId, const SequenceNumber_t& writerSN, FragmentNumberSet_t fnState, int32_t count);
 
         static bool addSubmessageInfoTS(CDRMessage_t* msg, const Time_t &time, bool invalidateFlag);
         static bool addSubmessageInfoTS_Now(CDRMessage_t* msg,bool invalidateFlag);

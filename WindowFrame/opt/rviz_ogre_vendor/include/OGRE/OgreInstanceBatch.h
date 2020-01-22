@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __InstanceBatch_H__
 #define __InstanceBatch_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreRenderOperation.h"
@@ -88,9 +93,10 @@ namespace Ogre
     class _OgreExport InstanceBatch : public Renderable, public MovableObject
     {
     public:
-        typedef vector<InstancedEntity*>::type  InstancedEntityVec;
-        typedef vector<Vector4>::type           CustomParamsVec;
+        typedef std::vector<InstancedEntity*>  InstancedEntityVec;
+        typedef std::vector<Vector4>           CustomParamsVec;
     protected:
+        typedef TransformBase<3, float>        Matrix3x4f;
         RenderOperation     mRenderOperation;
         size_t              mInstancesPerBatch;
 
@@ -154,7 +160,7 @@ namespace Ogre
             takes number of floats in the array, not number of matrices. Assumes mCachedCamera
             contains the camera which is about to be rendered to.
         */
-        void makeMatrixCameraRelative3x4( float *mat3x4, size_t numFloats );
+        void makeMatrixCameraRelative3x4( Matrix3x4f *mat3x4, size_t count );
 
         /// Returns false on errors that would prevent building this batch from the given submesh
         virtual bool checkSubMeshCompatibility( const SubMesh* baseSubMesh );
@@ -362,5 +368,9 @@ namespace Ogre
 } // namespace Ogre
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif // __InstanceBatch_H__

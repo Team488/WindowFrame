@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void JointState_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::JointState(_init);
+}
+
+void JointState_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::JointState *>(message_memory);
+  typed_message->~JointState();
+}
+
 size_t size_function__JointState__name(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<std::string> *>(untyped_member);
@@ -147,13 +159,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointState_me
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "name",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -168,7 +180,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointState_me
     "position",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -183,7 +195,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointState_me
     "velocity",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -198,7 +210,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointState_me
     "effort",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -216,7 +228,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers JointState_m
   "JointState",  // message name
   5,  // number of fields
   sizeof(sensor_msgs::msg::JointState),
-  JointState_message_member_array  // message members
+  JointState_message_member_array,  // message members
+  JointState_init_function,  // function to initialize message memory (memory has to be allocated)
+  JointState_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t JointState_message_type_support_handle = {

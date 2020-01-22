@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<sensor_msgs::srv::SetCameraInfo_Request>
   : std::integral_constant<bool, has_bounded_size<sensor_msgs::msg::CameraInfo>::value> {};
 
+template<>
+struct is_message<sensor_msgs::srv::SetCameraInfo_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -49,6 +53,10 @@ struct has_fixed_size<sensor_msgs::srv::SetCameraInfo_Response>
 template<>
 struct has_bounded_size<sensor_msgs::srv::SetCameraInfo_Response>
   : std::integral_constant<bool, false> {};
+
+template<>
+struct is_message<sensor_msgs::srv::SetCameraInfo_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -78,6 +86,24 @@ struct has_bounded_size<sensor_msgs::srv::SetCameraInfo>
     has_bounded_size<sensor_msgs::srv::SetCameraInfo_Request>::value &&
     has_bounded_size<sensor_msgs::srv::SetCameraInfo_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<sensor_msgs::srv::SetCameraInfo>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<sensor_msgs::srv::SetCameraInfo_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<sensor_msgs::srv::SetCameraInfo_Response>
+  : std::true_type
 {
 };
 

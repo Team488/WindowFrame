@@ -7,13 +7,15 @@
 
 module rcl_interfaces {
   module msg {
-    @verbatim (language="comment", text=" This message contains a parameter event.
- It was an atomic update.
- A specific parameter name can only be in one of the three sets.")
+    @verbatim (language="comment", text=
+      " This message contains a parameter event." "\n"
+      " It was an atomic update." "\n"
+      " A specific parameter name can only be in one of the three sets.")
     struct ParameterEvent {
       builtin_interfaces::msg::Time stamp;
 
-      @verbatim (language="comment", text=" Fully qualified ROS path to node")
+      @verbatim (language="comment", text=
+        " Fully qualified ROS path to node")
       string node;
 
       sequence<rcl_interfaces::msg::Parameter> new_parameters;

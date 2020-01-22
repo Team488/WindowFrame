@@ -16,7 +16,7 @@ set(_rosidl_generator_py_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosidl_generator_py_FIND_QUIETLY)
-  message(STATUS "Found rosidl_generator_py: 0.7.8 (${rosidl_generator_py_DIR})")
+  message(STATUS "Found rosidl_generator_py: 0.8.1 (${rosidl_generator_py_DIR})")
 endif()
 
 # warn when using a deprecated package

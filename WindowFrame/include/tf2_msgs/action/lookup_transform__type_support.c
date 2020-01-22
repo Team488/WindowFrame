@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "tf2_msgs/action/lookup_transform__functions.h"
 #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -31,6 +32,20 @@
 extern "C"
 {
 #endif
+
+void LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_Goal__init(message_memory);
+}
+
+void LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_Goal__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_message_member_array[7] = {
   {
@@ -145,7 +160,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_Goal",  // message name
   7,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_Goal),
-  LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_message_member_array  // message members
+  LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_message_member_array,  // message members
+  LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_Goal__rosidl_typesupport_introspection_c__LookupTransform_Goal_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -188,6 +205,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -205,6 +224,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_Result__init(message_memory);
+}
+
+void LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_Result__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_message_member_array[2] = {
   {
@@ -244,7 +277,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_Result",  // message name
   2,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_Result),
-  LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_message_member_array  // message members
+  LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_message_member_array,  // message members
+  LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_Result__rosidl_typesupport_introspection_c__LookupTransform_Result_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -285,6 +320,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -292,6 +329,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_Feedback__init(message_memory);
+}
+
+void LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_Feedback__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_message_member_array[1] = {
   {
@@ -316,7 +367,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_Feedback",  // message name
   1,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_Feedback),
-  LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_message_member_array  // message members
+  LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_message_member_array,  // message members
+  LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_Feedback__rosidl_typesupport_introspection_c__LookupTransform_Feedback_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -353,6 +406,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -371,6 +426,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_SendGoal_Request__init(message_memory);
+}
+
+void LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_SendGoal_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_message_member_array[2] = {
   {
@@ -410,7 +479,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_SendGoal_Request",  // message name
   2,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_SendGoal_Request),
-  LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_message_member_array  // message members
+  LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_message_member_array,  // message members
+  LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_SendGoal_Request__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -451,6 +522,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -466,6 +539,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_SendGoal_Response__init(message_memory);
+}
+
+void LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_SendGoal_Response__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_message_member_array[2] = {
   {
@@ -505,7 +592,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_SendGoal_Response",  // message name
   2,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_SendGoal_Response),
-  LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_message_member_array  // message members
+  LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_message_member_array,  // message members
+  LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_SendGoal_Response__rosidl_typesupport_introspection_c__LookupTransform_SendGoal_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -601,6 +690,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -616,6 +707,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_GetResult_Request__init(message_memory);
+}
+
+void LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_GetResult_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_message_member_array[1] = {
   {
@@ -640,7 +745,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_GetResult_Request",  // message name
   1,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_GetResult_Request),
-  LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_message_member_array  // message members
+  LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_message_member_array,  // message members
+  LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_GetResult_Request__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -679,6 +786,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -694,6 +803,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_GetResult_Response__init(message_memory);
+}
+
+void LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_GetResult_Response__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_message_member_array[2] = {
   {
@@ -733,7 +856,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_GetResult_Response",  // message name
   2,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_GetResult_Response),
-  LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_message_member_array  // message members
+  LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_message_member_array,  // message members
+  LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_GetResult_Response__rosidl_typesupport_introspection_c__LookupTransform_GetResult_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -831,6 +956,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "tf2_msgs/action/lookup_transform__functions.h"
+// already included above
 // #include "tf2_msgs/action/lookup_transform__struct.h"
 
 
@@ -852,6 +979,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  tf2_msgs__action__LookupTransform_FeedbackMessage__init(message_memory);
+}
+
+void LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_fini_function(void * message_memory)
+{
+  tf2_msgs__action__LookupTransform_FeedbackMessage__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_message_member_array[2] = {
   {
@@ -891,7 +1032,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers LookupTransform_
   "LookupTransform_FeedbackMessage",  // message name
   2,  // number of fields
   sizeof(tf2_msgs__action__LookupTransform_FeedbackMessage),
-  LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_message_member_array  // message members
+  LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_message_member_array,  // message members
+  LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_init_function,  // function to initialize message memory (memory has to be allocated)
+  LookupTransform_FeedbackMessage__rosidl_typesupport_introspection_c__LookupTransform_FeedbackMessage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

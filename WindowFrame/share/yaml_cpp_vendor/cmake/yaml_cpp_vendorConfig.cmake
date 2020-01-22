@@ -16,7 +16,7 @@ set(_yaml_cpp_vendor_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT yaml_cpp_vendor_FIND_QUIETLY)
-  message(STATUS "Found yaml_cpp_vendor: 6.0.1 (${yaml_cpp_vendor_DIR})")
+  message(STATUS "Found yaml_cpp_vendor: 7.0.0 (${yaml_cpp_vendor_DIR})")
 endif()
 
 # warn when using a deprecated package

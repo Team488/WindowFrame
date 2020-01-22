@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<lifecycle_msgs::srv::GetAvailableTransitions_Request>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<lifecycle_msgs::srv::GetAvailableTransitions_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<lifecycle_msgs::srv::GetAvailableTransitions_Response>
 template<>
 struct has_bounded_size<lifecycle_msgs::srv::GetAvailableTransitions_Response>
   : std::integral_constant<bool, false> {};
+
+template<>
+struct is_message<lifecycle_msgs::srv::GetAvailableTransitions_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<lifecycle_msgs::srv::GetAvailableTransitions>
     has_bounded_size<lifecycle_msgs::srv::GetAvailableTransitions_Request>::value &&
     has_bounded_size<lifecycle_msgs::srv::GetAvailableTransitions_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<lifecycle_msgs::srv::GetAvailableTransitions>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<lifecycle_msgs::srv::GetAvailableTransitions_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<lifecycle_msgs::srv::GetAvailableTransitions_Response>
+  : std::true_type
 {
 };
 

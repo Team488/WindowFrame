@@ -16,7 +16,7 @@ set(_ros_environment_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ros_environment_FIND_QUIETLY)
-  message(STATUS "Found ros_environment: 2.3.0 (${ros_environment_DIR})")
+  message(STATUS "Found ros_environment: 2.4.1 (${ros_environment_DIR})")
 endif()
 
 # warn when using a deprecated package

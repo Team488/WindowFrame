@@ -218,65 +218,51 @@ namespace Ogre {
         */
         virtual void removeAllViewports(void);
 
-        /** Retieves details of current rendering performance.
-            @remarks
-                If the user application wishes to do it's own performance
-                display, or use performance for some other means, this
-                method allows it to retrieve the statistics.
-                @param
-                    lastFPS Pointer to a float to receive the number of frames per second (FPS)
-                    based on the last frame rendered.
-                @param
-                    avgFPS Pointer to a float to receive the FPS rating based on an average of all
-                    the frames rendered since rendering began (the call to
-                    Root::startRendering).
-                @param
-                    bestFPS Pointer to a float to receive the best FPS rating that has been achieved
-                    since rendering began.
-                @param
-                    worstFPS Pointer to a float to receive the worst FPS rating seen so far.
-                @deprecated use getStatistics()
-        */
-        OGRE_DEPRECATED virtual void getStatistics(float& lastFPS, float& avgFPS,
-            float& bestFPS, float& worstFPS) const;  // Access to stats
-
         /** Retieves details of current rendering performance. */
         const FrameStats& getStatistics(void) const {
             return mStats;
         }
 
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual float getLastFPS() const;
-
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual float getAverageFPS() const;
-
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual float getBestFPS() const;
-
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual float getWorstFPS() const;
-
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual float getBestFrameTime() const;
-
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual float getWorstFrameTime() const;
-
         /** Resets saved frame-rate statistices.
         */
         void resetStatistics(void);
 
-        /** Gets a custom (maybe platform-specific) attribute.
-            @remarks
-                This is a nasty way of satisfying any API's need to see platform-specific details.
-                It horrid, but D3D needs this kind of info. At least it's abstracted.
-            @param
-                name The name of the attribute.
-            @param
-                pData Pointer to memory of the right kind of structure to receive the info.
+        /** Retrieve a platform or API-specific piece of information
+
+            This method of retrieving information should only be used if you know what you're doing.
+
+            | Name        | Description                        |
+            |-------------|------------------------------------|
+            | WINDOW      | The native window handle. (X11 Window XID/ HWND / NSWindow*) |
+            | HWND        | deprecated (same as WINDOW) |
+            | GL_FBOID | the id of the OpenGL framebuffer object |
+            | GL_MULTISAMPLEFBOID | the id of the OpenGL framebuffer object used for multisampling |
+            | GLFBO | id of the screen OpenGL framebuffer object on iOS |
+            | GLCONTEXT   | deprecated, do not use |
+            | FBO | deprecated, do not use |
+            | TARGET | deprecated, do not use |
+            | XDISPLAY     | The X Display connection behind that context. |
+            | DISPLAYNAME | The X Server name for the connected display. |
+            | ATOM        | The X Atom used in client delete events. |
+            | VIEW | Cocoa NSView* |
+            | NSOPENGLCONTEXT | Cocoa NSOpenGLContext* |
+            | NSOPENGLPIXELFORMAT | Cocoa NSOpenGLPixelFormat* |
+            
+            @param name The name of the attribute.
+            @param pData Pointer to memory of the right kind of structure to receive the info.
         */
         virtual void getCustomAttribute(const String& name, void* pData);
+
+        /** simplified API for bindings
+         * 
+         * @overload
+         */
+        uint getCustomAttribute(const String& name)
+        {
+            uint ret = 0;
+            getCustomAttribute(name, &ret);
+            return ret;
+        }
 
         /** Add a listener to this RenderTarget which will be called back before & after rendering.
         @remarks
@@ -360,10 +346,6 @@ namespace Ogre {
 
         virtual bool requiresTextureFlipping() const = 0;
 
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual size_t getTriangleCount(void) const;
-        /// @deprecated use getStatistics()
-        OGRE_DEPRECATED virtual size_t getBatchCount(void) const;
         /** Utility method to notify a render target that a camera has been removed,
         incase it was referring to it as a viewer.
         */
@@ -515,11 +497,11 @@ namespace Ogre {
 
         virtual void updateStats(void);
 
-        typedef map<int, Viewport*>::type ViewportList;
+        typedef std::map<int, Viewport*> ViewportList;
         /// List of viewports, map on Z-order
         ViewportList mViewportList;
 
-        typedef vector<RenderTargetListener*>::type RenderTargetListenerList;
+        typedef std::vector<RenderTargetListener*> RenderTargetListenerList;
         RenderTargetListenerList mListeners;
     
 

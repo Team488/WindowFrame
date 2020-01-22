@@ -31,7 +31,14 @@ if(AMENT_CMAKE_UNINSTALL_TARGET)
     @ONLY
   )
 
-  # register uninstall target to run generated CMake script
-  add_custom_target(uninstall
-    COMMAND ${CMAKE_COMMAND} -P "${AMENT_CMAKE_UNINSTALL_TARGET_UNINSTALL_SCRIPT}")
+  if (NOT TARGET uninstall)
+    add_custom_target(uninstall)
+  endif()
+
+  if (NOT TARGET ${PROJECT_NAME}_uninstall)
+    # register uninstall target to run generated CMake script
+    add_custom_target(${PROJECT_NAME}_uninstall
+      COMMAND ${CMAKE_COMMAND} -P "${AMENT_CMAKE_UNINSTALL_TARGET_UNINSTALL_SCRIPT}")
+    add_dependencies(uninstall ${PROJECT_NAME}_uninstall)
+  endif()
 endif()

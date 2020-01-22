@@ -7,16 +7,20 @@
 
 module nav_msgs {
   module srv {
-    @verbatim (language="comment", text=" Get a plan from the current position to the goal Pose")
+    @verbatim (language="comment", text=
+      " Get a plan from the current position to the goal Pose")
     struct GetPlan_Request {
-      @verbatim (language="comment", text=" The start pose for the plan")
+      @verbatim (language="comment", text=
+        " The start pose for the plan")
       geometry_msgs::msg::PoseStamped start;
 
-      @verbatim (language="comment", text=" The final pose of the goal position")
+      @verbatim (language="comment", text=
+        " The final pose of the goal position")
       geometry_msgs::msg::PoseStamped goal;
 
-      @verbatim (language="comment", text=" If the goal is obstructed, how many meters the planner can
- relax the constraint in x and y before failing.")
+      @verbatim (language="comment", text=
+        " If the goal is obstructed, how many meters the planner can" "\n"
+        " relax the constraint in x and y before failing.")
       float tolerance;
     };
     struct GetPlan_Response {

@@ -16,7 +16,7 @@ set(_python_qt_binding_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT python_qt_binding_FIND_QUIETLY)
-  message(STATUS "Found python_qt_binding: 1.0.1 (${python_qt_binding_DIR})")
+  message(STATUS "Found python_qt_binding: 1.0.3 (${python_qt_binding_DIR})")
 endif()
 
 # warn when using a deprecated package

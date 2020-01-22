@@ -25,5 +25,7 @@ macro(_rclcpp_components_register_package_hook)
   endif()
 endmacro()
 
-include("${rclcpp_components_DIR}/rclcpp_components_register_nodes.cmake")
+set(rclcpp_components_NODE_TEMPLATE "C:/J/workspace/packaging_windows/ws/install/share/rclcpp_components/node_main.cpp.in")
 
+include("${rclcpp_components_DIR}/rclcpp_components_register_nodes.cmake")
+include("${rclcpp_components_DIR}/rclcpp_components_register_node.cmake")

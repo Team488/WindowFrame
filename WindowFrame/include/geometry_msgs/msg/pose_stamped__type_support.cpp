@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void PoseStamped_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) geometry_msgs::msg::PoseStamped(_init);
+}
+
+void PoseStamped_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<geometry_msgs::msg::PoseStamped *>(message_memory);
+  typed_message->~PoseStamped();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember PoseStamped_message_member_array[2] = {
   {
     "header",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PoseStamped_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "pose",  // name
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PoseStamped_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -63,7 +75,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers PoseStamped_
   "PoseStamped",  // message name
   2,  // number of fields
   sizeof(geometry_msgs::msg::PoseStamped),
-  PoseStamped_message_member_array  // message members
+  PoseStamped_message_member_array,  // message members
+  PoseStamped_init_function,  // function to initialize message memory (memory has to be allocated)
+  PoseStamped_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t PoseStamped_message_type_support_handle = {

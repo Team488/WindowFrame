@@ -16,7 +16,7 @@ set(_stereo_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT stereo_msgs_FIND_QUIETLY)
-  message(STATUS "Found stereo_msgs: 0.7.0 (${stereo_msgs_DIR})")
+  message(STATUS "Found stereo_msgs: 0.8.1 (${stereo_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

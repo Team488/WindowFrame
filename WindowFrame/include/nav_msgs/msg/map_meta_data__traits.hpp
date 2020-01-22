@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<nav_msgs::msg::MapMetaData>
   : std::integral_constant<bool, has_bounded_size<builtin_interfaces::msg::Time>::value && has_bounded_size<geometry_msgs::msg::Pose>::value> {};
 
+template<>
+struct is_message<nav_msgs::msg::MapMetaData>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // NAV_MSGS__MSG__MAP_META_DATA__TRAITS_HPP_

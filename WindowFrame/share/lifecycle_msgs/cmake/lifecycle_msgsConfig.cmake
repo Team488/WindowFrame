@@ -16,7 +16,7 @@ set(_lifecycle_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT lifecycle_msgs_FIND_QUIETLY)
-  message(STATUS "Found lifecycle_msgs: 0.7.4 (${lifecycle_msgs_DIR})")
+  message(STATUS "Found lifecycle_msgs: 0.8.0 (${lifecycle_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

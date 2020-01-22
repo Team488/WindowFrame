@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<test_msgs::msg::WStrings>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<test_msgs::msg::WStrings>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TEST_MSGS__MSG__W_STRINGS__TRAITS_HPP_

@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "std_msgs/msg/string__functions.h"
 #include "std_msgs/msg/string__struct.h"
 
 
@@ -19,6 +20,20 @@
 extern "C"
 {
 #endif
+
+void String__rosidl_typesupport_introspection_c__String_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  std_msgs__msg__String__init(message_memory);
+}
+
+void String__rosidl_typesupport_introspection_c__String_fini_function(void * message_memory)
+{
+  std_msgs__msg__String__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember String__rosidl_typesupport_introspection_c__String_message_member_array[1] = {
   {
@@ -43,7 +58,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers String__rosidl_t
   "String",  // message name
   1,  // number of fields
   sizeof(std_msgs__msg__String),
-  String__rosidl_typesupport_introspection_c__String_message_member_array  // message members
+  String__rosidl_typesupport_introspection_c__String_message_member_array,  // message members
+  String__rosidl_typesupport_introspection_c__String_init_function,  // function to initialize message memory (memory has to be allocated)
+  String__rosidl_typesupport_introspection_c__String_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

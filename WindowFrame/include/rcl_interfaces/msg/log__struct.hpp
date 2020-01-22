@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'stamp'
@@ -154,8 +144,19 @@ struct Log_
     20;
   static constexpr unsigned char WARN =
     30;
+  // guard against 'ERROR' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(ERROR)
+#    pragma push_macro("ERROR")
+#    undef ERROR
+#  endif
+#endif
   static constexpr unsigned char ERROR =
     40;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("ERROR")
+#endif
   static constexpr unsigned char FATAL =
     50;
 
@@ -239,8 +240,19 @@ template<typename ContainerAllocator>
 constexpr unsigned char Log_<ContainerAllocator>::INFO;
 template<typename ContainerAllocator>
 constexpr unsigned char Log_<ContainerAllocator>::WARN;
+// guard against 'ERROR' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(ERROR)
+#    pragma push_macro("ERROR")
+#    undef ERROR
+#  endif
+#endif
 template<typename ContainerAllocator>
 constexpr unsigned char Log_<ContainerAllocator>::ERROR;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("ERROR")
+#endif
 template<typename ContainerAllocator>
 constexpr unsigned char Log_<ContainerAllocator>::FATAL;
 

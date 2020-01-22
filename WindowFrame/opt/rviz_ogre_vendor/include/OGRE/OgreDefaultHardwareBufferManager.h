@@ -64,7 +64,7 @@ namespace Ogre {
         void writeData(size_t offset, size_t length, const void* pSource,
                 bool discardWholeBuffer = false);
         /** Override HardwareBuffer to turn off all shadowing. */
-        void* lock(size_t offset, size_t length, LockOptions options, UploadOptions uploadOpt = HBU_DEFAULT);
+        void* lock(size_t offset, size_t length, LockOptions options);
         /** Override HardwareBuffer to turn off all shadowing. */
         void unlock(void);
 
@@ -89,7 +89,7 @@ namespace Ogre {
         void writeData(size_t offset, size_t length, const void* pSource,
                 bool discardWholeBuffer = false);
         /** Override HardwareBuffer to turn off all shadowing. */
-        void* lock(size_t offset, size_t length, LockOptions options, UploadOptions uploadOpt = HBU_DEFAULT);
+        void* lock(size_t offset, size_t length, LockOptions options);
         /** Override HardwareBuffer to turn off all shadowing. */
         void unlock(void);
 
@@ -116,7 +116,7 @@ namespace Ogre {
         void writeData(size_t offset, size_t length, const void* pSource,
                 bool discardWholeBuffer = false);
         /** Override HardwareBuffer to turn off all shadowing. */
-        void* lock(size_t offset, size_t length, LockOptions options, UploadOptions uploadOpt = HBU_DEFAULT);
+        void* lock(size_t offset, size_t length, LockOptions options);
         /** Override HardwareBuffer to turn off all shadowing. */
         void unlock(void);
     };
@@ -142,7 +142,7 @@ namespace Ogre {
         void writeData(size_t offset, size_t length, const void* pSource,
                        bool discardWholeBuffer = false);
         /** Override HardwareBuffer to turn off all shadowing. */
-        void* lock(size_t offset, size_t length, LockOptions options, UploadOptions uploadOpt = HBU_DEFAULT);
+        void* lock(size_t offset, size_t length, LockOptions options);
         /** Override HardwareBuffer to turn off all shadowing. */
         void unlock(void);
     };
@@ -182,15 +182,39 @@ namespace Ogre {
     /// DefaultHardwareBufferManager as a Singleton
     class _OgreExport DefaultHardwareBufferManager : public HardwareBufferManager
     {
+        std::unique_ptr<HardwareBufferManagerBase> mImpl;
     public:
-        DefaultHardwareBufferManager()
-            : HardwareBufferManager(OGRE_NEW DefaultHardwareBufferManagerBase()) 
-        {
+        DefaultHardwareBufferManager() : mImpl(new DefaultHardwareBufferManagerBase()) {}
 
-        }
-        ~DefaultHardwareBufferManager()
+        HardwareVertexBufferSharedPtr
+            createVertexBuffer(size_t vertexSize, size_t numVerts, HardwareBuffer::Usage usage,
+            bool useShadowBuffer = false)
         {
-            OGRE_DELETE mImpl;
+            return mImpl->createVertexBuffer(vertexSize, numVerts, usage, useShadowBuffer);
+        }
+
+        HardwareIndexBufferSharedPtr
+            createIndexBuffer(HardwareIndexBuffer::IndexType itype, size_t numIndexes,
+            HardwareBuffer::Usage usage, bool useShadowBuffer = false)
+        {
+            return mImpl->createIndexBuffer(itype, numIndexes, usage, useShadowBuffer);
+        }
+
+        RenderToVertexBufferSharedPtr createRenderToVertexBuffer()
+        {
+            return mImpl->createRenderToVertexBuffer();
+        }
+
+        HardwareUniformBufferSharedPtr
+                createUniformBuffer(size_t sizeBytes, HardwareBuffer::Usage usage, bool useShadowBuffer, const String& name = "")
+        {
+            return mImpl->createUniformBuffer(sizeBytes, usage, useShadowBuffer, name);
+        }
+
+        HardwareCounterBufferSharedPtr
+        createCounterBuffer(size_t sizeBytes, HardwareBuffer::Usage usage, bool useShadowBuffer, const String& name = "")
+        {
+            return mImpl->createCounterBuffer(sizeBytes, usage, useShadowBuffer, name);
         }
     };
 

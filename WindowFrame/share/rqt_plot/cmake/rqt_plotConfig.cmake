@@ -16,7 +16,7 @@ set(_rqt_plot_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rqt_plot_FIND_QUIETLY)
-  message(STATUS "Found rqt_plot: 1.0.6 (${rqt_plot_DIR})")
+  message(STATUS "Found rqt_plot: 1.0.7 (${rqt_plot_DIR})")
 endif()
 
 # warn when using a deprecated package

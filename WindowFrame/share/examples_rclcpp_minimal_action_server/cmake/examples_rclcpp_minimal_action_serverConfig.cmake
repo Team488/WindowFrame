@@ -16,7 +16,7 @@ set(_examples_rclcpp_minimal_action_server_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT examples_rclcpp_minimal_action_server_FIND_QUIETLY)
-  message(STATUS "Found examples_rclcpp_minimal_action_server: 0.7.4 (${examples_rclcpp_minimal_action_server_DIR})")
+  message(STATUS "Found examples_rclcpp_minimal_action_server: 0.8.2 (${examples_rclcpp_minimal_action_server_DIR})")
 endif()
 
 # warn when using a deprecated package

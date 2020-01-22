@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<unique_identifier_msgs::msg::UUID>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<unique_identifier_msgs::msg::UUID>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // UNIQUE_IDENTIFIER_MSGS__MSG__UUID__TRAITS_HPP_

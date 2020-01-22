@@ -16,7 +16,7 @@ set(_rviz_common_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz_common_FIND_QUIETLY)
-  message(STATUS "Found rviz_common: 6.1.4 (${rviz_common_DIR})")
+  message(STATUS "Found rviz_common: 7.0.3 (${rviz_common_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GoalStatusArray_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) action_msgs::msg::GoalStatusArray(_init);
+}
+
+void GoalStatusArray_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<action_msgs::msg::GoalStatusArray *>(message_memory);
+  typed_message->~GoalStatusArray();
+}
+
 size_t size_function__GoalStatusArray__status_list(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<action_msgs::msg::GoalStatus> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GoalStatusAr
   "GoalStatusArray",  // message name
   1,  // number of fields
   sizeof(action_msgs::msg::GoalStatusArray),
-  GoalStatusArray_message_member_array  // message members
+  GoalStatusArray_message_member_array,  // message members
+  GoalStatusArray_init_function,  // function to initialize message memory (memory has to be allocated)
+  GoalStatusArray_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GoalStatusArray_message_type_support_handle = {

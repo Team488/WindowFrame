@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::Pose>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::Point>::value && has_bounded_size<geometry_msgs::msg::Quaternion>::value> {};
 
+template<>
+struct is_message<geometry_msgs::msg::Pose>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__POSE__TRAITS_HPP_

@@ -16,7 +16,7 @@ set(_examples_rclcpp_minimal_client_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT examples_rclcpp_minimal_client_FIND_QUIETLY)
-  message(STATUS "Found examples_rclcpp_minimal_client: 0.7.4 (${examples_rclcpp_minimal_client_DIR})")
+  message(STATUS "Found examples_rclcpp_minimal_client: 0.8.2 (${examples_rclcpp_minimal_client_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -16,7 +16,7 @@ set(_rcl_logging_noop_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rcl_logging_noop_FIND_QUIETLY)
-  message(STATUS "Found rcl_logging_noop: 0.2.1 (${rcl_logging_noop_DIR})")
+  message(STATUS "Found rcl_logging_noop: 0.3.3 (${rcl_logging_noop_DIR})")
 endif()
 
 # warn when using a deprecated package

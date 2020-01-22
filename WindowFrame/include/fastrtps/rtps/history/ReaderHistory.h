@@ -22,7 +22,6 @@
 
 #include "History.h"
 #include "../common/CacheChange.h"
-#include <fastrtps/utils/Semaphore.h>
 
 namespace eprosima {
 namespace fastrtps{
@@ -75,6 +74,17 @@ public:
      * @return True if succesful, even if no changes have been removed.
      * */
     RTPS_DllAPI bool remove_changes_with_guid(const GUID_t& a_guid);
+
+    /**
+     * Remove all fragmented changes from certain writer up to certain sequence number.
+     * @param seq_num First SequenceNumber_t not to be removed.
+     * @param writer_guid GUID of the writer for which changes should be looked for.
+     * @return True if succesful, even if no changes have been removed.
+     */
+    bool remove_fragmented_changes_until(
+            const SequenceNumber_t& seq_num,
+            const GUID_t& writer_guid);
+
     /**
      * Sort the CacheChange_t from the History by timestamp
      */
@@ -84,19 +94,11 @@ public:
      */
     RTPS_DllAPI void updateMaxMinSeqNum() override;
 
-    //!Post to the semaphore
-    RTPS_DllAPI void postSemaphore();
-    //!Wait for the semaphore
-    RTPS_DllAPI void waitSemaphore();
-
-
     RTPS_DllAPI bool get_min_change_from(CacheChange_t** min_change, const GUID_t& writerGuid);
 
 protected:
     //!Pointer to the reader
     RTPSReader* mp_reader;
-    //!Pointer to the semaphore, used to halt execution until new message arrives.
-    Semaphore* mp_semaphore;
 };
 
 }
