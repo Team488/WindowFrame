@@ -6,7 +6,7 @@ ROS2 and Gazebo packages, and dependencies for building C++ projects on Windows 
 
 - [ROS2](https://github.com/ros2/ros2/releases) (`ros2-eloquent-20191122-windows-release-amd64`)
 - [Gazebo](https://bitbucket.org/osrf/gazebo/src/gazebo10/) (`gazebo10 7c4281fe1229`)
-- [OpenCV](https://opencv.org/releases/) (`4.1.1`)
+- [OpenCV](https://opencv.org/releases/) (`4.2.0`)
 - [RealSense2](https://github.com/IntelRealSense/librealsense) (`86280d3`)
 - [OpenSSL](https://slproweb.com/products/Win32OpenSSL.html) (`Win64 v1.0.2t`)
 - [Boost](https://www.boost.org/) (`1.70.0`)

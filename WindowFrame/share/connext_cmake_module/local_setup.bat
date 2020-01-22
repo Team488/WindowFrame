@@ -9,7 +9,7 @@ set "AMENT_ENVIRONMENT_HOOKS[connext_cmake_module]="
 
 :: these are the environment hooks of this package
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[connext_cmake_module] "%AMENT_CURRENT_PREFIX%\share\connext_cmake_module\environment\ament_prefix_path.bat"
-call:ament_append_value AMENT_ENVIRONMENT_HOOKS[connext_cmake_module] "%AMENT_CURRENT_PREFIX%\share\connext_cmake_module\environment\connext.bat"
+::call:ament_append_value AMENT_ENVIRONMENT_HOOKS[connext_cmake_module] "%AMENT_CURRENT_PREFIX%\share\connext_cmake_module\environment\connext.bat"
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[connext_cmake_module] "%AMENT_CURRENT_PREFIX%\share\connext_cmake_module\environment\path.bat"
 
 :: if not returning the environment hooks to the parent scope

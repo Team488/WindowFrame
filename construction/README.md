@@ -18,12 +18,13 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     2. Move the contents of the `gazebo\package` folder into the `WindowFrame` folder
 4. Download and merge OpenCV
     1. Install the latest Windows version of OpenCV from https://opencv.org/releases/
-    2. Delete the `opencv\x64\vc14` folder to save space, since no one should use VS older than 2017
-    3. Delete all `.pdb` files from the `opencv\x64\vc15\bin` folder to save space, since they are rarely used
-    4. Edit `opencv\build\setup_vars_opencv4.cmd` and change "vc14" to "vc15"
-    5. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
-    6. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
-    7. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
+    2. Delete the `opencv\build\java` folder
+    3. Delete the `opencv\build\x64\vc14` folder to save space, since no one should use VS older than 2017
+    4. Delete all `.pdb` files from the `opencv\build\x64\vc15\bin` folder to save space, since they are rarely used
+    5. Edit `opencv\build\setup_vars_opencv4.cmd` and change "vc14" to "vc15"
+    6. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
+    7. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
+    8. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
 5. Build and merge RealSense2
     1. Follow the "Building RealSense2" instructions below
     2. Move the `build\install\include` and `build\install\lib` folders into the `WindowFrame` folder
