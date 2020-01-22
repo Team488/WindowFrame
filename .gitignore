@@ -1,5 +1,5 @@
-/.gazebo
-/.ros
+.gazebo/
+.ros/
+__pycache__/
 
-*.pyc
 .python_history

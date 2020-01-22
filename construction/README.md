@@ -7,6 +7,8 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     1. `WindowFrame/colcon_defaults.txt`
     2. `WindowFrame/gazebo_gui.ini`
     3. `WindowFrame/bin/gazebo.bat`
+    3. `WindowFrame/bin/gzclient.bat`
+    3. `WindowFrame/bin/gzserver.bat`
     4. `WindowFrame/bin/gazebo/plugins.cfg`
     5. `WindowFrame/share/json-spirit/json-spirit-config.cmake`
 2. Download and merge ROS2
