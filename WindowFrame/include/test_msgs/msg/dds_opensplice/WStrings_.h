@@ -1,5 +1,5 @@
-#ifndef _H_22C1092D5FA1D83CBD5A8806DE42E0B3_WStrings__H_
-#define _H_22C1092D5FA1D83CBD5A8806DE42E0B3_WStrings__H_
+#ifndef _H_47A40147503DCE68075C3E75948AFC95_WStrings__H_
+#define _H_47A40147503DCE68075C3E75948AFC95_WStrings__H_
 
 #include "sacpp_mapping.h"
 #include "cpp_dcps_if.h"
@@ -32,6 +32,9 @@ namespace test_msgs
                 typedef DDS_DCPSUStrSeq_var< _unbounded_sequence_of_wstrings__seq > _unbounded_sequence_of_wstrings__seq_var;
                 typedef DDS_DCPSUStrSeq_out< _unbounded_sequence_of_wstrings__seq > _unbounded_sequence_of_wstrings__seq_out;
                 ::DDS::String_mgr wstring_value_;
+                ::DDS::String_mgr wstring_value_default1_;
+                ::DDS::String_mgr wstring_value_default2_;
+                ::DDS::String_mgr wstring_value_default3_;
                 _array_of_wstrings_ array_of_wstrings_;
                 _bounded_sequence_of_wstrings__seq bounded_sequence_of_wstrings_;
                 _unbounded_sequence_of_wstrings__seq unbounded_sequence_of_wstrings_;
@@ -46,4 +49,4 @@ namespace test_msgs
 
 }
 
-#endif /* _H_22C1092D5FA1D83CBD5A8806DE42E0B3_WStrings__H_ */
+#endif /* _H_47A40147503DCE68075C3E75948AFC95_WStrings__H_ */

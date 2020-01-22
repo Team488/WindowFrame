@@ -25,12 +25,24 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Int32_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_msgs::msg::Int32(_init);
+}
+
+void Int32_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_msgs::msg::Int32 *>(message_memory);
+  typed_message->~Int32();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Int32_message_member_array[1] = {
   {
     "data",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Int32_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Int32_messag
   "Int32",  // message name
   1,  // number of fields
   sizeof(std_msgs::msg::Int32),
-  Int32_message_member_array  // message members
+  Int32_message_member_array,  // message members
+  Int32_init_function,  // function to initialize message memory (memory has to be allocated)
+  Int32_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Int32_message_type_support_handle = {

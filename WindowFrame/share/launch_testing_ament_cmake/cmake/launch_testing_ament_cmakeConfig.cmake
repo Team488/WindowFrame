@@ -16,7 +16,7 @@ set(_launch_testing_ament_cmake_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT launch_testing_ament_cmake_FIND_QUIETLY)
-  message(STATUS "Found launch_testing_ament_cmake: 0.8.6 (${launch_testing_ament_cmake_DIR})")
+  message(STATUS "Found launch_testing_ament_cmake: 0.9.5 (${launch_testing_ament_cmake_DIR})")
 endif()
 
 # warn when using a deprecated package

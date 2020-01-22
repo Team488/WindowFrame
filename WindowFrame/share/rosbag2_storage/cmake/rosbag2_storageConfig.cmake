@@ -16,7 +16,7 @@ set(_rosbag2_storage_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosbag2_storage_FIND_QUIETLY)
-  message(STATUS "Found rosbag2_storage: 0.1.5 (${rosbag2_storage_DIR})")
+  message(STATUS "Found rosbag2_storage: 0.2.4 (${rosbag2_storage_DIR})")
 endif()
 
 # warn when using a deprecated package

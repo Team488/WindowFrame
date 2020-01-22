@@ -1,1 +1,1 @@
-rclcpp;rmw;rosbag2;shared_queues_vendor
+python_cmake_module;rclcpp;rmw;rosbag2;shared_queues_vendor

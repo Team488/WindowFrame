@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __StreamSerialiser_H__
 #define __StreamSerialiser_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreCommon.h"
@@ -141,9 +146,9 @@ namespace Ogre
         @remarks
             You can use this to generate id's for your chunks based on friendlier
             4-character codes rather than assigning numerical IDs, if you like.
-        @param code String to pack - must be 4 characters.
+        @param code String to pack - must be 4 characters and '\0'
         */
-        static uint32 makeIdentifier(const String& code);
+        static uint32 makeIdentifier(const char (&code)[5]);
 
         /** Report the current depth of the chunk nesting, whether reading or writing. 
         @remarks
@@ -333,7 +338,7 @@ namespace Ogre
         bool mFlipEndian;
         bool mReadWriteHeader;
         RealStorageFormat mRealFormat;
-        typedef deque<Chunk*>::type ChunkStack;
+        typedef std::deque<Chunk*> ChunkStack;
         /// Current list of open chunks
         ChunkStack mChunkStack;
 
@@ -391,6 +396,10 @@ namespace Ogre
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

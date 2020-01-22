@@ -16,7 +16,7 @@ set(_sros2_cmake_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT sros2_cmake_FIND_QUIETLY)
-  message(STATUS "Found sros2_cmake: 0.7.1 (${sros2_cmake_DIR})")
+  message(STATUS "Found sros2_cmake: 0.8.1 (${sros2_cmake_DIR})")
 endif()
 
 # warn when using a deprecated package

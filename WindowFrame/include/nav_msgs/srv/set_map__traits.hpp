@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<nav_msgs::srv::SetMap_Request>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::PoseWithCovarianceStamped>::value && has_bounded_size<nav_msgs::msg::OccupancyGrid>::value> {};
 
+template<>
+struct is_message<nav_msgs::srv::SetMap_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -51,6 +55,10 @@ struct has_fixed_size<nav_msgs::srv::SetMap_Response>
 template<>
 struct has_bounded_size<nav_msgs::srv::SetMap_Response>
   : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<nav_msgs::srv::SetMap_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -80,6 +88,24 @@ struct has_bounded_size<nav_msgs::srv::SetMap>
     has_bounded_size<nav_msgs::srv::SetMap_Request>::value &&
     has_bounded_size<nav_msgs::srv::SetMap_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<nav_msgs::srv::SetMap>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<nav_msgs::srv::SetMap_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<nav_msgs::srv::SetMap_Response>
+  : std::true_type
 {
 };
 

@@ -54,11 +54,12 @@ skipfirst_args = {
 skipfirst_doc_lines = [
     'The first log call is being ignored but all subsequent calls are being processed.']
 throttle_params = OrderedDict((
-    ('time_source_type', 'The time source type of the time to be used'),
+    ('get_time_point_value', 'Function that returns rcutils_ret_t and expects a '
+        'rcutils_time_point_value_t pointer.'),
     ('duration', 'The duration of the throttle interval'),
 ))
 throttle_args = {
-    'condition_before': 'RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration)',
+    'condition_before': 'RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration)',
     'condition_after': 'RCUTILS_LOG_CONDITION_THROTTLE_AFTER'}
 throttle_doc_lines = [
     'Log calls are being ignored if the last logged message is not longer ago than the specified '
@@ -101,11 +102,11 @@ class Feature:
 
 feature_combinations = OrderedDict((
     ((), Feature()),
-    (('named'), Feature(
+    (('named', ), Feature(
         params=name_params,
         args=name_args,
         doc_lines=name_doc_lines)),
-    (('once'), Feature(
+    (('once', ), Feature(
         params=None,
         args=once_args,
         doc_lines=once_doc_lines)),
@@ -113,7 +114,7 @@ feature_combinations = OrderedDict((
         params=name_params,
         args={**once_args, **name_args},
         doc_lines=once_doc_lines + name_doc_lines)),
-    (('expression'), Feature(
+    (('expression', ), Feature(
         params=expression_params,
         args=expression_args,
         doc_lines=expression_doc_lines)),
@@ -121,7 +122,7 @@ feature_combinations = OrderedDict((
         params=OrderedDict((*expression_params.items(), *name_params.items())),
         args={**expression_args, **name_args},
         doc_lines=expression_doc_lines + name_doc_lines)),
-    (('function'), Feature(
+    (('function', ), Feature(
         params=function_params,
         args=function_args,
         doc_lines=function_doc_lines)),
@@ -129,7 +130,7 @@ feature_combinations = OrderedDict((
         params=OrderedDict((*function_params.items(), *name_params.items())),
         args={**function_args, **name_args},
         doc_lines=function_doc_lines + name_doc_lines)),
-    (('skip_first'), Feature(
+    (('skip_first', ), Feature(
         params=None,
         args=skipfirst_args,
         doc_lines=skipfirst_doc_lines)),
@@ -137,7 +138,7 @@ feature_combinations = OrderedDict((
         params=name_params,
         args={**skipfirst_args, **name_args},
         doc_lines=skipfirst_doc_lines + name_doc_lines)),
-    (('throttle'), Feature(
+    (('throttle', ), Feature(
         params=throttle_params,
         args=throttle_args,
         doc_lines=throttle_doc_lines)),

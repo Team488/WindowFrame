@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ListParameters_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::ListParameters_Request(_init);
+}
+
+void ListParameters_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::ListParameters_Request *>(message_memory);
+  typed_message->~ListParameters_Request();
+}
+
 size_t size_function__ListParameters_Request__prefixes(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<std::string> *>(untyped_member);
@@ -57,7 +69,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameter
     "prefixes",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -72,7 +84,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameter
     "depth",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -81,7 +93,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -90,7 +102,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ListParamete
   "ListParameters_Request",  // message name
   2,  // number of fields
   sizeof(rcl_interfaces::srv::ListParameters_Request),
-  ListParameters_Request_message_member_array  // message members
+  ListParameters_Request_message_member_array,  // message members
+  ListParameters_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  ListParameters_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ListParameters_Request_message_type_support_handle = {
@@ -170,6 +184,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ListParameters_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::ListParameters_Response(_init);
+}
+
+void ListParameters_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::ListParameters_Response *>(message_memory);
+  typed_message->~ListParameters_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameters_Response_message_member_array[1] = {
   {
     "result",  // name
@@ -184,7 +210,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ListParameter
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -193,7 +219,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ListParamete
   "ListParameters_Response",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::ListParameters_Response),
-  ListParameters_Response_message_member_array  // message members
+  ListParameters_Response_message_member_array,  // message members
+  ListParameters_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  ListParameters_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ListParameters_Response_message_type_support_handle = {

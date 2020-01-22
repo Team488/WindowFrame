@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void MultiNested_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::msg::MultiNested(_init);
+}
+
+void MultiNested_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::msg::MultiNested *>(message_memory);
+  typed_message->~MultiNested();
+}
+
 size_t size_function__MultiNested__array_of_arrays(const void * untyped_member)
 {
   (void)untyped_member;
@@ -261,7 +273,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MultiNested_m
     size_function__MultiNested__array_of_arrays,  // size() function pointer
     get_const_function__MultiNested__array_of_arrays,  // get_const(index) function pointer
     get_function__MultiNested__array_of_arrays,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "array_of_bounded_sequences",  // name
@@ -276,7 +288,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MultiNested_m
     size_function__MultiNested__array_of_bounded_sequences,  // size() function pointer
     get_const_function__MultiNested__array_of_bounded_sequences,  // get_const(index) function pointer
     get_function__MultiNested__array_of_bounded_sequences,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "array_of_unbounded_sequences",  // name
@@ -291,7 +303,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember MultiNested_m
     size_function__MultiNested__array_of_unbounded_sequences,  // size() function pointer
     get_const_function__MultiNested__array_of_unbounded_sequences,  // get_const(index) function pointer
     get_function__MultiNested__array_of_unbounded_sequences,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "bounded_sequence_of_arrays",  // name
@@ -390,7 +402,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers MultiNested_
   "MultiNested",  // message name
   9,  // number of fields
   sizeof(test_msgs::msg::MultiNested),
-  MultiNested_message_member_array  // message members
+  MultiNested_message_member_array,  // message members
+  MultiNested_init_function,  // function to initialize message memory (memory has to be allocated)
+  MultiNested_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t MultiNested_message_type_support_handle = {

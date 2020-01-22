@@ -16,7 +16,7 @@ set(_rcl_yaml_param_parser_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rcl_yaml_param_parser_FIND_QUIETLY)
-  message(STATUS "Found rcl_yaml_param_parser: 0.7.6 (${rcl_yaml_param_parser_DIR})")
+  message(STATUS "Found rcl_yaml_param_parser: 0.8.3 (${rcl_yaml_param_parser_DIR})")
 endif()
 
 # warn when using a deprecated package

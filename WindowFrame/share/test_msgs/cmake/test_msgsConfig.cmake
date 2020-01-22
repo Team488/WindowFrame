@@ -16,7 +16,7 @@ set(_test_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT test_msgs_FIND_QUIETLY)
-  message(STATUS "Found test_msgs: 0.7.4 (${test_msgs_DIR})")
+  message(STATUS "Found test_msgs: 0.8.0 (${test_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -16,7 +16,7 @@ set(_rqt_py_common_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rqt_py_common_FIND_QUIETLY)
-  message(STATUS "Found rqt_py_common: 1.0.4 (${rqt_py_common_DIR})")
+  message(STATUS "Found rqt_py_common: 1.0.5 (${rqt_py_common_DIR})")
 endif()
 
 # warn when using a deprecated package

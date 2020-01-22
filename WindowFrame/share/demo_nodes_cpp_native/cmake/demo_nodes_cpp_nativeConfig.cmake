@@ -16,7 +16,7 @@ set(_demo_nodes_cpp_native_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT demo_nodes_cpp_native_FIND_QUIETLY)
-  message(STATUS "Found demo_nodes_cpp_native: 0.7.8 (${demo_nodes_cpp_native_DIR})")
+  message(STATUS "Found demo_nodes_cpp_native: 0.8.4 (${demo_nodes_cpp_native_DIR})")
 endif()
 
 # warn when using a deprecated package

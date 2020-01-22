@@ -38,6 +38,10 @@ template<>
 struct has_bounded_size<test_msgs::msg::MultiNested>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<test_msgs::msg::MultiNested>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TEST_MSGS__MSG__MULTI_NESTED__TRAITS_HPP_

@@ -7,31 +7,33 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     1. `WindowFrame/colcon_defaults.txt`
     2. `WindowFrame/gazebo_gui.ini`
     3. `WindowFrame/bin/gazebo.bat`
+    3. `WindowFrame/bin/gzclient.bat`
+    3. `WindowFrame/bin/gzserver.bat`
     4. `WindowFrame/bin/gazebo/plugins.cfg`
     5. `WindowFrame/share/json-spirit/json-spirit-config.cmake`
 2. Download and merge ROS2
-    1. Download the latest windows-release-amd64 version of ROS2 Dashing from https://github.com/ros2/ros2/releases
-    2. Edit `ros2-windows\share\connext_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `connext.bat`
-    3. Edit `ros2-windows\share\opensplice_cmake_module\local_setup.bat` and comment out (prepend `::`) line 12 that calls `opensplice.bat`
-    4. Move the contents of the `ros2-windows` folder into the `WindowFrame` folder
+    1. Download the latest windows-release-amd64 version of ROS2 Eloquent from https://github.com/ros2/ros2/releases
+    2. Delete `connext_cmake_module` and `opensplice_cmake_module` from the `ros2-windows\share\colcon-core\packages` folder
+    3. Move the contents of the `ros2-windows` folder into the `WindowFrame` folder
 3. Build, pack, and merge Gazebo
     1. Follow the "Building Gazebo" instructions below
     2. Move the contents of the `gazebo\package` folder into the `WindowFrame` folder
 4. Download and merge OpenCV
     1. Install the latest Windows version of OpenCV from https://opencv.org/releases/
-    2. Delete the `opencv\x64\vc14` folder to save space, since no one should use VS older than 2017
-    3. Delete all `.pdb` files from the `opencv\x64\vc15\bin` folder to save space, since they are rarely used
-    4. Edit `opencv\build\setup_vars_opencv4.cmd` and change "vc14" to "vc15"
-    5. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
-    6. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
-    7. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
+    2. Delete the `opencv\build\java` folder
+    3. Delete the `opencv\build\x64\vc14` folder to save space, since no one should use VS older than 2017
+    4. Delete all `.pdb` files from the `opencv\build\x64\vc15\bin` folder to save space, since they are rarely used
+    5. Edit `opencv\build\setup_vars_opencv4.cmd` and change "vc14" to "vc15"
+    6. Rename `opencv\build\LICENSE` to `opencv\build\LICENSE_OPENCV.txt`
+    7. Move the contents of the `opencv\build` folder into the `WindowFrame` folder
+    8. Move `opencv\LICENSE_FFMPEG.txt` into the `WindowFrame` folder
 5. Build and merge RealSense2
     1. Follow the "Building RealSense2" instructions below
     2. Move the `build\install\include` and `build\install\lib` folders into the `WindowFrame` folder
     3. Move the `.dll` files from the `build\install\bin` folder to `WindowFrame\bin`
     4. Move the `.exe` files from the `build\install\bin` folder to `WindowFrame\tools\realsense2`
 6. Download and merge Asio, Eigen, TinyXML, TinyXML2, and Log4CXX
-    1. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Dashing/Windows-Install-Binary/#install-dependencies
+    1. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Eloquent/Windows-Install-Binary/#install-dependencies
     2. For each package, change the extension to `.zip` and extract
     3. Move the contents of the `include` folders into `WindowFrame\include`, except for `.gitkeep` files
     4. Move the contents of the `share` folders into `WindowFrame\share`

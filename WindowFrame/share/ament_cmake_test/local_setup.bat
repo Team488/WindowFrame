@@ -10,6 +10,7 @@ set "AMENT_ENVIRONMENT_HOOKS[ament_cmake_test]="
 :: these are the environment hooks of this package
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ament_cmake_test] "%AMENT_CURRENT_PREFIX%\share\ament_cmake_test\environment\ament_prefix_path.bat"
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ament_cmake_test] "%AMENT_CURRENT_PREFIX%\share\ament_cmake_test\environment\path.bat"
+call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ament_cmake_test] "%AMENT_CURRENT_PREFIX%\share\ament_cmake_test\environment\pythonpath.bat"
 
 :: if not returning the environment hooks to the parent scope
 if not defined AMENT_RETURN_ENVIRONMENT_HOOKS (

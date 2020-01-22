@@ -16,7 +16,7 @@ set(_rviz_rendering_tests_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz_rendering_tests_FIND_QUIETLY)
-  message(STATUS "Found rviz_rendering_tests: 6.1.4 (${rviz_rendering_tests_DIR})")
+  message(STATUS "Found rviz_rendering_tests: 7.0.3 (${rviz_rendering_tests_DIR})")
 endif()
 
 # warn when using a deprecated package

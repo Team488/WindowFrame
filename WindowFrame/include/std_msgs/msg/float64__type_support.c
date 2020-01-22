@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "std_msgs/msg/float64__functions.h"
 #include "std_msgs/msg/float64__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void Float64__rosidl_typesupport_introspection_c__Float64_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  std_msgs__msg__Float64__init(message_memory);
+}
+
+void Float64__rosidl_typesupport_introspection_c__Float64_fini_function(void * message_memory)
+{
+  std_msgs__msg__Float64__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember Float64__rosidl_typesupport_introspection_c__Float64_message_member_array[1] = {
   {
@@ -39,7 +54,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers Float64__rosidl_
   "Float64",  // message name
   1,  // number of fields
   sizeof(std_msgs__msg__Float64),
-  Float64__rosidl_typesupport_introspection_c__Float64_message_member_array  // message members
+  Float64__rosidl_typesupport_introspection_c__Float64_message_member_array,  // message members
+  Float64__rosidl_typesupport_introspection_c__Float64_init_function,  // function to initialize message memory (memory has to be allocated)
+  Float64__rosidl_typesupport_introspection_c__Float64_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

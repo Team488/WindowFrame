@@ -1,6 +1,12 @@
 source;share\tinyxml2_vendor\hook\cmake_prefix_path.ps1
 source;share\tinyxml2_vendor\hook\cmake_prefix_path.bat
 source;share\tinyxml2_vendor\hook\cmake_prefix_path.dsv
+source;share\tinyxml2_vendor\hook\path_dll.ps1
+source;share\tinyxml2_vendor\hook\path_dll.bat
+source;share\tinyxml2_vendor\hook\path_dll.dsv
+source;share\tinyxml2_vendor\hook\path.ps1
+source;share\tinyxml2_vendor\hook\path.bat
+source;share\tinyxml2_vendor\hook\path.dsv
 source;share\tinyxml2_vendor\hook\path-scripts.ps1
 source;share\tinyxml2_vendor\hook\path-scripts.bat
 source;share\tinyxml2_vendor\hook\path-scripts.dsv

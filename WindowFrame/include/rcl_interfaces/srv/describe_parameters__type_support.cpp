@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void DescribeParameters_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::DescribeParameters_Request(_init);
+}
+
+void DescribeParameters_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::DescribeParameters_Request *>(message_memory);
+  typed_message->~DescribeParameters_Request();
+}
+
 size_t size_function__DescribeParameters_Request__names(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<std::string> *>(untyped_member);
@@ -57,7 +69,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DescribeParam
     "names",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers DescribePara
   "DescribeParameters_Request",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::DescribeParameters_Request),
-  DescribeParameters_Request_message_member_array  // message members
+  DescribeParameters_Request_message_member_array,  // message members
+  DescribeParameters_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  DescribeParameters_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t DescribeParameters_Request_message_type_support_handle = {
@@ -155,6 +169,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void DescribeParameters_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::DescribeParameters_Response(_init);
+}
+
+void DescribeParameters_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::DescribeParameters_Response *>(message_memory);
+  typed_message->~DescribeParameters_Response();
+}
+
 size_t size_function__DescribeParameters_Response__descriptors(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::ParameterDescriptor> *>(untyped_member);
@@ -205,7 +231,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers DescribePara
   "DescribeParameters_Response",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::DescribeParameters_Response),
-  DescribeParameters_Response_message_member_array  // message members
+  DescribeParameters_Response_message_member_array,  // message members
+  DescribeParameters_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  DescribeParameters_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t DescribeParameters_Response_message_type_support_handle = {

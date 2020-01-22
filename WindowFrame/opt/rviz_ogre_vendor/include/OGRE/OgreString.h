@@ -31,37 +31,14 @@ THE SOFTWARE.
 #include "OgrePrerequisites.h"
 #include "OgreHeaderPrefix.h"
 
-// If we're using the GCC 3.1 C++ Std lib
-#if OGRE_COMPILER == OGRE_COMPILER_GNUC && OGRE_COMP_VER >= 310 && OGRE_COMP_VER < 430 && !defined(STLPORT)
-#include <ext/hash_map>
-namespace __gnu_cxx
-{
-    template <> struct hash< Ogre::_StringBase >
-    {
-        size_t operator()( const Ogre::_StringBase _stringBase ) const
-        {
-            /* This is the PRO-STL way, but it seems to cause problems with VC7.1
-               and in some other cases (although I can't recreate it)
-               hash<const char*> H;
-               return H(_stringBase.c_str());
-            */
-            /** This is our custom way */
-            register size_t ret = 0;
-            for( Ogre::_StringBase::const_iterator it = _stringBase.begin(); it != _stringBase.end(); ++it )
-                ret = 5 * ret + *it;
-
-            return ret;
-        }
-    };
-}
-#endif
-
 // A quick define to overcome different names for the same function
 #if OGRE_PLATFORM == OGRE_PLATFORM_WIN32 || OGRE_PLATFORM == OGRE_PLATFORM_WINRT
 #   define locale_t _locale_t
 #   define strtod_l _strtod_l
 #   define strtoul_l _strtoul_l
 #   define strtol_l _strtol_l
+#   define strtoull_l _strtoull_l
+#   define strtoll_l _strtoll_l
 #   define stricmp _stricmp
 #   define strnicmp _strnicmp
 #else
@@ -74,6 +51,8 @@ namespace __gnu_cxx
 #   define strtod_l(ptr, end, l) strtod(ptr, end)
 #   define strtoul_l(ptr, end, base, l) strtoul(ptr, end, base)
 #   define strtol_l(ptr, end, base, l) strtol(ptr, end, base)
+#   define strtoull_l(ptr, end, base, l) strtoull(ptr, end, base)
+#   define strtoll_l(ptr, end, base, l) strtoll(ptr, end, base)
 #endif
 
 // If compiling with make on macOS, these headers need to be included to get
@@ -82,6 +61,12 @@ namespace __gnu_cxx
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE
 #   include <stdlib.h>
 #   include <xlocale.h>
+#endif
+
+#if OGRE_COMPILER == OGRE_COMPILER_GNUC || OGRE_COMPILER == OGRE_COMPILER_CLANG
+#define OGRE_FORMAT_PRINTF(string_idx, first_to_check) __attribute__ ((format (printf, string_idx, first_to_check)))
+#else
+#define OGRE_FORMAT_PRINTF(A, B)
 #endif
 
 namespace Ogre {
@@ -96,8 +81,8 @@ namespace Ogre {
     class _OgreExport StringUtil
     {
     public:
-        OGRE_DEPRECATED static const String& BLANK; /// @deprecated use Ogre::BLANKSTRING instead
-        OGRE_DEPRECATED typedef StringStream StrStreamType; /// @deprecated use Ogre::StringStream instead
+        OGRE_DEPRECATED static const String& BLANK; //!< @deprecated use Ogre::BLANKSTRING instead
+        OGRE_DEPRECATED typedef StringStream StrStreamType; //!< @deprecated use Ogre::StringStream instead
 
         /** Removes any whitespace characters, be it standard space or
             TABs and so on.
@@ -119,7 +104,7 @@ namespace Ogre {
             @param
             preserveDelims Flag to determine if delimiters should be saved as substrings
         */
-        static vector<String>::type split( const String& str, const String& delims = "\t\n ", unsigned int maxSplits = 0, bool preserveDelims = false);
+        static std::vector<String> split( const String& str, const String& delims = "\t\n ", unsigned int maxSplits = 0, bool preserveDelims = false);
 
         /** Returns a StringVector that contains all the substrings delimited
             by the characters in the passed <code>delims</code> argument,
@@ -134,7 +119,7 @@ namespace Ogre {
             maxSplits The maximum number of splits to perform (0 for unlimited splits). If this
             parameters is > 0, the splitting process will stop after this many splits, left to right.
         */
-        static vector<String>::type tokenise( const String& str, const String& delims = "\t\n ", const String& doubleDelims = "\"", unsigned int maxSplits = 0);
+        static std::vector<String> tokenise( const String& str, const String& delims = "\t\n ", const String& doubleDelims = "\"", unsigned int maxSplits = 0);
 
         /** Lower-cases all the characters in the string.
          */
@@ -221,30 +206,15 @@ namespace Ogre {
             @return An updated string with the sub-string replaced
         */
         static const String replaceAll(const String& source, const String& replaceWhat, const String& replaceWithWhat);
+
+        /** create a string from a printf expression
+         *
+         * @note this function - like printf - uses a locale dependent decimal point
+         */
+        static String format(const char* fmt, ...) OGRE_FORMAT_PRINTF(1, 2);
     };
 
-
-#if OGRE_USE_STD11
     typedef ::std::hash< _StringBase > _StringHash;
-#elif OGRE_COMPILER == OGRE_COMPILER_GNUC && OGRE_COMP_VER >= 310 && !defined(STLPORT)
-#   if OGRE_COMP_VER < 430
-    typedef ::__gnu_cxx::hash< _StringBase > _StringHash;
-#   else
-    typedef ::std::tr1::hash< _StringBase > _StringHash;
-#   endif
-#elif OGRE_COMPILER == OGRE_COMPILER_CLANG
-#   if defined(_LIBCPP_VERSION)
-    typedef ::std::hash< _StringBase > _StringHash;
-#   else
-    typedef ::std::tr1::hash< _StringBase > _StringHash;
-#   endif
-#elif OGRE_COMPILER == OGRE_COMPILER_MSVC && OGRE_COMP_VER >= 1600 && !defined(STLPORT) // VC++ 10.0
-    typedef ::std::hash< _StringBase > _StringHash;
-#elif !defined( _STLP_HASH_FUN_H )
-    typedef stdext::hash_compare< _StringBase, std::less< _StringBase > > _StringHash;
-#else
-    typedef std::hash< _StringBase > _StringHash;
-#endif
     /** @} */
     /** @} */
 

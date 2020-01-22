@@ -16,7 +16,7 @@ set(_python_cmake_module_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT python_cmake_module_FIND_QUIETLY)
-  message(STATUS "Found python_cmake_module: 0.7.8 (${python_cmake_module_DIR})")
+  message(STATUS "Found python_cmake_module: 0.8.0 (${python_cmake_module_DIR})")
 endif()
 
 # warn when using a deprecated package

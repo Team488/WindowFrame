@@ -16,7 +16,7 @@ set(_ament_cmake_uncrustify_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_cmake_uncrustify_FIND_QUIETLY)
-  message(STATUS "Found ament_cmake_uncrustify: 0.7.9 (${ament_cmake_uncrustify_DIR})")
+  message(STATUS "Found ament_cmake_uncrustify: 0.8.1 (${ament_cmake_uncrustify_DIR})")
 endif()
 
 # warn when using a deprecated package

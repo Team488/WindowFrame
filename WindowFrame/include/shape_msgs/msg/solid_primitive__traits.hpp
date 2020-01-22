@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<shape_msgs::msg::SolidPrimitive>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<shape_msgs::msg::SolidPrimitive>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SHAPE_MSGS__MSG__SOLID_PRIMITIVE__TRAITS_HPP_

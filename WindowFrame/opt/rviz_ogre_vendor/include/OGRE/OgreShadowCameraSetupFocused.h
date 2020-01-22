@@ -28,6 +28,11 @@ THE SOFTWARE.
 */
 #ifndef __ShadowCameraSetupFocused_H__
 #define __ShadowCameraSetupFocused_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreShadowCameraSetup.h"
@@ -69,11 +74,11 @@ namespace Ogre {
         /** Temporary preallocated frustum to set up a projection matrix in 
             calculateShadowMappingMatrix().
         */
-        Frustum* mTempFrustum;
+        std::unique_ptr<Frustum> mTempFrustum;
 
         /** Temporary preallocated camera to set up a light frustum for clipping in FocusedShadowCameraSetup::calculateB.
         */
-        Camera* mLightFrustumCamera;
+        std::unique_ptr<Camera> mLightFrustumCamera;
         mutable bool mLightFrustumCameraCalculated;
 
         /// Use tighter focus region?
@@ -166,7 +171,7 @@ namespace Ogre {
             Calculated uniform shadow camera (may be @c NULL).
         */
         void calculateShadowMappingMatrix(const SceneManager& sm, const Camera& cam, 
-            const Light& light, Matrix4 *out_view, 
+            const Light& light, Affine3 *out_view,
             Matrix4 *out_proj, Camera *out_cam) const;
 
         /** Calculates the intersection bodyB.
@@ -244,7 +249,7 @@ namespace Ogre {
         @param bodyLVS
             Intersection body LVS (relevant space in front of the camera).
         */
-        Vector3 getNearCameraPoint_ws(const Matrix4& viewMatrix, 
+        Vector3 getNearCameraPoint_ws(const Affine3& viewMatrix,
             const PointListBody& bodyLVS) const;
 
         /** Transforms a given body to the unit cube (-1,-1,-1) / (+1,+1,+1) with a specific 
@@ -264,39 +269,39 @@ namespace Ogre {
         @remarks
             Builds a standard view matrix out of a given position, direction and up vector.
         */
-        Matrix4 buildViewMatrix(const Vector3& pos, const Vector3& dir, const Vector3& up) const;
+        Affine3 buildViewMatrix(const Vector3& pos, const Vector3& dir, const Vector3& up) const;
 
     public:
-        /** Default constructor.
-        @remarks
-            Temporary frustum and camera set up here.
-        */
-        FocusedShadowCameraSetup(void);
+        /// @deprecated use create()
+        FocusedShadowCameraSetup(bool useAggressiveRegion = true);
 
-        /** Default destructor.
-        @remarks
-            Temporary frustum and camera destroyed here.
-        */
-        virtual ~FocusedShadowCameraSetup(void);
+        ~FocusedShadowCameraSetup();
+
+        /** Create an instance
+
+            There are 2 approaches that can  be used to define the focus region,
+            the more aggressive way introduced by Wimmer et al, or the original
+            way as described in Stamminger et al. Wimmer et al's way tends to
+            come up with a tighter focus region but in rare cases (mostly highly
+            glancing angles) can cause some shadow casters to be clipped
+            incorrectly. By default the more aggressive approach is used since it
+            leads to significantly better results in most cases, but if you experience
+            clipping issues, you can use the less aggressive version.
+        @param useAggressiveRegion
+            True to use the more aggressive approach, false otherwise.
+         */
+        static ShadowCameraSetupPtr create(bool useAggressiveRegion = true)
+        {
+            return std::make_shared<FocusedShadowCameraSetup>(useAggressiveRegion);
+        }
 
         /** Returns a uniform shadow camera with a focused view.
         */
-        virtual void getShadowCamera(const SceneManager *sm, const Camera *cam, 
+        virtual void getShadowCamera(const SceneManager *sm, const Camera *cam,
             const Viewport *vp, const Light *light, Camera *texCam, size_t iteration) const;
 
         /** Sets whether or not to use the more aggressive approach to deciding on
             the focus region or not.
-        @note
-            There are 2 approaches that can  be used to define the focus region,
-            the more aggressive way introduced by Wimmer et al, or the original
-            way as described in Stamminger et al. Wimmer et al's way tends to 
-            come up with a tighter focus region but in rare cases (mostly highly
-            glancing angles) can cause some shadow casters to be clipped 
-            incorrectly. By default the more aggressive approach is used since it
-            leads to significantly better results in most cases, but if you experience
-            clipping issues, you can use the less aggressive version.
-        @param aggressive
-            True to use the more aggressive approach, false otherwise.
         */
         void setUseAggressiveFocusRegion(bool aggressive) { mUseAggressiveRegion = aggressive; }
 
@@ -310,5 +315,9 @@ namespace Ogre {
 } // namespace Ogre
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif // __ShadowCameraSetupFocused_H__

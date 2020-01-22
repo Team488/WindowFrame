@@ -55,7 +55,7 @@ namespace Ogre {
         /// Extract attributes
         void extractAttributes(void);
 
-        typedef set<GLuint>::type AttributeSet;
+        typedef std::set<GLuint> AttributeSet;
         /// Custom attribute bindings
         AttributeSet mValidAttributes;
 
@@ -63,7 +63,7 @@ namespace Ogre {
         /// Compiles and links the the vertex and fragment programs
         void compileAndLink();
         /// Get the the binary data of a program from the microcode cache
-        void getMicrocodeFromCache();
+        void getMicrocodeFromCache(uint32 id);
     public:
         /// Constructor should only be used by GLSLLinkProgramManager
         GLSLLinkProgram(GLSLProgram* vertexProgram, GLSLProgram* geometryProgram, GLSLProgram* fragmentProgram);

@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<map_msgs::msg::ProjectedMapInfo>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<map_msgs::msg::ProjectedMapInfo>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // MAP_MSGS__MSG__PROJECTED_MAP_INFO__TRAITS_HPP_

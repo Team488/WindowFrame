@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<actionlib_msgs::msg::GoalStatusArray>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<actionlib_msgs::msg::GoalStatusArray>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // ACTIONLIB_MSGS__MSG__GOAL_STATUS_ARRAY__TRAITS_HPP_

@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__geometry_msgs__msg__Quaternion __attribute__((deprecated))
@@ -45,8 +35,13 @@ struct Quaternion_
   explicit Quaternion_(rosidl_generator_cpp::MessageInitialization _init = rosidl_generator_cpp::MessageInitialization::ALL)
   {
     if (rosidl_generator_cpp::MessageInitialization::ALL == _init ||
-      rosidl_generator_cpp::MessageInitialization::ZERO == _init)
+      rosidl_generator_cpp::MessageInitialization::DEFAULTS_ONLY == _init)
     {
+      this->x = 0.0;
+      this->y = 0.0;
+      this->z = 0.0;
+      this->w = 1.0;
+    } else if (rosidl_generator_cpp::MessageInitialization::ZERO == _init) {
       this->x = 0.0;
       this->y = 0.0;
       this->z = 0.0;
@@ -58,8 +53,13 @@ struct Quaternion_
   {
     (void)_alloc;
     if (rosidl_generator_cpp::MessageInitialization::ALL == _init ||
-      rosidl_generator_cpp::MessageInitialization::ZERO == _init)
+      rosidl_generator_cpp::MessageInitialization::DEFAULTS_ONLY == _init)
     {
+      this->x = 0.0;
+      this->y = 0.0;
+      this->z = 0.0;
+      this->w = 1.0;
+    } else if (rosidl_generator_cpp::MessageInitialization::ZERO == _init) {
       this->x = 0.0;
       this->y = 0.0;
       this->z = 0.0;

@@ -28,6 +28,11 @@ THE SOFTWARE.
 
 #ifndef __SimpleSpline_H__
 #define __SimpleSpline_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreMatrix4.h"
@@ -117,8 +122,8 @@ namespace Ogre {
 
         bool mAutoCalc;
 
-        vector<Vector3>::type mPoints;
-        vector<Vector3>::type mTangents;
+        std::vector<Vector3> mPoints;
+        std::vector<Vector3> mTangents;
 
         /// Matrix of coefficients 
         Matrix4 mCoeffs;
@@ -134,6 +139,10 @@ namespace Ogre {
 
 #include "OgreHeaderSuffix.h"
 
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

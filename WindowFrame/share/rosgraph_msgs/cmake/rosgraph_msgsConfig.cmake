@@ -16,7 +16,7 @@ set(_rosgraph_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosgraph_msgs_FIND_QUIETLY)
-  message(STATUS "Found rosgraph_msgs: 0.7.4 (${rosgraph_msgs_DIR})")
+  message(STATUS "Found rosgraph_msgs: 0.8.0 (${rosgraph_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

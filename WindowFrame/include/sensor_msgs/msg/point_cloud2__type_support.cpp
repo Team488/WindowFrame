@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void PointCloud2_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::PointCloud2(_init);
+}
+
+void PointCloud2_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::PointCloud2 *>(message_memory);
+  typed_message->~PointCloud2();
+}
+
 size_t size_function__PointCloud2__fields(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<sensor_msgs::msg::PointField> *>(untyped_member);
@@ -93,13 +105,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "height",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -108,13 +120,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "width",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -123,7 +135,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "fields",  // name
@@ -144,7 +156,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     "is_bigendian",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -153,13 +165,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "point_step",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -168,13 +180,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "row_step",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -183,13 +195,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "data",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -204,7 +216,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     "is_dense",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -213,7 +225,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PointCloud2_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -222,7 +234,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers PointCloud2_
   "PointCloud2",  // message name
   9,  // number of fields
   sizeof(sensor_msgs::msg::PointCloud2),
-  PointCloud2_message_member_array  // message members
+  PointCloud2_message_member_array,  // message members
+  PointCloud2_init_function,  // function to initialize message memory (memory has to be allocated)
+  PointCloud2_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t PointCloud2_message_type_support_handle = {

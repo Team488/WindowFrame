@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void PolygonStamped_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) geometry_msgs::msg::PolygonStamped(_init);
+}
+
+void PolygonStamped_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<geometry_msgs::msg::PolygonStamped *>(message_memory);
+  typed_message->~PolygonStamped();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember PolygonStamped_message_member_array[2] = {
   {
     "header",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PolygonStampe
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "polygon",  // name
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PolygonStampe
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -63,7 +75,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers PolygonStamp
   "PolygonStamped",  // message name
   2,  // number of fields
   sizeof(geometry_msgs::msg::PolygonStamped),
-  PolygonStamped_message_member_array  // message members
+  PolygonStamped_message_member_array,  // message members
+  PolygonStamped_init_function,  // function to initialize message memory (memory has to be allocated)
+  PolygonStamped_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t PolygonStamped_message_type_support_handle = {

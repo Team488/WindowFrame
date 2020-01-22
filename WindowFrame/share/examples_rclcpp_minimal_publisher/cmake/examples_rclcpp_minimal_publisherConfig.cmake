@@ -16,7 +16,7 @@ set(_examples_rclcpp_minimal_publisher_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT examples_rclcpp_minimal_publisher_FIND_QUIETLY)
-  message(STATUS "Found examples_rclcpp_minimal_publisher: 0.7.4 (${examples_rclcpp_minimal_publisher_DIR})")
+  message(STATUS "Found examples_rclcpp_minimal_publisher: 0.8.2 (${examples_rclcpp_minimal_publisher_DIR})")
 endif()
 
 # warn when using a deprecated package

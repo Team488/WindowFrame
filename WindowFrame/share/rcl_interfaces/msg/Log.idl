@@ -13,30 +13,37 @@ module rcl_interfaces {
       const octet ERROR = 40;
       const octet FATAL = 50;
     };
-    @verbatim (language="comment", text="#
-# Severity level constants
-#")
+    @verbatim (language="comment", text=
+      "#" "\n"
+      "# Severity level constants" "\n"
+      "#")
     struct Log {
-      @verbatim (language="comment", text="#
-# Fields
-#")
+      @verbatim (language="comment", text=
+        "#" "\n"
+        "# Fields" "\n"
+        "#")
       builtin_interfaces::msg::Time stamp;
 
       uint8 level;
 
-      @verbatim (language="comment", text=" the name representing the logger this message came from")
+      @verbatim (language="comment", text=
+        " the name representing the logger this message came from")
       string name;
 
-      @verbatim (language="comment", text=" message")
+      @verbatim (language="comment", text=
+        " message")
       string msg;
 
-      @verbatim (language="comment", text=" file the message came from")
+      @verbatim (language="comment", text=
+        " file the message came from")
       string file;
 
-      @verbatim (language="comment", text=" function the message came from")
+      @verbatim (language="comment", text=
+        " function the message came from")
       string function;
 
-      @verbatim (language="comment", text=" line the message came from")
+      @verbatim (language="comment", text=
+        " line the message came from")
       uint32 line;
     };
   };

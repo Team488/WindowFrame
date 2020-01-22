@@ -28,6 +28,11 @@ THE SOFTWARE.
 
 #ifndef __SkeletonInstance_H__
 #define __SkeletonInstance_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreSkeleton.h"
@@ -121,7 +126,7 @@ namespace Ogre {
         /// Pointer back to master Skeleton
         SkeletonPtr mSkeleton;
 
-        typedef list<TagPoint*>::type TagPointList;
+        typedef std::list<TagPoint*> TagPointList;
 
         /** Active tag point list.
         @remarks
@@ -146,12 +151,8 @@ namespace Ogre {
         unsigned short mNextTagPointAutoHandle;
 
         void cloneBoneAndChildren(Bone* source, Bone* parent);
-        /** Overridden from Skeleton
-        */
-        void loadImpl(void);
-        /** Overridden from Skeleton
-        */
-        void unloadImpl(void);
+        void loadImpl(void) override;
+        void unloadImpl(void) override;
 
     };
     /** @} */
@@ -160,6 +161,10 @@ namespace Ogre {
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

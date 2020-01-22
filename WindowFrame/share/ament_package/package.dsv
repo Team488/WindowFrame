@@ -1,6 +1,3 @@
-source;share\ament_package\hook\path-scripts.ps1
-source;share\ament_package\hook\path-scripts.bat
-source;share\ament_package\hook\path-scripts.dsv
 source;share\ament_package\hook\pythonpath.ps1
 source;share\ament_package\hook\pythonpath.bat
 source;share\ament_package\hook\pythonpath.dsv

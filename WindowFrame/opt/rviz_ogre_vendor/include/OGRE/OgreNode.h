@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef _Node_H__
 #define _Node_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 
@@ -36,8 +41,6 @@ THE SOFTWARE.
 #include "OgreHeaderPrefix.h"
 
 namespace Ogre {
-
-    class NameGenerator;
 
     /** \addtogroup Core
     *  @{
@@ -69,15 +72,9 @@ namespace Ogre {
             /// Transform is relative to world space
             TS_WORLD
         };
-#if OGRE_NODE_STORAGE_LEGACY
-        typedef OGRE_HashMap<String, Node*> ChildNodeMap;
-        typedef MapIterator<ChildNodeMap> ChildNodeIterator;
-        typedef ConstMapIterator<ChildNodeMap> ConstChildNodeIterator;
-#else
-        typedef vector<Node*>::type ChildNodeMap;
+        typedef std::vector<Node*> ChildNodeMap;
         typedef VectorIterator<ChildNodeMap> ChildNodeIterator;
         typedef ConstVectorIterator<ChildNodeMap> ConstChildNodeIterator;
-#endif
 
         /** Listener which gets called back on Node events.
         */
@@ -103,7 +100,7 @@ namespace Ogre {
         };
 
         /** Inner class for displaying debug renderable for Node. */
-        class DebugRenderable : public Renderable, public NodeAlloc
+        class _OgreExport DebugRenderable : public Renderable, public NodeAlloc
         {
         protected:
             Node* mParent;
@@ -128,38 +125,35 @@ namespace Ogre {
         /// Collection of pointers to direct children
         ChildNodeMap mChildren;
 
-        typedef set<Node*>::type ChildUpdateSet;
+        typedef std::set<Node*> ChildUpdateSet;
         /// List of children which need updating, used if self is not out of date but children are
         ChildUpdateSet mChildrenToUpdate;
-        /// Flag to indicate own transform from parent is out of date
-        mutable bool mNeedParentUpdate;
-        /// Flag indicating that all children need to be updated
-        bool mNeedChildUpdate;
-        /// Flag indicating that parent has been notified about update request
-        bool mParentNotified ;
-        /// Flag indicating that the node has been queued for update
-        bool mQueuedForUpdate;
-
-        /// Friendly name of this node, can be automatically generated if you don't care
+        /// Friendly name of this node
         String mName;
 
-        /// Incremented count for next name extension
-        static NameGenerator msNameGenerator;
+        /// Flag to indicate own transform from parent is out of date
+        mutable bool mNeedParentUpdate : 1;
+        /// Flag indicating that all children need to be updated
+        bool mNeedChildUpdate : 1;
+        /// Flag indicating that parent has been notified about update request
+        bool mParentNotified : 1;
+        /// Flag indicating that the node has been queued for update
+        bool mQueuedForUpdate : 1;
+        /// Stores whether this node inherits orientation from it's parent
+        bool mInheritOrientation : 1;
+        /// Stores whether this node inherits scale from it's parent
+        bool mInheritScale : 1;
+        mutable bool mCachedTransformOutOfDate : 1;
 
         /// Stores the orientation of the node relative to it's parent.
         Quaternion mOrientation;
-
         /// Stores the position/translation of the node relative to its parent.
         Vector3 mPosition;
-
         /// Stores the scaling factor applied to this node
         Vector3 mScale;
 
-        /// Stores whether this node inherits orientation from it's parent
-        bool mInheritOrientation;
-
-        /// Stores whether this node inherits scale from it's parent
-        bool mInheritScale;
+        /// Cached derived transform as a 4x4 matrix
+        mutable Affine3 mCachedTransform;
 
         /// Only available internally - notification of parent.
         virtual void setParent(Node* parent);
@@ -221,20 +215,16 @@ namespace Ogre {
         /// The scale to use as a base for keyframe animation
         Vector3 mInitialScale;
 
-        /// Cached derived transform as a 4x4 matrix
-        mutable Matrix4 mCachedTransform;
-        mutable bool mCachedTransformOutOfDate;
-
         /** Node listener - only one allowed (no list) for size & performance reasons. */
         Listener* mListener;
 
-        typedef vector<Node*>::type QueuedUpdates;
-        static QueuedUpdates msQueuedUpdates;
-
-        DebugRenderable* mDebug;
+        std::unique_ptr<DebugRenderable> mDebug;
 
         /// User objects binding.
         UserObjectBindings mUserObjectBindings;
+
+        typedef std::vector<Node*> QueuedUpdates;
+        static QueuedUpdates msQueuedUpdates;
 
     public:
         /** Constructor, should only be called by parent, not directly.
@@ -463,6 +453,7 @@ namespace Ogre {
         @remarks
             This creates a child node with a given name, which allows you to look the node up from 
             the parent which holds this collection of nodes.
+        @param name Name of the Node to create
         @param translate
             Initial translation offset of child relative to parent
         @param rotate
@@ -492,26 +483,14 @@ namespace Ogre {
         */
         Node* getChild(const String& name) const;
 
-        /** Retrieves an iterator for efficiently looping through all children of this node.
-        @remarks
-            Using this is faster than repeatedly calling getChild if you want to go through
-            all (or most of) the children of this node.
-            Note that the returned iterator is only valid whilst no children are added or
-            removed from this node. Thus you should not store this returned iterator for
-            later use, nor should you add / remove children whilst iterating through it;
-            store up changes for later. Note that calling methods on returned items in 
-            the iterator IS allowed and does not invalidate the iterator.
-        @deprecated use getChildren()
-        */
-        ChildNodeIterator getChildIterator(void);
+        /// @deprecated use getChildren()
+        OGRE_DEPRECATED ChildNodeIterator getChildIterator(void);
 
-        /// @overload
-        ConstChildNodeIterator getChildIterator(void) const;
+        /// @deprecated use getChildren()
+        OGRE_DEPRECATED ConstChildNodeIterator getChildIterator(void) const;
 
-#if !OGRE_NODE_STORAGE_LEGACY
         /// List of sub-nodes of this Node
         const ChildNodeMap& getChildren() const { return mChildren; }
-#endif
 
         /** Drops the specified child from this node. 
         @remarks
@@ -569,7 +548,7 @@ namespace Ogre {
             derived transforms have been updated before calling this method.
             Applications using Ogre should just use the relative transforms.
         */
-        const Matrix4& _getFullTransform(void) const;
+        const Affine3& _getFullTransform(void) const;
 
         /** Internal method to update the Node.
         @note
@@ -656,7 +635,8 @@ namespace Ogre {
             parent, tell it anyway
         */
         virtual void needUpdate(bool forceParentUpdate = false);
-        /** Called by children to notify their parent that they need an update. 
+        /** Called by children to notify their parent that they need an update.
+        @param child The child Node to be updated
         @param forceParentUpdate Even if the node thinks it has already told it's
             parent, tell it anyway
         */
@@ -712,5 +692,9 @@ namespace Ogre {
 } // namespace Ogre
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif // _Node_H__

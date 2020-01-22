@@ -175,6 +175,30 @@ namespace test_msgs {
                         sample->wstring_value_,"wstring_value_", indent_level + 1);    
                 }
 
+                if (sample->wstring_value_default1_==NULL) {
+                    RTICdrType_printWstring(
+                        NULL,"wstring_value_default1_", indent_level + 1);
+                } else {
+                    RTICdrType_printWstring(
+                        sample->wstring_value_default1_,"wstring_value_default1_", indent_level + 1);    
+                }
+
+                if (sample->wstring_value_default2_==NULL) {
+                    RTICdrType_printWstring(
+                        NULL,"wstring_value_default2_", indent_level + 1);
+                } else {
+                    RTICdrType_printWstring(
+                        sample->wstring_value_default2_,"wstring_value_default2_", indent_level + 1);    
+                }
+
+                if (sample->wstring_value_default3_==NULL) {
+                    RTICdrType_printWstring(
+                        NULL,"wstring_value_default3_", indent_level + 1);
+                } else {
+                    RTICdrType_printWstring(
+                        sample->wstring_value_default3_,"wstring_value_default3_", indent_level + 1);    
+                }
+
                 RTICdrType_printStringArray (
                     sample->array_of_wstrings_, 
                     (3),       
@@ -362,6 +386,21 @@ namespace test_msgs {
                         return RTI_FALSE;
                     }
 
+                    if (!RTICdrStream_serializeWstring(
+                        stream, sample->wstring_value_default1_, (RTI_INT32_MAX-1) + 1)) {
+                        return RTI_FALSE;
+                    }
+
+                    if (!RTICdrStream_serializeWstring(
+                        stream, sample->wstring_value_default2_, (RTI_INT32_MAX-1) + 1)) {
+                        return RTI_FALSE;
+                    }
+
+                    if (!RTICdrStream_serializeWstring(
+                        stream, sample->wstring_value_default3_, (RTI_INT32_MAX-1) + 1)) {
+                        return RTI_FALSE;
+                    }
+
                     if (!RTICdrStream_serializeStringArray(
                         stream,  (void*)sample->array_of_wstrings_  ,
                         (3), (RTI_INT32_MAX-1) + 1,
@@ -454,6 +493,18 @@ namespace test_msgs {
 
                         if (!RTICdrStream_deserializeWstringEx(
                             stream,&sample->wstring_value_, (RTI_INT32_MAX-1) + 1,RTI_TRUE)) {
+                            goto fin; 
+                        }
+                        if (!RTICdrStream_deserializeWstringEx(
+                            stream,&sample->wstring_value_default1_, (RTI_INT32_MAX-1) + 1,RTI_TRUE)) {
+                            goto fin; 
+                        }
+                        if (!RTICdrStream_deserializeWstringEx(
+                            stream,&sample->wstring_value_default2_, (RTI_INT32_MAX-1) + 1,RTI_TRUE)) {
+                            goto fin; 
+                        }
+                        if (!RTICdrStream_deserializeWstringEx(
+                            stream,&sample->wstring_value_default3_, (RTI_INT32_MAX-1) + 1,RTI_TRUE)) {
                             goto fin; 
                         }
 
@@ -756,6 +807,15 @@ namespace test_msgs {
                     if (!RTICdrStream_skipWstring (stream, (RTI_INT32_MAX-1)+1)) {
                         goto fin; 
                     }
+                    if (!RTICdrStream_skipWstring (stream, (RTI_INT32_MAX-1)+1)) {
+                        goto fin; 
+                    }
+                    if (!RTICdrStream_skipWstring (stream, (RTI_INT32_MAX-1)+1)) {
+                        goto fin; 
+                    }
+                    if (!RTICdrStream_skipWstring (stream, (RTI_INT32_MAX-1)+1)) {
+                        goto fin; 
+                    }
                     if (!RTICdrStream_skipStringArray(
                         stream, (3), (RTI_INT32_MAX-1) + 1,
                         RTI_CDR_WCHAR_TYPE)){
@@ -864,6 +924,12 @@ namespace test_msgs {
 
                 current_alignment +=RTICdrType_getWstringMaxSizeSerialized(
                     current_alignment, 1);
+                current_alignment +=RTICdrType_getWstringMaxSizeSerialized(
+                    current_alignment, 1);
+                current_alignment +=RTICdrType_getWstringMaxSizeSerialized(
+                    current_alignment, 1);
+                current_alignment +=RTICdrType_getWstringMaxSizeSerialized(
+                    current_alignment, 1);
                 current_alignment +=RTICdrType_getStringArrayMaxSizeSerialized(
                     current_alignment, (3), 1, RTI_CDR_WCHAR_TYPE);
                 current_alignment +=    RTICdrType_getStringSequenceMaxSizeSerialized(
@@ -924,6 +990,18 @@ namespace test_msgs {
                 current_alignment += RTICdrType_getWstringSerializedSize(
                     PRESTypePluginDefaultEndpointData_getAlignment(
                         endpoint_data, current_alignment), sample->wstring_value_);
+
+                current_alignment += RTICdrType_getWstringSerializedSize(
+                    PRESTypePluginDefaultEndpointData_getAlignment(
+                        endpoint_data, current_alignment), sample->wstring_value_default1_);
+
+                current_alignment += RTICdrType_getWstringSerializedSize(
+                    PRESTypePluginDefaultEndpointData_getAlignment(
+                        endpoint_data, current_alignment), sample->wstring_value_default2_);
+
+                current_alignment += RTICdrType_getWstringSerializedSize(
+                    PRESTypePluginDefaultEndpointData_getAlignment(
+                        endpoint_data, current_alignment), sample->wstring_value_default3_);
 
                 current_alignment +=  RTICdrType_getStringArraySerializedSize(
                     PRESTypePluginDefaultEndpointData_getAlignment(

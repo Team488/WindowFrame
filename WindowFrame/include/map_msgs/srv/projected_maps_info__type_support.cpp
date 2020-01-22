@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ProjectedMapsInfo_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) map_msgs::srv::ProjectedMapsInfo_Request(_init);
+}
+
+void ProjectedMapsInfo_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<map_msgs::srv::ProjectedMapsInfo_Request *>(message_memory);
+  typed_message->~ProjectedMapsInfo_Request();
+}
+
 size_t size_function__ProjectedMapsInfo_Request__projected_maps_info(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<map_msgs::msg::ProjectedMapInfo> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ProjectedMap
   "ProjectedMapsInfo_Request",  // message name
   1,  // number of fields
   sizeof(map_msgs::srv::ProjectedMapsInfo_Request),
-  ProjectedMapsInfo_Request_message_member_array  // message members
+  ProjectedMapsInfo_Request_message_member_array,  // message members
+  ProjectedMapsInfo_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  ProjectedMapsInfo_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ProjectedMapsInfo_Request_message_type_support_handle = {
@@ -155,12 +169,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ProjectedMapsInfo_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) map_msgs::srv::ProjectedMapsInfo_Response(_init);
+}
+
+void ProjectedMapsInfo_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<map_msgs::srv::ProjectedMapsInfo_Response *>(message_memory);
+  typed_message->~ProjectedMapsInfo_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember ProjectedMapsInfo_Response_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -169,7 +195,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ProjectedMaps
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -178,7 +204,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ProjectedMap
   "ProjectedMapsInfo_Response",  // message name
   1,  // number of fields
   sizeof(map_msgs::srv::ProjectedMapsInfo_Response),
-  ProjectedMapsInfo_Response_message_member_array  // message members
+  ProjectedMapsInfo_Response_message_member_array,  // message members
+  ProjectedMapsInfo_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  ProjectedMapsInfo_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ProjectedMapsInfo_Response_message_type_support_handle = {

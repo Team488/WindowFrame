@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::TwistWithCovariance>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::Twist>::value> {};
 
+template<>
+struct is_message<geometry_msgs::msg::TwistWithCovariance>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__TWIST_WITH_COVARIANCE__TRAITS_HPP_

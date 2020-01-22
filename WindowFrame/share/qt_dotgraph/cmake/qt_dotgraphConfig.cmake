@@ -16,7 +16,7 @@ set(_qt_dotgraph_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT qt_dotgraph_FIND_QUIETLY)
-  message(STATUS "Found qt_dotgraph: 1.0.6 (${qt_dotgraph_DIR})")
+  message(STATUS "Found qt_dotgraph: 1.0.7 (${qt_dotgraph_DIR})")
 endif()
 
 # warn when using a deprecated package

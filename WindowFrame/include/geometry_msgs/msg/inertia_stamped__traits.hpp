@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::InertiaStamped>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::Inertia>::value && has_bounded_size<std_msgs::msg::Header>::value> {};
 
+template<>
+struct is_message<geometry_msgs::msg::InertiaStamped>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__INERTIA_STAMPED__TRAITS_HPP_

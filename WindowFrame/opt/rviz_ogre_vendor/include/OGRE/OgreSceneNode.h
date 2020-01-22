@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef _SceneNode_H__
 #define _SceneNode_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 
@@ -56,25 +61,14 @@ namespace Ogre {
     */
     class _OgreExport SceneNode : public Node
     {
+        friend class SceneManager;
     public:
-#if OGRE_NODE_STORAGE_LEGACY
-        typedef OGRE_HashMap<String, MovableObject*> ObjectMap;
-        typedef MapIterator<ObjectMap> ObjectIterator;
-        typedef ConstMapIterator<ObjectMap> ConstObjectIterator;
-#else
-        typedef vector<MovableObject*>::type ObjectMap;
+        typedef std::vector<MovableObject*> ObjectMap;
         typedef VectorIterator<ObjectMap> ObjectIterator;
         typedef ConstVectorIterator<ObjectMap> ConstObjectIterator;
-#endif
 
     protected:
         ObjectMap mObjectsByName;
-
-        /// Pointer to a Wire Bounding Box for this Node
-        WireBoundingBox *mWireBoundingBox;
-        /// Flag that determines if the bounding box of the node should be displayed
-        bool mShowBoundingBox;
-        bool mHideBoundingBox;
 
         /// SceneManager which created this node
         SceneManager* mCreator;
@@ -98,19 +92,31 @@ namespace Ogre {
         */
         virtual void setInSceneGraph(bool inGraph);
 
-        /// Whether to yaw around a fixed axis.
-        bool mYawFixed;
-        /// Fixed axis to yaw around
-        Vector3 mYawFixedAxis;
-
         /// Auto tracking target
         SceneNode* mAutoTrackTarget;
+        /// Pointer to a Wire Bounding Box for this Node
+        std::unique_ptr<WireBoundingBox> mWireBoundingBox;
         /// Tracking offset for fine tuning
         Vector3 mAutoTrackOffset;
         /// Local 'normal' direction vector
         Vector3 mAutoTrackLocalDirection;
+        /// Fixed axis to yaw around
+        Vector3 mYawFixedAxis;
+
+        /** Index in the vector holding this node reference. Used for O(1) removals.
+
+            It is the parent (or our creator) the one that sets this value, not ourselves. Do NOT modify
+            it manually.
+        */
+        size_t mGlobalIndex;
+
+        /// Whether to yaw around a fixed axis.
+        bool mYawFixed : 1;
         /// Is this node a current part of the scene graph?
-        bool mIsInSceneGraph;
+        bool mIsInSceneGraph : 1;
+        /// Flag that determines if the bounding box of the node should be displayed
+        bool mShowBoundingBox : 1;
+        bool mHideBoundingBox : 1;
     public:
         /** Constructor, only to be called by the creator SceneManager.
         @remarks
@@ -223,41 +229,23 @@ namespace Ogre {
         */
         const AxisAlignedBox& _getWorldAABB(void) const { return mWorldAABB; }
 
-        /** Retrieves an iterator which can be used to efficiently step through the objects 
-            attached to this node.
-        @remarks
-            This is a much faster way to go through <B>all</B> the objects attached to the node
-            than using getAttachedObject. But the iterator returned is only valid until a change
-            is made to the collection (ie an addition or removal) so treat the returned iterator
-            as transient, and don't add / remove items as you go through the iterator, save changes
-            until the end, or retrieve a new iterator after making the change. Making changes to
-            the object returned through the iterator is OK though.
-        @deprecated use getAttachedObjects()
-        */
-        ObjectIterator getAttachedObjectIterator(void) {
+        /// @deprecated use getAttachedObjects()
+        OGRE_DEPRECATED ObjectIterator getAttachedObjectIterator(void) {
             return ObjectIterator(mObjectsByName.begin(), mObjectsByName.end());
         }
-        /** Retrieves an iterator which can be used to efficiently step through the objects 
-            attached to this node.
-        @remarks
-            This is a much faster way to go through <B>all</B> the objects attached to the node
-            than using getAttachedObject. But the iterator returned is only valid until a change
-            is made to the collection (ie an addition or removal) so treat the returned iterator
-            as transient, and don't add / remove items as you go through the iterator, save changes
-            until the end, or retrieve a new iterator after making the change. Making changes to
-            the object returned through the iterator is OK though.
-        @deprecated use getAttachedObjects()
-        */
-        ConstObjectIterator getAttachedObjectIterator(void) const {
+        /// @deprecated use getAttachedObjects()
+        OGRE_DEPRECATED ConstObjectIterator getAttachedObjectIterator(void) const {
             return ConstObjectIterator(mObjectsByName.begin(), mObjectsByName.end());
         }
 
-#if !OGRE_NODE_STORAGE_LEGACY
-        /// The MovableObjects associated with this node
+        /** The MovableObjects attached to this node
+         *
+         * This is a much faster way to go through <B>all</B> the objects attached to the node than
+         * using getAttachedObject.
+         */
         const ObjectMap& getAttachedObjects() const {
             return mObjectsByName;
         }
-#endif
 
         /** Gets the creator of this scene node. 
         @remarks
@@ -476,5 +464,9 @@ namespace Ogre {
 }// namespace
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif

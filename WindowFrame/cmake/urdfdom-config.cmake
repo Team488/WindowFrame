@@ -3,16 +3,16 @@ if (urdfdom_CONFIG_INCLUDED)
 endif()
 set(urdfdom_CONFIG_INCLUDED TRUE)
 
-set(urdfdom_INCLUDE_DIRS "C:/J/workspace/ci_packaging_windows/ws/install/include" "C:/ProgramData/chocolatey/lib/tinyxml-usestl/include")
+set(urdfdom_INCLUDE_DIRS "C:/J/workspace/packaging_windows/ws/install/include" "C:/ProgramData/chocolatey/lib/tinyxml-usestl/include")
 
 foreach(lib urdfdom_sensor;urdfdom_model_state;urdfdom_model;urdfdom_world)
   set(onelib "${lib}-NOTFOUND")
   set(onelibd "${lib}-NOTFOUND")
   find_library(onelib ${lib}
-    PATHS "C:/J/workspace/ci_packaging_windows/ws/install/lib"
+    PATHS "C:/J/workspace/packaging_windows/ws/install/lib"
     NO_DEFAULT_PATH)
   find_library(onelibd ${lib}d
-    PATHS "C:/J/workspace/ci_packaging_windows/ws/install/lib"
+    PATHS "C:/J/workspace/packaging_windows/ws/install/lib"
     NO_DEFAULT_PATH)
   if(onelib-NOTFOUND AND onelibd-NOTFOUND)
     message(FATAL_ERROR "Library '${lib}' in package urdfdom is not installed properly")

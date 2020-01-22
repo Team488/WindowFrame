@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<std_msgs::msg::ColorRGBA>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<std_msgs::msg::ColorRGBA>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // STD_MSGS__MSG__COLOR_RGBA__TRAITS_HPP_

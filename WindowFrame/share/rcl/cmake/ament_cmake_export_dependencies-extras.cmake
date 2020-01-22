@@ -1,6 +1,6 @@
 # generated from ament_cmake_export_dependencies/cmake/ament_cmake_export_dependencies-extras.cmake.in
 
-set(_exported_dependencies "ament_cmake;rcl_interfaces;rmw_implementation;rmw;rcutils;rosidl_generator_c;rcl_logging_noop")
+set(_exported_dependencies "ament_cmake;rcl_interfaces;rcl_yaml_param_parser;rmw_implementation;rmw;rcutils;rosidl_generator_c;rcl_logging_spdlog;tracetools")
 
 find_package(ament_cmake_libraries QUIET REQUIRED)
 

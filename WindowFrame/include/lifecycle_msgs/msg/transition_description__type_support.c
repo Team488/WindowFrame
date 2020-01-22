@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "lifecycle_msgs/msg/transition_description__functions.h"
 #include "lifecycle_msgs/msg/transition_description__struct.h"
 
 
@@ -27,6 +28,20 @@
 extern "C"
 {
 #endif
+
+void TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  lifecycle_msgs__msg__TransitionDescription__init(message_memory);
+}
+
+void TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_fini_function(void * message_memory)
+{
+  lifecycle_msgs__msg__TransitionDescription__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_message_member_array[3] = {
   {
@@ -81,7 +96,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers TransitionDescri
   "TransitionDescription",  // message name
   3,  // number of fields
   sizeof(lifecycle_msgs__msg__TransitionDescription),
-  TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_message_member_array  // message members
+  TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_message_member_array,  // message members
+  TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_init_function,  // function to initialize message memory (memory has to be allocated)
+  TransitionDescription__rosidl_typesupport_introspection_c__TransitionDescription_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

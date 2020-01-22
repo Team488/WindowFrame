@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ParameterDescriptor_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::msg::ParameterDescriptor(_init);
+}
+
+void ParameterDescriptor_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::msg::ParameterDescriptor *>(message_memory);
+  typed_message->~ParameterDescriptor();
+}
+
 size_t size_function__ParameterDescriptor__floating_point_range(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::FloatingPointRange> *>(untyped_member);
@@ -84,7 +96,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterDesc
     "name",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -93,13 +105,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterDesc
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "type",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -108,13 +120,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterDesc
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "description",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -123,13 +135,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterDesc
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "additional_constraints",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -138,13 +150,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterDesc
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "read_only",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -153,7 +165,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ParameterDesc
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "floating_point_range",  // name
@@ -192,7 +204,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ParameterDes
   "ParameterDescriptor",  // message name
   7,  // number of fields
   sizeof(rcl_interfaces::msg::ParameterDescriptor),
-  ParameterDescriptor_message_member_array  // message members
+  ParameterDescriptor_message_member_array,  // message members
+  ParameterDescriptor_init_function,  // function to initialize message memory (memory has to be allocated)
+  ParameterDescriptor_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ParameterDescriptor_message_type_support_handle = {

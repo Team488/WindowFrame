@@ -60,6 +60,8 @@ function colcon_package_source_powershell_script {
 $env:COLCON_CURRENT_PREFIX=(Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_cmake_export_include_directories\hook\cmake_prefix_path.ps1"
+colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_cmake_export_include_directories\hook\path_dll.ps1"
+colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_cmake_export_include_directories\hook\path.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_cmake_export_include_directories\hook\path-scripts.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_cmake_export_include_directories\hook\pythonpath.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share/ament_cmake_export_include_directories/local_setup.ps1"

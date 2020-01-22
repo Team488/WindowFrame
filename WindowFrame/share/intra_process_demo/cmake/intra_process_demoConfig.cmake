@@ -16,7 +16,7 @@ set(_intra_process_demo_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT intra_process_demo_FIND_QUIETLY)
-  message(STATUS "Found intra_process_demo: 0.7.8 (${intra_process_demo_DIR})")
+  message(STATUS "Found intra_process_demo: 0.8.4 (${intra_process_demo_DIR})")
 endif()
 
 # warn when using a deprecated package

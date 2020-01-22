@@ -9,8 +9,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef WStrings__1383621585_h
-#define WStrings__1383621585_h
+#ifndef WStrings__1383621687_h
+#define WStrings__1383621687_h
 
 #ifndef NDDS_STANDALONE_TYPE
 #ifndef ndds_cpp_h
@@ -44,6 +44,9 @@ namespace test_msgs {
                 #endif
 
                 DDS_Wchar *   wstring_value_ ;
+                DDS_Wchar *   wstring_value_default1_ ;
+                DDS_Wchar *   wstring_value_default2_ ;
+                DDS_Wchar *   wstring_value_default3_ ;
                 DDS_Wchar *   array_of_wstrings_ [3];
                 DDS_WstringSeq  bounded_sequence_of_wstrings_ ;
                 DDS_WstringSeq  unbounded_sequence_of_wstrings_ ;

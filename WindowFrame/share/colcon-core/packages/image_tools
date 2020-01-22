@@ -1,1 +1,1 @@
-libopencv-dev;rclcpp;sensor_msgs;std_msgs
+libopencv-dev;rclcpp;rclcpp_components;sensor_msgs;std_msgs

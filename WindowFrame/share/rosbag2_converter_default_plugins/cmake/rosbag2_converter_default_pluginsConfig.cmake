@@ -16,7 +16,7 @@ set(_rosbag2_converter_default_plugins_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosbag2_converter_default_plugins_FIND_QUIETLY)
-  message(STATUS "Found rosbag2_converter_default_plugins: 0.1.5 (${rosbag2_converter_default_plugins_DIR})")
+  message(STATUS "Found rosbag2_converter_default_plugins: 0.2.4 (${rosbag2_converter_default_plugins_DIR})")
 endif()
 
 # warn when using a deprecated package

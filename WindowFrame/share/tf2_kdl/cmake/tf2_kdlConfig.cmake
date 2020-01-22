@@ -16,7 +16,7 @@ set(_tf2_kdl_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT tf2_kdl_FIND_QUIETLY)
-  message(STATUS "Found tf2_kdl: 0.11.5 (${tf2_kdl_DIR})")
+  message(STATUS "Found tf2_kdl: 0.12.4 (${tf2_kdl_DIR})")
 endif()
 
 # warn when using a deprecated package

@@ -16,7 +16,7 @@ set(_pluginlib_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT pluginlib_FIND_QUIETLY)
-  message(STATUS "Found pluginlib: 2.3.2 (${pluginlib_DIR})")
+  message(STATUS "Found pluginlib: 2.4.1 (${pluginlib_DIR})")
 endif()
 
 # warn when using a deprecated package

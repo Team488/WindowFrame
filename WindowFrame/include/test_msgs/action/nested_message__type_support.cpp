@@ -25,6 +25,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_Goal_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_Goal(_init);
+}
+
+void NestedMessage_Goal_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_Goal *>(message_memory);
+  typed_message->~NestedMessage_Goal();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_Goal_message_member_array[3] = {
   {
     "nested_field_no_pkg",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "nested_field",  // name
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "nested_different_pkg",  // name
@@ -69,7 +81,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -78,7 +90,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_Goal",  // message name
   3,  // number of fields
   sizeof(test_msgs::action::NestedMessage_Goal),
-  NestedMessage_Goal_message_member_array  // message members
+  NestedMessage_Goal_message_member_array,  // message members
+  NestedMessage_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_Goal_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_Goal_message_type_support_handle = {
@@ -158,6 +172,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_Result_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_Result(_init);
+}
+
+void NestedMessage_Result_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_Result *>(message_memory);
+  typed_message->~NestedMessage_Result();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_Result_message_member_array[3] = {
   {
     "nested_field_no_pkg",  // name
@@ -172,7 +198,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "nested_field",  // name
@@ -187,7 +213,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "nested_different_pkg",  // name
@@ -202,7 +228,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -211,7 +237,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_Result",  // message name
   3,  // number of fields
   sizeof(test_msgs::action::NestedMessage_Result),
-  NestedMessage_Result_message_member_array  // message members
+  NestedMessage_Result_message_member_array,  // message members
+  NestedMessage_Result_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_Result_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_Result_message_type_support_handle = {
@@ -291,6 +319,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_Feedback_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_Feedback(_init);
+}
+
+void NestedMessage_Feedback_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_Feedback *>(message_memory);
+  typed_message->~NestedMessage_Feedback();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_Feedback_message_member_array[3] = {
   {
     "nested_field_no_pkg",  // name
@@ -305,7 +345,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "nested_field",  // name
@@ -320,7 +360,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "nested_different_pkg",  // name
@@ -335,7 +375,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -344,7 +384,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_Feedback",  // message name
   3,  // number of fields
   sizeof(test_msgs::action::NestedMessage_Feedback),
-  NestedMessage_Feedback_message_member_array  // message members
+  NestedMessage_Feedback_message_member_array,  // message members
+  NestedMessage_Feedback_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_Feedback_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_Feedback_message_type_support_handle = {
@@ -424,6 +466,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_SendGoal_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_SendGoal_Request(_init);
+}
+
+void NestedMessage_SendGoal_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_SendGoal_Request *>(message_memory);
+  typed_message->~NestedMessage_SendGoal_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_SendGoal_Request_message_member_array[2] = {
   {
     "goal_id",  // name
@@ -438,7 +492,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "goal",  // name
@@ -453,7 +507,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -462,7 +516,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_SendGoal_Request",  // message name
   2,  // number of fields
   sizeof(test_msgs::action::NestedMessage_SendGoal_Request),
-  NestedMessage_SendGoal_Request_message_member_array  // message members
+  NestedMessage_SendGoal_Request_message_member_array,  // message members
+  NestedMessage_SendGoal_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_SendGoal_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_SendGoal_Request_message_type_support_handle = {
@@ -542,12 +598,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_SendGoal_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_SendGoal_Response(_init);
+}
+
+void NestedMessage_SendGoal_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_SendGoal_Response *>(message_memory);
+  typed_message->~NestedMessage_SendGoal_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_SendGoal_Response_message_member_array[2] = {
   {
     "accepted",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -556,7 +624,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "stamp",  // name
@@ -571,7 +639,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -580,7 +648,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_SendGoal_Response",  // message name
   2,  // number of fields
   sizeof(test_msgs::action::NestedMessage_SendGoal_Response),
-  NestedMessage_SendGoal_Response_message_member_array  // message members
+  NestedMessage_SendGoal_Response_message_member_array,  // message members
+  NestedMessage_SendGoal_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_SendGoal_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_SendGoal_Response_message_type_support_handle = {
@@ -768,6 +838,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_GetResult_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_GetResult_Request(_init);
+}
+
+void NestedMessage_GetResult_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_GetResult_Request *>(message_memory);
+  typed_message->~NestedMessage_GetResult_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_GetResult_Request_message_member_array[1] = {
   {
     "goal_id",  // name
@@ -782,7 +864,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -791,7 +873,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_GetResult_Request",  // message name
   1,  // number of fields
   sizeof(test_msgs::action::NestedMessage_GetResult_Request),
-  NestedMessage_GetResult_Request_message_member_array  // message members
+  NestedMessage_GetResult_Request_message_member_array,  // message members
+  NestedMessage_GetResult_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_GetResult_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_GetResult_Request_message_type_support_handle = {
@@ -871,12 +955,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_GetResult_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_GetResult_Response(_init);
+}
+
+void NestedMessage_GetResult_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_GetResult_Response *>(message_memory);
+  typed_message->~NestedMessage_GetResult_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_GetResult_Response_message_member_array[2] = {
   {
     "status",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -885,7 +981,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "result",  // name
@@ -900,7 +996,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -909,7 +1005,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_GetResult_Response",  // message name
   2,  // number of fields
   sizeof(test_msgs::action::NestedMessage_GetResult_Response),
-  NestedMessage_GetResult_Response_message_member_array  // message members
+  NestedMessage_GetResult_Response_message_member_array,  // message members
+  NestedMessage_GetResult_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_GetResult_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_GetResult_Response_message_type_support_handle = {
@@ -1101,6 +1199,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NestedMessage_FeedbackMessage_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::action::NestedMessage_FeedbackMessage(_init);
+}
+
+void NestedMessage_FeedbackMessage_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::action::NestedMessage_FeedbackMessage *>(message_memory);
+  typed_message->~NestedMessage_FeedbackMessage();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage_FeedbackMessage_message_member_array[2] = {
   {
     "goal_id",  // name
@@ -1115,7 +1225,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "feedback",  // name
@@ -1130,7 +1240,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NestedMessage
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -1139,7 +1249,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NestedMessag
   "NestedMessage_FeedbackMessage",  // message name
   2,  // number of fields
   sizeof(test_msgs::action::NestedMessage_FeedbackMessage),
-  NestedMessage_FeedbackMessage_message_member_array  // message members
+  NestedMessage_FeedbackMessage_message_member_array,  // message members
+  NestedMessage_FeedbackMessage_init_function,  // function to initialize message memory (memory has to be allocated)
+  NestedMessage_FeedbackMessage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NestedMessage_FeedbackMessage_message_type_support_handle = {

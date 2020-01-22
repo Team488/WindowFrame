@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "map_msgs/srv/get_point_map_roi__functions.h"
 #include "map_msgs/srv/get_point_map_roi__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  map_msgs__srv__GetPointMapROI_Request__init(message_memory);
+}
+
+void GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_fini_function(void * message_memory)
+{
+  map_msgs__srv__GetPointMapROI_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_message_member_array[7] = {
   {
@@ -129,7 +144,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetPointMapROI_R
   "GetPointMapROI_Request",  // message name
   7,  // number of fields
   sizeof(map_msgs__srv__GetPointMapROI_Request),
-  GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_message_member_array  // message members
+  GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_message_member_array,  // message members
+  GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetPointMapROI_Request__rosidl_typesupport_introspection_c__GetPointMapROI_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -166,6 +183,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "map_msgs/srv/get_point_map_roi__functions.h"
+// already included above
 // #include "map_msgs/srv/get_point_map_roi__struct.h"
 
 
@@ -179,6 +198,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  map_msgs__srv__GetPointMapROI_Response__init(message_memory);
+}
+
+void GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_fini_function(void * message_memory)
+{
+  map_msgs__srv__GetPointMapROI_Response__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_message_member_array[1] = {
   {
@@ -203,7 +236,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetPointMapROI_R
   "GetPointMapROI_Response",  // message name
   1,  // number of fields
   sizeof(map_msgs__srv__GetPointMapROI_Response),
-  GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_message_member_array  // message members
+  GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_message_member_array,  // message members
+  GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetPointMapROI_Response__rosidl_typesupport_introspection_c__GetPointMapROI_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

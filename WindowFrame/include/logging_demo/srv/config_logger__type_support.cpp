@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ConfigLogger_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) logging_demo::srv::ConfigLogger_Request(_init);
+}
+
+void ConfigLogger_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<logging_demo::srv::ConfigLogger_Request *>(message_memory);
+  typed_message->~ConfigLogger_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember ConfigLogger_Request_message_member_array[2] = {
   {
     "logger_name",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ConfigLogger_
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "level",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ConfigLogger_
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -63,7 +75,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ConfigLogger
   "ConfigLogger_Request",  // message name
   2,  // number of fields
   sizeof(logging_demo::srv::ConfigLogger_Request),
-  ConfigLogger_Request_message_member_array  // message members
+  ConfigLogger_Request_message_member_array,  // message members
+  ConfigLogger_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  ConfigLogger_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ConfigLogger_Request_message_type_support_handle = {
@@ -143,12 +157,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void ConfigLogger_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) logging_demo::srv::ConfigLogger_Response(_init);
+}
+
+void ConfigLogger_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<logging_demo::srv::ConfigLogger_Response *>(message_memory);
+  typed_message->~ConfigLogger_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember ConfigLogger_Response_message_member_array[1] = {
   {
     "success",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -157,7 +183,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember ConfigLogger_
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -166,7 +192,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers ConfigLogger
   "ConfigLogger_Response",  // message name
   1,  // number of fields
   sizeof(logging_demo::srv::ConfigLogger_Response),
-  ConfigLogger_Response_message_member_array  // message members
+  ConfigLogger_Response_message_member_array,  // message members
+  ConfigLogger_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  ConfigLogger_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t ConfigLogger_Response_message_type_support_handle = {

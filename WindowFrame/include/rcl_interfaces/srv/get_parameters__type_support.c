@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "rcl_interfaces/srv/get_parameters__functions.h"
 #include "rcl_interfaces/srv/get_parameters__struct.h"
 
 
@@ -19,6 +20,20 @@
 extern "C"
 {
 #endif
+
+void GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  rcl_interfaces__srv__GetParameters_Request__init(message_memory);
+}
+
+void GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_fini_function(void * message_memory)
+{
+  rcl_interfaces__srv__GetParameters_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_message_member_array[1] = {
   {
@@ -43,7 +58,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetParameters_Re
   "GetParameters_Request",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces__srv__GetParameters_Request),
-  GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_message_member_array  // message members
+  GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_message_member_array,  // message members
+  GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetParameters_Request__rosidl_typesupport_introspection_c__GetParameters_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -80,6 +97,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "rcl_interfaces/srv/get_parameters__functions.h"
+// already included above
 // #include "rcl_interfaces/srv/get_parameters__struct.h"
 
 
@@ -93,6 +112,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void GetParameters_Response__rosidl_typesupport_introspection_c__GetParameters_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  rcl_interfaces__srv__GetParameters_Response__init(message_memory);
+}
+
+void GetParameters_Response__rosidl_typesupport_introspection_c__GetParameters_Response_fini_function(void * message_memory)
+{
+  rcl_interfaces__srv__GetParameters_Response__fini(message_memory);
+}
 
 size_t GetParameters_Response__rosidl_typesupport_introspection_c__size_function__ParameterValue__values(
   const void * untyped_member)
@@ -150,7 +183,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers GetParameters_Re
   "GetParameters_Response",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces__srv__GetParameters_Response),
-  GetParameters_Response__rosidl_typesupport_introspection_c__GetParameters_Response_message_member_array  // message members
+  GetParameters_Response__rosidl_typesupport_introspection_c__GetParameters_Response_message_member_array,  // message members
+  GetParameters_Response__rosidl_typesupport_introspection_c__GetParameters_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetParameters_Response__rosidl_typesupport_introspection_c__GetParameters_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

@@ -23,9 +23,9 @@
 # This should most probably benefit from getting a "Requires:" field added
 # dynamically by configure.
 #
-prefix=C:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install
+prefix=C:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install
 exec_prefix=${prefix}
-libdir=C:/J/workspace/ci_packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib
+libdir=C:/J/workspace/packaging_windows/ws/build/libcurl_vendor/libcurl_install/lib
 includedir=${prefix}/include
 supported_protocols="DICT FILE FTP GOPHER HTTP IMAP LDAP POP3 RTSP SMTP TELNET TFTP"
 supported_features="IPv6 AsynchDNS"

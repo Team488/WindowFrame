@@ -35,6 +35,10 @@ template<>
 struct has_bounded_size<pendulum_msgs::msg::RttestResults>
   : std::integral_constant<bool, has_bounded_size<builtin_interfaces::msg::Time>::value && has_bounded_size<pendulum_msgs::msg::JointCommand>::value && has_bounded_size<pendulum_msgs::msg::JointState>::value> {};
 
+template<>
+struct is_message<pendulum_msgs::msg::RttestResults>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // PENDULUM_MSGS__MSG__RTTEST_RESULTS__TRAITS_HPP_

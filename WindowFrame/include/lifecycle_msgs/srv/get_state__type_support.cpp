@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GetState_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) lifecycle_msgs::srv::GetState_Request(_init);
+}
+
+void GetState_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<lifecycle_msgs::srv::GetState_Request *>(message_memory);
+  typed_message->~GetState_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember GetState_Request_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetState_Requ
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GetState_Req
   "GetState_Request",  // message name
   1,  // number of fields
   sizeof(lifecycle_msgs::srv::GetState_Request),
-  GetState_Request_message_member_array  // message members
+  GetState_Request_message_member_array,  // message members
+  GetState_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetState_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GetState_Request_message_type_support_handle = {
@@ -128,6 +142,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GetState_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) lifecycle_msgs::srv::GetState_Response(_init);
+}
+
+void GetState_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<lifecycle_msgs::srv::GetState_Response *>(message_memory);
+  typed_message->~GetState_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember GetState_Response_message_member_array[1] = {
   {
     "current_state",  // name
@@ -142,7 +168,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetState_Resp
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -151,7 +177,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GetState_Res
   "GetState_Response",  // message name
   1,  // number of fields
   sizeof(lifecycle_msgs::srv::GetState_Response),
-  GetState_Response_message_member_array  // message members
+  GetState_Response_message_member_array,  // message members
+  GetState_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetState_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GetState_Response_message_type_support_handle = {

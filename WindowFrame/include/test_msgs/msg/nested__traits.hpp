@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<test_msgs::msg::Nested>
   : std::integral_constant<bool, has_bounded_size<test_msgs::msg::BasicTypes>::value> {};
 
+template<>
+struct is_message<test_msgs::msg::Nested>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TEST_MSGS__MSG__NESTED__TRAITS_HPP_

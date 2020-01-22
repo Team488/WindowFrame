@@ -16,7 +16,7 @@ set(_fastrtps_cmake_module_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT fastrtps_cmake_module_FIND_QUIETLY)
-  message(STATUS "Found fastrtps_cmake_module: 0.7.1 (${fastrtps_cmake_module_DIR})")
+  message(STATUS "Found fastrtps_cmake_module: 0.8.0 (${fastrtps_cmake_module_DIR})")
 endif()
 
 # warn when using a deprecated package

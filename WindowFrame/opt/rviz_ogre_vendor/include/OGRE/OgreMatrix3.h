@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __Matrix3_H__
 #define __Matrix3_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 
@@ -72,15 +77,12 @@ namespace Ogre
             @note
                 It does <b>NOT</b> initialize the matrix for efficiency.
         */
-        inline Matrix3 () {}
-        inline explicit Matrix3 (const Real arr[3][3])
+        Matrix3 () {}
+        explicit Matrix3 (const Real arr[3][3])
         {
             memcpy(m,arr,9*sizeof(Real));
         }
-        inline Matrix3 (const Matrix3& rkMatrix)
-        {
-            memcpy(m,rkMatrix.m,9*sizeof(Real));
-        }
+
         Matrix3 (Real fEntry00, Real fEntry01, Real fEntry02,
                     Real fEntry10, Real fEntry11, Real fEntry12,
                     Real fEntry20, Real fEntry21, Real fEntry22)
@@ -96,48 +98,20 @@ namespace Ogre
             m[2][2] = fEntry22;
         }
 
-        /** Exchange the contents of this matrix with another. 
-        */
-        inline void swap(Matrix3& other)
-        {
-            std::swap(m[0][0], other.m[0][0]);
-            std::swap(m[0][1], other.m[0][1]);
-            std::swap(m[0][2], other.m[0][2]);
-            std::swap(m[1][0], other.m[1][0]);
-            std::swap(m[1][1], other.m[1][1]);
-            std::swap(m[1][2], other.m[1][2]);
-            std::swap(m[2][0], other.m[2][0]);
-            std::swap(m[2][1], other.m[2][1]);
-            std::swap(m[2][2], other.m[2][2]);
-        }
-
         /// Member access, allows use of construct mat[r][c]
-        inline const Real* operator[] (size_t iRow) const
+        const Real* operator[] (size_t iRow) const
         {
             return m[iRow];
         }
 
-        inline Real* operator[] (size_t iRow)
+        Real* operator[] (size_t iRow)
         {
             return m[iRow];
         }
 
-
-
-        /*inline operator Real* ()
-        {
-            return (Real*)m[0];
-        }*/
         Vector3 GetColumn (size_t iCol) const;
         void SetColumn(size_t iCol, const Vector3& vec);
         void FromAxes(const Vector3& xAxis, const Vector3& yAxis, const Vector3& zAxis);
-
-        /// Assignment and comparison
-        inline Matrix3& operator= (const Matrix3& rkMatrix)
-        {
-            memcpy(m,rkMatrix.m,9*sizeof(Real));
-            return *this;
-        }
 
         /** Tests 2 matrices for equality.
          */
@@ -145,7 +119,7 @@ namespace Ogre
 
         /** Tests 2 matrices for inequality.
          */
-        inline bool operator!= (const Matrix3& rkMatrix) const
+        bool operator!= (const Matrix3& rkMatrix) const
         {
             return !operator==(rkMatrix);
         }
@@ -164,9 +138,6 @@ namespace Ogre
         Matrix3 operator* (const Matrix3& rkMatrix) const;
         Matrix3 operator- () const;
 
-        /// Matrix * vector [3x3 * 3x1 = 3x1]
-        Vector3 operator* (const Vector3& rkVector) const;
-
         /// Vector * matrix [1x3 * 3x3 = 1x3]
         _OgreExport friend Vector3 operator* (const Vector3& rkVector,
             const Matrix3& rkMatrix);
@@ -179,9 +150,16 @@ namespace Ogre
 
         // utilities
         Matrix3 Transpose () const;
-        bool Inverse (Matrix3& rkInverse, Real fTolerance = 1e-06) const;
-        Matrix3 Inverse (Real fTolerance = 1e-06) const;
+        bool Inverse (Matrix3& rkInverse, Real fTolerance = 1e-06f) const;
+        Matrix3 Inverse (Real fTolerance = 1e-06f) const;
         Real Determinant () const;
+
+        Matrix3 transpose() const { return Transpose(); }
+        Matrix3 inverse() const { return Inverse(); }
+        Real determinant() const { return Determinant(); }
+
+        /** Determines if this matrix involves a negative scaling. */
+        bool hasNegativeScale() const { return determinant() < 0; }
 
         /// Singular value decomposition
         void SingularValueDecomposition (Matrix3& rkL, Vector3& rkS,
@@ -236,7 +214,7 @@ namespace Ogre
             Matrix3& rkProduct);
 
         /** Determines if this matrix involves a scaling. */
-        inline bool hasScale() const
+        bool hasScale() const
         {
             // check magnitude of column vectors (==local axes)
             Real t = m[0][0] * m[0][0] + m[1][0] * m[1][0] + m[2][0] * m[2][0];
@@ -254,11 +232,11 @@ namespace Ogre
 
         /** Function for writing to a stream.
         */
-        inline _OgreExport friend std::ostream& operator <<
+        inline friend std::ostream& operator <<
             ( std::ostream& o, const Matrix3& mat )
         {
-            o << "Matrix3(" << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << ", " 
-                            << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << ", " 
+            o << "Matrix3(" << mat[0][0] << ", " << mat[0][1] << ", " << mat[0][2] << "; "
+                            << mat[1][0] << ", " << mat[1][1] << ", " << mat[1][2] << "; "
                             << mat[2][0] << ", " << mat[2][1] << ", " << mat[2][2] << ")";
             return o;
         }
@@ -273,7 +251,6 @@ namespace Ogre
         bool QLAlgorithm (Real afDiag[3], Real afSubDiag[3]);
 
         // support for singular value decomposition
-        static const Real msSvdEpsilon;
         static const unsigned int msSvdMaxIterations;
         static void Bidiagonalize (Matrix3& kA, Matrix3& kL,
             Matrix3& kR);
@@ -288,7 +265,21 @@ namespace Ogre
         // for faster access
         friend class Matrix4;
     };
+
+    /// Matrix * vector [3x3 * 3x1 = 3x1]
+    inline Vector3 operator*(const Matrix3& m, const Vector3& v)
+    {
+        return Vector3(
+                m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z,
+                m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z,
+                m[2][0] * v.x + m[2][1] * v.y + m[2][2] * v.z);
+    }
+
     /** @} */
     /** @} */
 }
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 #endif

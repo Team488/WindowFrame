@@ -16,7 +16,7 @@ set(_rmw_implementation_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rmw_implementation_FIND_QUIETLY)
-  message(STATUS "Found rmw_implementation: 0.7.1 (${rmw_implementation_DIR})")
+  message(STATUS "Found rmw_implementation: 0.8.2 (${rmw_implementation_DIR})")
 endif()
 
 # warn when using a deprecated package

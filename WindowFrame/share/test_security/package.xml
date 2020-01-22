@@ -2,7 +2,7 @@
 <?xml-model href="http://download.ros.org/schema/package_format2.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>test_security</name>
-  <version>0.7.2</version>
+  <version>0.8.0</version>
   <description>
     Test nodes, publishers and subscribers with DDS-Security.
   </description>
@@ -25,6 +25,8 @@
   <!--test_depend>rclpy</test_depend--> <!-- test security tests only C++ nodes ATM -->
   <test_depend>rmw_implementation</test_depend>
   <test_depend>rmw_implementation_cmake</test_depend>
+  <test_depend>ros2cli</test_depend>
+  <test_depend>sros2</test_depend>
   <test_depend>test_msgs</test_depend>
 
   <export>

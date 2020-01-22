@@ -17,8 +17,8 @@
 
 #define FASTCDR_VERSION_MAJOR 1
 #define FASTCDR_VERSION_MINOR 0
-#define FASTCDR_VERSION_MICRO 9
-#define FASTCDR_VERSION_STR "1.0.9"
+#define FASTCDR_VERSION_MICRO 10
+#define FASTCDR_VERSION_STR "1.0.10"
 
 // C++11 support defines
 #ifndef HAVE_CXX11
@@ -44,6 +44,10 @@
 // Endianness defines
 #ifndef __BIG_ENDIAN__
 #define __BIG_ENDIAN__ 0
+#endif
+
+#if defined(__ARM_ARCH) && __ARM_ARCH <= 7
+#define FASTCDR_ARM32
 #endif
 
 #endif // _FASTCDR_CONFIG_H_

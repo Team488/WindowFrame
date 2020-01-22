@@ -16,7 +16,7 @@ set(_trajectory_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT trajectory_msgs_FIND_QUIETLY)
-  message(STATUS "Found trajectory_msgs: 0.7.0 (${trajectory_msgs_DIR})")
+  message(STATUS "Found trajectory_msgs: 0.8.1 (${trajectory_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

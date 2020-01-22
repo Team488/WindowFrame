@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "rcl_interfaces/msg/integer_range__functions.h"
 #include "rcl_interfaces/msg/integer_range__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  rcl_interfaces__msg__IntegerRange__init(message_memory);
+}
+
+void IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_fini_function(void * message_memory)
+{
+  rcl_interfaces__msg__IntegerRange__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_message_member_array[3] = {
   {
@@ -69,7 +84,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers IntegerRange__ro
   "IntegerRange",  // message name
   3,  // number of fields
   sizeof(rcl_interfaces__msg__IntegerRange),
-  IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_message_member_array  // message members
+  IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_message_member_array,  // message members
+  IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_init_function,  // function to initialize message memory (memory has to be allocated)
+  IntegerRange__rosidl_typesupport_introspection_c__IntegerRange_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

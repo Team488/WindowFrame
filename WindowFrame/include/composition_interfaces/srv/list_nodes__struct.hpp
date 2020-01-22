@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__composition_interfaces__srv__ListNodes_Request __attribute__((deprecated))
@@ -137,16 +127,6 @@ using ListNodes_Request =
 
 }  // namespace composition_interfaces
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__composition_interfaces__srv__ListNodes_Response __attribute__((deprecated))

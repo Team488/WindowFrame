@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<tf2_msgs::msg::TF2Error>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<tf2_msgs::msg::TF2Error>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // TF2_MSGS__MSG__TF2_ERROR__TRAITS_HPP_

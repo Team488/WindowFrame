@@ -16,7 +16,7 @@ set(_rviz_default_plugins_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz_default_plugins_FIND_QUIETLY)
-  message(STATUS "Found rviz_default_plugins: 6.1.4 (${rviz_default_plugins_DIR})")
+  message(STATUS "Found rviz_default_plugins: 7.0.3 (${rviz_default_plugins_DIR})")
 endif()
 
 # warn when using a deprecated package

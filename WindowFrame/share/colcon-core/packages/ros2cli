@@ -1,1 +1,1 @@
-python3-pkg-resources;rclpy
+python3-netifaces;python3-pkg-resources;rclpy

@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef __InstanceManager_H__
 #define __InstanceManager_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreRenderOperation.h"
@@ -95,10 +100,10 @@ namespace Ogre
             }
         };
 
-        typedef vector<InstanceBatch*>::type        InstanceBatchVec;   //vec[batchN] = Batch
-        typedef map<String, InstanceBatchVec>::type InstanceBatchMap;   //map[materialName] = Vec
+        typedef std::vector<InstanceBatch*>        InstanceBatchVec;   //vec[batchN] = Batch
+        typedef std::map<String, InstanceBatchVec> InstanceBatchMap;   //map[materialName] = Vec
 
-        typedef map<String, BatchSettings>::type    BatchSettingsMap;
+        typedef std::map<String, BatchSettings>    BatchSettingsMap;
 
         const String            mName;                  //Not the name of the mesh
         MeshPtr                 mMeshReference;
@@ -138,8 +143,8 @@ namespace Ogre
 
         /** @see defragmentBatches overload, this takes care of an array of batches
             for a specific material */
-        void defragmentBatches( bool optimizeCull, vector<InstancedEntity*>::type &entities,
-                                vector<Ogre::Vector4>::type &usedParams,
+        void defragmentBatches( bool optimizeCull, std::vector<InstancedEntity*> &entities,
+                                std::vector<Ogre::Vector4> &usedParams,
                                 InstanceBatchVec &fragmentedBatches );
 
         /** @see setSetting. This function helps it by setting the given parameter to all batches
@@ -319,5 +324,9 @@ namespace Ogre
 } // namespace Ogre
 
 #include "OgreHeaderSuffix.h"
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
+
 
 #endif // __InstanceManager_H__

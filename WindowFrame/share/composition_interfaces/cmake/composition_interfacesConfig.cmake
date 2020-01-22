@@ -16,7 +16,7 @@ set(_composition_interfaces_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT composition_interfaces_FIND_QUIETLY)
-  message(STATUS "Found composition_interfaces: 0.7.4 (${composition_interfaces_DIR})")
+  message(STATUS "Found composition_interfaces: 0.8.0 (${composition_interfaces_DIR})")
 endif()
 
 # warn when using a deprecated package

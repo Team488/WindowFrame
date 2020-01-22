@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<test_msgs::srv::Empty_Request>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<test_msgs::srv::Empty_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<test_msgs::srv::Empty_Response>
 template<>
 struct has_bounded_size<test_msgs::srv::Empty_Response>
   : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<test_msgs::srv::Empty_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<test_msgs::srv::Empty>
     has_bounded_size<test_msgs::srv::Empty_Request>::value &&
     has_bounded_size<test_msgs::srv::Empty_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<test_msgs::srv::Empty>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<test_msgs::srv::Empty_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<test_msgs::srv::Empty_Response>
+  : std::true_type
 {
 };
 

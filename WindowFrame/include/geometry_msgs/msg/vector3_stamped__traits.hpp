@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::Vector3Stamped>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::Vector3>::value && has_bounded_size<std_msgs::msg::Header>::value> {};
 
+template<>
+struct is_message<geometry_msgs::msg::Vector3Stamped>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__VECTOR3_STAMPED__TRAITS_HPP_

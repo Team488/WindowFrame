@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SetBool_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_srvs::srv::SetBool_Request(_init);
+}
+
+void SetBool_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_srvs::srv::SetBool_Request *>(message_memory);
+  typed_message->~SetBool_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember SetBool_Request_message_member_array[1] = {
   {
     "data",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SetBool_Reque
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SetBool_Requ
   "SetBool_Request",  // message name
   1,  // number of fields
   sizeof(std_srvs::srv::SetBool_Request),
-  SetBool_Request_message_member_array  // message members
+  SetBool_Request_message_member_array,  // message members
+  SetBool_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetBool_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SetBool_Request_message_type_support_handle = {
@@ -128,12 +142,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SetBool_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_srvs::srv::SetBool_Response(_init);
+}
+
+void SetBool_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_srvs::srv::SetBool_Response *>(message_memory);
+  typed_message->~SetBool_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember SetBool_Response_message_member_array[2] = {
   {
     "success",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -142,13 +168,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SetBool_Respo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "message",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -157,7 +183,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SetBool_Respo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -166,7 +192,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SetBool_Resp
   "SetBool_Response",  // message name
   2,  // number of fields
   sizeof(std_srvs::srv::SetBool_Response),
-  SetBool_Response_message_member_array  // message members
+  SetBool_Response_message_member_array,  // message members
+  SetBool_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetBool_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SetBool_Response_message_type_support_handle = {

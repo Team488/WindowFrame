@@ -1,6 +1,6 @@
 # generated from ament_cmake_export_dependencies/cmake/ament_cmake_export_dependencies-extras.cmake.in
 
-set(_exported_dependencies "rosidl_typesupport_introspection_cpp;rosidl_typesupport_introspection_c;rosidl_generator_c;rcpputils;rcutils;rmw_fastrtps_shared_cpp;rmw")
+set(_exported_dependencies "rosidl_typesupport_fastrtps_c;rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp;rosidl_typesupport_introspection_c;rosidl_generator_c;rcpputils;rcutils;rmw_fastrtps_shared_cpp;rmw")
 
 find_package(ament_cmake_libraries QUIET REQUIRED)
 

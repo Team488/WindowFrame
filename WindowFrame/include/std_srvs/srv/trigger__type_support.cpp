@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Trigger_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_srvs::srv::Trigger_Request(_init);
+}
+
+void Trigger_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_srvs::srv::Trigger_Request *>(message_memory);
+  typed_message->~Trigger_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Trigger_Request_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Trigger_Reque
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Trigger_Requ
   "Trigger_Request",  // message name
   1,  // number of fields
   sizeof(std_srvs::srv::Trigger_Request),
-  Trigger_Request_message_member_array  // message members
+  Trigger_Request_message_member_array,  // message members
+  Trigger_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  Trigger_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Trigger_Request_message_type_support_handle = {
@@ -128,12 +142,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Trigger_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_srvs::srv::Trigger_Response(_init);
+}
+
+void Trigger_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_srvs::srv::Trigger_Response *>(message_memory);
+  typed_message->~Trigger_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Trigger_Response_message_member_array[2] = {
   {
     "success",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -142,13 +168,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Trigger_Respo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "message",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -157,7 +183,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Trigger_Respo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -166,7 +192,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Trigger_Resp
   "Trigger_Response",  // message name
   2,  // number of fields
   sizeof(std_srvs::srv::Trigger_Response),
-  Trigger_Response_message_member_array  // message members
+  Trigger_Response_message_member_array,  // message members
+  Trigger_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  Trigger_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Trigger_Response_message_type_support_handle = {

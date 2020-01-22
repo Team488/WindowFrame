@@ -54,7 +54,7 @@ endif()
 add_library(rviz_visual_testing_framework::rviz_visual_testing_framework STATIC IMPORTED)
 
 set_target_properties(rviz_visual_testing_framework::rviz_visual_testing_framework PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "C:/J/workspace/ci_packaging_windows/ws/install/src/gtest_vendor/include;${_IMPORT_PREFIX}/include"
+  INTERFACE_INCLUDE_DIRECTORIES "C:/J/workspace/packaging_windows/ws/install/src/gtest_vendor/include;${_IMPORT_PREFIX}/include"
   INTERFACE_LINK_LIBRARIES "rviz_common::rviz_common;Qt5::Widgets;Qt5::Test"
 )
 

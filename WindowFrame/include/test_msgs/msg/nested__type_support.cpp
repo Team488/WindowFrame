@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Nested_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::msg::Nested(_init);
+}
+
+void Nested_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::msg::Nested *>(message_memory);
+  typed_message->~Nested();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Nested_message_member_array[1] = {
   {
     "basic_types_value",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Nested_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Nested_messa
   "Nested",  // message name
   1,  // number of fields
   sizeof(test_msgs::msg::Nested),
-  Nested_message_member_array  // message members
+  Nested_message_member_array,  // message members
+  Nested_init_function,  // function to initialize message memory (memory has to be allocated)
+  Nested_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Nested_message_type_support_handle = {

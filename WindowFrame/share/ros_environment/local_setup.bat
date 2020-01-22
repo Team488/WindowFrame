@@ -9,6 +9,7 @@ set "AMENT_ENVIRONMENT_HOOKS[ros_environment]="
 
 :: these are the environment hooks of this package
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ros_environment] "%AMENT_CURRENT_PREFIX%\share\ros_environment\environment\1.ros_distro.bat"
+call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ros_environment] "%AMENT_CURRENT_PREFIX%\share\ros_environment\environment\1.ros_localhost_only.bat"
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ros_environment] "%AMENT_CURRENT_PREFIX%\share\ros_environment\environment\1.ros_python_version.bat"
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ros_environment] "%AMENT_CURRENT_PREFIX%\share\ros_environment\environment\1.ros_version.bat"
 call:ament_append_value AMENT_ENVIRONMENT_HOOKS[ros_environment] "%AMENT_CURRENT_PREFIX%\share\ros_environment\environment\ament_prefix_path.bat"

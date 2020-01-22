@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "stereo_msgs/msg/disparity_image__functions.h"
 #include "stereo_msgs/msg/disparity_image__struct.h"
 
 
@@ -29,6 +30,20 @@
 extern "C"
 {
 #endif
+
+void DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  stereo_msgs__msg__DisparityImage__init(message_memory);
+}
+
+void DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_fini_function(void * message_memory)
+{
+  stereo_msgs__msg__DisparityImage__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_message_member_array[8] = {
   {
@@ -158,7 +173,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers DisparityImage__
   "DisparityImage",  // message name
   8,  // number of fields
   sizeof(stereo_msgs__msg__DisparityImage),
-  DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_message_member_array  // message members
+  DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_message_member_array,  // message members
+  DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_init_function,  // function to initialize message memory (memory has to be allocated)
+  DisparityImage__rosidl_typesupport_introspection_c__DisparityImage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

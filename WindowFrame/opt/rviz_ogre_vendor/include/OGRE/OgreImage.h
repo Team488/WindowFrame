@@ -60,11 +60,6 @@ namespace Ogre {
     class _OgreExport Image : public ImageAlloc
     {
     public:
-        /// @deprecated use Ogre::Box
-        OGRE_DEPRECATED typedef Ogre::Box Box;
-        /// @deprecated use Ogre::Rect
-        OGRE_DEPRECATED typedef Ogre::Rect Rect;
-    public:
         /** Standard constructor.
         */
         Image();
@@ -193,12 +188,12 @@ namespace Ogre {
                 depth too.
         */
         Image & loadRawData( 
-            DataStreamPtr& stream, 
+            const DataStreamPtr& stream,
             uint32 width, uint32 height, uint32 depth,
             PixelFormat format,
             size_t numFaces = 1, uint32 numMipMaps = 0);
         /// @overload
-        Image& loadRawData(DataStreamPtr& stream, uint32 width, uint32 height,
+        Image& loadRawData(const DataStreamPtr& stream, uint32 width, uint32 height,
                            PixelFormat format)
         {
             return loadRawData(stream, width, height, 1, format);
@@ -241,7 +236,7 @@ namespace Ogre {
             @see
                 Image::load( const String& filename )
         */
-        Image & load(DataStreamPtr& stream, const String& type = BLANKSTRING );
+        Image & load(const DataStreamPtr& stream, const String& type = BLANKSTRING );
 
         /** Utility method to combine 2 separate images into this one, with the first
         image source supplying the RGB channels, and the second image supplying the 
@@ -271,8 +266,10 @@ namespace Ogre {
             codec to use. Can be left blank if the stream data includes
             a header to identify the data.
         */
-        Image & loadTwoImagesAsRGBA(DataStreamPtr& rgbStream, DataStreamPtr& alphaStream, PixelFormat format = PF_BYTE_RGBA,
-            const String& rgbType = BLANKSTRING, const String& alphaType = BLANKSTRING);
+        Image& loadTwoImagesAsRGBA(const DataStreamPtr& rgbStream, const DataStreamPtr& alphaStream,
+                                   PixelFormat format = PF_BYTE_RGBA,
+                                   const String& rgbType = BLANKSTRING,
+                                   const String& alphaType = BLANKSTRING);
 
         /** Utility method to combine 2 separate images into this one, with the first
             image source supplying the RGB channels, and the second image supplying the 
@@ -445,8 +442,8 @@ namespace Ogre {
         bool mAutoDelete;
     };
 
-    typedef vector<Image*>::type ImagePtrList;
-    typedef vector<const Image*>::type ConstImagePtrList;
+    typedef std::vector<Image*> ImagePtrList;
+    typedef std::vector<const Image*> ConstImagePtrList;
 
     /** @} */
     /** @} */

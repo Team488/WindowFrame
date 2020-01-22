@@ -7,7 +7,8 @@
 
 module nav_msgs {
   module msg {
-    @verbatim (language="comment", text=" An array of cells in a 2D grid")
+    @verbatim (language="comment", text=
+      " An array of cells in a 2D grid")
     struct GridCells {
       std_msgs::msg::Header header;
 

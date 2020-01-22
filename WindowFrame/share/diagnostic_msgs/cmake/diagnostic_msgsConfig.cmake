@@ -16,7 +16,7 @@ set(_diagnostic_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT diagnostic_msgs_FIND_QUIETLY)
-  message(STATUS "Found diagnostic_msgs: 0.7.0 (${diagnostic_msgs_DIR})")
+  message(STATUS "Found diagnostic_msgs: 0.8.1 (${diagnostic_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

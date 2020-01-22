@@ -16,7 +16,7 @@ set(_laser_geometry_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT laser_geometry_FIND_QUIETLY)
-  message(STATUS "Found laser_geometry: 2.0.0 (${laser_geometry_DIR})")
+  message(STATUS "Found laser_geometry: 2.1.0 (${laser_geometry_DIR})")
 endif()
 
 # warn when using a deprecated package
@@ -33,7 +33,7 @@ endif()
 set(laser_geometry_FOUND_AMENT_PACKAGE TRUE)
 
 # include all config extra files
-set(_extras "laser_geometry-extras.cmake;ament_cmake_export_include_directories-extras.cmake;ament_cmake_export_interfaces-extras.cmake;ament_cmake_export_libraries-extras.cmake")
+set(_extras "laser_geometry-extras.cmake;ament_cmake_export_include_directories-extras.cmake;ament_cmake_export_interfaces-extras.cmake;ament_cmake_export_libraries-extras.cmake;ament_cmake_export_dependencies-extras.cmake")
 foreach(_extra ${_extras})
   include("${laser_geometry_DIR}/${_extra}")
 endforeach()

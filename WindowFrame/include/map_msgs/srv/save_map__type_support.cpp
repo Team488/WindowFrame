@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SaveMap_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) map_msgs::srv::SaveMap_Request(_init);
+}
+
+void SaveMap_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<map_msgs::srv::SaveMap_Request *>(message_memory);
+  typed_message->~SaveMap_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember SaveMap_Request_message_member_array[1] = {
   {
     "filename",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SaveMap_Reque
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SaveMap_Requ
   "SaveMap_Request",  // message name
   1,  // number of fields
   sizeof(map_msgs::srv::SaveMap_Request),
-  SaveMap_Request_message_member_array  // message members
+  SaveMap_Request_message_member_array,  // message members
+  SaveMap_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SaveMap_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SaveMap_Request_message_type_support_handle = {
@@ -128,12 +142,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SaveMap_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) map_msgs::srv::SaveMap_Response(_init);
+}
+
+void SaveMap_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<map_msgs::srv::SaveMap_Response *>(message_memory);
+  typed_message->~SaveMap_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember SaveMap_Response_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -142,7 +168,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SaveMap_Respo
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -151,7 +177,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SaveMap_Resp
   "SaveMap_Response",  // message name
   1,  // number of fields
   sizeof(map_msgs::srv::SaveMap_Response),
-  SaveMap_Response_message_member_array  // message members
+  SaveMap_Response_message_member_array,  // message members
+  SaveMap_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SaveMap_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SaveMap_Response_message_type_support_handle = {

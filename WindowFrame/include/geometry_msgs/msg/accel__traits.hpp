@@ -32,6 +32,10 @@ template<>
 struct has_bounded_size<geometry_msgs::msg::Accel>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::Vector3>::value> {};
 
+template<>
+struct is_message<geometry_msgs::msg::Accel>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // GEOMETRY_MSGS__MSG__ACCEL__TRAITS_HPP_

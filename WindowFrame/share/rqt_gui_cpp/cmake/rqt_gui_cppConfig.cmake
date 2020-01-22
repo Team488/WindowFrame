@@ -16,7 +16,7 @@ set(_rqt_gui_cpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rqt_gui_cpp_FIND_QUIETLY)
-  message(STATUS "Found rqt_gui_cpp: 1.0.4 (${rqt_gui_cpp_DIR})")
+  message(STATUS "Found rqt_gui_cpp: 1.0.5 (${rqt_gui_cpp_DIR})")
 endif()
 
 # warn when using a deprecated package

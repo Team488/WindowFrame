@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<example_interfaces::srv::AddTwoInts_Request>
   : std::integral_constant<bool, true> {};
 
+template<>
+struct is_message<example_interfaces::srv::AddTwoInts_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -45,6 +49,10 @@ struct has_fixed_size<example_interfaces::srv::AddTwoInts_Response>
 template<>
 struct has_bounded_size<example_interfaces::srv::AddTwoInts_Response>
   : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<example_interfaces::srv::AddTwoInts_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -74,6 +82,24 @@ struct has_bounded_size<example_interfaces::srv::AddTwoInts>
     has_bounded_size<example_interfaces::srv::AddTwoInts_Request>::value &&
     has_bounded_size<example_interfaces::srv::AddTwoInts_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<example_interfaces::srv::AddTwoInts>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<example_interfaces::srv::AddTwoInts_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<example_interfaces::srv::AddTwoInts_Response>
+  : std::true_type
 {
 };
 

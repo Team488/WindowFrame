@@ -1,6 +1,6 @@
 #!c:\python37\python.exe
-# EASY-INSTALL-ENTRY-SCRIPT: 'ament-xmllint==0.7.9','console_scripts','ament_xmllint'
-__requires__ = 'ament-xmllint==0.7.9'
+# EASY-INSTALL-ENTRY-SCRIPT: 'ament-xmllint==0.8.1','console_scripts','ament_xmllint'
+__requires__ = 'ament-xmllint==0.8.1'
 import re
 import sys
 from pkg_resources import load_entry_point
@@ -8,5 +8,5 @@ from pkg_resources import load_entry_point
 if __name__ == '__main__':
     sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
     sys.exit(
-        load_entry_point('ament-xmllint==0.7.9', 'console_scripts', 'ament_xmllint')()
+        load_entry_point('ament-xmllint==0.8.1', 'console_scripts', 'ament_xmllint')()
     )

@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__tf2_msgs__msg__TF2Error __attribute__((deprecated))
@@ -86,8 +76,19 @@ struct TF2Error_
   }
 
   // constant declarations
+  // guard against 'NO_ERROR' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(NO_ERROR)
+#    pragma push_macro("NO_ERROR")
+#    undef NO_ERROR
+#  endif
+#endif
   static constexpr uint8_t NO_ERROR =
     0u;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("NO_ERROR")
+#endif
   static constexpr uint8_t LOOKUP_ERROR =
     1u;
   static constexpr uint8_t CONNECTIVITY_ERROR =
@@ -160,8 +161,19 @@ using TF2Error =
   tf2_msgs::msg::TF2Error_<std::allocator<void>>;
 
 // constant definitions
+// guard against 'NO_ERROR' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(NO_ERROR)
+#    pragma push_macro("NO_ERROR")
+#    undef NO_ERROR
+#  endif
+#endif
 template<typename ContainerAllocator>
 constexpr uint8_t TF2Error_<ContainerAllocator>::NO_ERROR;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("NO_ERROR")
+#endif
 template<typename ContainerAllocator>
 constexpr uint8_t TF2Error_<ContainerAllocator>::LOOKUP_ERROR;
 template<typename ContainerAllocator>

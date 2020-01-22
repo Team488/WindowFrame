@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void UnboundedSequences_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::msg::UnboundedSequences(_init);
+}
+
+void UnboundedSequences_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::msg::UnboundedSequences *>(message_memory);
+  typed_message->~UnboundedSequences();
+}
+
 size_t size_function__UnboundedSequences__byte_values(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<unsigned char> *>(untyped_member);
@@ -813,7 +825,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "bool_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -822,13 +834,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "byte_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_OCTET,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -843,7 +855,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "char_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -858,7 +870,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "float32_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -873,7 +885,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "float64_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -888,7 +900,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int8_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -903,7 +915,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint8_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -918,7 +930,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int16_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -933,7 +945,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint16_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -948,7 +960,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int32_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -963,7 +975,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint32_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -978,7 +990,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int64_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -993,7 +1005,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint64_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1008,7 +1020,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "string_values",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1068,7 +1080,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "bool_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1077,13 +1089,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "byte_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_OCTET,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1098,7 +1110,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "char_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1113,7 +1125,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "float32_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1128,7 +1140,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "float64_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1143,7 +1155,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int8_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1158,7 +1170,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint8_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1173,7 +1185,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int16_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1188,7 +1200,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint16_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT16,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1203,7 +1215,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int32_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1218,7 +1230,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint32_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1233,7 +1245,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "int64_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1248,7 +1260,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "uint64_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT64,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1263,7 +1275,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "string_values_default",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1278,7 +1290,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     "alignment_check",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -1287,7 +1299,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UnboundedSequ
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -1296,7 +1308,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers UnboundedSeq
   "UnboundedSequences",  // message name
   32,  // number of fields
   sizeof(test_msgs::msg::UnboundedSequences),
-  UnboundedSequences_message_member_array  // message members
+  UnboundedSequences_message_member_array,  // message members
+  UnboundedSequences_init_function,  // function to initialize message memory (memory has to be allocated)
+  UnboundedSequences_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t UnboundedSequences_message_type_support_handle = {

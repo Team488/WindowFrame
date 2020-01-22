@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "rcl_interfaces/msg/parameter_value__functions.h"
 #include "rcl_interfaces/msg/parameter_value__struct.h"
 
 
@@ -25,6 +26,20 @@
 extern "C"
 {
 #endif
+
+void ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  rcl_interfaces__msg__ParameterValue__init(message_memory);
+}
+
+void ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_fini_function(void * message_memory)
+{
+  rcl_interfaces__msg__ParameterValue__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_message_member_array[10] = {
   {
@@ -184,7 +199,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers ParameterValue__
   "ParameterValue",  // message name
   10,  // number of fields
   sizeof(rcl_interfaces__msg__ParameterValue),
-  ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_message_member_array  // message members
+  ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_message_member_array,  // message members
+  ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_init_function,  // function to initialize message memory (memory has to be allocated)
+  ParameterValue__rosidl_typesupport_introspection_c__ParameterValue_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

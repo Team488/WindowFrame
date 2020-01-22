@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SetParametersAtomically_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::SetParametersAtomically_Request(_init);
+}
+
+void SetParametersAtomically_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::SetParametersAtomically_Request *>(message_memory);
+  typed_message->~SetParametersAtomically_Request();
+}
+
 size_t size_function__SetParametersAtomically_Request__parameters(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::Parameter> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SetParameter
   "SetParametersAtomically_Request",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::SetParametersAtomically_Request),
-  SetParametersAtomically_Request_message_member_array  // message members
+  SetParametersAtomically_Request_message_member_array,  // message members
+  SetParametersAtomically_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetParametersAtomically_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SetParametersAtomically_Request_message_type_support_handle = {
@@ -155,6 +169,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void SetParametersAtomically_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::SetParametersAtomically_Response(_init);
+}
+
+void SetParametersAtomically_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::SetParametersAtomically_Response *>(message_memory);
+  typed_message->~SetParametersAtomically_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember SetParametersAtomically_Response_message_member_array[1] = {
   {
     "result",  // name
@@ -169,7 +195,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember SetParameters
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -178,7 +204,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers SetParameter
   "SetParametersAtomically_Response",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::SetParametersAtomically_Response),
-  SetParametersAtomically_Response_message_member_array  // message members
+  SetParametersAtomically_Response_message_member_array,  // message members
+  SetParametersAtomically_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetParametersAtomically_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t SetParametersAtomically_Response_message_type_support_handle = {

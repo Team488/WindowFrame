@@ -1,8 +1,8 @@
-prefix=C:/J/workspace/ci_packaging_windows/ws/build/rviz_ogre_vendor/zlib-install
-exec_prefix=C:/J/workspace/ci_packaging_windows/ws/build/rviz_ogre_vendor/zlib-install
-libdir=C:/J/workspace/ci_packaging_windows/ws/build/rviz_ogre_vendor/zlib-install/lib
-sharedlibdir=C:/J/workspace/ci_packaging_windows/ws/build/rviz_ogre_vendor/zlib-install/lib
-includedir=C:/J/workspace/ci_packaging_windows/ws/build/rviz_ogre_vendor/zlib-install/include
+prefix=C:/J/workspace/packaging_windows/ws/build/rviz_ogre_vendor/zlib-install
+exec_prefix=C:/J/workspace/packaging_windows/ws/build/rviz_ogre_vendor/zlib-install
+libdir=C:/J/workspace/packaging_windows/ws/build/rviz_ogre_vendor/zlib-install/lib
+sharedlibdir=C:/J/workspace/packaging_windows/ws/build/rviz_ogre_vendor/zlib-install/lib
+includedir=C:/J/workspace/packaging_windows/ws/build/rviz_ogre_vendor/zlib-install/include
 
 Name: zlib
 Description: zlib compression library

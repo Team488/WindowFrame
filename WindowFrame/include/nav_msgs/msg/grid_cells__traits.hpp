@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<nav_msgs::msg::GridCells>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<nav_msgs::msg::GridCells>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // NAV_MSGS__MSG__GRID_CELLS__TRAITS_HPP_

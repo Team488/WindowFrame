@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'values'
@@ -127,8 +117,19 @@ struct DiagnosticStatus_
     0;
   static constexpr unsigned char WARN =
     1;
+  // guard against 'ERROR' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(ERROR)
+#    pragma push_macro("ERROR")
+#    undef ERROR
+#  endif
+#endif
   static constexpr unsigned char ERROR =
     2;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("ERROR")
+#endif
   static constexpr unsigned char STALE =
     3;
 
@@ -204,8 +205,19 @@ template<typename ContainerAllocator>
 constexpr unsigned char DiagnosticStatus_<ContainerAllocator>::OK;
 template<typename ContainerAllocator>
 constexpr unsigned char DiagnosticStatus_<ContainerAllocator>::WARN;
+// guard against 'ERROR' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(ERROR)
+#    pragma push_macro("ERROR")
+#    undef ERROR
+#  endif
+#endif
 template<typename ContainerAllocator>
 constexpr unsigned char DiagnosticStatus_<ContainerAllocator>::ERROR;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("ERROR")
+#endif
 template<typename ContainerAllocator>
 constexpr unsigned char DiagnosticStatus_<ContainerAllocator>::STALE;
 

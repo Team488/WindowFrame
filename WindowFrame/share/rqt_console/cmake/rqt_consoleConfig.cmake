@@ -16,7 +16,7 @@ set(_rqt_console_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rqt_console_FIND_QUIETLY)
-  message(STATUS "Found rqt_console: 1.0.1 (${rqt_console_DIR})")
+  message(STATUS "Found rqt_console: 1.1.0 (${rqt_console_DIR})")
 endif()
 
 # warn when using a deprecated package

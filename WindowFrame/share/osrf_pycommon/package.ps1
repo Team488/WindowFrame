@@ -60,6 +60,8 @@ function colcon_package_source_powershell_script {
 $env:COLCON_CURRENT_PREFIX=(Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\osrf_pycommon\hook\cmake_prefix_path.ps1"
+colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\osrf_pycommon\hook\path_dll.ps1"
+colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\osrf_pycommon\hook\path.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\osrf_pycommon\hook\path-scripts.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\osrf_pycommon\hook\pythonpath.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\osrf_pycommon\hook\ament_prefix_path.ps1"

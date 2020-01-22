@@ -16,7 +16,7 @@ set(_test_interface_files_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT test_interface_files_FIND_QUIETLY)
-  message(STATUS "Found test_interface_files: 0.7.1 (${test_interface_files_DIR})")
+  message(STATUS "Found test_interface_files: 0.8.0 (${test_interface_files_DIR})")
 endif()
 
 # warn when using a deprecated package

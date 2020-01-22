@@ -25,12 +25,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Empty_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_srvs::srv::Empty_Request(_init);
+}
+
+void Empty_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_srvs::srv::Empty_Request *>(message_memory);
+  typed_message->~Empty_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Empty_Request_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Empty_Request
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Empty_Reques
   "Empty_Request",  // message name
   1,  // number of fields
   sizeof(std_srvs::srv::Empty_Request),
-  Empty_Request_message_member_array  // message members
+  Empty_Request_message_member_array,  // message members
+  Empty_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  Empty_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Empty_Request_message_type_support_handle = {
@@ -128,12 +142,24 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Empty_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) std_srvs::srv::Empty_Response(_init);
+}
+
+void Empty_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<std_srvs::srv::Empty_Response *>(message_memory);
+  typed_message->~Empty_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Empty_Response_message_member_array[1] = {
   {
     "structure_needs_at_least_one_member",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -142,7 +168,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Empty_Respons
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -151,7 +177,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Empty_Respon
   "Empty_Response",  // message name
   1,  // number of fields
   sizeof(std_srvs::srv::Empty_Response),
-  Empty_Response_message_member_array  // message members
+  Empty_Response_message_member_array,  // message members
+  Empty_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  Empty_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Empty_Response_message_type_support_handle = {

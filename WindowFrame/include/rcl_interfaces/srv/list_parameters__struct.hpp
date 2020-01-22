@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__rcl_interfaces__srv__ListParameters_Request __attribute__((deprecated))
@@ -153,16 +143,6 @@ constexpr uint64_t ListParameters_Request_<ContainerAllocator>::DEPTH_RECURSIVE;
 
 }  // namespace rcl_interfaces
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'result'

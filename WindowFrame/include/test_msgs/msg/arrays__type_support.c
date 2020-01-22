@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "test_msgs/msg/arrays__functions.h"
 #include "test_msgs/msg/arrays__struct.h"
 
 
@@ -32,6 +33,20 @@
 extern "C"
 {
 #endif
+
+void Arrays__rosidl_typesupport_introspection_c__Arrays_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  test_msgs__msg__Arrays__init(message_memory);
+}
+
+void Arrays__rosidl_typesupport_introspection_c__Arrays_fini_function(void * message_memory)
+{
+  test_msgs__msg__Arrays__fini(message_memory);
+}
 
 size_t Arrays__rosidl_typesupport_introspection_c__size_function__BasicTypes__basic_types_values(
   const void * untyped_member)
@@ -590,7 +605,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers Arrays__rosidl_t
   "Arrays",  // message name
   32,  // number of fields
   sizeof(test_msgs__msg__Arrays),
-  Arrays__rosidl_typesupport_introspection_c__Arrays_message_member_array  // message members
+  Arrays__rosidl_typesupport_introspection_c__Arrays_message_member_array,  // message members
+  Arrays__rosidl_typesupport_introspection_c__Arrays_init_function,  // function to initialize message memory (memory has to be allocated)
+  Arrays__rosidl_typesupport_introspection_c__Arrays_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

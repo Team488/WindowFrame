@@ -16,7 +16,7 @@ set(_rviz_visual_testing_framework_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz_visual_testing_framework_FIND_QUIETLY)
-  message(STATUS "Found rviz_visual_testing_framework: 6.1.4 (${rviz_visual_testing_framework_DIR})")
+  message(STATUS "Found rviz_visual_testing_framework: 7.0.3 (${rviz_visual_testing_framework_DIR})")
 endif()
 
 # warn when using a deprecated package

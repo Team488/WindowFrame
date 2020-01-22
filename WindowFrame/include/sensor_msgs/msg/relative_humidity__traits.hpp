@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<sensor_msgs::msg::RelativeHumidity>
   : std::integral_constant<bool, has_bounded_size<std_msgs::msg::Header>::value> {};
 
+template<>
+struct is_message<sensor_msgs::msg::RelativeHumidity>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // SENSOR_MSGS__MSG__RELATIVE_HUMIDITY__TRAITS_HPP_

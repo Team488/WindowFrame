@@ -31,6 +31,10 @@ template<>
 struct has_bounded_size<visualization_msgs::msg::InteractiveMarkerControl>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<visualization_msgs::msg::InteractiveMarkerControl>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // VISUALIZATION_MSGS__MSG__INTERACTIVE_MARKER_CONTROL__TRAITS_HPP_

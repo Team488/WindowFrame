@@ -16,7 +16,7 @@ set(_pendulum_msgs_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT pendulum_msgs_FIND_QUIETLY)
-  message(STATUS "Found pendulum_msgs: 0.7.8 (${pendulum_msgs_DIR})")
+  message(STATUS "Found pendulum_msgs: 0.8.4 (${pendulum_msgs_DIR})")
 endif()
 
 # warn when using a deprecated package

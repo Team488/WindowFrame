@@ -173,12 +173,12 @@ typedef bool (* RclLogFilter)();
  * \def RCUTILS_LOG_CONDITION_THROTTLE_BEFORE
  * A macro initializing and checking the `throttle` condition.
  */
-#define RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) { \
+#define RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) { \
     static rcutils_duration_value_t __rcutils_logging_duration = RCUTILS_MS_TO_NS((rcutils_duration_value_t)duration); \
     static rcutils_time_point_value_t __rcutils_logging_last_logged = 0; \
     rcutils_time_point_value_t __rcutils_logging_now = 0; \
     bool __rcutils_logging_condition = true; \
-    if (rcutils_steady_time_now(&__rcutils_logging_now) != RCUTILS_RET_OK) { \
+    if (get_time_point_value(&__rcutils_logging_now) != RCUTILS_RET_OK) { \
       rcutils_log( \
         &__rcutils_logging_location, RCUTILS_LOG_SEVERITY_ERROR, "", \
         "%s() at %s:%d getting current steady time failed\n", \
@@ -224,13 +224,13 @@ typedef bool (* RclLogFilter)();
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
 # define RCUTILS_LOG_DEBUG_SKIPFIRST_NAMED(name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_DEBUG_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_DEBUG_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_DEBUG_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_DEBUG_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 
 #else
 /**
@@ -381,14 +381,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_DEBUG_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_DEBUG_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_DEBUG, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE
@@ -398,14 +398,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_DEBUG, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_DEBUG_THROTTLE_NAMED
@@ -414,15 +414,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_DEBUG_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_DEBUG_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_DEBUG, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE_NAMED
@@ -432,15 +432,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_DEBUG_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_DEBUG, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
     __VA_ARGS__)
 #endif
 ///@}
@@ -471,13 +471,13 @@ typedef bool (* RclLogFilter)();
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
 # define RCUTILS_LOG_INFO_SKIPFIRST_NAMED(name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_INFO_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_INFO_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_INFO_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_INFO_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 
 #else
 /**
@@ -628,14 +628,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_INFO_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_INFO_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_INFO, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE
@@ -645,14 +645,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_INFO, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_INFO_THROTTLE_NAMED
@@ -661,15 +661,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_INFO_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_INFO_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_INFO, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE_NAMED
@@ -679,15 +679,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_INFO_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_INFO, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
     __VA_ARGS__)
 #endif
 ///@}
@@ -718,13 +718,13 @@ typedef bool (* RclLogFilter)();
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
 # define RCUTILS_LOG_WARN_SKIPFIRST_NAMED(name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_WARN_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_WARN_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_WARN_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_WARN_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 
 #else
 /**
@@ -875,14 +875,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_WARN_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_WARN_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_WARN, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE
@@ -892,14 +892,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_WARN, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_WARN_THROTTLE_NAMED
@@ -908,15 +908,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_WARN_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_WARN_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_WARN, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE_NAMED
@@ -926,15 +926,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_WARN_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_WARN, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
     __VA_ARGS__)
 #endif
 ///@}
@@ -965,13 +965,13 @@ typedef bool (* RclLogFilter)();
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
 # define RCUTILS_LOG_ERROR_SKIPFIRST_NAMED(name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_ERROR_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_ERROR_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_ERROR_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_ERROR_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 
 #else
 /**
@@ -1122,14 +1122,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_ERROR_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_ERROR_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_ERROR, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE
@@ -1139,14 +1139,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_ERROR, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_ERROR_THROTTLE_NAMED
@@ -1155,15 +1155,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_ERROR_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_ERROR_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_ERROR, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE_NAMED
@@ -1173,15 +1173,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_ERROR_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_ERROR, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
     __VA_ARGS__)
 #endif
 ///@}
@@ -1212,13 +1212,13 @@ typedef bool (* RclLogFilter)();
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
 # define RCUTILS_LOG_FATAL_SKIPFIRST_NAMED(name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_FATAL_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_FATAL_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE(time_source_type, duration, format, ...)
+# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE(get_time_point_value, duration, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_FATAL_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_FATAL_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 /// Empty logging macro due to the preprocessor definition of RCUTILS_LOG_MIN_SEVERITY.
-# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, format, ...)
+# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, format, ...)
 
 #else
 /**
@@ -1369,14 +1369,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_FATAL_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_FATAL_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_FATAL, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE
@@ -1386,14 +1386,14 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE(time_source_type, duration, ...) \
+# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE(get_time_point_value, duration, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_FATAL, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, NULL, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_FATAL_THROTTLE_NAMED
@@ -1402,15 +1402,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_FATAL_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_FATAL_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_FATAL, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration), RCUTILS_LOG_CONDITION_THROTTLE_AFTER, name, \
     __VA_ARGS__)
 /**
  * \def RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE_NAMED
@@ -1420,15 +1420,15 @@ typedef bool (* RclLogFilter)();
  *
  * \note The conditions will only be evaluated if this logging statement is enabled.
  *
- * \param time_source_type The time source type of the time to be used
+ * \param get_time_point_value Function that returns rcutils_ret_t and expects a rcutils_time_point_value_t pointer.
  * \param duration The duration of the throttle interval
  * \param name The name of the logger
  * \param ... The format string, followed by the variable arguments for the format string
  */
-# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE_NAMED(time_source_type, duration, name, ...) \
+# define RCUTILS_LOG_FATAL_SKIPFIRST_THROTTLE_NAMED(get_time_point_value, duration, name, ...) \
   RCUTILS_LOG_COND_NAMED( \
     RCUTILS_LOG_SEVERITY_FATAL, \
-    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(time_source_type, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
+    RCUTILS_LOG_CONDITION_THROTTLE_BEFORE(get_time_point_value, duration) RCUTILS_LOG_CONDITION_SKIPFIRST_BEFORE, RCUTILS_LOG_CONDITION_THROTTLE_AFTER RCUTILS_LOG_CONDITION_SKIPFIRST_AFTER, name, \
     __VA_ARGS__)
 #endif
 ///@}

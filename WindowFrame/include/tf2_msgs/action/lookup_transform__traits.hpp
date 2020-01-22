@@ -34,6 +34,10 @@ template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_Goal>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_Goal>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -59,6 +63,10 @@ template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_Result>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::TransformStamped>::value && has_bounded_size<tf2_msgs::msg::TF2Error>::value> {};
 
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_Result>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 namespace rosidl_generator_traits
@@ -77,6 +85,10 @@ struct has_fixed_size<tf2_msgs::action::LookupTransform_Feedback>
 template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_Feedback>
   : std::integral_constant<bool, true> {};
+
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_Feedback>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -103,6 +115,10 @@ template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_SendGoal_Request>
   : std::integral_constant<bool, has_bounded_size<tf2_msgs::action::LookupTransform_Goal>::value && has_bounded_size<unique_identifier_msgs::msg::UUID>::value> {};
 
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_SendGoal_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -126,6 +142,10 @@ struct has_fixed_size<tf2_msgs::action::LookupTransform_SendGoal_Response>
 template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_SendGoal_Response>
   : std::integral_constant<bool, has_bounded_size<builtin_interfaces::msg::Time>::value> {};
+
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_SendGoal_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -158,6 +178,24 @@ struct has_bounded_size<tf2_msgs::action::LookupTransform_SendGoal>
 {
 };
 
+template<>
+struct is_service<tf2_msgs::action::LookupTransform_SendGoal>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<tf2_msgs::action::LookupTransform_SendGoal_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<tf2_msgs::action::LookupTransform_SendGoal_Response>
+  : std::true_type
+{
+};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -182,6 +220,10 @@ template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_GetResult_Request>
   : std::integral_constant<bool, has_bounded_size<unique_identifier_msgs::msg::UUID>::value> {};
 
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_GetResult_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -205,6 +247,10 @@ struct has_fixed_size<tf2_msgs::action::LookupTransform_GetResult_Response>
 template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_GetResult_Response>
   : std::integral_constant<bool, has_bounded_size<tf2_msgs::action::LookupTransform_Result>::value> {};
+
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_GetResult_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -237,6 +283,24 @@ struct has_bounded_size<tf2_msgs::action::LookupTransform_GetResult>
 {
 };
 
+template<>
+struct is_service<tf2_msgs::action::LookupTransform_GetResult>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<tf2_msgs::action::LookupTransform_GetResult_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<tf2_msgs::action::LookupTransform_GetResult_Response>
+  : std::true_type
+{
+};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -264,6 +328,41 @@ template<>
 struct has_bounded_size<tf2_msgs::action::LookupTransform_FeedbackMessage>
   : std::integral_constant<bool, has_bounded_size<tf2_msgs::action::LookupTransform_Feedback>::value && has_bounded_size<unique_identifier_msgs::msg::UUID>::value> {};
 
+template<>
+struct is_message<tf2_msgs::action::LookupTransform_FeedbackMessage>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
+
+
+namespace rosidl_generator_traits
+{
+
+template<>
+struct is_action<tf2_msgs::action::LookupTransform>
+  : std::true_type
+{
+};
+
+template<>
+struct is_action_goal<tf2_msgs::action::LookupTransform_Goal>
+  : std::true_type
+{
+};
+
+template<>
+struct is_action_result<tf2_msgs::action::LookupTransform_Result>
+  : std::true_type
+{
+};
+
+template<>
+struct is_action_feedback<tf2_msgs::action::LookupTransform_Feedback>
+  : std::true_type
+{
+};
+
+}  // namespace rosidl_generator_traits
+
 
 #endif  // TF2_MSGS__ACTION__LOOKUP_TRANSFORM__TRAITS_HPP_

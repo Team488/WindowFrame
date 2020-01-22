@@ -25,6 +25,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GetParameters_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::GetParameters_Request(_init);
+}
+
+void GetParameters_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::GetParameters_Request *>(message_memory);
+  typed_message->~GetParameters_Request();
+}
+
 size_t size_function__GetParameters_Request__names(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<std::string> *>(untyped_member);
@@ -57,7 +69,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember GetParameters
     "names",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GetParameter
   "GetParameters_Request",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::GetParameters_Request),
-  GetParameters_Request_message_member_array  // message members
+  GetParameters_Request_message_member_array,  // message members
+  GetParameters_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetParameters_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GetParameters_Request_message_type_support_handle = {
@@ -155,6 +169,18 @@ namespace srv
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void GetParameters_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) rcl_interfaces::srv::GetParameters_Response(_init);
+}
+
+void GetParameters_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<rcl_interfaces::srv::GetParameters_Response *>(message_memory);
+  typed_message->~GetParameters_Response();
+}
+
 size_t size_function__GetParameters_Response__values(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<rcl_interfaces::msg::ParameterValue> *>(untyped_member);
@@ -205,7 +231,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers GetParameter
   "GetParameters_Response",  // message name
   1,  // number of fields
   sizeof(rcl_interfaces::srv::GetParameters_Response),
-  GetParameters_Response_message_member_array  // message members
+  GetParameters_Response_message_member_array,  // message members
+  GetParameters_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  GetParameters_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t GetParameters_Response_message_type_support_handle = {

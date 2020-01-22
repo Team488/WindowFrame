@@ -25,12 +25,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_Goal_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_Goal(_init);
+}
+
+void Fibonacci_Goal_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_Goal *>(message_memory);
+  typed_message->~Fibonacci_Goal();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Goal_message_member_array[1] = {
   {
     "order",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Goa
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -48,7 +60,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Go
   "Fibonacci_Goal",  // message name
   1,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_Goal),
-  Fibonacci_Goal_message_member_array  // message members
+  Fibonacci_Goal_message_member_array,  // message members
+  Fibonacci_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_Goal_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_Goal_message_type_support_handle = {
@@ -128,6 +142,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_Result_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_Result(_init);
+}
+
+void Fibonacci_Result_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_Result *>(message_memory);
+  typed_message->~Fibonacci_Result();
+}
+
 size_t size_function__Fibonacci_Result__sequence(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<int32_t> *>(untyped_member);
@@ -160,7 +186,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Res
     "sequence",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -178,7 +204,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Re
   "Fibonacci_Result",  // message name
   1,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_Result),
-  Fibonacci_Result_message_member_array  // message members
+  Fibonacci_Result_message_member_array,  // message members
+  Fibonacci_Result_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_Result_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_Result_message_type_support_handle = {
@@ -258,6 +286,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_Feedback_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_Feedback(_init);
+}
+
+void Fibonacci_Feedback_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_Feedback *>(message_memory);
+  typed_message->~Fibonacci_Feedback();
+}
+
 size_t size_function__Fibonacci_Feedback__sequence(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<int32_t> *>(untyped_member);
@@ -290,7 +330,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Fee
     "sequence",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -308,7 +348,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Fe
   "Fibonacci_Feedback",  // message name
   1,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_Feedback),
-  Fibonacci_Feedback_message_member_array  // message members
+  Fibonacci_Feedback_message_member_array,  // message members
+  Fibonacci_Feedback_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_Feedback_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_Feedback_message_type_support_handle = {
@@ -388,6 +430,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_SendGoal_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_SendGoal_Request(_init);
+}
+
+void Fibonacci_SendGoal_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_SendGoal_Request *>(message_memory);
+  typed_message->~Fibonacci_SendGoal_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_SendGoal_Request_message_member_array[2] = {
   {
     "goal_id",  // name
@@ -402,7 +456,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Sen
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "goal",  // name
@@ -417,7 +471,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Sen
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -426,7 +480,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Se
   "Fibonacci_SendGoal_Request",  // message name
   2,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_SendGoal_Request),
-  Fibonacci_SendGoal_Request_message_member_array  // message members
+  Fibonacci_SendGoal_Request_message_member_array,  // message members
+  Fibonacci_SendGoal_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_SendGoal_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_SendGoal_Request_message_type_support_handle = {
@@ -506,12 +562,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_SendGoal_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_SendGoal_Response(_init);
+}
+
+void Fibonacci_SendGoal_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_SendGoal_Response *>(message_memory);
+  typed_message->~Fibonacci_SendGoal_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_SendGoal_Response_message_member_array[2] = {
   {
     "accepted",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -520,7 +588,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Sen
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "stamp",  // name
@@ -535,7 +603,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Sen
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -544,7 +612,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Se
   "Fibonacci_SendGoal_Response",  // message name
   2,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_SendGoal_Response),
-  Fibonacci_SendGoal_Response_message_member_array  // message members
+  Fibonacci_SendGoal_Response_message_member_array,  // message members
+  Fibonacci_SendGoal_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_SendGoal_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_SendGoal_Response_message_type_support_handle = {
@@ -732,6 +802,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_GetResult_Request_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_GetResult_Request(_init);
+}
+
+void Fibonacci_GetResult_Request_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_GetResult_Request *>(message_memory);
+  typed_message->~Fibonacci_GetResult_Request();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_GetResult_Request_message_member_array[1] = {
   {
     "goal_id",  // name
@@ -746,7 +828,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Get
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -755,7 +837,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Ge
   "Fibonacci_GetResult_Request",  // message name
   1,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_GetResult_Request),
-  Fibonacci_GetResult_Request_message_member_array  // message members
+  Fibonacci_GetResult_Request_message_member_array,  // message members
+  Fibonacci_GetResult_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_GetResult_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_GetResult_Request_message_type_support_handle = {
@@ -835,12 +919,24 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_GetResult_Response_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_GetResult_Response(_init);
+}
+
+void Fibonacci_GetResult_Response_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_GetResult_Response *>(message_memory);
+  typed_message->~Fibonacci_GetResult_Response();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_GetResult_Response_message_member_array[2] = {
   {
     "status",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -849,7 +945,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Get
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "result",  // name
@@ -864,7 +960,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Get
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -873,7 +969,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Ge
   "Fibonacci_GetResult_Response",  // message name
   2,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_GetResult_Response),
-  Fibonacci_GetResult_Response_message_member_array  // message members
+  Fibonacci_GetResult_Response_message_member_array,  // message members
+  Fibonacci_GetResult_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_GetResult_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_GetResult_Response_message_type_support_handle = {
@@ -1065,6 +1163,18 @@ namespace action
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Fibonacci_FeedbackMessage_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) example_interfaces::action::Fibonacci_FeedbackMessage(_init);
+}
+
+void Fibonacci_FeedbackMessage_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<example_interfaces::action::Fibonacci_FeedbackMessage *>(message_memory);
+  typed_message->~Fibonacci_FeedbackMessage();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_FeedbackMessage_message_member_array[2] = {
   {
     "goal_id",  // name
@@ -1079,7 +1189,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Fee
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "feedback",  // name
@@ -1094,7 +1204,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Fibonacci_Fee
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -1103,7 +1213,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Fibonacci_Fe
   "Fibonacci_FeedbackMessage",  // message name
   2,  // number of fields
   sizeof(example_interfaces::action::Fibonacci_FeedbackMessage),
-  Fibonacci_FeedbackMessage_message_member_array  // message members
+  Fibonacci_FeedbackMessage_message_member_array,  // message members
+  Fibonacci_FeedbackMessage_init_function,  // function to initialize message memory (memory has to be allocated)
+  Fibonacci_FeedbackMessage_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Fibonacci_FeedbackMessage_message_type_support_handle = {

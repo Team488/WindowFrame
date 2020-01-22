@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void WStrings_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) test_msgs::msg::WStrings(_init);
+}
+
+void WStrings_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<test_msgs::msg::WStrings *>(message_memory);
+  typed_message->~WStrings();
+}
+
 size_t size_function__WStrings__array_of_wstrings(const void * untyped_member)
 {
   (void)untyped_member;
@@ -99,12 +111,12 @@ void resize_function__WStrings__unbounded_sequence_of_wstrings(void * untyped_me
   member->resize(size);
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember WStrings_message_member_array[4] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember WStrings_message_member_array[7] = {
   {
     "wstring_value",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -113,13 +125,58 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember WStrings_mess
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "wstring_value_default1",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(test_msgs::msg::WStrings, wstring_value_default1),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "wstring_value_default2",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(test_msgs::msg::WStrings, wstring_value_default2),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
+  },
+  {
+    "wstring_value_default3",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(test_msgs::msg::WStrings, wstring_value_default3),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "array_of_wstrings",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     false,  // is upper bound
@@ -128,13 +185,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember WStrings_mess
     size_function__WStrings__array_of_wstrings,  // size() function pointer
     get_const_function__WStrings__array_of_wstrings,  // get_const(index) function pointer
     get_function__WStrings__array_of_wstrings,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "bounded_sequence_of_wstrings",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     3,  // array size
     true,  // is upper bound
@@ -149,7 +206,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember WStrings_mess
     "unbounded_sequence_of_wstrings",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_WSTRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -165,9 +222,11 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember WStrings_mess
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers WStrings_message_members = {
   "test_msgs::msg",  // message namespace
   "WStrings",  // message name
-  4,  // number of fields
+  7,  // number of fields
   sizeof(test_msgs::msg::WStrings),
-  WStrings_message_member_array  // message members
+  WStrings_message_member_array,  // message members
+  WStrings_init_function,  // function to initialize message memory (memory has to be allocated)
+  WStrings_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t WStrings_message_type_support_handle = {

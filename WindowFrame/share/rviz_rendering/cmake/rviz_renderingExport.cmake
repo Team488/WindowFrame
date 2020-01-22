@@ -54,8 +54,8 @@ endif()
 add_library(rviz_rendering::rviz_rendering SHARED IMPORTED)
 
 set_target_properties(rviz_rendering::rviz_rendering PROPERTIES
-  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/Bites;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/HLMS;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/MeshLodGenerator;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/Overlay;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/Paging;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/Property;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/RTShaderSystem;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/Terrain;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE/Volume;C:/ProgramData/chocolatey/lib/eigen/include;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_assimp_vendor/include;${_IMPORT_PREFIX}/include"
-  INTERFACE_LINK_LIBRARIES "rviz_ogre_vendor::OgreMain;rviz_ogre_vendor::OgreOverlay;Qt5::Widgets;ament_index_cpp::ament_index_cpp;resource_retriever::resource_retriever;C:/J/workspace/ci_packaging_windows/ws/install/opt/rviz_assimp_vendor/lib/assimp-vc140-mt.lib"
+  INTERFACE_INCLUDE_DIRECTORIES "${_IMPORT_PREFIX}/include;C:/J/workspace/packaging_windows/ws/install/opt/rviz_ogre_vendor/include/OGRE;C:/ProgramData/chocolatey/lib/eigen/include;C:/J/workspace/packaging_windows/ws/install/opt/rviz_assimp_vendor/include;${_IMPORT_PREFIX}/include"
+  INTERFACE_LINK_LIBRARIES "rviz_ogre_vendor::OgreMain;rviz_ogre_vendor::OgreOverlay;Qt5::Widgets;ament_index_cpp::ament_index_cpp;resource_retriever::resource_retriever;C:/J/workspace/packaging_windows/ws/install/opt/rviz_assimp_vendor/lib/assimp-vc140-mt.lib"
 )
 
 if(CMAKE_VERSION VERSION_LESS 2.8.12)

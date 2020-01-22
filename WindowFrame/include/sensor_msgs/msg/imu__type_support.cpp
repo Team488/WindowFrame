@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Imu_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::Imu(_init);
+}
+
+void Imu_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::Imu *>(message_memory);
+  typed_message->~Imu();
+}
+
 size_t size_function__Imu__orientation_covariance(const void * untyped_member)
 {
   (void)untyped_member;
@@ -99,7 +111,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "orientation",  // name
@@ -114,13 +126,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "orientation_covariance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     9,  // array size
     false,  // is upper bound
@@ -129,7 +141,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     size_function__Imu__orientation_covariance,  // size() function pointer
     get_const_function__Imu__orientation_covariance,  // get_const(index) function pointer
     get_function__Imu__orientation_covariance,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "angular_velocity",  // name
@@ -144,13 +156,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "angular_velocity_covariance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     9,  // array size
     false,  // is upper bound
@@ -159,7 +171,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     size_function__Imu__angular_velocity_covariance,  // size() function pointer
     get_const_function__Imu__angular_velocity_covariance,  // get_const(index) function pointer
     get_function__Imu__angular_velocity_covariance,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "linear_acceleration",  // name
@@ -174,13 +186,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "linear_acceleration_covariance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     9,  // array size
     false,  // is upper bound
@@ -189,7 +201,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Imu_message_m
     size_function__Imu__linear_acceleration_covariance,  // size() function pointer
     get_const_function__Imu__linear_acceleration_covariance,  // get_const(index) function pointer
     get_function__Imu__linear_acceleration_covariance,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -198,7 +210,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Imu_message_
   "Imu",  // message name
   7,  // number of fields
   sizeof(sensor_msgs::msg::Imu),
-  Imu_message_member_array  // message members
+  Imu_message_member_array,  // message members
+  Imu_init_function,  // function to initialize message memory (memory has to be allocated)
+  Imu_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Imu_message_type_support_handle = {

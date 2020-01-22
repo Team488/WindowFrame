@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'source_time'
@@ -230,16 +220,6 @@ using LookupTransform_Goal =
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'transform'
@@ -367,16 +347,6 @@ using LookupTransform_Result =
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 #ifndef _WIN32
 # define DEPRECATED__tf2_msgs__action__LookupTransform_Feedback __attribute__((deprecated))
@@ -491,16 +461,6 @@ using LookupTransform_Feedback =
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'goal_id'
@@ -628,16 +588,6 @@ using LookupTransform_SendGoal_Request =
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'stamp'
@@ -786,16 +736,6 @@ struct LookupTransform_SendGoal
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'goal_id'
@@ -908,16 +848,6 @@ using LookupTransform_GetResult_Request =
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'result'
@@ -1066,16 +996,6 @@ struct LookupTransform_GetResult
 
 }  // namespace tf2_msgs
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'goal_id'

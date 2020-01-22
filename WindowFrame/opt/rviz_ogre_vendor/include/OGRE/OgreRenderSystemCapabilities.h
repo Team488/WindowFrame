@@ -74,23 +74,23 @@ namespace Ogre
     /// b is the value (from 0 to 27)
     enum Capabilities
     {
-        /// Supports generating mipmaps in hardware
-        /// @deprecated All targetted APIs by Ogre support this feature
-        RSC_AUTOMIPMAP              = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 0),
-        /// @deprecated All targetted APIs by Ogre support this feature
-        RSC_BLENDING                = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 1),
+        /// specifying a "-1" in the index buffer starts a new draw command.
+        RSC_PRIMITIVE_RESTART = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 0),
+        /// GL ES2/ES3 does not support generating mipmaps for compressed formats in hardware
+        RSC_AUTOMIPMAP_COMPRESSED = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 1),
         /// Supports anisotropic texture filtering
         RSC_ANISOTROPY              = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 2),
         /// Supports fixed-function DOT3 texture blend
         /// @deprecated All targetted APIs by Ogre support this feature
         RSC_DOT3                    = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 3),
-        /// Supports cube mapping
-        RSC_CUBEMAPPING             = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 4),
+        /// Supports linewidth != 1.0
+        RSC_WIDE_LINES              = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 4),
         /// Supports hardware stencil buffer
         RSC_HWSTENCIL               = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 5),
-        /// Supports hardware vertex and index buffers
-        /// @deprecated All targetted APIs by Ogre support this feature
-        RSC_VBO                     = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 7),
+        /// Supports atomic counter buffers
+        RSC_ATOMIC_COUNTERS         = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 6),
+        /// Supports compressed textures in the ASTC format
+        RSC_TEXTURE_COMPRESSION_ASTC = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 7),
         /// Supports 32bit hardware index buffers
         RSC_32BIT_INDEX             = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON, 8),
         /// Supports vertex programs (vertex shaders)
@@ -160,8 +160,8 @@ namespace Ogre
         /// Supports Blending operations other than +
 		/// @deprecated All targetted APIs by Ogre support this feature.
         RSC_ADVANCED_BLEND_OPERATIONS = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 12),
-        /// Supports a separate depth buffer for RTTs. D3D 9 & 10, OGL w/FBO (RSC_FBO implies this flag)
-        RSC_RTT_SEPARATE_DEPTHBUFFER = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 13),
+        /// Supports HW gamma, both in the framebuffer and as texture.
+        RSC_HW_GAMMA = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 13),
         /// Supports using the MAIN depth buffer for RTTs. D3D 9&10, OGL w/FBO support unknown
         /// (undefined behavior?), OGL w/ copy supports it
         RSC_RTT_MAIN_DEPTHBUFFER_ATTACHABLE = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 14),
@@ -186,59 +186,31 @@ namespace Ogre
         RSC_COMPUTE_PROGRAM = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 23),
         /// Supports asynchronous hardware occlusion queries
         RSC_HWOCCLUSION_ASYNCHRONOUS = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 24),
-        /// Supports asynchronous hardware occlusion queries
-        RSC_ATOMIC_COUNTERS = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 25),
-        /// Supports reading back the inactive depth-stencil buffer as texture
-        RSC_READ_BACK_AS_TEXTURE = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 26),
-        /// Supports HW gamma, both in the framebuffer and as texture.
-        RSC_HW_GAMMA = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_2, 27),
-
-        /// GL ES2/ES3 does not support generating mipmaps for compressed formats in hardware
-        RSC_AUTOMIPMAP_COMPRESSED = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_3, 0),
-        /// Supports different texture bindings
-        RSC_COMPLETE_TEXTURE_BINDING = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_3, 1),
-        /// Supports compressed textures in the ASTC format
-        RSC_TEXTURE_COMPRESSION_ASTC = OGRE_CAPS_VALUE(CAPS_CATEGORY_COMMON_3, 2),
 
         // ***** DirectX specific caps *****
         /// Is DirectX feature "per stage constants" supported
         RSC_PERSTAGECONSTANT = OGRE_CAPS_VALUE(CAPS_CATEGORY_D3D9, 0),
+        /// D3D11: supports reading back the inactive depth-stencil buffer as texture
+        RSC_READ_BACK_AS_TEXTURE = OGRE_CAPS_VALUE(CAPS_CATEGORY_D3D9, 1),
+        /// the renderer will try to use W-buffers when available
+        /// W-buffers are enabled by default for 16bit depth buffers and disabled for all other
+        /// depths.
+        RSC_WBUFFER              = OGRE_CAPS_VALUE(CAPS_CATEGORY_D3D9, 2),
 
         // ***** GL Specific Caps *****
-        /// Supports OpenGL version 1.5
-		/// @deprecated All targetted APIs by Ogre support this feature.
-        RSC_GL1_5_NOVBO    = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 1),
-        /// Support for Frame Buffer Objects (FBOs)
-        /// @deprecated All targetted APIs by Ogre support this feature.
-        RSC_FBO              = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 2),
-        /// Support for Frame Buffer Objects ARB implementation (regular FBO is higher precedence)
-        /// @deprecated obsolete
-        RSC_FBO_ARB          = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 3),
-        /// Support for Frame Buffer Objects ATI implementation (ARB FBO is higher precedence)
-        /// @deprecated obsolete
-        RSC_FBO_ATI          = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 4),
         /// Support for PBuffer
-        RSC_PBUFFER          = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 5),
-        /// Support for GL 1.5 but without HW occlusion workaround
-		/// @deprecated obsolete
-        RSC_GL1_5_NOHWOCCLUSION = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 6),
-        /// Support for point parameters ARB implementation
-        /// @deprecated obsolete
-        RSC_POINT_EXTENDED_PARAMETERS_ARB = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 7),
-        /// Support for point parameters EXT implementation
-        /// @deprecated obsolete
-        RSC_POINT_EXTENDED_PARAMETERS_EXT = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 8),
+        RSC_PBUFFER          = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 0),
         /// Support for Separate Shader Objects
-        RSC_SEPARATE_SHADER_OBJECTS = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 9),
+        RSC_SEPARATE_SHADER_OBJECTS = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 1),
         /// Support for Vertex Array Objects (VAOs)
-        RSC_VAO              = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 10),
+        RSC_VAO              = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 2),
         /// with Separate Shader Objects the gl_PerVertex interface block must be redeclared
         /// but some drivers misbehave and do not compile if we do so
-        RSC_GLSL_SSO_REDECLARE = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 11),
+        RSC_GLSL_SSO_REDECLARE = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 3),
         /// Supports debugging/ profiling events
-        RSC_DEBUG = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 12),
+        RSC_DEBUG = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 4),
         /// RS can map driver buffer storage directly instead of using a shadow buffer
-        RSC_MAPBUFFER = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 13),
+        RSC_MAPBUFFER = OGRE_CAPS_VALUE(CAPS_CATEGORY_GL, 5),
     };
 
     /// DriverVersion is used by RenderSystemCapabilities and both GL and D3D9
@@ -283,24 +255,20 @@ namespace Ogre
     enum GPUVendor
     {
         GPU_UNKNOWN = 0,
-        GPU_NVIDIA = 1,
-        GPU_AMD = 2,
-        GPU_INTEL = 3,
-        GPU_S3 = 4,  //!< @deprecated
-        GPU_MATROX = 5, //!< @deprecated
-        GPU_3DLABS = 6, //!< @deprecated
-        GPU_SIS = 7, //!< @deprecated
-        GPU_IMAGINATION_TECHNOLOGIES = 8,
-        GPU_APPLE = 9,  //!< Apple Software Renderer
-        GPU_NOKIA = 10,
-        GPU_MS_SOFTWARE = 11, //!< Microsoft software device
-        GPU_MS_WARP = 12, //!< Microsoft WARP (Windows Advanced Rasterization Platform) software device - http://msdn.microsoft.com/en-us/library/dd285359.aspx
-        GPU_ARM = 13, //!< For the Mali chipsets
-        GPU_QUALCOMM = 14,
-        GPU_MOZILLA = 15, //!<  WebGL on Mozilla/Firefox based browser
-        GPU_WEBKIT = 16, //!< WebGL on WebKit/Chrome base browser
+        GPU_NVIDIA,
+        GPU_AMD,
+        GPU_INTEL,
+        GPU_IMAGINATION_TECHNOLOGIES,
+        GPU_APPLE,  //!< Apple Software Renderer
+        GPU_NOKIA,
+        GPU_MS_SOFTWARE, //!< Microsoft software device
+        GPU_MS_WARP, //!< Microsoft WARP (Windows Advanced Rasterization Platform) software device - http://msdn.microsoft.com/en-us/library/dd285359.aspx
+        GPU_ARM, //!< For the Mali chipsets
+        GPU_QUALCOMM,
+        GPU_MOZILLA, //!<  WebGL on Mozilla/Firefox based browser
+        GPU_WEBKIT, //!< WebGL on WebKit/Chrome base browser
         /// placeholder
-        GPU_VENDOR_COUNT = 17
+        GPU_VENDOR_COUNT
     };
 
     /** This class stores the capabilities of the graphics card.
@@ -312,7 +280,7 @@ namespace Ogre
 
     public:
 
-        typedef set<String>::type ShaderProfiles;
+        typedef std::set<String> ShaderProfiles;
     private:
         /// This is used to build a database of RSC's
         /// if a RSC with same name, but newer version is introduced, the older one 
@@ -324,8 +292,6 @@ namespace Ogre
         static String msGPUVendorStrings[GPU_VENDOR_COUNT];
         static void initVendorStrings();
 
-        /// The number of world matrices available
-        ushort mNumWorldMatrices;
         /// The number of texture units available
         ushort mNumTextureUnits;
         /// The stencil buffer bit depth
@@ -403,9 +369,6 @@ namespace Ogre
     public: 
         RenderSystemCapabilities ();
 
-        /// @deprecated
-        OGRE_DEPRECATED size_t calculateSize() const {return 0;}
-
         /** Set the driver version. */
         void setDriverVersion(const DriverVersion& version)
         {
@@ -465,12 +428,6 @@ namespace Ogre
             return false;
         }
 
-        /// @deprecated do not use
-        void setNumWorldMatrices(ushort num)
-        {
-            mNumWorldMatrices = num;
-        }
-
         void setNumTextureUnits(ushort num)
         {
             mNumTextureUnits = num;
@@ -490,12 +447,6 @@ namespace Ogre
         void setNumMultiRenderTargets(ushort num)
         {
             mNumMultiRenderTargets = num;
-        }
-
-        /// @deprecated do not use
-        ushort getNumWorldMatrices(void) const
-        { 
-            return mNumWorldMatrices;
         }
 
         void setNumVertexAttributes(ushort num)
@@ -760,7 +711,7 @@ namespace Ogre
             mMaxSupportedAnisotropy = s;
         }
         /// Get the maximum supported anisotropic filtering
-        Real getMaxSupportedAnisotropy()
+        Real getMaxSupportedAnisotropy() const
         {
             return mMaxSupportedAnisotropy;
         }
@@ -781,6 +732,7 @@ namespace Ogre
             mVertexTextureUnitsShared = shared;
         }
         /// Get whether the vertex texture units are shared with the fragment processor
+        /// @deprecated only needed for D3D9
         bool getVertexTextureUnitsShared(void) const
         {
             return mVertexTextureUnitsShared;
@@ -823,7 +775,7 @@ namespace Ogre
 
 
         /** Write the capabilities to the pass in Log */
-        void log(Log* pLog);
+        void log(Log* pLog) const;
 
         // Support for new shader stages in shader model 5.0
         /// The number of floating-point constants tessellation Hull programs support

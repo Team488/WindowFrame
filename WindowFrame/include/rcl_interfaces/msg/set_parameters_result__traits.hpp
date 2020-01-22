@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<rcl_interfaces::msg::SetParametersResult>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<rcl_interfaces::msg::SetParametersResult>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // RCL_INTERFACES__MSG__SET_PARAMETERS_RESULT__TRAITS_HPP_

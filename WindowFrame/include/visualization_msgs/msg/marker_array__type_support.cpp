@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void MarkerArray_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) visualization_msgs::msg::MarkerArray(_init);
+}
+
+void MarkerArray_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<visualization_msgs::msg::MarkerArray *>(message_memory);
+  typed_message->~MarkerArray();
+}
+
 size_t size_function__MarkerArray__markers(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<visualization_msgs::msg::Marker> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers MarkerArray_
   "MarkerArray",  // message name
   1,  // number of fields
   sizeof(visualization_msgs::msg::MarkerArray),
-  MarkerArray_message_member_array  // message members
+  MarkerArray_message_member_array,  // message members
+  MarkerArray_init_function,  // function to initialize message memory (memory has to be allocated)
+  MarkerArray_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t MarkerArray_message_type_support_handle = {

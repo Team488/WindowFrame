@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Range_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::Range(_init);
+}
+
+void Range_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::Range *>(message_memory);
+  typed_message->~Range();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message_member_array[6] = {
   {
     "header",  // name
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "radiation_type",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,13 +66,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "field_of_view",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -69,13 +81,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "min_range",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -84,13 +96,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "max_range",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -99,13 +111,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "range",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -114,7 +126,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Range_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -123,7 +135,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Range_messag
   "Range",  // message name
   6,  // number of fields
   sizeof(sensor_msgs::msg::Range),
-  Range_message_member_array  // message members
+  Range_message_member_array,  // message members
+  Range_init_function,  // function to initialize message memory (memory has to be allocated)
+  Range_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Range_message_type_support_handle = {

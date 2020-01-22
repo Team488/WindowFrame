@@ -16,7 +16,7 @@ set(_tf2_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT tf2_FIND_QUIETLY)
-  message(STATUS "Found tf2: 0.11.5 (${tf2_DIR})")
+  message(STATUS "Found tf2: 0.12.4 (${tf2_DIR})")
 endif()
 
 # warn when using a deprecated package

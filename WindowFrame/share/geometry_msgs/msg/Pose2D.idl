@@ -5,7 +5,8 @@
 
 module geometry_msgs {
   module msg {
-    @verbatim (language="comment", text=" This expresses a position and orientation on a 2D manifold.")
+    @verbatim (language="comment", text=
+      " This expresses a position and orientation on a 2D manifold.")
     struct Pose2D {
       double x;
 

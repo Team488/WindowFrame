@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Marker_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) visualization_msgs::msg::Marker(_init);
+}
+
+void Marker_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<visualization_msgs::msg::Marker *>(message_memory);
+  typed_message->~Marker();
+}
+
 size_t size_function__Marker__points(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<geometry_msgs::msg::Point> *>(untyped_member);
@@ -93,13 +105,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "ns",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -108,13 +120,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -123,13 +135,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "type",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -138,13 +150,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "action",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -153,7 +165,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "pose",  // name
@@ -168,7 +180,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "scale",  // name
@@ -183,7 +195,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "color",  // name
@@ -198,7 +210,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "lifetime",  // name
@@ -213,13 +225,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "frame_locked",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -228,7 +240,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "points",  // name
@@ -264,7 +276,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     "text",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -273,13 +285,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "mesh_resource",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -288,13 +300,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "mesh_use_embedded_materials",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_BOOLEAN,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -303,7 +315,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Marker_messag
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -312,7 +324,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Marker_messa
   "Marker",  // message name
   15,  // number of fields
   sizeof(visualization_msgs::msg::Marker),
-  Marker_message_member_array  // message members
+  Marker_message_member_array,  // message members
+  Marker_init_function,  // function to initialize message memory (memory has to be allocated)
+  Marker_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Marker_message_type_support_handle = {

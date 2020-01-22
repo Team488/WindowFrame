@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Illuminance_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::Illuminance(_init);
+}
+
+void Illuminance_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::Illuminance *>(message_memory);
+  typed_message->~Illuminance();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Illuminance_message_member_array[3] = {
   {
     "header",  // name
@@ -39,13 +51,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Illuminance_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "illuminance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -54,13 +66,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Illuminance_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "variance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -69,7 +81,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Illuminance_m
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -78,7 +90,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Illuminance_
   "Illuminance",  // message name
   3,  // number of fields
   sizeof(sensor_msgs::msg::Illuminance),
-  Illuminance_message_member_array  // message members
+  Illuminance_message_member_array,  // message members
+  Illuminance_init_function,  // function to initialize message memory (memory has to be allocated)
+  Illuminance_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Illuminance_message_type_support_handle = {

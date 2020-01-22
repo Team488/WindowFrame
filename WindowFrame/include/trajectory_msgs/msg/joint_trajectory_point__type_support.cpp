@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void JointTrajectoryPoint_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) trajectory_msgs::msg::JointTrajectoryPoint(_init);
+}
+
+void JointTrajectoryPoint_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<trajectory_msgs::msg::JointTrajectoryPoint *>(message_memory);
+  typed_message->~JointTrajectoryPoint();
+}
+
 size_t size_function__JointTrajectoryPoint__positions(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<double> *>(untyped_member);
@@ -138,7 +150,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointTrajecto
     "positions",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -153,7 +165,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointTrajecto
     "velocities",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -168,7 +180,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointTrajecto
     "accelerations",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -183,7 +195,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointTrajecto
     "effort",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     0,  // array size
     false,  // is upper bound
@@ -207,7 +219,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember JointTrajecto
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -216,7 +228,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers JointTraject
   "JointTrajectoryPoint",  // message name
   5,  // number of fields
   sizeof(trajectory_msgs::msg::JointTrajectoryPoint),
-  JointTrajectoryPoint_message_member_array  // message members
+  JointTrajectoryPoint_message_member_array,  // message members
+  JointTrajectoryPoint_init_function,  // function to initialize message memory (memory has to be allocated)
+  JointTrajectoryPoint_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t JointTrajectoryPoint_message_type_support_handle = {

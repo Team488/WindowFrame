@@ -16,9 +16,13 @@ geometry_msgs__msg__Quaternion__init(geometry_msgs__msg__Quaternion * msg)
     return false;
   }
   // x
+  msg->x = 0.0l;
   // y
+  msg->y = 0.0l;
   // z
+  msg->z = 0.0l;
   // w
+  msg->w = 1.0l;
   return true;
 }
 

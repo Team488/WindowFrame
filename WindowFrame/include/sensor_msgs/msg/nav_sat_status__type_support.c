@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "sensor_msgs/msg/nav_sat_status__functions.h"
 #include "sensor_msgs/msg/nav_sat_status__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  sensor_msgs__msg__NavSatStatus__init(message_memory);
+}
+
+void NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_fini_function(void * message_memory)
+{
+  sensor_msgs__msg__NavSatStatus__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_message_member_array[2] = {
   {
@@ -54,7 +69,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers NavSatStatus__ro
   "NavSatStatus",  // message name
   2,  // number of fields
   sizeof(sensor_msgs__msg__NavSatStatus),
-  NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_message_member_array  // message members
+  NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_message_member_array,  // message members
+  NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_init_function,  // function to initialize message memory (memory has to be allocated)
+  NavSatStatus__rosidl_typesupport_introspection_c__NavSatStatus_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

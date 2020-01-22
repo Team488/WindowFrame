@@ -1,6 +1,6 @@
 # generated from ament_cmake_export_dependencies/cmake/ament_cmake_export_dependencies-extras.cmake.in
 
-set(_exported_dependencies "Qt5;rviz_common;geometry_msgs;laser_geometry;map_msgs;nav_msgs;rclcpp;urdf;visualization_msgs")
+set(_exported_dependencies "Qt5;rviz_common;geometry_msgs;interactive_markers;laser_geometry;map_msgs;nav_msgs;rclcpp;tf2;tf2_geometry_msgs;tf2_ros;urdf;visualization_msgs")
 
 find_package(ament_cmake_libraries QUIET REQUIRED)
 

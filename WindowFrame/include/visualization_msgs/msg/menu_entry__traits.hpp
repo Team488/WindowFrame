@@ -27,6 +27,10 @@ template<>
 struct has_bounded_size<visualization_msgs::msg::MenuEntry>
   : std::integral_constant<bool, false> {};
 
+template<>
+struct is_message<visualization_msgs::msg::MenuEntry>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // VISUALIZATION_MSGS__MSG__MENU_ENTRY__TRAITS_HPP_

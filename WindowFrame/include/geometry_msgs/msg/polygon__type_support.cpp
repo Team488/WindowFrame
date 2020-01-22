@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Polygon_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) geometry_msgs::msg::Polygon(_init);
+}
+
+void Polygon_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<geometry_msgs::msg::Polygon *>(message_memory);
+  typed_message->~Polygon();
+}
+
 size_t size_function__Polygon__points(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<geometry_msgs::msg::Point32> *>(untyped_member);
@@ -75,7 +87,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Polygon_mess
   "Polygon",  // message name
   1,  // number of fields
   sizeof(geometry_msgs::msg::Polygon),
-  Polygon_message_member_array  // message members
+  Polygon_message_member_array,  // message members
+  Polygon_init_function,  // function to initialize message memory (memory has to be allocated)
+  Polygon_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Polygon_message_type_support_handle = {

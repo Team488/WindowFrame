@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "action_msgs/srv/cancel_goal__functions.h"
 #include "action_msgs/srv/cancel_goal__struct.h"
 
 
@@ -21,6 +22,20 @@
 extern "C"
 {
 #endif
+
+void CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  action_msgs__srv__CancelGoal_Request__init(message_memory);
+}
+
+void CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_fini_function(void * message_memory)
+{
+  action_msgs__srv__CancelGoal_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_message_member_array[1] = {
   {
@@ -45,7 +60,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers CancelGoal_Reque
   "CancelGoal_Request",  // message name
   1,  // number of fields
   sizeof(action_msgs__srv__CancelGoal_Request),
-  CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_message_member_array  // message members
+  CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_message_member_array,  // message members
+  CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  CancelGoal_Request__rosidl_typesupport_introspection_c__CancelGoal_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -84,6 +101,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "action_msgs/srv/cancel_goal__functions.h"
+// already included above
 // #include "action_msgs/srv/cancel_goal__struct.h"
 
 
@@ -99,6 +118,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void CancelGoal_Response__rosidl_typesupport_introspection_c__CancelGoal_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  action_msgs__srv__CancelGoal_Response__init(message_memory);
+}
+
+void CancelGoal_Response__rosidl_typesupport_introspection_c__CancelGoal_Response_fini_function(void * message_memory)
+{
+  action_msgs__srv__CancelGoal_Response__fini(message_memory);
+}
 
 size_t CancelGoal_Response__rosidl_typesupport_introspection_c__size_function__GoalInfo__goals_canceling(
   const void * untyped_member)
@@ -171,7 +204,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers CancelGoal_Respo
   "CancelGoal_Response",  // message name
   2,  // number of fields
   sizeof(action_msgs__srv__CancelGoal_Response),
-  CancelGoal_Response__rosidl_typesupport_introspection_c__CancelGoal_Response_message_member_array  // message members
+  CancelGoal_Response__rosidl_typesupport_introspection_c__CancelGoal_Response_message_member_array,  // message members
+  CancelGoal_Response__rosidl_typesupport_introspection_c__CancelGoal_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  CancelGoal_Response__rosidl_typesupport_introspection_c__CancelGoal_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

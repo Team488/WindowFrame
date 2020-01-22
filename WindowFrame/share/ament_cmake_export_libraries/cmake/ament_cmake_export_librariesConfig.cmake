@@ -16,7 +16,7 @@ set(_ament_cmake_export_libraries_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ament_cmake_export_libraries_FIND_QUIETLY)
-  message(STATUS "Found ament_cmake_export_libraries: 0.7.3 (${ament_cmake_export_libraries_DIR})")
+  message(STATUS "Found ament_cmake_export_libraries: 0.8.1 (${ament_cmake_export_libraries_DIR})")
 endif()
 
 # warn when using a deprecated package

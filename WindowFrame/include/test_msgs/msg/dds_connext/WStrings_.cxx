@@ -44,13 +44,16 @@ namespace test_msgs {
                 static RTIBool is_initialized = RTI_FALSE;
 
                 static DDS_TypeCode WStrings__g_tc_wstring_value__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
+                static DDS_TypeCode WStrings__g_tc_wstring_value_default1__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
+                static DDS_TypeCode WStrings__g_tc_wstring_value_default2__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
+                static DDS_TypeCode WStrings__g_tc_wstring_value_default3__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
                 static DDS_TypeCode WStrings__g_tc_array_of_wstrings__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
                 static DDS_TypeCode WStrings__g_tc_array_of_wstrings__array =DDS_INITIALIZE_ARRAY_TYPECODE(1,3, NULL,NULL);
                 static DDS_TypeCode WStrings__g_tc_bounded_sequence_of_wstrings__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
                 static DDS_TypeCode WStrings__g_tc_bounded_sequence_of_wstrings__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE((3),NULL);
                 static DDS_TypeCode WStrings__g_tc_unbounded_sequence_of_wstrings__string = DDS_INITIALIZE_WSTRING_TYPECODE(RTI_INT32_MAX);
                 static DDS_TypeCode WStrings__g_tc_unbounded_sequence_of_wstrings__sequence = DDS_INITIALIZE_SEQUENCE_TYPECODE(RTI_INT32_MAX,NULL);
-                static DDS_TypeCode_Member WStrings__g_tc_members[4]=
+                static DDS_TypeCode_Member WStrings__g_tc_members[7]=
                 {
 
                     {
@@ -71,7 +74,7 @@ namespace test_msgs {
                         NULL/* Ignored */
                     }, 
                     {
-                        (char *)"array_of_wstrings_",/* Member name */
+                        (char *)"wstring_value_default1_",/* Member name */
                         {
                             1,/* Representation ID */          
                             DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -88,7 +91,7 @@ namespace test_msgs {
                         NULL/* Ignored */
                     }, 
                     {
-                        (char *)"bounded_sequence_of_wstrings_",/* Member name */
+                        (char *)"wstring_value_default2_",/* Member name */
                         {
                             2,/* Representation ID */          
                             DDS_BOOLEAN_FALSE,/* Is a pointer? */
@@ -105,9 +108,60 @@ namespace test_msgs {
                         NULL/* Ignored */
                     }, 
                     {
-                        (char *)"unbounded_sequence_of_wstrings_",/* Member name */
+                        (char *)"wstring_value_default3_",/* Member name */
                         {
                             3,/* Representation ID */          
+                            DDS_BOOLEAN_FALSE,/* Is a pointer? */
+                            -1, /* Bitfield bits */
+                            NULL/* Member type code is assigned later */
+                        },
+                        0, /* Ignored */
+                        0, /* Ignored */
+                        0, /* Ignored */
+                        NULL, /* Ignored */
+                        RTI_CDR_REQUIRED_MEMBER, /* Is a key? */
+                        DDS_PUBLIC_MEMBER,/* Member visibility */
+                        1,
+                        NULL/* Ignored */
+                    }, 
+                    {
+                        (char *)"array_of_wstrings_",/* Member name */
+                        {
+                            4,/* Representation ID */          
+                            DDS_BOOLEAN_FALSE,/* Is a pointer? */
+                            -1, /* Bitfield bits */
+                            NULL/* Member type code is assigned later */
+                        },
+                        0, /* Ignored */
+                        0, /* Ignored */
+                        0, /* Ignored */
+                        NULL, /* Ignored */
+                        RTI_CDR_REQUIRED_MEMBER, /* Is a key? */
+                        DDS_PUBLIC_MEMBER,/* Member visibility */
+                        1,
+                        NULL/* Ignored */
+                    }, 
+                    {
+                        (char *)"bounded_sequence_of_wstrings_",/* Member name */
+                        {
+                            5,/* Representation ID */          
+                            DDS_BOOLEAN_FALSE,/* Is a pointer? */
+                            -1, /* Bitfield bits */
+                            NULL/* Member type code is assigned later */
+                        },
+                        0, /* Ignored */
+                        0, /* Ignored */
+                        0, /* Ignored */
+                        NULL, /* Ignored */
+                        RTI_CDR_REQUIRED_MEMBER, /* Is a key? */
+                        DDS_PUBLIC_MEMBER,/* Member visibility */
+                        1,
+                        NULL/* Ignored */
+                    }, 
+                    {
+                        (char *)"unbounded_sequence_of_wstrings_",/* Member name */
+                        {
+                            6,/* Representation ID */          
                             DDS_BOOLEAN_FALSE,/* Is a pointer? */
                             -1, /* Bitfield bits */
                             NULL/* Member type code is assigned later */
@@ -133,7 +187,7 @@ namespace test_msgs {
                         0, /* Ignored */
                         0, /* Ignored */
                         NULL, /* Ignored */
-                        4, /* Number of members */
+                        7, /* Number of members */
                         WStrings__g_tc_members, /* Members */
                         DDS_VM_NONE  /* Ignored */         
                     }}; /* Type code for WStrings_*/
@@ -150,9 +204,15 @@ namespace test_msgs {
 
                 WStrings__g_tc_members[0]._representation._typeCode = (RTICdrTypeCode *)&WStrings__g_tc_wstring_value__string;
 
-                WStrings__g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)& WStrings__g_tc_array_of_wstrings__array;
-                WStrings__g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)& WStrings__g_tc_bounded_sequence_of_wstrings__sequence;
-                WStrings__g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)& WStrings__g_tc_unbounded_sequence_of_wstrings__sequence;
+                WStrings__g_tc_members[1]._representation._typeCode = (RTICdrTypeCode *)&WStrings__g_tc_wstring_value_default1__string;
+
+                WStrings__g_tc_members[2]._representation._typeCode = (RTICdrTypeCode *)&WStrings__g_tc_wstring_value_default2__string;
+
+                WStrings__g_tc_members[3]._representation._typeCode = (RTICdrTypeCode *)&WStrings__g_tc_wstring_value_default3__string;
+
+                WStrings__g_tc_members[4]._representation._typeCode = (RTICdrTypeCode *)& WStrings__g_tc_array_of_wstrings__array;
+                WStrings__g_tc_members[5]._representation._typeCode = (RTICdrTypeCode *)& WStrings__g_tc_bounded_sequence_of_wstrings__sequence;
+                WStrings__g_tc_members[6]._representation._typeCode = (RTICdrTypeCode *)& WStrings__g_tc_unbounded_sequence_of_wstrings__sequence;
 
                 is_initialized = RTI_TRUE;
 
@@ -202,6 +262,42 @@ namespace test_msgs {
                 } else {
                     if (sample->wstring_value_!= NULL) { 
                         sample->wstring_value_[0] = '\0';
+                    }
+                }
+
+                if (allocParams->allocate_memory){
+                    sample->wstring_value_default1_= DDS_Wstring_alloc ((0));
+                    if (sample->wstring_value_default1_ == NULL) {
+                        return RTI_FALSE;
+                    }
+
+                } else {
+                    if (sample->wstring_value_default1_!= NULL) { 
+                        sample->wstring_value_default1_[0] = '\0';
+                    }
+                }
+
+                if (allocParams->allocate_memory){
+                    sample->wstring_value_default2_= DDS_Wstring_alloc ((0));
+                    if (sample->wstring_value_default2_ == NULL) {
+                        return RTI_FALSE;
+                    }
+
+                } else {
+                    if (sample->wstring_value_default2_!= NULL) { 
+                        sample->wstring_value_default2_[0] = '\0';
+                    }
+                }
+
+                if (allocParams->allocate_memory){
+                    sample->wstring_value_default3_= DDS_Wstring_alloc ((0));
+                    if (sample->wstring_value_default3_ == NULL) {
+                        return RTI_FALSE;
+                    }
+
+                } else {
+                    if (sample->wstring_value_default3_!= NULL) { 
+                        sample->wstring_value_default3_[0] = '\0';
                     }
                 }
 
@@ -305,6 +401,21 @@ namespace test_msgs {
                     sample->wstring_value_=NULL;
 
                 }
+                if (sample->wstring_value_default1_ != NULL) {
+                    DDS_Wstring_free(sample->wstring_value_default1_);
+                    sample->wstring_value_default1_=NULL;
+
+                }
+                if (sample->wstring_value_default2_ != NULL) {
+                    DDS_Wstring_free(sample->wstring_value_default2_);
+                    sample->wstring_value_default2_=NULL;
+
+                }
+                if (sample->wstring_value_default3_ != NULL) {
+                    DDS_Wstring_free(sample->wstring_value_default3_);
+                    sample->wstring_value_default3_=NULL;
+
+                }
                 RTICdrType_finalizeStringArray(sample->array_of_wstrings_, (3), RTI_CDR_WCHAR_TYPE);
 
                 DDS_WstringSeq_finalize(&sample->bounded_sequence_of_wstrings_);
@@ -343,6 +454,21 @@ namespace test_msgs {
 
                     if (!RTICdrType_copyWstringEx (
                         &dst->wstring_value_, src->wstring_value_, 
+                        (RTI_INT32_MAX-1) + 1,RTI_TRUE)){
+                        return RTI_FALSE;
+                    }
+                    if (!RTICdrType_copyWstringEx (
+                        &dst->wstring_value_default1_, src->wstring_value_default1_, 
+                        (RTI_INT32_MAX-1) + 1,RTI_TRUE)){
+                        return RTI_FALSE;
+                    }
+                    if (!RTICdrType_copyWstringEx (
+                        &dst->wstring_value_default2_, src->wstring_value_default2_, 
+                        (RTI_INT32_MAX-1) + 1,RTI_TRUE)){
+                        return RTI_FALSE;
+                    }
+                    if (!RTICdrType_copyWstringEx (
+                        &dst->wstring_value_default3_, src->wstring_value_default3_, 
                         (RTI_INT32_MAX-1) + 1,RTI_TRUE)){
                         return RTI_FALSE;
                     }

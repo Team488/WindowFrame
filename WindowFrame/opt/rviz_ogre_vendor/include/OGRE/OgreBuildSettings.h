@@ -3,6 +3,13 @@
 
 // CMake auto-generated configuration options
 
+// Define ogre version
+#define OGRE_VERSION_MAJOR 1
+#define OGRE_VERSION_MINOR 12
+#define OGRE_VERSION_PATCH 1
+#define OGRE_VERSION_SUFFIX ""
+#define OGRE_VERSION_NAME "Rhagorthua"
+
 /* #undef OGRE_STATIC_LIB */
 #define OGRE_DEBUG_MODE 0
 
@@ -13,31 +20,8 @@
 */
 #define OGRE_RESOURCEMANAGER_STRICT 2
 
-/* #undef OGRE_BUILD_RENDERSYSTEM_D3D9 */
-/* #undef OGRE_BUILD_RENDERSYSTEM_D3D11 */
-#define OGRE_BUILD_RENDERSYSTEM_GL
-#define OGRE_BUILD_RENDERSYSTEM_GL3PLUS
-/* #undef OGRE_BUILD_RENDERSYSTEM_GLES */
-/* #undef OGRE_BUILD_RENDERSYSTEM_GLES2 */
-#define OGRE_BUILD_PLUGIN_BSP
-#define OGRE_BUILD_PLUGIN_OCTREE
-#define OGRE_BUILD_PLUGIN_PCZ
-#define OGRE_BUILD_PLUGIN_PFX
-/* #undef OGRE_BUILD_PLUGIN_CG */
-#define OGRE_BUILD_COMPONENT_PAGING
-#define OGRE_BUILD_COMPONENT_MESHLODGENERATOR
-#define OGRE_BUILD_COMPONENT_TERRAIN
-#define OGRE_BUILD_COMPONENT_VOLUME
-#define OGRE_BUILD_COMPONENT_PROPERTY
-#define OGRE_BUILD_COMPONENT_OVERLAY
-#define OGRE_BUILD_COMPONENT_RTSHADERSYSTEM
-#define OGRE_BUILD_COMPONENT_HLMS
-
 #define OGRE_CONFIG_LITTLE_ENDIAN
 /* #undef OGRE_CONFIG_BIG_ENDIAN */
-
-#define OGRE_USE_STD11 0
-#define OGRE_NODE_STORAGE_LEGACY 1
 
 /** If set to 1, Real is typedef'ed to double. Otherwise, Real is typedef'ed
     to float. Setting this allows you to perform mathematical operations in the
@@ -47,21 +31,6 @@
 #define OGRE_DOUBLE_PRECISION 0
 
 #define OGRE_NODE_INHERIT_TRANSFORM 0
-
-#define OGRE_MEMORY_ALLOCATOR 1
-
-// Whether to use the custom memory allocator in STL containers
-#define OGRE_CONTAINERS_USE_CUSTOM_MEMORY_ALLOCATOR 0
-
-// if you want to make Ogre::String use the custom memory allocator
-// Doing this will mean Ogre's strings will not be compatible with std::string however
-#define OGRE_STRING_USE_CUSTOM_MEMORY_ALLOCATOR 0
-
-// enable or disable the memory tracker, recording the memory allocations & tracking leaks
-// default is to disable since it's expensive, but you can enable if needed per build target
-#define OGRE_MEMORY_TRACKER_DEBUG_MODE 0
-
-#define OGRE_MEMORY_TRACKER_RELEASE_MODE 0
 
 /** There are three modes for handling asserts in OGRE:
 0 - STANDARD - Standard asserts in debug builds, nothing in release builds
@@ -110,9 +79,6 @@ OGRE_THREAD_PROVIDER = 4
 
 #define OGRE_NO_MESHLOD 0
 
-/** Disables use of the FreeImage image library for loading images. */
-#define OGRE_NO_FREEIMAGE 1
-
 /** Disables use of the internal image codec for loading DDS files. */
 #define OGRE_NO_DDS_CODEC 0
 
@@ -121,9 +87,6 @@ OGRE_THREAD_PROVIDER = 4
 
 /** Disables use of the internal image codec for loading ETC files. */
 #define OGRE_NO_ETC_CODEC 0
-
-/** Disables use of the internal image codec for loading image files. */
-#define OGRE_NO_STBI_CODEC 0
 
 #define OGRE_NO_ASTC_CODEC 1
 
@@ -134,14 +97,6 @@ WARNING: Disabling this will make the samples unusable.
 
 #define OGRE_NO_VIEWPORT_ORIENTATIONMODE 1
 
-#define OGRE_NO_GLES2_CG_SUPPORT 1
-
-#define OGRE_NO_GLES2_GLSL_OPTIMISER 1
-
-#define OGRE_NO_GL_STATE_CACHE_SUPPORT 1
-
-#define OGRE_NO_GLES3_SUPPORT 1
-
 #define OGRE_NO_TBB_SCHEDULER 0
 
 /** If set to 1, profiling code will be included in the application. When you
@@ -149,11 +104,5 @@ WARNING: Disabling this will make the samples unusable.
 #define OGRE_PROFILING 0
 
 #define OGRE_NO_QUAD_BUFFER_STEREO 1
-
-#define OGRE_BITES_HAVE_SDL 0
-
-#define RTSHADER_SYSTEM_BUILD_CORE_SHADERS
-
-#define RTSHADER_SYSTEM_BUILD_EXT_SHADERS
 
 #endif

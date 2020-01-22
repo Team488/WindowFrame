@@ -13,16 +13,6 @@
 #include <string>
 #include <vector>
 
-// Protect against ERROR being predefined on Windows, in case somebody defines a
-// constant by that name.
-#if defined(_WIN32)
-  #if defined(ERROR)
-    #undef ERROR
-  #endif
-  #if defined(NO_ERROR)
-    #undef NO_ERROR
-  #endif
-#endif
 
 // Include directives for member types
 // Member 'header'
@@ -104,8 +94,19 @@ struct PointCloud2Update_
   // constant declarations
   static constexpr uint32_t ADD =
     0u;
+  // guard against 'DELETE' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(DELETE)
+#    pragma push_macro("DELETE")
+#    undef DELETE
+#  endif
+#endif
   static constexpr uint32_t DELETE =
     1u;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("DELETE")
+#endif
 
   // pointer types
   using RawPtr =
@@ -171,8 +172,19 @@ using PointCloud2Update =
 // constant definitions
 template<typename ContainerAllocator>
 constexpr uint32_t PointCloud2Update_<ContainerAllocator>::ADD;
+// guard against 'DELETE' being predefined by MSVC by temporarily undefining it
+#if defined(_WIN32)
+#  if defined(DELETE)
+#    pragma push_macro("DELETE")
+#    undef DELETE
+#  endif
+#endif
 template<typename ContainerAllocator>
 constexpr uint32_t PointCloud2Update_<ContainerAllocator>::DELETE;
+#if defined(_WIN32)
+#  pragma warning(suppress : 4602)
+#  pragma pop_macro("DELETE")
+#endif
 
 }  // namespace msg
 

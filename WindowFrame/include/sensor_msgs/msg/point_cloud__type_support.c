@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "sensor_msgs/msg/point_cloud__functions.h"
 #include "sensor_msgs/msg/point_cloud__struct.h"
 
 
@@ -29,6 +30,20 @@
 extern "C"
 {
 #endif
+
+void PointCloud__rosidl_typesupport_introspection_c__PointCloud_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  sensor_msgs__msg__PointCloud__init(message_memory);
+}
+
+void PointCloud__rosidl_typesupport_introspection_c__PointCloud_fini_function(void * message_memory)
+{
+  sensor_msgs__msg__PointCloud__fini(message_memory);
+}
 
 size_t PointCloud__rosidl_typesupport_introspection_c__size_function__Point32__points(
   const void * untyped_member)
@@ -149,7 +164,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers PointCloud__rosi
   "PointCloud",  // message name
   3,  // number of fields
   sizeof(sensor_msgs__msg__PointCloud),
-  PointCloud__rosidl_typesupport_introspection_c__PointCloud_message_member_array  // message members
+  PointCloud__rosidl_typesupport_introspection_c__PointCloud_message_member_array,  // message members
+  PointCloud__rosidl_typesupport_introspection_c__PointCloud_init_function,  // function to initialize message memory (memory has to be allocated)
+  PointCloud__rosidl_typesupport_introspection_c__PointCloud_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

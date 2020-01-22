@@ -6,8 +6,9 @@
 
 module rcl_interfaces {
   module msg {
-    @verbatim (language="comment", text=" This is the message to communicate a parameter.
- It is an open struct with an enum in the descriptor to select which value is active.")
+    @verbatim (language="comment", text=
+      " This is the message to communicate a parameter." "\n"
+      " It is an open struct with an enum in the descriptor to select which value is active.")
     struct Parameter {
       string name;
 

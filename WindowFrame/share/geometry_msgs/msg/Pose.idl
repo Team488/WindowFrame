@@ -7,7 +7,8 @@
 
 module geometry_msgs {
   module msg {
-    @verbatim (language="comment", text=" A representation of pose in free space, composed of postion and orientation.")
+    @verbatim (language="comment", text=
+      " A representation of pose in free space, composed of postion and orientation.")
     struct Pose {
       geometry_msgs::msg::Point position;
 

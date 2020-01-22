@@ -16,7 +16,7 @@ set(_rosidl_typesupport_opensplice_cpp_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosidl_typesupport_opensplice_cpp_FIND_QUIETLY)
-  message(STATUS "Found rosidl_typesupport_opensplice_cpp: 0.7.3 (${rosidl_typesupport_opensplice_cpp_DIR})")
+  message(STATUS "Found rosidl_typesupport_opensplice_cpp: 0.8.1 (${rosidl_typesupport_opensplice_cpp_DIR})")
 endif()
 
 # warn when using a deprecated package

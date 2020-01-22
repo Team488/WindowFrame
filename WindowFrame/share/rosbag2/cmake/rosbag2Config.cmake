@@ -16,7 +16,7 @@ set(_rosbag2_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosbag2_FIND_QUIETLY)
-  message(STATUS "Found rosbag2: 0.1.5 (${rosbag2_DIR})")
+  message(STATUS "Found rosbag2: 0.2.4 (${rosbag2_DIR})")
 endif()
 
 # warn when using a deprecated package

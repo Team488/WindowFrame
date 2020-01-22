@@ -29,6 +29,7 @@ THE SOFTWARE.
 #ifndef __GLUniformCache_H__
 #define __GLUniformCache_H__
 
+#include "OgrePrerequisites.h"
 #include "OgreGLSupportPrerequisites.h"
 
 typedef Ogre::GeneralAllocatedObject UniformCacheAlloc;
@@ -39,7 +40,7 @@ namespace Ogre
     class _OgreGLExport GLUniformCache : public UniformCacheAlloc
     {
     protected:
-        typedef OGRE_HashMap<int, uint32> UniformMap;
+        typedef std::unordered_map<int, uint32> UniformMap;
 
         /// A map of uniform names and a hash of their values
         UniformMap mUniformValueMap;

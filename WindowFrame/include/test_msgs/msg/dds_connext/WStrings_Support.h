@@ -8,8 +8,8 @@ For more information, type 'rtiddsgen -help' at a command shell
 or consult the RTI Connext manual.
 */
 
-#ifndef WStrings_Support_1383621585_h
-#define WStrings_Support_1383621585_h
+#ifndef WStrings_Support_1383621687_h
+#define WStrings_Support_1383621687_h
 
 /* Uses */
 #include "WStrings_.h"
@@ -64,5 +64,5 @@ namespace test_msgs {
     } /* namespace msg  */
 } /* namespace test_msgs  */
 
-#endif  /* WStrings_Support_1383621585_h */
+#endif  /* WStrings_Support_1383621687_h */
 

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void Twist_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) geometry_msgs::msg::Twist(_init);
+}
+
+void Twist_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<geometry_msgs::msg::Twist *>(message_memory);
+  typed_message->~Twist();
+}
+
 static const ::rosidl_typesupport_introspection_cpp::MessageMember Twist_message_member_array[2] = {
   {
     "linear",  // name
@@ -39,7 +51,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Twist_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "angular",  // name
@@ -54,7 +66,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember Twist_message
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -63,7 +75,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers Twist_messag
   "Twist",  // message name
   2,  // number of fields
   sizeof(geometry_msgs::msg::Twist),
-  Twist_message_member_array  // message members
+  Twist_message_member_array,  // message members
+  Twist_init_function,  // function to initialize message memory (memory has to be allocated)
+  Twist_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t Twist_message_type_support_handle = {

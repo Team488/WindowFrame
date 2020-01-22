@@ -33,6 +33,10 @@ template<>
 struct has_bounded_size<map_msgs::msg::PointCloud2Update>
   : std::integral_constant<bool, has_bounded_size<sensor_msgs::msg::PointCloud2>::value && has_bounded_size<std_msgs::msg::Header>::value> {};
 
+template<>
+struct is_message<map_msgs::msg::PointCloud2Update>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // MAP_MSGS__MSG__POINT_CLOUD2_UPDATE__TRAITS_HPP_

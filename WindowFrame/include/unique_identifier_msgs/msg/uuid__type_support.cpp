@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void UUID_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) unique_identifier_msgs::msg::UUID(_init);
+}
+
+void UUID_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<unique_identifier_msgs::msg::UUID *>(message_memory);
+  typed_message->~UUID();
+}
+
 size_t size_function__UUID__uuid(const void * untyped_member)
 {
   (void)untyped_member;
@@ -50,7 +62,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UUID_message_
     "uuid",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     16,  // array size
     false,  // is upper bound
@@ -59,7 +71,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember UUID_message_
     size_function__UUID__uuid,  // size() function pointer
     get_const_function__UUID__uuid,  // get_const(index) function pointer
     get_function__UUID__uuid,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -68,7 +80,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers UUID_message
   "UUID",  // message name
   1,  // number of fields
   sizeof(unique_identifier_msgs::msg::UUID),
-  UUID_message_member_array  // message members
+  UUID_message_member_array,  // message members
+  UUID_init_function,  // function to initialize message memory (memory has to be allocated)
+  UUID_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t UUID_message_type_support_handle = {

@@ -16,7 +16,7 @@ set(_rviz2_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rviz2_FIND_QUIETLY)
-  message(STATUS "Found rviz2: 6.1.4 (${rviz2_DIR})")
+  message(STATUS "Found rviz2: 7.0.3 (${rviz2_DIR})")
 endif()
 
 # warn when using a deprecated package

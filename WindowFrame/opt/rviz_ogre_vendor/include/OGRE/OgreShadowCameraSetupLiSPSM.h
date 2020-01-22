@@ -28,6 +28,11 @@ THE SOFTWARE.
 */
 #ifndef __ShadowCameraSetupLiSPSM_H__
 #define __ShadowCameraSetupLiSPSM_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 #include "OgreShadowCameraSetupFocused.h"
@@ -170,27 +175,21 @@ namespace Ogre
         */
         Vector3 calculateZ0_ls(const Matrix4& lightSpace, const Vector3& e, Real bodyB_zMax_ls, 
             const Camera& cam) const;
-
-        /** Builds a frustum matrix.
-        @remarks
-        Builds a standard frustum matrix out of the distance info of the six frustum 
-        clipping planes.
-        */
-        Matrix4 buildFrustumProjection(Real left, Real right, Real bottom, 
-            Real top, Real near, Real far) const;
-
     public:
-        /** Default constructor.
-        @remarks
-        Nothing done here.
-        */
-        LiSPSMShadowCameraSetup(void);
+        /// @deprecated use create()
+        LiSPSMShadowCameraSetup(Real n = 0.1f, bool useSimpleNOpt = true, Degree angle = Radian(0.451f));
 
-        /** Default destructor.
-        @remarks
-        Nothing done here.
-        */
-        virtual ~LiSPSMShadowCameraSetup(void);
+        virtual ~LiSPSMShadowCameraSetup();
+
+        /**
+         * @param n The adjustment factor
+         * @param useSimpleNOpt
+         * @param angle camera Light Direction Threshold
+         */
+        static ShadowCameraSetupPtr create(Real n = 0.1f, bool useSimpleNOpt = true, Degree angle = Radian(0.451f))
+        {
+            return std::make_shared<LiSPSMShadowCameraSetup>();
+        }
 
         /** Returns a LiSPSM shadow camera.
         @remarks
@@ -251,6 +250,10 @@ namespace Ogre
 }
 
 #include "OgreHeaderSuffix.h"
+
+#ifdef _WIN32
+#pragma warning(pop)
+#endif
 
 #endif
 

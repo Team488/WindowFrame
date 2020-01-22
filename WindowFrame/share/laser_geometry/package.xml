@@ -4,7 +4,7 @@
   schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="2">
   <name>laser_geometry</name>
-  <version>2.0.0</version>
+  <version>2.1.0</version>
   <description>
     This package contains a class for converting from a 2D laser scan as defined by
     sensor_msgs/LaserScan into a point cloud as defined by sensor_msgs/PointCloud
@@ -23,13 +23,17 @@
   <url>http://ros.org/wiki/laser_geometry</url>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
+  <buildtool_depend>eigen3_cmake_module</buildtool_depend>
+
+  <buildtool_export_depend>eigen3_cmake_module</buildtool_export_depend>
 
   <build_depend>eigen</build_depend>
   <build_depend>rclcpp</build_depend>
   <build_depend>sensor_msgs</build_depend>
   <build_depend>tf2</build_depend>
 
-  <exec_depend>eigen</exec_depend>
+  <build_export_depend>eigen</build_export_depend>
+
   <exec_depend>rclcpp</exec_depend>
   <exec_depend>sensor_msgs</exec_depend>
   <exec_depend>tf2</exec_depend>

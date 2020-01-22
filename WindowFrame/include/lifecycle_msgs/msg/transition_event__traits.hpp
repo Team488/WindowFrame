@@ -34,6 +34,10 @@ template<>
 struct has_bounded_size<lifecycle_msgs::msg::TransitionEvent>
   : std::integral_constant<bool, has_bounded_size<lifecycle_msgs::msg::State>::value && has_bounded_size<lifecycle_msgs::msg::Transition>::value> {};
 
+template<>
+struct is_message<lifecycle_msgs::msg::TransitionEvent>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 #endif  // LIFECYCLE_MSGS__MSG__TRANSITION_EVENT__TRAITS_HPP_

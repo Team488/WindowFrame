@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "test_msgs/msg/nested__functions.h"
 #include "test_msgs/msg/nested__struct.h"
 
 
@@ -21,6 +22,20 @@
 extern "C"
 {
 #endif
+
+void Nested__rosidl_typesupport_introspection_c__Nested_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  test_msgs__msg__Nested__init(message_memory);
+}
+
+void Nested__rosidl_typesupport_introspection_c__Nested_fini_function(void * message_memory)
+{
+  test_msgs__msg__Nested__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember Nested__rosidl_typesupport_introspection_c__Nested_message_member_array[1] = {
   {
@@ -45,7 +60,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers Nested__rosidl_t
   "Nested",  // message name
   1,  // number of fields
   sizeof(test_msgs__msg__Nested),
-  Nested__rosidl_typesupport_introspection_c__Nested_message_member_array  // message members
+  Nested__rosidl_typesupport_introspection_c__Nested_message_member_array,  // message members
+  Nested__rosidl_typesupport_introspection_c__Nested_init_function,  // function to initialize message memory (memory has to be allocated)
+  Nested__rosidl_typesupport_introspection_c__Nested_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access

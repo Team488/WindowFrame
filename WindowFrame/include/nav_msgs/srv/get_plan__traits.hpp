@@ -32,6 +32,10 @@ template<>
 struct has_bounded_size<nav_msgs::srv::GetPlan_Request>
   : std::integral_constant<bool, has_bounded_size<geometry_msgs::msg::PoseStamped>::value> {};
 
+template<>
+struct is_message<nav_msgs::srv::GetPlan_Request>
+  : std::true_type {};
+
 }  // namespace rosidl_generator_traits
 
 // Include directives for member types
@@ -54,6 +58,10 @@ struct has_fixed_size<nav_msgs::srv::GetPlan_Response>
 template<>
 struct has_bounded_size<nav_msgs::srv::GetPlan_Response>
   : std::integral_constant<bool, has_bounded_size<nav_msgs::msg::Path>::value> {};
+
+template<>
+struct is_message<nav_msgs::srv::GetPlan_Response>
+  : std::true_type {};
 
 }  // namespace rosidl_generator_traits
 
@@ -83,6 +91,24 @@ struct has_bounded_size<nav_msgs::srv::GetPlan>
     has_bounded_size<nav_msgs::srv::GetPlan_Request>::value &&
     has_bounded_size<nav_msgs::srv::GetPlan_Response>::value
   >
+{
+};
+
+template<>
+struct is_service<nav_msgs::srv::GetPlan>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_request<nav_msgs::srv::GetPlan_Request>
+  : std::true_type
+{
+};
+
+template<>
+struct is_service_response<nav_msgs::srv::GetPlan_Response>
+  : std::true_type
 {
 };
 

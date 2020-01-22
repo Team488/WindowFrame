@@ -16,7 +16,7 @@ set(_rosidl_parser_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT rosidl_parser_FIND_QUIETLY)
-  message(STATUS "Found rosidl_parser: 0.7.6 (${rosidl_parser_DIR})")
+  message(STATUS "Found rosidl_parser: 0.8.1 (${rosidl_parser_DIR})")
 endif()
 
 # warn when using a deprecated package

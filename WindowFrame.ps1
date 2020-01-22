@@ -16,7 +16,24 @@ function Setup-BuildVars {
 }
 
 function Setup-Gazebo {
-    & $PSScriptRoot\gazebo.ps1 -Setup
+    [Environment]::SetEnvironmentVariable("GAZEBO_GUI_INI_FILE", "$PSScriptRoot\WindowFrame\gazebo_gui.ini", "Process")
+    [Environment]::SetEnvironmentVariable("GAZEBO_IP", "127.0.0.1", "Process")
+    [Environment]::SetEnvironmentVariable("GAZEBO_MASTER_URI", "127.0.0.1:11345", "Process")
+    [Environment]::SetEnvironmentVariable("GAZEBO_MODEL_PATH", "$PSScriptRoot\WindowFrame\share\gazebo-10\models", "Process")
+    [Environment]::SetEnvironmentVariable("GAZEBO_PLUGIN_PATH", "$PSScriptRoot\WindowFrame\lib\gazebo-10\plugins", "Process")
+    [Environment]::SetEnvironmentVariable("GAZEBO_RESOURCE_PATH", "$PSScriptRoot\WindowFrame\share\gazebo-10", "Process")
+    [Environment]::SetEnvironmentVariable("HOME", "$PSScriptRoot", "Process")
+    [Environment]::SetEnvironmentVariable("OGRE_RESOURCE_PATH", "$PSScriptRoot\WindowFrame\bin\gazebo", "Process")
+    [Environment]::SetEnvironmentVariable("PATH", "$PSScriptRoot\WindowFrame\bin;$PSScriptRoot\WindowFrame\lib;$($env:PATH)", "Process")
+    [Environment]::SetEnvironmentVariable("SDF_PATH", "$PSScriptRoot\WindowFrame\share\sdformat\1.6", "Process")
+
+    # Custom variables to avoid ROS2 conflicts
+    [Environment]::SetEnvironmentVariable("GAZEBO_PATH", "$PSScriptRoot\WindowFrame\bin\gazebo;$($env:GAZEBO_PATH)", "Process")
+    [Environment]::SetEnvironmentVariable("GAZEBO_QT_PLUGIN_PATH", "$PSScriptRoot\WindowFrame\plugins;$($env:GAZEBO_QT_PLUGIN_PATH)", "Process")
+}
+
+function Setup-Ros2 {
+    [Environment]::SetEnvironmentVariable("PATH", "$PSScriptRoot\WindowFrame\lib;$($env:PATH)", "Process")
 }
 
 function Get-VCVarsCmd {
@@ -38,7 +55,15 @@ function Get-VCVarsCmd {
 }
 
 function Get-Ros2Cmd {
-    return & $PSScriptRoot\ros2.ps1 -WhatIf
+    return @(
+        "echo Setting up ROS2"
+        "`"$PSScriptRoot\WindowFrame\local_setup.bat`""
+        "echo."
+        "`"$PSScriptRoot\WindowFrame\setup_vars_opencv4.cmd`""
+        "echo."
+        "cd /d `"$PSScriptRoot`""
+        "powershell"
+    ) -join " & "
 }
 
 function Run-Cmds {

@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void NavSatFix_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) sensor_msgs::msg::NavSatFix(_init);
+}
+
+void NavSatFix_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<sensor_msgs::msg::NavSatFix *>(message_memory);
+  typed_message->~NavSatFix();
+}
+
 size_t size_function__NavSatFix__position_covariance(const void * untyped_member)
 {
   (void)untyped_member;
@@ -59,7 +71,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "status",  // name
@@ -74,13 +86,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "latitude",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -89,13 +101,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "longitude",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -104,13 +116,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "altitude",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -119,13 +131,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "position_covariance",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     true,  // is array
     9,  // array size
     false,  // is upper bound
@@ -134,13 +146,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     size_function__NavSatFix__position_covariance,  // size() function pointer
     get_const_function__NavSatFix__position_covariance,  // get_const(index) function pointer
     get_function__NavSatFix__position_covariance,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "position_covariance_type",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_UINT8,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -149,7 +161,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember NavSatFix_mes
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
@@ -158,7 +170,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers NavSatFix_me
   "NavSatFix",  // message name
   7,  // number of fields
   sizeof(sensor_msgs::msg::NavSatFix),
-  NavSatFix_message_member_array  // message members
+  NavSatFix_message_member_array,  // message members
+  NavSatFix_init_function,  // function to initialize message memory (memory has to be allocated)
+  NavSatFix_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t NavSatFix_message_type_support_handle = {

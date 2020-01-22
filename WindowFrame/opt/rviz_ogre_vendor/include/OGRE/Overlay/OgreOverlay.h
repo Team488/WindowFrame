@@ -73,7 +73,7 @@ namespace Ogre {
     {
 
     public:
-              typedef list<OverlayContainer*>::type OverlayContainerList;
+              typedef std::list<OverlayContainer*> OverlayContainerList;
     protected:
         String mName;
         /// Internal root node, used as parent for 3D objects
@@ -260,13 +260,6 @@ namespace Ogre {
             return m2DElements;
         }
 
-        typedef VectorIterator<OverlayContainerList> Overlay2DElementsIterator ;
-
-        /// @deprecated use get2DElements()
-        OGRE_DEPRECATED Overlay2DElementsIterator get2DElementsIterator ()
-        {
-            return Overlay2DElementsIterator (m2DElements.begin(), m2DElements.end());
-        }
         /** Get the origin of this overlay, e.g. a script file name.
         @remarks
             This property will only contain something if the creator of

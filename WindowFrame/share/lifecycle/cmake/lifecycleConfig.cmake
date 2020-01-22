@@ -16,7 +16,7 @@ set(_lifecycle_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT lifecycle_FIND_QUIETLY)
-  message(STATUS "Found lifecycle: 0.7.8 (${lifecycle_DIR})")
+  message(STATUS "Found lifecycle: 0.8.4 (${lifecycle_DIR})")
 endif()
 
 # warn when using a deprecated package

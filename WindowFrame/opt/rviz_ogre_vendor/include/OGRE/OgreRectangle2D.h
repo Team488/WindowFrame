@@ -27,6 +27,11 @@ THE SOFTWARE.
 */
 #ifndef _Rectangle2D_H__
 #define _Rectangle2D_H__
+#ifdef _WIN32
+#pragma warning(push)
+#pragma warning(disable:4251)
+#endif
+
 
 #include "OgrePrerequisites.h"
 
@@ -57,8 +62,8 @@ namespace Ogre {
 
     public:
 
-        Rectangle2D(bool includeTextureCoordinates = false, HardwareBuffer::Usage vBufUsage = HardwareBuffer::HBU_DYNAMIC_WRITE_ONLY);
-        Rectangle2D(const String& name, bool includeTextureCoordinates = false, HardwareBuffer::Usage vBufUsage = HardwareBuffer::HBU_DYNAMIC_WRITE_ONLY);
+        Rectangle2D(bool includeTextureCoordinates = false, HardwareBuffer::Usage vBufUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY);
+        Rectangle2D(const String& name, bool includeTextureCoordinates = false, HardwareBuffer::Usage vBufUsage = HardwareBuffer::HBU_STATIC_WRITE_ONLY);
         ~Rectangle2D();
 
         /** Sets the corners of the rectangle, in relative coordinates.
@@ -96,6 +101,8 @@ namespace Ogre {
 
 }// namespace
 
+#ifdef _WIN32
+#pragma warning(pop)
 #endif
 
-
+#endif

@@ -38,6 +38,7 @@ extern const char* DEFAULT_FASTRTPS_PROFILES;
 
 extern const char* ROOT;
 extern const char* PROFILES;
+extern const char* LIBRARY_SETTINGS;
 extern const char* TRANSPORT_DESCRIPTORS;
 extern const char* PROFILE_NAME;
 extern const char* DEFAULT_PROF;
@@ -70,6 +71,11 @@ extern const char* LISTENING_PORTS;
 extern const char* CALCULATE_CRC;
 extern const char* CHECK_CRC;
 
+// IntraprocessDeliveryType
+extern const char* OFF;
+extern const char* USER_DATA_ONLY;
+extern const char* FULL;
+
 extern const char* QOS_PROFILE;
 extern const char* APPLICATION;
 extern const char* TYPE;
@@ -77,7 +83,12 @@ extern const char* TYPE;
 extern const char* DATA_WRITER;
 extern const char* DATA_READER;
 
+/// LibrarySettings attributes
+extern const char* INTRAPROCESS_DELIVERY;
+
 /// RTPS Participant attributes
+extern const char* ALLOCATION;
+extern const char* PREFIX;
 extern const char* DEF_UNI_LOC_LIST;
 extern const char* DEF_MULTI_LOC_LIST;
 extern const char* SEND_SOCK_BUF_SIZE;
@@ -96,6 +107,12 @@ extern const char* USER_TRANS;
 extern const char* USE_BUILTIN_TRANS;
 extern const char* PROPERTIES_POLICY;
 extern const char* NAME;
+extern const char* REMOTE_LOCATORS;
+extern const char* MAX_UNICAST_LOCATORS;
+extern const char* MAX_MULTICAST_LOCATORS;
+extern const char* TOTAL_PARTICIPANTS;
+extern const char* TOTAL_READERS;
+extern const char* TOTAL_WRITERS;
 
 /// Publisher-subscriber attributes
 extern const char* TOPIC;
@@ -111,6 +128,7 @@ extern const char* HIST_MEM_POLICY;
 extern const char* USER_DEF_ID;
 extern const char* ENTITY_ID;
 extern const char* MATCHED_SUBSCRIBERS_ALLOCATION;
+extern const char* MATCHED_PUBLISHERS_ALLOCATION;
 
 ///
 extern const char* PROPERTIES;
@@ -189,6 +207,7 @@ extern const char* MANUAL_BY_PARTICIPANT;
 extern const char* MANUAL_BY_TOPIC;
 extern const char* LEASE_DURATION;
 extern const char* ANNOUNCE_PERIOD;
+extern const char* COUNT;
 extern const char* PERIOD;
 extern const char* SRV_CLEAN_DELAY;
 extern const char* HISTORY_KIND;
@@ -218,16 +237,30 @@ extern const char* OFFSETD0;
 extern const char* OFFSETD1;
 extern const char* OFFSETD2;
 extern const char* OFFSETD3;
-extern const char* SIMPLE_RTPS_PDP;
+extern const char* RTPS_PDP_TYPE;
+extern const char* NONE;
+extern const char* CLIENT;
+extern const char* SERVER;
+extern const char* BACKUP;
+extern const char* IGNORE_PARTICIPANT_FLAGS;
+extern const char* FILTER_DIFFERENT_HOST;
+extern const char* FILTER_DIFFERENT_PROCESS;
+extern const char* FILTER_SAME_PROCESS;
 extern const char* WRITER_LVESS_PROTOCOL;
+extern const char* DISCOVERY_SETTINGS;
 extern const char* _EDP;
 extern const char* DOMAIN_ID;
 extern const char* LEASEDURATION;
 extern const char* LEASE_ANNOUNCE;
+extern const char* INITIAL_ANNOUNCEMENTS;
+extern const char* AVOID_BUILTIN_MULTICAST;
 extern const char* SIMPLE_EDP;
 extern const char* META_UNI_LOC_LIST;
 extern const char* META_MULTI_LOC_LIST;
 extern const char* INIT_PEERS_LIST;
+extern const char* CLIENTANNOUNCEMENTPERIOD;
+extern const char* SERVER_LIST;
+extern const char* RSERVER;
 extern const char* SIMPLE;
 extern const char* STATIC;
 extern const char* PUBWRITER_SUBREADER;

@@ -59,7 +59,6 @@ function colcon_package_source_powershell_script {
 # the prefix is two levels up from the package specific share directory
 $env:COLCON_CURRENT_PREFIX=(Get-Item $PSCommandPath).Directory.Parent.Parent.FullName
 
-colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_package\hook\path-scripts.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_package\hook\pythonpath.ps1"
 colcon_package_source_powershell_script "$env:COLCON_CURRENT_PREFIX\share\ament_package\hook\ament_prefix_path.ps1"
 

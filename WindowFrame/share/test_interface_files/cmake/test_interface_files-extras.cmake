@@ -14,18 +14,26 @@
 
 # generated from test_interface_files/test_interface_files-extras.cmake.in
 
+set(test_interface_files_INTERFACE_FILES_BASEPATH "${test_interface_files_DIR}")
+get_filename_component(test_interface_files_INTERFACE_FILES_BASEPATH "${test_interface_files_INTERFACE_FILES_BASEPATH}" DIRECTORY)
+
 set(test_interface_files_MSG_FILES "")
 foreach(msg msg/Arrays.msg;msg/BasicTypes.msg;msg/BoundedSequences.msg;msg/Constants.msg;msg/Defaults.msg;msg/Empty.msg;msg/MultiNested.msg;msg/Nested.msg;msg/Strings.msg;msg/UnboundedSequences.msg;msg/WStrings.msg)
   list(APPEND test_interface_files_MSG_FILES
-    "C:/J/workspace/ci_packaging_windows/ws/install/share/test_interface_files:${msg}")
+    "${test_interface_files_INTERFACE_FILES_BASEPATH}:${msg}")
 endforeach()
 set(test_interface_files_SRV_FILES "")
-foreach(srv srv/Empty.srv;srv/BasicTypes.srv)
+foreach(srv srv/Arrays.srv;srv/BasicTypes.srv;srv/Empty.srv)
   list(APPEND test_interface_files_SRV_FILES
-    "C:/J/workspace/ci_packaging_windows/ws/install/share/test_interface_files:${srv}")
+    "${test_interface_files_INTERFACE_FILES_BASEPATH}:${srv}")
 endforeach()
 set(test_interface_files_ACTION_FILES "")
 foreach(action action/Fibonacci.action)
   list(APPEND test_interface_files_ACTION_FILES
-    "C:/J/workspace/ci_packaging_windows/ws/install/share/test_interface_files:${action}")
+    "${test_interface_files_INTERFACE_FILES_BASEPATH}:${action}")
+endforeach()
+set(test_interface_files_IDL_FILES "")
+foreach(idl )
+  list(APPEND test_interface_files_IDL_FILES
+    "${test_interface_files_INTERFACE_FILES_BASEPATH}:${idl}")
 endforeach()

@@ -16,7 +16,7 @@ set(_dummy_sensors_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT dummy_sensors_FIND_QUIETLY)
-  message(STATUS "Found dummy_sensors: 0.7.8 (${dummy_sensors_DIR})")
+  message(STATUS "Found dummy_sensors: 0.8.4 (${dummy_sensors_DIR})")
 endif()
 
 # warn when using a deprecated package

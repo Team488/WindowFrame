@@ -34,13 +34,6 @@ THE SOFTWARE.
 #include "Threading/OgreThreadHeaders.h"
 #include "OgreHeaderPrefix.h"
 
-#if OGRE_PLATFORM == OGRE_PLATFORM_NACL
-namespace pp
-{
-    class Instance;
-}
-#endif
-
 namespace Ogre {
 
     /** \addtogroup Core
@@ -112,7 +105,7 @@ namespace Ogre {
         String          mLogName;
         bool            mTermHasColours;
 
-        typedef vector<LogListener*>::type mtLogListener;
+        typedef std::vector<LogListener*> mtLogListener;
         mtLogListener mListeners;
     public:
 
@@ -252,12 +245,6 @@ namespace Ogre {
 
 
         };
-#if OGRE_PLATFORM == OGRE_PLATFORM_NACL
-    protected:
-        static pp::Instance* mInstance;
-    public:
-        static void setInstance(pp::Instance* instance) {mInstance = instance;};
-#endif
 
     };
     /** @} */

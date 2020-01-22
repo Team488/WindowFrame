@@ -16,7 +16,7 @@ set(_logging_demo_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT logging_demo_FIND_QUIETLY)
-  message(STATUS "Found logging_demo: 0.7.8 (${logging_demo_DIR})")
+  message(STATUS "Found logging_demo: 0.8.4 (${logging_demo_DIR})")
 endif()
 
 # warn when using a deprecated package

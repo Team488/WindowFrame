@@ -31,7 +31,6 @@ THE SOFTWARE.
 #include "OgrePrerequisites.h"
 #include "OgreDataStream.h"
 #include "OgreStringVector.h"
-#include "OgreException.h"
 #include <ctime>
 #include "OgreHeaderPrefix.h"
 
@@ -64,7 +63,7 @@ namespace Ogre {
         size_t uncompressedSize;
     };
 
-    typedef vector<FileInfo>::type FileInfoList;
+    typedef std::vector<FileInfo> FileInfoList;
     typedef SharedPtr<FileInfoList> FileInfoListPtr;
 
     /** Archive-handling class.

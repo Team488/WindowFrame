@@ -7,25 +7,31 @@
 
 module nav_msgs {
   module msg {
-    @verbatim (language="comment", text=" This hold basic information about the characterists of the OccupancyGrid")
+    @verbatim (language="comment", text=
+      " This hold basic information about the characterists of the OccupancyGrid")
     struct MapMetaData {
-      @verbatim (language="comment", text=" The time at which the map was loaded")
+      @verbatim (language="comment", text=
+        " The time at which the map was loaded")
       builtin_interfaces::msg::Time map_load_time;
 
-      @verbatim (language="comment", text=" The map resolution")
+      @verbatim (language="comment", text=
+        " The map resolution")
       @unit (value="m/cell")
       float resolution;
 
-      @verbatim (language="comment", text=" Map width")
+      @verbatim (language="comment", text=
+        " Map width")
       @unit (value="cells")
       uint32 width;
 
-      @verbatim (language="comment", text=" Map height")
+      @verbatim (language="comment", text=
+        " Map height")
       @unit (value="cells")
       uint32 height;
 
-      @verbatim (language="comment", text=" The origin of the map [m, m, rad].  This is the real-world pose of the
- cell (0,0) in the map.")
+      @verbatim (language="comment", text=
+        " The origin of the map [m, m, rad].  This is the real-world pose of the" "\n"
+        " cell (0,0) in the map.")
       geometry_msgs::msg::Pose origin;
     };
   };

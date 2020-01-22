@@ -25,6 +25,18 @@ namespace msg
 namespace rosidl_typesupport_introspection_cpp
 {
 
+void DiagnosticStatus_init_function(
+  void * message_memory, rosidl_generator_cpp::MessageInitialization _init)
+{
+  new (message_memory) diagnostic_msgs::msg::DiagnosticStatus(_init);
+}
+
+void DiagnosticStatus_fini_function(void * message_memory)
+{
+  auto typed_message = static_cast<diagnostic_msgs::msg::DiagnosticStatus *>(message_memory);
+  typed_message->~DiagnosticStatus();
+}
+
 size_t size_function__DiagnosticStatus__values(const void * untyped_member)
 {
   const auto * member = reinterpret_cast<const std::vector<diagnostic_msgs::msg::KeyValue> *>(untyped_member);
@@ -57,7 +69,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DiagnosticSta
     "level",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_OCTET,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -66,13 +78,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DiagnosticSta
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "name",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -81,13 +93,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DiagnosticSta
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "message",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -96,13 +108,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DiagnosticSta
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "hardware_id",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
     0,  // upper bound of string
-    NULL,  // members of sub message
+    nullptr,  // members of sub message
     false,  // is array
     0,  // array size
     false,  // is upper bound
@@ -111,7 +123,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember DiagnosticSta
     nullptr,  // size() function pointer
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
-    NULL  // resize(index) function pointer
+    nullptr  // resize(index) function pointer
   },
   {
     "values",  // name
@@ -135,7 +147,9 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMembers DiagnosticSt
   "DiagnosticStatus",  // message name
   5,  // number of fields
   sizeof(diagnostic_msgs::msg::DiagnosticStatus),
-  DiagnosticStatus_message_member_array  // message members
+  DiagnosticStatus_message_member_array,  // message members
+  DiagnosticStatus_init_function,  // function to initialize message memory (memory has to be allocated)
+  DiagnosticStatus_fini_function  // function to terminate message instance (will not free memory)
 };
 
 static const rosidl_message_type_support_t DiagnosticStatus_message_type_support_handle = {

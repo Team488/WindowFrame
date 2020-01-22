@@ -8,6 +8,7 @@
 #include "rosidl_typesupport_introspection_c/field_types.h"
 #include "rosidl_typesupport_introspection_c/identifier.h"
 #include "rosidl_typesupport_introspection_c/message_introspection.h"
+#include "std_srvs/srv/set_bool__functions.h"
 #include "std_srvs/srv/set_bool__struct.h"
 
 
@@ -15,6 +16,20 @@
 extern "C"
 {
 #endif
+
+void SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  std_srvs__srv__SetBool_Request__init(message_memory);
+}
+
+void SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_fini_function(void * message_memory)
+{
+  std_srvs__srv__SetBool_Request__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_message_member_array[1] = {
   {
@@ -39,7 +54,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers SetBool_Request_
   "SetBool_Request",  // message name
   1,  // number of fields
   sizeof(std_srvs__srv__SetBool_Request),
-  SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_message_member_array  // message members
+  SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_message_member_array,  // message members
+  SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetBool_Request__rosidl_typesupport_introspection_c__SetBool_Request_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
@@ -76,6 +93,8 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 // already included above
 // #include "rosidl_typesupport_introspection_c/message_introspection.h"
 // already included above
+// #include "std_srvs/srv/set_bool__functions.h"
+// already included above
 // #include "std_srvs/srv/set_bool__struct.h"
 
 
@@ -87,6 +106,20 @@ ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspecti
 extern "C"
 {
 #endif
+
+void SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_init_function(
+  void * message_memory, enum rosidl_runtime_c_message_initialization _init)
+{
+  // TODO(karsten1987): initializers are not yet implemented for typesupport c
+  // see https://github.com/ros2/ros2/issues/397
+  (void) _init;
+  std_srvs__srv__SetBool_Response__init(message_memory);
+}
+
+void SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_fini_function(void * message_memory)
+{
+  std_srvs__srv__SetBool_Response__fini(message_memory);
+}
 
 static rosidl_typesupport_introspection_c__MessageMember SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_message_member_array[2] = {
   {
@@ -126,7 +159,9 @@ static const rosidl_typesupport_introspection_c__MessageMembers SetBool_Response
   "SetBool_Response",  // message name
   2,  // number of fields
   sizeof(std_srvs__srv__SetBool_Response),
-  SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_message_member_array  // message members
+  SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_message_member_array,  // message members
+  SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_init_function,  // function to initialize message memory (memory has to be allocated)
+  SetBool_Response__rosidl_typesupport_introspection_c__SetBool_Response_fini_function  // function to terminate message instance (will not free memory)
 };
 
 // this is not const since it must be initialized on first access
