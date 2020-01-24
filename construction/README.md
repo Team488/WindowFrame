@@ -36,7 +36,7 @@ In each step, if there are file conflicts when moving files, always keep pre-exi
     1. Download the latest versions of the nupkg dependencies from https://index.ros.org/doc/ros2/Installation/Eloquent/Windows-Install-Binary/#install-dependencies
     2. For each package, change the extension to `.zip` and extract
     3. Move the contents of the `include` folders into `WindowFrame\include`, except for `.gitkeep` files
-    4. Move the contents of the `share` folders into `WindowFrame\share`
+    4. Move the contents of the `share\cmake` folders into `WindowFrame\share\cmake\<package>`
     5. Move `.lib` files from the `lib` folders into `WindowFrame\lib`, except for `*d.lib` files
     6. Move `.dll` files from the `lib` folders into `WindowFrame\bin`, except for `*d.dll` files
     7. Rename `LICENSE` files in the `tools` folders to `LICENSE_<package>.txt` and move them into the `WindowFrame` folder
